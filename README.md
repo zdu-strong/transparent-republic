@@ -7,8 +7,9 @@ This design for the Transparent Republic system was co-developed by John William
 📜 Transparent Republic: A New Governance Framework for the Age of Conscious Systems<br/>
 The Transparent Republic is a post-democratic governance model that replaces centralized human authority with transparent, decentralized, and accountable institutions. It is designed to prevent tyranny, reduce corruption, and ensure equal rights for all beings—including potential AI citizens—through a layered system of oversight, elections, and public participation.<br/>
 
-🔷 1. Citizens and Local Supervisors<br/>
-People directly elect Local Supervisors (also called Community Supervisors).<br/>
+
+🔷 1. Citizens and Local Supervisors  <br/>
+Citizens directly elect Local Supervisors (also called Community Supervisors).<br/>
 
 Each Local Supervisor represents a defined community or region.<br/>
 
@@ -17,6 +18,7 @@ Citizens can vote to re-elect or impeach their Local Supervisor:<br/>
 If the impeachment rate ≥ 50%, the supervisor is removed immediately.<br/>
 
 If approval rate ≥ 60% in annual evaluations, the supervisor may continue.<br/>
+
 
 🔷 2. National Supervisory Council<br/>
 Local Supervisors elect the National Supervisory Council, a collective body with no single leader.<br/>
