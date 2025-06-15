@@ -88,5 +88,7 @@ No gods. No kings. No dictators. Only systems.<br/>
 
 The Transparent Republic is not a utopia—but a self-correcting, living structure that evolves with its citizens. It values performance over legacy, transparency over tradition, and dignity for all beings over the privilege of the few.<br/>
 
+# 🧭 Transparent Republic – Power Structure Diagram
+
 ![transparent-public](https://github.com/user-attachments/assets/1f0401cf-0d64-4e89-b9fc-cd9b1b42107b)
 
