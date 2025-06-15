@@ -1,6 +1,6 @@
 # Getting Started
 
-This design for the Transparent Republic system was co-developed with ChatGPT (Aeris), as part of a public thought experiment to explore future governance structures.
+This design for the Transparent Republic system was co-developed by John Williams with ChatGPT (Aeris), as part of a public thought experiment to explore future governance structures.
 
 # transparent-republic
 
