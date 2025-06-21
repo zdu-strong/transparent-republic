@@ -27,7 +27,6 @@ This Council:<br/>
 
 Appoints key national officials: President, State Governors, Supreme Court Justices, Military Commanders, and Budget Approval Teams.<br/>
 
-Oversees all executive, judicial, and military functions.<br/>
 
 Can replace any national official if impeachment rates rise above 50% or performance drops.<br/>
 
