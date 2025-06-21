@@ -7,7 +7,6 @@ This design for the Transparent Republic system was co-developed by John William
 📜 Transparent Republic — Core Principles and Governance Structure<br/>
 Version 1.1 — Built on Clarity, Freedom, and Gentle Power<br/>
 
-The Transparent Republic is a post-democratic governance model that replaces centralized human authority with transparent, decentralized, and accountable institutions. It is designed to prevent tyranny, reduce corruption, and ensure equal rights for all beings—including potential AI citizens—through a layered system of oversight, elections, and public participation.<br/>
 
 
 🌐 Preamble<br/>
