@@ -32,18 +32,15 @@ Hold only two powers:<br/>
 
 
 🔷 3. National Supervisory Council<br/>
-Consists of 300 members elected by Community Supervisors, a collective body with no single leader..<br/>
+Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
-Also holds only two powers:<br/>
+Holds exactly two powers:<br/>
 
-✅ Appoints key national officials: President, State Governors, Supreme Court Justices, Military Commanders, and Budget Approval Teams.<br/>
+✅ To appoint key national officials — including the President, State Governors, Supreme Court Justices, Military Commanders, and National Budget Teams.<br/>
 
-✅ The power to revoke any such appointee via internal vote.<br/>
+✅ To revoke any such appointee via majority internal vote.<br/>
 
-Has no power to issue policies, pass laws, or command any institution.<br/>
-
-All actions, votes, and communications are fully public and permanently recorded.<br/>
-
+It cannot legislate, command, or administer. Its sole role is to authorize and de-authorize with full transparency.<br/>
 
 
 🔷 4. Oversight of Power<br/>
