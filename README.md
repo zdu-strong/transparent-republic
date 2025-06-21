@@ -40,8 +40,13 @@ Holds exactly two powers:<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.<br/>
 
+
+If a lower official abuses their power, their superior can be revoked by the National Supervisory Council.<br/>
+
+This encourages active management and responsibility at every level, while avoiding bureaucratic overload at the top.<br/>
+
+Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
  
-It cannot legislate, command, or administer. Its sole role is to authorize and de-authorize with full transparency.<br/>
 
 
 🔷 4. Oversight of Power<br/>
