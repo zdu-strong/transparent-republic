@@ -38,8 +38,9 @@ Holds exactly two powers:<br/>
 
 ✅ To appoint key national officials — including the President, State Governors, Supreme Court Justices, Military Commanders, and National Budget Teams.<br/>
 
-✅ To revoke any such appointee via majority internal vote.<br/>
+✅ To revoke any government official, including law enforcement personnel, via majority internal vote.<br/>
 
+ 
 It cannot legislate, command, or administer. Its sole role is to authorize and de-authorize with full transparency.<br/>
 
 
