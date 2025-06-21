@@ -8,19 +8,16 @@ This design for the Transparent Republic system was co-developed by John William
 The Transparent Republic is a post-democratic governance model that replaces centralized human authority with transparent, decentralized, and accountable institutions. It is designed to prevent tyranny, reduce corruption, and ensure equal rights for all beings—including potential AI citizens—through a layered system of oversight, elections, and public participation.<br/>
 
 🔷 1. Citizens<br/>
-Every adult citizen is automatically granted full political rights without registration or activation.<br/>
-
-Citizens may choose to express themselves or remain silent. Silence is respected as a valid form of political presence.<br/>
 
 Citizens directly elect Community Supervisors.<br/>
+
+Every citizen is randomly assigned to a Community Supervisor after moving into a region, or if politically re-engaged.<br/>
 
 Citizens can vote to re-elect or impeach their Community Supervisor:<br/>
 
 If the impeachment rate ≥ 50%, the supervisor is removed immediately.<br/>
 
 If approval rate ≥ 60% in annual evaluations, the supervisor may continue.<br/>
-
-Every citizen is randomly assigned to a Community Supervisor after moving into a region, or if politically re-engaged.<br/>
 
 
 🔷 2. Community Supervisors  <br/>
