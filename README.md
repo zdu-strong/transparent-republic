@@ -31,7 +31,7 @@ Hold only two powers:<br/>
 
 ✅ The power to elect National Supervisory Council members.<br/>
 
-✅ The power to revoke any National Supervisory Council member with ≥50% supervisor vote.<br/>
+✅ The power to revoke any National Supervisory Council member with impeachment rate ≥ 50%.<br/>
 
 
 🔷 3. National Supervisory Council<br/>
