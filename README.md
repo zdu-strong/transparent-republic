@@ -48,7 +48,7 @@ This encourages active management and responsibility at every level, while avoid
 Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
  
 🌠 Special Mechanism: Temporary Mandate Deployment<br/>
-In times of crisis — such as gang dominance in a local region or a collapse of governance —<br/>
+In times of crisis — such as gang dominance in a local region or a collapse of governance.<br/>
 the Council may appoint a temporary officer (e.g. a Justice Enforcer) and authorize a specialized task force.<br/>
 This task force is granted limited powers with a defined mission, strict oversight, and is formally dissolved by the National Supervisory Council upon the successful completion of its objective.<br/>
 
