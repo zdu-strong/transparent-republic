@@ -24,9 +24,7 @@ Minimal communication access (to remain connected to society)<br/>
 
 🏛️ Chapter 2: Sovereign Dividend<br/>
 🌟 Core Principle<br/>
-The people are not beggars.<br/>
-They are the sovereign owners of their nation.<br/>
-This payment is not charity—it is a direct return on ownership.<br/>
+The people are the sovereign owners of their nation. This payment is a direct return on ownership.<br/>
 
 💡 Eligibility<br/>
 Reserved exclusively for citizens<br/>
