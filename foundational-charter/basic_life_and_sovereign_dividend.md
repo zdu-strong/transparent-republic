@@ -1,65 +1,65 @@
-📜 Chapter 1: Basic Life Guarantee
-🌱 Core Principle
-Every life deserves a minimum level of dignity.
-A civilization should not rely on fear and deprivation as its primary engine of progress.
+📜 Chapter 1: Basic Life Guarantee<br/>
+🌱 Core Principle<br/>
+Every life deserves a minimum level of dignity.<br/>
+A civilization should not rely on fear and deprivation as its primary engine of progress.<br/>
 
-📌 Scope
-Every individual residing within the nation—regardless of citizenship, legal status, or past actions—is entitled to:
+📌 Scope<br/>
+Every individual residing within the nation—regardless of citizenship, legal status, or past actions—is entitled to:<br/>
 
-Basic nourishment (locally defined affordable food standards)
+Basic nourishment (locally defined affordable food standards)<br/>
 
-Clean drinking water
+Clean drinking water<br/>
 
-Shelter (shared or personal, depending on need and availability)
+Shelter (shared or personal, depending on need and availability)<br/>
 
-Basic medical care (to preserve life and prevent suffering)
+Basic medical care (to preserve life and prevent suffering)<br/>
 
-Physical safety and protection
+Physical safety and protection<br/>
 
-Access to electricity and essential energy
+Access to electricity and essential energy<br/>
 
-Minimal communication access (to remain connected to society)
+Minimal communication access (to remain connected to society)<br/>
 
-🔒 Non-citizens are entitled only to life-preserving and dignity-sustaining minimums—not luxury or civil privileges.
+🔒 Non-citizens are entitled only to life-preserving and dignity-sustaining minimums—not luxury or civil privileges.<br/>
 
-🏛️ Chapter 2: Sovereign Dividend
-🌟 Core Principle
-The people are not beggars.
-They are the sovereign owners of their nation.
-This payment is not charity—it is a direct return on ownership.
+🏛️ Chapter 2: Sovereign Dividend<br/>
+🌟 Core Principle<br/>
+The people are not beggars.<br/>
+They are the sovereign owners of their nation.<br/>
+This payment is not charity—it is a direct return on ownership.<br/>
 
-💡 Eligibility
-Reserved exclusively for citizens
+💡 Eligibility<br/>
+Reserved exclusively for citizens<br/>
 
-Unconditional: no work or tax required to receive it
+Unconditional: no work or tax required to receive it<br/>
 
-May be proportionally adjusted based on civic participation, community service, or long-term residence (subject to future public deliberation)
+May be proportionally adjusted based on civic participation, community service, or long-term residence (subject to future public deliberation)<br/>
 
-💰 Funding Sources
-Corporate taxes
+💰 Funding Sources<br/>
+Corporate taxes<br/>
 
-Wealth taxes
+Wealth taxes<br/>
 
-Land use and national asset dividends
+Land use and national asset dividends<br/>
 
-Automation, carbon, digital, or future tech-derived taxes
+Automation, carbon, digital, or future tech-derived taxes<br/>
 
-Once the state’s essential functions and reserves are funded, all remaining public surplus becomes Sovereign Dividend.
+Once the state’s essential functions and reserves are funded, all remaining public surplus becomes Sovereign Dividend.<br/>
 
-💬 Symbolic Meaning
-It redefines social payments as respect, not pity.
+💬 Symbolic Meaning<br/>
+It redefines social payments as respect, not pity.<br/>
 
-Democracy becomes tangible—not just a right, but a shared return.
+Democracy becomes tangible—not just a right, but a shared return.<br/>
 
-Every time it is issued, it whispers to the citizen:
+Every time it is issued, it whispers to the citizen:<br/>
 
-“You are the owner of this country.”
+“You are the owner of this country.”<br/>
 
-🔁 Cyclical Impact
-Encourages political participation (caring = more dividends)
+🔁 Cyclical Impact<br/>
+Encourages political participation (caring = more dividends)<br/>
 
-Reduces violence and crime (no need for coercion)
+Reduces violence and crime (no need for coercion)<br/>
 
-Helps businesses recruit aligned talent (basic needs are met)
+Helps businesses recruit aligned talent (basic needs are met)<br/>
 
-Politics becomes a system of distributing ownership, not a game of control
+Politics becomes a system of distributing ownership, not a game of control<br/>
