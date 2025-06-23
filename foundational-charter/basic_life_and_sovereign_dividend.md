@@ -20,7 +20,7 @@ Access to electricity and essential energy<br/>
 
 Minimal communication access (to remain connected to society)<br/>
 
-🔒 Non-citizens are entitled only to life-preserving and dignity-sustaining minimums—not luxury or civil privileges.<br/>
+
 
 🏛️ Chapter 2: Sovereign Dividend<br/>
 🌟 Core Principle<br/>
