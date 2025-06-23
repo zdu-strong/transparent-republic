@@ -33,7 +33,7 @@ Reserved exclusively for citizens<br/>
 
 Unconditional: no work or tax required to receive it<br/>
 
-May be proportionally adjusted based on civic participation, community service, or long-term residence (subject to future public deliberation)<br/>
+
 
 💰 Funding Sources<br/>
 Corporate taxes<br/>
