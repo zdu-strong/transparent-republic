@@ -1,6 +1,6 @@
 
 🏛️ Sovereign Dividend<br/>
-🌟 Core Principle<br/>
+Principle<br/>
 The people are the sovereign owners of their nation. This payment is a direct return on ownership.<br/>
 
 💡 Eligibility<br/>
