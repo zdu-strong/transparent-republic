@@ -16,3 +16,6 @@ No proof of employment, no nationality requirement;<br/>
 Not reduced or canceled based on income, assets, or age;<br/>
 
 Distributed monthly or weekly, with standards periodically adjusted by the National Supervisory Council to maintain purchasing power;<br/>
+
+
+This is not a welfare program. It is a declaration of dignity.
