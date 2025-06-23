@@ -4,6 +4,28 @@
 Every life deserves a minimum level of dignity.<br/>
 A civilization should not rely on fear and deprivation as its primary engine of progress.<br/>
 
+
+
+🎗️ Basic Survival Dividend
+Principle:
+
+Every person deserves to live—not because of what they do,
+but simply because they exist.
+
+Therefore, the Transparent Republic provides every individual living within the territory with a universal, unconditional starting income—a foundational amount granted equally to all.
+
+📌 Disbursement Method:
+
+Delivered in monetary form directly to individual accounts;
+
+No proof of employment, no nationality requirement;
+
+Not reduced or canceled based on income, assets, or age;
+
+Distributed monthly or weekly, with standards periodically adjusted by the National Supervisory Council to maintain purchasing power;
+
+
+
 📌 Scope<br/>
 Every individual residing within the nation—regardless of citizenship, legal status, or past actions—is entitled to:<br/>
 
