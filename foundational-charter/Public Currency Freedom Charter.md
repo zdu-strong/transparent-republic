@@ -1,6 +1,6 @@
 Transparent Republic Public Currency Freedom Charter
 
-Chapter: Free Currency Exchange System
+Chapter: Lumen - A Free Currency Exchange System
 
 To uphold global economic liberty and cross-border cooperation, the Transparent Republic hereby establishes a structured and publicly accountable Free Currency Exchange System, supported and supervised by the state. This system is grounded in dynamic public participation, responsible financial logic, and complete transparency.
 
