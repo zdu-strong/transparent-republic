@@ -84,7 +84,7 @@ Contributor C deposits:<br/>
 
 1000 TRC(CCUs)<br/>
 
-100 USD(110CCUs)<br/>
+100 USD(CCUs)<br/>
 
 Contributor C receives:<br/>
 
