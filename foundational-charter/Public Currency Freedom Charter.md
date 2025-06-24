@@ -51,61 +51,47 @@ Let us assume:<br/>
 
 Contributor A deposits:<br/>
 
-10 TRC (Transparent Republic Coins)<br/>
+100 TRC (Transparent Republic Coins)<br/>
 
 100 USD<br/>
 
-10,000 JPY<br/>
+Contributor A Get:<br/>
 
-Each of these contributions earns 100,000 CCUs respectively.<br/>
+200,000 CCUs<br/>
 
 System pool now contains:<br/>
 
-100,000 CCUs (TRC)<br/>
+100,000 CCUs (100 TRC)<br/>
 
-100,000 CCUs (USD)<br/>
+100,000 CCUs (100 USD)<br/>
 
-100,000 CCUs (JPY)<br/>
+Contributor B deposits:<br/>
 
-A user wishes to exchange 10 TRC to USD:<br/>
+100 TRC (Transparent Republic Coins)<br/>
 
-10 TRC converts into 100,000 CCUs<br/>
+200 USD<br/>
 
-Converted into 100 USD<br/>
+Contributor B Get:<br/>
+
+300,000 CCUs<br/>
+
+System pool now contains:<br/>
+
+250,000 CCUs (200 TRC)<br/>
+
+250,000 CCUs (300 USD)<br/>
+
+A user wishes to exchange 100 TRC to USD:<br/>
+
+100 TRC converts into 125,000 CCUs<br/>
+
+Converted into 150 USD<br/>
 
 System pool becomes:<br/>
 
-200,000 CCUs (TRC)<br/>
+250,000 CCUs (300 TRC)<br/>
 
-100,000 CCUs (JPY)<br/>
-
-Another user exchanges 10 TRC to JPY:<br/>
-
-10 TRC → 100,000 CCUs → 10,000 JPY<br/>
-
-Pool: 300,000 CCUs (TRC)<br/>
-
-New contributions:<br/>
-
-Contributor B adds 10 TRC + 50 USD → 100,000 CCUs each<br/>
-
-Contributor C adds 10 TRC + 100 USD → 100,000 CCUs each<br/>
-
-Updated pool:<br/>
-
-500,000 CCUs (TRC)<br/>
-
-200,000 CCUs (USD)<br/>
-
-A user converts 10 TRC to USD:<br/>
-
-10 TRC → 100,000 CCUs → 75 USD<br/>
-
-Final Pool:<br/>
-
-400,000 CCUs (TRC)<br/>
-
-100,000 CCUs (USD)<br/>
+250,000 CCUs (150 USD)<br/>
 
 This dynamic ratio determines exchange rate responsiveness without needing national currency reserves or market intervention. Users themselves become co-regulators of value, incentivizing equilibrium through behavior.<br/>
 
