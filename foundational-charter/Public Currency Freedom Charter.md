@@ -7,7 +7,7 @@ It enables seamless, permissionless conversion between supported currencies — 
 
 💬 "Lumen doesn't belong to a bank. It belongs to humanity."
 
-To uphold global economic liberty and cross-border cooperation, the Transparent Republic hereby establishes a structured and publicly accountable Free Currency Exchange System, supported and supervised by the state. This system is grounded in dynamic public participation, responsible financial logic, and complete transparency.
+
 
 System Overview
 
