@@ -50,35 +50,51 @@ Let us assume:<br/>
 
 Contributor A deposits:<br/>
 
-100 TRC (Transparent Republic Coins)<br/>
+50 TRC (Transparent Republic Coins)<br/>
 
-100 USD<br/>
+500 USD<br/>
 
 Contributor A receives:<br/>
 
-200,000 CCUs<br/>
+1000 CCUs<br/>
 
 System pool now contains:<br/>
 
-100,000 CCUs (100 TRC)<br/>
+500 CCUs (50 TRC)<br/>
 
-100,000 CCUs (100 USD)<br/>
+500 CCUs (500 USD)<br/>
 
 Contributor B deposits:<br/>
 
-100 TRC<br/>
+50 TRC(500CCUs)<br/>
 
-200 USD<br/>
+500 USD(500ccus)<br/>
 
 Contributor B receives:<br/>
 
-300,000 CCUs<br/>
+1000 CCUs<br/>
 
 System pool now contains:<br/>
 
-250,000 CCUs (200 TRC)<br/>
+1000 CCUs (100 TRC)<br/>
 
-250,000 CCUs (300 USD)<br/>
+1000 CCUs (1000 USD)<br/>
+
+Contributor C deposits:<br/>
+
+1000 TRC(CCUs)<br/>
+
+100 USD(110CCUs)<br/>
+
+Contributor C receives:<br/>
+
+2000 CCUs<br/>
+
+System pool now contains:<br/>
+
+2000 CCUs (1100 TRC)<br/>
+
+2000 CCUs (1100 USD)<br/>
 
 A user exchanges 100 TRC to USD:<br/>
 
