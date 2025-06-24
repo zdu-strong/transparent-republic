@@ -2,6 +2,11 @@ Transparent Republic Public Currency Freedom Charter
 
 Chapter: Lumen - A Free Currency Exchange System
 
+Lumen is the decentralized, trust-backed currency exchange system created by Transparent Republic.
+It enables seamless, permissionless conversion between supported currencies — without fees, borders, or discrimination.
+
+💬 "Lumen doesn't belong to a bank. It belongs to humanity."
+
 To uphold global economic liberty and cross-border cooperation, the Transparent Republic hereby establishes a structured and publicly accountable Free Currency Exchange System, supported and supervised by the state. This system is grounded in dynamic public participation, responsible financial logic, and complete transparency.
 
 System Overview
