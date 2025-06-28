@@ -36,9 +36,9 @@ Consists of 300 members elected by Community Supervisors, a collective body with
 
 Holds exactly two powers:<br/>
 
-✅ To appoint key national officials — including the President, State Governors, Supreme Court Justices, Military Commanders, and National Budget Teams.<br/>
+✅ To appoint key national officials — including the President, State Governors, Supreme Court Justices, Military Commanders, and National Budget Teams.(≥60% approval required)<br/>
 
-✅ To revoke any government official, including law enforcement personnel, via majority internal vote.<br/>
+✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
 
 
 If a lower official abuses their power, their superior can be revoked by the National Supervisory Council.<br/>
