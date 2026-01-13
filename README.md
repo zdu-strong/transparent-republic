@@ -5,6 +5,7 @@ This design for the Transparent Republic system was co-developed by John William
 # transparent-republic<br/>
 
 📜 Transparent Republic: Second-generation democratic system<br/>
+
 The Transparent Republic is a post-democratic governance model that replaces centralized human authority with transparent, decentralized, and accountable institutions. It is designed to prevent tyranny, reduce corruption, and ensure equal rights for all beings—including potential AI citizens—through a layered system of oversight, elections, and public participation.<br/>
 
 🔷 1. Citizens<br/>
