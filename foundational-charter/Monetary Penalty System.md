@@ -1,7 +1,12 @@
-1. 罚款<br/>
-对于乱扔垃圾等行为, 处以罚款, 限期三个月未缴纳, 则进行破产清算.<br/>
-2. 破产清算<br/>
-若破产清算后, 仍不足以偿还罚金, 则进行公开限制场惩罚.<br/>
-3. 公开限制场惩罚<br/>
-搭建一片遮雨的场地, 佩戴电子脚镣, 每天待满4个小时, 持续多天. 若判处期限内, 仍未接受公开限制场惩罚, 则进行监狱服刑.<br/> 
-4. 监狱服刑<br/>
+1. Fine
+For acts such as littering, a monetary fine shall be imposed.
+If the fine is not paid within three months, bankruptcy liquidation procedures shall be initiated.
+
+2. Bankruptcy Liquidation
+If, after bankruptcy liquidation, the individual is still unable to fully repay the fine, a Public Restricted Area Penalty shall be imposed.
+
+3. Public Restricted Area Penalty
+A designated sheltered area shall be established. The individual shall wear electronic ankle monitoring and remain in the restricted area for at least four hours per day, for multiple consecutive days.
+If the individual still refuses to accept the Public Restricted Area Penalty within the prescribed period, imprisonment shall be enforced.
+
+4. Imprisonment
