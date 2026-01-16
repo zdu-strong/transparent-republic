@@ -1,4 +1,4 @@
-1. Fine
+1. Fine<br/>
 For acts such as littering, a monetary fine shall be imposed.<br/>
 If the fine is not paid within three months, bankruptcy liquidation procedures shall be initiated.<br/>
 
