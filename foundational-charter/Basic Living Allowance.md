@@ -1,5 +1,5 @@
 
-🏛️ Basic Survival Dividend<br/>
+🏛️ Basic Living Allowance<br/>
 Principle:<br/>
 
 Every person deserves to live—not because of what they do,
