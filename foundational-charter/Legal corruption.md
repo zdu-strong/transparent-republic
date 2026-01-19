@@ -1,4 +1,9 @@
-1. 主动申报<br/>
-收到贿赂的3天内, 主动申报, 合法转为私有财产, 无需缴税.<br/>
-2. 未申报<br/>
-收到贿赂的3天内, 未申报. 一旦发现, 处以100%的罚金. 若3个月内未缴纳罚金, 进行破产清算. 破产清算后仍足以支付罚金, 进行公开限制场惩罚. 未接受公开限制场惩罚, 进行监狱.<br/>
+1. Voluntary Declaration<br/>
+Within 3 days of receiving a bribe, the recipient voluntarily declares it.<br/>
+The funds are legally converted into private property and no tax is required.<br/>
+
+2. Failure to Declare<br/>
+If the bribe is not declared within 3 days of receipt, once discovered, a fine equal to 100% of the amount is imposed.<br/>
+If the fine is not paid within 3 months, bankruptcy liquidation is initiated.<br/>
+If the fine is still unpaid after liquidation, a Public Restriction Penalty is imposed.<br/>
+If the Public Restriction Penalty is not accepted, imprisonment follows.<br/>
