@@ -47,11 +47,7 @@ If a lower official abuses their power, their superior can be revoked by the Nat
 This encourages active management and responsibility at every level, while avoiding bureaucratic overload at the top.<br/>
 
 Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
- 
-🌠 Special Mechanism: Temporary Mandate Mechanism<br/>
-In times of crisis — such as gang dominance in a local region or a collapse of governance.<br/>
-the Council may appoint a temporary officer (e.g. a Justice Enforcer) and authorize a specialized task force.<br/>
-This task force is granted limited powers with a defined mission, strict oversight, and is formally dissolved by the National Supervisory Council upon the successful completion of its objective.<br/>
+
 
 🔷 4. Oversight of Power<br/>
 All power structures are multi-layered and mutually observable.<br/>
