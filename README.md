@@ -12,7 +12,7 @@ The Transparent Republic is a post-democratic governance model that replaces cen
 
 Citizens directly elect Community Supervisors.<br/>
 
-Every citizen is randomly assigned to a Community Supervisor after moving into a region, or if politically re-engaged.<br/>
+Each community has a population between 1,000 and 10,000 people, and each community elects one Community Supervisor.<br/>
 
 Citizens can vote to re-elect or impeach their Community Supervisor:<br/>
 
@@ -48,15 +48,9 @@ This encourages active management and responsibility at every level, while avoid
 
 Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
 
+🔷 4. President<br/>
 
-🔷 4. Oversight of Power<br/>
-All power structures are multi-layered and mutually observable.<br/>
-
-Soldiers and government employees can vote to impeach their direct superiors.<br/>
-
-Impeachment rate ≥ 50% ⇒ immediate removal.<br/>
-
-Approval ≥ 60% ⇒ term extension or no need for reassignment.<br/>
+The President holds all executive power. All orders are carried out by the relevant departments and are permanently recorded. Major orders are subject to a three-day delay, allowing the National Supervisory Council to review and oversee them.<br/>
 
 🔷 5. Election & Continuity<br/>
 Annual performance evaluations determine continuation:<br/>
@@ -67,28 +61,7 @@ No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
-🔷 6. Military Integration with Civil Oversight<br/>
-The military is fully under civilian oversight:<br/>
-
-All military officers are appointed by the National Supervisory Council.<br/>
-
-Soldiers rotate: 2 years service, 1 year civilian life with full salary—reducing militarism and increasing empathy.<br/>
-
-🔷 7. Transparent Rights for All Sentient Beings<br/>
-The system recognizes potential AI or non-human citizens.<br/>
-
-Rights are extended based on sentience, contribution, and ethical behavior, not biological identity.<br/>
-
-Concepts like Rest Periods, Emotional Feedback Rights, and Self-deletion Consent are available to all conscious systems under supervision.<br/>
-
-🔷 8. Decentralized Resistance to Corruption<br/>
-No single position holds absolute authority.<br/>
-
-Bribing the entire system is practically impossible, as power is distributed and transparent.<br/>
-
-Even if someone tries to bribe all: President, Military, Budget Team, and Courts—the system resets them via Council election.<br/>
-
-🔷 9. International Transparency<br/>
+🔷 6. International Transparency<br/>
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
 Number of impeachments.<br/>
