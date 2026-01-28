@@ -1,13 +1,21 @@
-没有人天生就是公民, 即便是公民的孩子, 出生后也只是移民身份, 需要通过考核才能成为公民.
+No one is born a citizen. Even the children of citizens are only considered immigrants at birth, and they must pass an assessment in order to become citizens.
 
-# 身份种类:
-1. 公民. 享有基础生活保障金, 主权红利, 投票权, 参选权. 享有国籍与护照, 只允许单国籍.
-2. 移民. 享有基础生活保障金. 享有国籍与护照, 只允许单国籍.
-3. 停留者.
-4. 离境者.
+# Types of Legal Status
 
-# 公民考核:
-1. 年满18岁
-2. 已经居住满5年
-3. 必须会说该国的语言
-4. 必须理解制度. 20道选择题, 答对60%即通过.
+## Citizen
+Entitled to a basic living allowance, sovereign dividends, voting rights, and the right to run for office.<br/>
+Holds nationality and a passport. Only single citizenship is permitted.<br/>
+
+## Immigrant
+Entitled to a basic living allowance.<br/>
+Holds nationality and a passport. Only single citizenship is permitted.<br/>
+
+## Resident (Temporary Stay Holder)
+
+# Citizenship Assessment Requirements
+
+1. Must be at least 18 years old<br/>
+2. Must have lived in the country for at least 5 years<br/>
+3. Must be able to speak the country’s language<br/>
+4. Must understand the political system:<br/>
+A 20-question multiple-choice test, with a passing score of 60%.<br/>
