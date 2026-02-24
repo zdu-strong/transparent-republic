@@ -29,7 +29,7 @@ Hold only two powers:<br/>
 
 ✅ The power to elect the National Supervisory Council and the State Supervisory Councils.<br/>
 
-✅ The power to revoke any National Supervisory Council member or State Supervisory Councils, when the impeachment rate reaches ≥ 50%.<br/>
+✅ The power to revoke any member of the National Supervisory Council or the State Supervisory Councils, when the impeachment rate reaches ≥ 50%.<br/>
 
 
 ## 🔷 3. National Supervisory Council<br/>
