@@ -8,7 +8,7 @@ This design for the Transparent Republic system was co-developed by John William
 
 The Transparent Republic is a post-democratic governance model that replaces centralized human authority with transparent, decentralized, and accountable institutions. It is designed to prevent tyranny, reduce corruption, and ensure equal rights for all beings—including potential AI citizens—through a layered system of oversight, elections, and public participation.<br/>
 
-🔷 1. Citizens<br/>
+## 🔷 1. Citizens<br/>
 
 Citizens directly elect Community Supervisors.<br/>
 
@@ -21,7 +21,7 @@ If the impeachment rate ≥ 50%, the supervisor is removed immediately.<br/>
 If approval rate ≥ 60% in annual evaluations, the supervisor may continue.<br/>
 
 
-🔷 2. Community Supervisors  <br/>
+## 🔷 2. Community Supervisors  <br/>
 
 Each Community Supervisor represents a defined community or region.<br/>
 
@@ -32,7 +32,7 @@ Hold only two powers:<br/>
 ✅ The power to revoke any National Supervisory Council member, when the impeachment rate reaches ≥ 50%.<br/>
 
 
-🔷 3. National Supervisory Council<br/>
+## 🔷 3. National Supervisory Council<br/>
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
 Holds exactly two powers:<br/>
@@ -48,11 +48,11 @@ This encourages active management and responsibility at every level, while avoid
 
 Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
 
-🔷 4. President<br/>
+## 🔷 4. President<br/>
 
 The President holds all executive power. All orders are carried out by the relevant departments and are permanently recorded. Major orders are subject to a three-day delay, allowing the National Supervisory Council to review and oversee them.<br/>
 
-🔷 5. Election & Continuity<br/>
+## 🔷 5. Election & Continuity<br/>
 Annual performance evaluations determine continuation:<br/>
 
 Everyone, from Local Supervisors to the President, must retain high satisfaction to remain.<br/>
@@ -61,7 +61,7 @@ No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
-🔷 6. International Transparency<br/>
+## 🔷 6. International Transparency<br/>
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
 Number of impeachments.<br/>
@@ -74,7 +74,7 @@ Public satisfaction levels.<br/>
 
 Citizens can compare their country's freedom, justice, and transparency with others.<br/>
 
-🔷 Summary<br/>
+## 🔷 7. Summary<br/>
 No gods. No kings. No dictators. Only systems.<br/>
 
 The Transparent Republic is not a utopia—but a self-correcting, living structure that evolves with its citizens. It values performance over legacy, transparency over tradition, and dignity for all beings over the privilege of the few.<br/>
