@@ -27,7 +27,7 @@ Each Community Supervisor represents a defined community or region.<br/>
 
 Hold only two powers:<br/>
 
-✅ The power to elect National Supervisory Council members.<br/>
+✅ The power to elect the National Supervisory Council and the State Supervisory Councils.<br/>
 
 ✅ The power to revoke any National Supervisory Council member, when the impeachment rate reaches ≥ 50%.<br/>
 
