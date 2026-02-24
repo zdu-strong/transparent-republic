@@ -37,7 +37,23 @@ Consists of 300 members elected by Community Supervisors, a collective body with
 
 Holds exactly two powers:<br/>
 
-✅ To appoint key national officials — including the President, State Governors, Supreme Court Justices, Military Commanders, and National Budget Teams.(≥60% approval required)<br/>
+✅ To appoint key national officials — including the President, Supreme Court Justices, Military Commanders, and National Budget Teams.(≥60% approval required)<br/>
+
+✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
+
+
+If a lower official abuses their power, their superior can be revoked by the National Supervisory Council.<br/>
+
+This encourages active management and responsibility at every level, while avoiding bureaucratic overload at the top.<br/>
+
+Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
+
+## 🔷 4. State Supervisory Council<br/>
+Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
+
+Holds exactly two powers:<br/>
+
+✅ To appoint key national officials — including the State Governors, and State Budget Teams.(≥60% approval required)<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
 
