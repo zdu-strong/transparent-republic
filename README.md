@@ -53,12 +53,12 @@ Consists of 300 members elected by Community Supervisors, a collective body with
 
 Holds exactly two powers:<br/>
 
-✅ To appoint key national officials — including the State Governors, and State Budget Teams.(≥60% approval required)<br/>
+✅ To appoint key state officials — including the State Governors, and State Budget Teams.(≥60% approval required)<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
 
 
-If a lower official abuses their power, their superior can be revoked by the National Supervisory Council.<br/>
+If a lower official abuses their power, their superior can be revoked by the State Supervisory Council.<br/>
 
 This encourages active management and responsibility at every level, while avoiding bureaucratic overload at the top.<br/>
 
