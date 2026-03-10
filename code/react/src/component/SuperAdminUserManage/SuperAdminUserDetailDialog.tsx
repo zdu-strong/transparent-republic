@@ -1,8 +1,13 @@
+import api from "@/api";
+import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
+import { useMultipleQuery } from "@/common/use-hook";
+import { UserModel } from "@/model/UserModel";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
-import { observer } from "mobx-react-use-autorun";
+import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
+import UserDetail from "./UserDetail";
 
 type Props = {
     id: string;
@@ -11,6 +16,14 @@ type Props = {
 }
 
 export default observer((props: Props) => {
+
+    const state = useMobxState({
+        user: new UserModel(),
+    });
+
+    const { ready, error } = useMultipleQuery(async () => {
+        state.user = await api.User.getUserById(props.id);
+    });
 
     function closeDialog(event: {}, reason: "backdropClick" | "escapeKeyDown") {
         if (reason === "backdropClick") {
@@ -36,7 +49,13 @@ export default observer((props: Props) => {
             </DialogTitle>
             <Divider />
             <DialogContent style={{ padding: "1em" }}>
-                <FormattedMessage id="UserDetail" defaultMessage="User Detail" />
+                <LoadingOrErrorComponent ready={ready} error={error} >
+                    <UserDetail
+                        user={state.user}
+                        closeDialog={props.closeDialog}
+                        searchByPagination={props.searchByPagination}
+                    />
+                </LoadingOrErrorComponent>
             </DialogContent>
         </Dialog>
     </>

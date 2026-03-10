@@ -106,5 +106,10 @@
     "CreateDate": "Create Date",
     "Operation": "Operation",
     "OrganizeDetail": "Organize Detail",
-    "RoleDetail": "Role Detail"
+    "RoleDetail": "Role Detail",
+    "ID": "ID",
+    "UserName": "Username",
+    "UpdateDate": "Update Date",
+    "Role": "Role",
+    "RoleListIsEmpty": "Role list is empty"
 }

@@ -106,5 +106,10 @@
     "CreateDate": "创建时间",
     "Operation": "操作",
     "OrganizeDetail": "组织详情",
-    "RoleDetail": "角色详情"
+    "RoleDetail": "角色详情",
+    "ID": "唯一标识",
+    "UserName": "用户名",
+    "UpdateDate": "更新时间",
+    "Role": "角色",
+    "RoleListIsEmpty": "角色列表为空"
 }

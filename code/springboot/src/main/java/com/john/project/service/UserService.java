@@ -146,6 +146,16 @@ public class UserService extends BaseService {
         }
     }
 
+    public void delete(String id) {
+        var user = this.streamAll(UserEntity.class)
+                .where(s -> s.getId().equals(id))
+                .where(s -> !s.getIsDeleted())
+                .getOnlyValue();
+        user.setIsDeleted(true);
+        user.setUpdateDate(new Date());
+        this.merge(user);
+    }
+
     @Transactional(readOnly = true)
     public PaginationModel<UserModel> searchForSuperAdminByPagination(SuperAdminUserQueryPaginationModel query) {
         var stream = this.streamAll(UserEntity.class)

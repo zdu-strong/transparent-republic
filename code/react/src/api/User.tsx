@@ -6,3 +6,8 @@ export async function getUserById(userId: string) {
     const { data } = await axios.get("/user", { params: { id: userId } });
     return new TypedJSON(UserModel).parse(data)!;
 }
+
+
+export async function deleteUserById(userId: string) {
+    await axios.post("/user/delete", null, { params: { id: userId } });
+}

@@ -11,7 +11,12 @@ public enum SystemPermissionEnum {
 
     SUPER_ADMIN("SUPER_ADMIN", true, false),
     ORGANIZE_MANAGE("ORGANIZE_MANAGE", false, true),
-    ORGANIZE_VIEW("ORGANIZE_VIEW", false, true);
+    ORGANIZE_VIEW("ORGANIZE_VIEW", false, true),
+    CITIZEN("CITIZEN", false, true),
+    COMMUNITY_SUPERVISOR("COMMUNITY_SUPERVISOR", false, true),
+    NATIONAL_SUPERVISORY_COUNCIL("NATIONAL_SUPERVISORY_COUNCIL", false, true),
+    STATE_SUPERVISORY_COUNCIL("STATE_SUPERVISORY_COUNCIL", false, true),
+    ;
 
     private String value;
     private Boolean isSuperAdmin;

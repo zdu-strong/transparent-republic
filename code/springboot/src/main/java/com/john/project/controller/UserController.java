@@ -58,4 +58,15 @@ public class UserController extends BaseController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/user/delete")
+    public ResponseEntity<?> delete(@RequestParam String id) {
+        this.permissionUtil.checkIsSignIn(request);
+        this.validationFieldUtil.checkNotBlankOfId(id);
+        this.userService.checkExistUserById(id);
+
+        this.userService.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
+
 }
