@@ -1,0 +1,44 @@
+package com.john.project.test.common.DistributedExecution.OrganizeClosureRefreshDistributedExecution;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import com.john.project.model.OrganizeModel;
+import com.john.project.test.common.BaseTest.BaseTest;
+
+public class OrganizeClosureRefreshDistributedExecutionTest extends BaseTest {
+
+    private String organizeId;
+
+    @Test
+    public void test() {
+        this.distributedExecutionUtil.refreshData(organizeClosureRefreshDistributedExecution);
+        var result = this.organizeService.searchByName(1L, 20L, "Son Gohan", this.organizeId);
+        assertEquals(1, result.getTotalRecords());
+    }
+
+    @BeforeEach
+    public void beforeEach() {
+        {
+            var parentOrganizeModel = new OrganizeModel().setName("Super Saiyan Son Goku");
+            var parentOrganize = this.organizeUtil.create(parentOrganizeModel);
+            var childOrganizeModel = new OrganizeModel().setName("Son Gohan").setParent(parentOrganize);
+            var childOrganize = this.organizeUtil.create(childOrganizeModel);
+            this.organizeId = childOrganize.getId();
+            var result = this.organizeService.searchByName(1L, 20L, "Son Gohan", parentOrganize.getId());
+            assertEquals(1, result.getTotalRecords());
+        }
+        {
+            var parentOrganizeModel = new OrganizeModel().setName("Piccolo");
+            var parentOrganize = this.organizeUtil.create(parentOrganizeModel);
+            var result = this.organizeService.searchByName(1L, 20L, "Son Gohan", parentOrganize.getId());
+            assertEquals(0, result.getTotalRecords());
+            this.organizeUtil.move(organizeId, parentOrganize.getId());
+            result = this.organizeService.searchByName(1L, 20L, "Son Gohan", parentOrganize.getId());
+            assertEquals(1, result.getTotalRecords());
+            this.organizeId = parentOrganize.getId();
+        }
+    }
+
+}

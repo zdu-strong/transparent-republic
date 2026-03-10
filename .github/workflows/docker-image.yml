@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master", "database/cockroachdb", "database/spanner" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Build the cloud
+      run: docker build . --file code/docker/src/cloud/Dockerfile --tag my-image-name:$(date +%s) && docker system prune --all --force

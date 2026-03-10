@@ -1,0 +1,39 @@
+# Getting Started
+
+This project is to do some knowledge backup.<br/>
+If you have any questions, please contact zdu.strong@gmail.com.<br/>
+
+### `Environmental description`
+
+This repository uses git as its version management tool.
+
+1. From https://git-scm.com install git.
+2. Set Git user name and email:<br/>
+
+        git config --global user.name "your username"
+        git config --global user.email "your email"
+
+3. Use git gui to clone the source code.
+
+### `springboot`
+
+Use java, springboot and mysql to build back-end projects.
+
+### `react`
+
+Use typescript and react to build front-end projects.
+
+### `docker`
+
+Use docker and rockylinux to build docker images of all projects.
+
+### `react-cypress`
+
+use typescript and cypress to write end-to-end tests for react project
+
+## Notes - Easier to use git
+
+Sometimes, you'll see a prompt like this: This repository currently has approximately 1500 loose objects.<br/>
+The warning dialog can be disabled with the following command.<br/>
+
+    git config --global gui.gcwarning false

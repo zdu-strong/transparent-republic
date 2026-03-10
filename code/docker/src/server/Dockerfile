@@ -1,0 +1,39 @@
+FROM rockylinux/rockylinux:9.6.20250531 AS first_docker
+
+LABEL maintainer="zdu.strong@gmail.com"
+
+# Use the google cloud mirror as the dnf source
+RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
+    -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://rocky-linux-australia-southeast1.production.gcp.mirrors.ctrliq.cloud/pub/rocky|g' \
+    -i.bak \
+    /etc/yum.repos.d/rocky*.repo
+RUN dnf makecache
+
+# support utf-8
+RUN dnf install -y langpacks-en glibc-langpack-en
+ENV LANG="en_US.UTF-8"
+
+# Install java
+RUN dnf install -y java-21-openjdk-devel
+ENV JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+
+# compile code
+FROM first_docker AS second_docker
+RUN dnf install -y git
+COPY . /all_code
+WORKDIR /all_code/code/springboot
+RUN chmod +x mvn
+RUN ./mvn clean package --define is.development.mock.mode=false
+RUN mv target/*.jar target/server.jar
+
+# copy jar
+FROM first_docker
+COPY --from=second_docker /all_code/code/springboot/target/server.jar /server.jar
+
+ENV SERVER_SHUTDOWN="GRACEFUL"
+
+# 8080 is server port, Since the server port is configured as 8080 in the client, the server port must be 8080 during runtime
+EXPOSE 8080
+
+# start server
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=100", "-jar", "server.jar"]
