@@ -2,36 +2,12 @@ import { UserModel } from "@/model/UserModel";
 import { observer } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { format } from "date-fns";
-import { Button } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { useOnceSubmit } from "@/common/use-hook";
-import api from "@/api";
-import { MessageService } from "@/common/MessageService";
 
 type Props = {
     user: UserModel;
-    closeDialog: () => void;
-    searchByPagination: () => void;
 }
 
 export default observer((props: Props) => {
-
-    const { loading, resubmit } = useOnceSubmit(async () => {
-        await api.User.deleteUserById(props.user.id);
-        props.searchByPagination();
-        props.closeDialog();
-    })
-
-    function confirmDeleteUser() {
-        MessageService.confirm(<FormattedMessage
-            id="AreYouSureDeleteUser"
-            defaultMessage={`Are you sure you want to delete user "{username}"?`}
-            values={{
-                username: props.user.username
-            }}
-        />, resubmit);
-    }
 
     return <>
         <div className="flex flex-row">
@@ -85,15 +61,6 @@ export default observer((props: Props) => {
                     </div>
                 )}
             </div>}
-        </div>
-        <div className="flex flex-row">
-            <Button
-                variant="contained"
-                onClick={confirmDeleteUser}
-                startIcon={<FontAwesomeIcon icon={loading ? faSpinner : faTrashCan} spin={loading} />}
-            >
-                <FormattedMessage id="Delete" defaultMessage="Delete" />
-            </Button>
         </div>
     </>
 })
