@@ -58,17 +58,17 @@ export default observer(() => {
             username() {
                 if (state.username) {
                     if (state.username.replaceAll(new RegExp('^\\s+', 'g'), '').length !== state.username.length) {
-                        return <FormattedMessage id="ThereShouldBeNoSpacesAtTheBeginningOfTheNickname" defaultMessage="There should be no spaces at the beginning of the nickname" />
+                        return <FormattedMessage id="ThereShouldBeNoSpacesAtTheBeginningOfTheUsername" defaultMessage="There should be no spaces at the beginning of the username" />
                     }
                     if (state.username.replaceAll(new RegExp('\\s+$', 'g'), '').length !== state.username.length) {
-                        return <FormattedMessage id="TheNicknameCannotHaveASpaceAtTheEnd" defaultMessage="The nickname cannot have a space at the end" />
+                        return <FormattedMessage id="TheUsernameCannotHaveASpaceAtTheEnd" defaultMessage="The username cannot have a space at the end" />
                     }
                 }
                 if (!state.submitted) {
                     return false;
                 }
                 if (!state.username) {
-                    return <FormattedMessage id="PleaseFillInNickname" defaultMessage="Please fill in nickname" />
+                    return <FormattedMessage id="PleaseFillInUsername" defaultMessage="Please fill in username" />
                 }
                 return false;
             },

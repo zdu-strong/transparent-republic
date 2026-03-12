@@ -12,7 +12,7 @@ export default observer((props: Props) => {
     return <>
         <div className="flex flex-row">
             <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                <FormattedMessage id="UserName" defaultMessage="Username" />
+                <FormattedMessage id="Username" defaultMessage="Username" />
                 {":"}
             </div>
             <div className="flex flex-row">
