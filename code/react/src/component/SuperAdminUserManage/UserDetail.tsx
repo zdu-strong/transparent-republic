@@ -12,20 +12,20 @@ export default observer((props: Props) => {
     return <>
         <div className="flex flex-row">
             <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                <FormattedMessage id="ID" defaultMessage="ID" />
-                {":"}
-            </div>
-            <div className="flex flex-row">
-                {props.user.id}
-            </div>
-        </div>
-        <div className="flex flex-row">
-            <div className="flex flex-row" style={{ marginRight: "1em" }}>
                 <FormattedMessage id="UserName" defaultMessage="Username" />
                 {":"}
             </div>
             <div className="flex flex-row">
                 {props.user.username}
+            </div>
+        </div>
+        <div className="flex flex-row">
+            <div className="flex flex-row" style={{ marginRight: "1em" }}>
+                <FormattedMessage id="ID" defaultMessage="ID" />
+                {":"}
+            </div>
+            <div className="flex flex-row">
+                {props.user.id}
             </div>
         </div>
         <div className="flex flex-row">
