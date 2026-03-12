@@ -1,7 +1,7 @@
 import { jsonArrayMember, jsonMember, jsonObject } from 'typedjson'
 import { UserEmailModel } from '@model/UserEmailModel';
 import { makeAutoObservable } from 'mobx-react-use-autorun'
-import { SystemRoleModel } from './SystemRoleModel';
+import { SystemRoleModel } from '@model/SystemRoleModel';
 
 @jsonObject
 export class UserModel {

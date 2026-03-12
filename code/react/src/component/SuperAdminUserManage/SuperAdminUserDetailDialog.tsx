@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
-import UserDetail from "./UserDetail";
+import UserDetail from "@component/SuperAdminUserManage/UserDetail";
 
 type Props = {
     id: string;

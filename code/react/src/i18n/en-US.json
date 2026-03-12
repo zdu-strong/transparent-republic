@@ -111,5 +111,8 @@
     "UserName": "Username",
     "UpdateDate": "Update Date",
     "Role": "Role",
-    "RoleListIsEmpty": "Role list is empty"
+    "RoleListIsEmpty": "Role list is empty",
+    "Confirm": "Confirm",
+    "AreYouSureDeleteUser": "Are you sure you want to delete user \"{username}\"?",
+    "Cancel": "Cancel"
 }

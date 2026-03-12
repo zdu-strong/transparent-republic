@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { useOnceSubmit } from "@/common/use-hook";
 import api from "@/api";
+import { MessageService } from "@/common/MessageService";
 
 type Props = {
     user: UserModel;
@@ -21,6 +22,16 @@ export default observer((props: Props) => {
         props.searchByPagination();
         props.closeDialog();
     })
+
+    function confirmDeleteUser() {
+        MessageService.confirm(<FormattedMessage
+            id="AreYouSureDeleteUser"
+            defaultMessage={`Are you sure you want to delete user "{username}"?`}
+            values={{
+                username: props.user.username
+            }}
+        />, resubmit);
+    }
 
     return <>
         <div className="flex flex-row">
@@ -68,15 +79,17 @@ export default observer((props: Props) => {
                 <FormattedMessage id="RoleListIsEmpty" defaultMessage="Role list is empty" />
             </div>}
             {props.user.roleList.length > 0 && <div className="flex flex-col">
-                {props.user.roleList.map(role => <div className="flex flex-row" key={role.id}>
-                    {role.name}
-                </div>)}
+                {props.user.roleList.map(role =>
+                    <div className="flex flex-row" key={role.id}>
+                        {role.name}
+                    </div>
+                )}
             </div>}
         </div>
         <div className="flex flex-row">
             <Button
                 variant="contained"
-                onClick={resubmit}
+                onClick={confirmDeleteUser}
                 startIcon={<FontAwesomeIcon icon={loading ? faSpinner : faTrashCan} spin={loading} />}
             >
                 <FormattedMessage id="Delete" defaultMessage="Delete" />
