@@ -114,5 +114,6 @@
     "RoleListIsEmpty": "角色列表为空",
     "Confirm": "确认",
     "AreYouSureDeleteUser": "你确定要删除用户 \"{username}\" 吗?",
-    "Cancel": "取消"
+    "Cancel": "取消",
+    "RoleName": "角色名称"
 }

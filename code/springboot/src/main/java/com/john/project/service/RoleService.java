@@ -8,6 +8,7 @@ import cn.hutool.core.util.ObjectUtil;
 import com.john.project.common.database.JPQLFunction;
 import com.john.project.entity.PermissionRelationEntity;
 import com.john.project.entity.RoleEntity;
+import com.john.project.entity.UserEntity;
 import com.john.project.model.PaginationModel;
 import com.john.project.model.SuperAdminRoleQueryPaginationModel;
 import org.apache.commons.collections4.CollectionUtils;
@@ -113,6 +114,14 @@ public class RoleService extends BaseService {
         this.merge(roleEntity);
     }
 
+    public RoleModel getRoleById(String id) {
+        var roleEntity = this.streamAll(RoleEntity.class)
+                .where(s -> s.getId().equals(id))
+                .getOnlyValue();
+
+        return this.roleFormatter.format(roleEntity);
+    }
+
     @Transactional(readOnly = true)
     public void checkCanCreateRole(RoleModel roleModel, HttpServletRequest request) {
         if (!roleModel.getPermissionList().stream().anyMatch(s -> Arrays.stream(SystemPermissionEnum.values())
@@ -157,6 +166,20 @@ public class RoleService extends BaseService {
                 .select(s -> s.getOne());
 
         return new PaginationModel<>(query, roleStream, this.roleFormatter::format);
+    }
+
+    @Transactional(readOnly = true)
+    public void checkExistRoleById(String id) {
+        if (!hasExistsRoleById(id)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Role does not exist");
+        }
+    }
+
+    private boolean hasExistsRoleById(String id) {
+        var exists = this.streamAll(RoleEntity.class)
+                .where(s -> s.getId().equals(id))
+                .exists();
+        return exists;
     }
 
 //    @Transactional(readOnly = true)
