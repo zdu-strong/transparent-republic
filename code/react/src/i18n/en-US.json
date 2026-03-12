@@ -113,6 +113,6 @@
     "Role": "Role",
     "RoleListIsEmpty": "Role list is empty",
     "Confirm": "Confirm",
-    "AreYouSureDeleteUser": "Are you sure you want to delete user \"{username}\"?",
+    "AreYouSureDeleteUser": "Are you sure you want to delete the user \"{username}\"?",
     "Cancel": "Cancel"
 }

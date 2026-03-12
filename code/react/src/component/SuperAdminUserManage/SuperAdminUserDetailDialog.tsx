@@ -35,7 +35,7 @@ export default observer((props: Props) => {
     function confirmDeleteUser() {
         MessageService.confirm(<FormattedMessage
             id="AreYouSureDeleteUser"
-            defaultMessage={`Are you sure you want to delete user "{username}"?`}
+            defaultMessage={`Are you sure you want to delete the user "{username}"?`}
             values={{
                 username: state.user.username
             }}
