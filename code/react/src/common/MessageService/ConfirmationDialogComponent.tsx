@@ -1,9 +1,10 @@
-import { faCircleCheck, faCircleXmark, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faCircleXmark, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Dialog, DialogActions, DialogTitle, Divider, Fab } from "@mui/material";
-import { observer } from "mobx-react-use-autorun";
+import { observer, useMobxState } from "mobx-react-use-autorun";
 import type { ReactNode } from "react";
 import { FormattedMessage } from "react-intl";
+import { timer } from "rxjs";
 
 type Props = {
     title: ReactNode;
@@ -13,6 +14,10 @@ type Props = {
 
 export default observer((props: Props) => {
 
+    const state = useMobxState({
+        loading: false
+    });
+
     function closeDialog(event: {}, reason: "backdropClick" | "escapeKeyDown") {
         if (reason === "backdropClick") {
             return;
@@ -20,7 +25,9 @@ export default observer((props: Props) => {
         props.closeDialog();
     }
 
-    function confirmCallback() {
+    async function confirmCallback() {
+        state.loading = true;
+        await timer(500).toPromise();
         props.closeDialog();
         props.confirmCallback();
     }
@@ -51,7 +58,7 @@ export default observer((props: Props) => {
                 </Button>
                 <Button
                     variant="contained"
-                    startIcon={<FontAwesomeIcon icon={faCircleCheck} size="xl" />}
+                    startIcon={<FontAwesomeIcon icon={state.loading ? faSpinner : faCircleCheck} size="xl" spin={state.loading} />}
                     onClick={confirmCallback}
                 >
                     <FormattedMessage id="Confirm" defaultMessage="Confirm" />
