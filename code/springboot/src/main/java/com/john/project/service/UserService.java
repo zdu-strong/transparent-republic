@@ -154,6 +154,8 @@ public class UserService extends BaseService {
         user.setIsDeleted(true);
         user.setUpdateDate(new Date());
         this.merge(user);
+
+        this.userEmailService.deleteUserEmailByUserId(id);
     }
 
     @Transactional(readOnly = true)
@@ -202,6 +204,14 @@ public class UserService extends BaseService {
     }
 
     @Transactional(readOnly = true)
+    public void checkUndeletedUserById(String id) {
+        this.checkExistUserById(id);
+        if (!hasUndeletedUserId(id)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User has been deleted");
+        }
+    }
+
+    @Transactional(readOnly = true)
     public void checkExistAccount(String account) {
         if (!hasExistsUserId(account) && !hasExistEmail(account)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incorrect username or password");
@@ -211,9 +221,16 @@ public class UserService extends BaseService {
     private boolean hasExistsUserId(String userId) {
         var exists = this.streamAll(UserEntity.class)
                 .where(s -> s.getId().equals(userId))
-                .where(s -> !s.getIsDeleted())
                 .exists();
         return exists;
+    }
+
+    private boolean hasUndeletedUserId(String userId){
+        var isNotDeleted = this.streamAll(UserEntity.class)
+                .where(s -> s.getId().equals(userId))
+                .where(s -> !s.getIsDeleted())
+                .exists();
+        return isNotDeleted;
     }
 
     private boolean hasExistEmail(String email) {

@@ -49,7 +49,7 @@ public class UserController extends BaseController {
         this.permissionUtil.checkIsSignIn(request);
         this.validationFieldUtil.checkNotBlankOfUsername(user.getUsername());
         this.validationFieldUtil.checkNotEdgesSpaceOfUsername(user.getUsername());
-        this.userService.checkExistUserById(user.getId());
+        this.userService.checkUndeletedUserById(user.getId());
         this.userService.checkRoleRelation(user, request);
         this.userService.checkValidEmail(user);
 
@@ -62,7 +62,7 @@ public class UserController extends BaseController {
     public ResponseEntity<?> delete(@RequestParam String id) {
         this.permissionUtil.checkIsSignIn(request);
         this.validationFieldUtil.checkNotBlankOfId(id);
-        this.userService.checkExistUserById(id);
+        this.userService.checkUndeletedUserById(id);
 
         this.userService.delete(id);
 
