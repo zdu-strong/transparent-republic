@@ -1,5 +1,5 @@
 import page from '@/page'
-import { v7 } from 'uuid'
+import { v4 } from 'uuid'
 import * as action from '@/action'
 
 it('', () => {
@@ -14,6 +14,6 @@ before(() => {
     page.Chat.Message(message).should("exist")
 })
 
-const message = `Hello, World! ${v7()}`
-const email = `${v7()}zdu.strong@gmail.com`
+const message = `Hello, World! ${v4()}`
+const email = `${v4()}zdu.strong@gmail.com`
 const password = 'Hello, World!'

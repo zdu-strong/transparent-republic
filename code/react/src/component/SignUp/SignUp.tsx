@@ -28,13 +28,13 @@ const container = style({
 export default observer(() => {
 
     const state = useMobxState({
-        nickname: '',
+        username: '',
         password: '',
         emailList: [] as UserEmailModel[],
         steps: [
             {
                 id: v7(),
-                text: <FormattedMessage id="SetNickname" defaultMessage="Set nickname" />,
+                text: <FormattedMessage id="SetUsername" defaultMessage="Set username" />,
             },
             {
                 id: v7(),
@@ -55,19 +55,19 @@ export default observer(() => {
             sendVerificationCode: {} as Record<string, boolean>,
         },
         errors: {
-            nickname() {
-                if (state.nickname) {
-                    if (state.nickname.replaceAll(new RegExp('^\\s+', 'g'), '').length !== state.nickname.length) {
+            username() {
+                if (state.username) {
+                    if (state.username.replaceAll(new RegExp('^\\s+', 'g'), '').length !== state.username.length) {
                         return <FormattedMessage id="ThereShouldBeNoSpacesAtTheBeginningOfTheNickname" defaultMessage="There should be no spaces at the beginning of the nickname" />
                     }
-                    if (state.nickname.replaceAll(new RegExp('\\s+$', 'g'), '').length !== state.nickname.length) {
+                    if (state.username.replaceAll(new RegExp('\\s+$', 'g'), '').length !== state.username.length) {
                         return <FormattedMessage id="TheNicknameCannotHaveASpaceAtTheEnd" defaultMessage="The nickname cannot have a space at the end" />
                     }
                 }
                 if (!state.submitted) {
                     return false;
                 }
-                if (!state.nickname) {
+                if (!state.username) {
                     return <FormattedMessage id="PleaseFillInNickname" defaultMessage="Please fill in nickname" />
                 }
                 return false;
@@ -118,12 +118,12 @@ export default observer(() => {
             email: s.email,
             verificationCodeEmail: s.verificationCodeEmail
         }));
-        await api.Authorization.signUp(state.password, state.nickname, userEmailList);
+        await api.Authorization.signUp(state.password, state.username, userEmailList);
     });
 
     function nextStep() {
         state.submitted = true;
-        if (state.activeStep === 0 && state.errors.nickname()) {
+        if (state.activeStep === 0 && state.errors.username()) {
             return;
         }
         if (state.activeStep === 1 && state.errors.password()) {
@@ -188,18 +188,18 @@ export default observer(() => {
                 <Divider style={{ marginTop: "1em" }} />
                 {state.activeStep === 0 && <div className="flex flex-col" style={{ marginTop: "1em" }}>
                     <div>
-                        <FormattedMessage id="NicknameYouCanModifyYourNicknameAtAnyTime" defaultMessage="Nickname, you can modify your nickname at any time" />
+                        <FormattedMessage id="UsernameYouCanModifyYourUsernameAtAnyTime" defaultMessage="Username, you can modify your username at any time" />
                     </div>
                     <TextField
-                        label={<FormattedMessage id="Nickname" defaultMessage="nickname" />}
+                        label={<FormattedMessage id="Username" defaultMessage="Username" />}
                         variant="outlined"
                         onChange={(e) => {
-                            state.nickname = e.target.value;
+                            state.username = e.target.value;
                         }}
-                        value={state.nickname}
+                        value={state.username}
                         autoComplete="off"
-                        error={!!state.errors.nickname()}
-                        helperText={state.errors.nickname()}
+                        error={!!state.errors.username()}
+                        helperText={state.errors.username()}
                         style={{ marginTop: "1em" }}
                         onKeyDown={(e) => {
                             if (!e.shiftKey && e.key === "Enter") {
@@ -212,11 +212,11 @@ export default observer(() => {
                 </div>}
                 {state.activeStep !== 0 && (<div className="flex flex-row" style={{ marginTop: "1em" }}>
                     <div style={{ marginRight: "1em" }}>
-                        <FormattedMessage id="Nickname" defaultMessage="nickname" />
+                        <FormattedMessage id="Username" defaultMessage="Username" />
                         {":"}
                     </div>
                     <div>
-                        {state.nickname}
+                        {state.username}
                     </div>
                 </div>)}
                 {state.activeStep > 0 && <Divider style={{ marginTop: "1em", marginBottom: "1em" }} />}

@@ -5,7 +5,7 @@ import { observer, useMobxEffect, useMobxState, useMount } from "mobx-react-use-
 import { type ReactNode } from "react";
 import { ReplaySubject, from } from "rxjs";
 import { exhaustMapWithTrailing } from "rxjs-exhaustmap-with-trailing";
-import { v7 } from "uuid";
+import { v4, v7 } from "uuid";
 import { useCommonContext } from "@/common/CommonContext";
 
 type Props = {
@@ -73,7 +73,7 @@ export default observer((props: Props) => {
             throw new Error("Must check if sign in")
         }
         if (state.isAutoLogin && !state.hasInitAccessToken && !GlobalUserInfo.accessToken) {
-            await api.Authorization.signUp(v7(), "visitor", []);
+            await api.Authorization.signUp(v7(), `visitor-${v4()}`, []);
         }
         if (!state.hasInitAccessToken && GlobalUserInfo.accessToken) {
             state.hasInitAccessToken = true;

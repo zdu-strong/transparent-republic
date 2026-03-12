@@ -51,6 +51,7 @@ public class UserService extends BaseService {
         var userEntity = new UserEntity();
         userEntity.setId(newId());
         userEntity.setUsername(userModel.getUsername());
+        userEntity.setUsernameLowerCase(userEntity.getUsername().toLowerCase());
         userEntity.setPassword(this.tokenService.getPasswordInDatabaseOfEncryptedPassword(userModel.getPassword(), userEntity.getId()));
         userEntity.setIsDeleted(false);
         userEntity.setCreateDate(new Date());
@@ -218,6 +219,35 @@ public class UserService extends BaseService {
         }
     }
 
+    @Transactional(readOnly = true)
+    public void checkExistUsername(String username) {
+        if (hasExistUsername(username)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username already used");
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public void checkExistUsername(String username, String userId) {
+        if (hasExistUsername(username, userId)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username already used");
+        }
+    }
+
+    private boolean hasExistUsername(String username, String userId) {
+        var exists = this.streamAll(UserEntity.class)
+                .where(s -> s.getUsernameLowerCase().equals(username.toLowerCase()))
+                .where(s -> !s.getId().equals(userId))
+                .exists();
+        return exists;
+    }
+
+    private boolean hasExistUsername(String username) {
+        var exists = this.streamAll(UserEntity.class)
+                .where(s -> s.getUsernameLowerCase().equals(username.toLowerCase()))
+                .exists();
+        return exists;
+    }
+
     private boolean hasExistsUserId(String userId) {
         var exists = this.streamAll(UserEntity.class)
                 .where(s -> s.getId().equals(userId))
@@ -225,7 +255,7 @@ public class UserService extends BaseService {
         return exists;
     }
 
-    private boolean hasUndeletedUserId(String userId){
+    private boolean hasUndeletedUserId(String userId) {
         var isNotDeleted = this.streamAll(UserEntity.class)
                 .where(s -> s.getId().equals(userId))
                 .where(s -> !s.getIsDeleted())

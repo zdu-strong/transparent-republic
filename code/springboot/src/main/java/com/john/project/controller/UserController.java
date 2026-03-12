@@ -39,6 +39,7 @@ public class UserController extends BaseController {
         this.validationFieldUtil.checkNotBlankOfPassword(user.getPassword());
         this.userService.checkRoleRelation(user, request);
         this.userService.checkValidEmail(user);
+        this.userService.checkExistUsername(user.getUsername());
 
         var userOne = this.userService.create(user);
         return ResponseEntity.ok(userOne);
@@ -52,6 +53,7 @@ public class UserController extends BaseController {
         this.userService.checkUndeletedUserById(user.getId());
         this.userService.checkRoleRelation(user, request);
         this.userService.checkValidEmail(user);
+        this.userService.checkExistUsername(user.getUsername(), user.getId());
 
         this.userService.update(user);
 

@@ -23,9 +23,11 @@ public class UserEntity {
     @Id
     private String id;
 
-    @Column(nullable = false, length = 1024 * 1024 * 1024)
-    @Lob
+    @Column(nullable = false, unique = true)
     private String username;
+
+    @Column(nullable = false, unique = true)
+    private String usernameLowerCase;
 
     @Column(nullable = false)
     private Date createDate;
