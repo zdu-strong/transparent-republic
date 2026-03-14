@@ -46,21 +46,21 @@ export default observer((props: Props) => {
                 {format(props.role.updateDate, "yyyy-MM-dd HH:mm:ss")}
             </div>
         </div>
-        {/* <div className="flex flex-row">
+        <div className="flex flex-row">
             <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                <FormattedMessage id="Role" defaultMessage="Role" />
+                <FormattedMessage id="PermissionList" defaultMessage="Permission List" />
                 {":"}
             </div>
-            {props.user.roleList.length == 0 && <div className="flex flex-row">
+            {props.role.permissionList.length == 0 && <div className="flex flex-row">
                 <FormattedMessage id="RoleListIsEmpty" defaultMessage="Role list is empty" />
             </div>}
-            {props.user.roleList.length > 0 && <div className="flex flex-col">
-                {props.user.roleList.map(role =>
-                    <div className="flex flex-row" key={role.id}>
-                        {role.name}
+            {props.role.permissionList.length > 0 && <div className="flex flex-col">
+                {props.role.permissionList.map(permissionRelationModel =>
+                    <div className="flex flex-row" key={permissionRelationModel.id}>
+                        {permissionRelationModel.permission}
                     </div>
                 )}
             </div>}
-        </div> */}
+        </div>
     </>
 })

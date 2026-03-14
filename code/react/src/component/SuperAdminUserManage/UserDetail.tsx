@@ -48,11 +48,11 @@ export default observer((props: Props) => {
         </div>
         <div className="flex flex-row">
             <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                <FormattedMessage id="Role" defaultMessage="Role" />
+                <FormattedMessage id="RoleList" defaultMessage="Role List" />
                 {":"}
             </div>
             {props.user.roleList.length == 0 && <div className="flex flex-row">
-                <FormattedMessage id="RoleListIsEmpty" defaultMessage="Role list is empty" />
+                <FormattedMessage id="PermissionListIsEmpty" defaultMessage="Permission list is empty" />
             </div>}
             {props.user.roleList.length > 0 && <div className="flex flex-col">
                 {props.user.roleList.map(role =>

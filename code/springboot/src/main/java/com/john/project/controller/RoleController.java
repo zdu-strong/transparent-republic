@@ -20,6 +20,16 @@ public class RoleController extends BaseController {
         return ResponseEntity.ok(roleOneModel);
     }
 
+    @PostMapping("/role/delete")
+    public ResponseEntity<?> delete(@RequestParam String id) {
+        this.permissionUtil.checkIsSignIn(request);
+        this.validationFieldUtil.checkNotBlankOfId(id);
+
+        this.roleService.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/role")
     public ResponseEntity<?> getRoleById(@RequestParam String id) {
         this.permissionUtil.checkIsSignIn(request);

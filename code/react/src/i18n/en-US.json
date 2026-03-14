@@ -114,5 +114,9 @@
     "Confirm": "Confirm",
     "AreYouSureDeleteUser": "Are you sure you want to delete the user \"{username}\"?",
     "Cancel": "Cancel",
-    "RoleName": "Role Name"
+    "RoleName": "Role Name",
+    "PermissionList": "Permission List",
+    "RoleList": "Role List",
+    "PermissionListIsEmpty": "Permission list is empty",
+    "AreYouSureDeleteRole": "Are you sure you want to delete the role \"{roleName}\"?"
 }

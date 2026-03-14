@@ -114,5 +114,9 @@
     "Confirm": "确认",
     "AreYouSureDeleteUser": "你确定要删除用户 \"{username}\" 吗?",
     "Cancel": "取消",
-    "RoleName": "角色名称"
+    "RoleName": "角色名称",
+    "PermissionList": "权限列表",
+    "RoleList": "角色列表",
+    "PermissionListIsEmpty": "权限列表是空的",
+    "AreYouSureDeleteRole": "你确定要删除角色 \"{roleName}\" 吗?"
 }
