@@ -7,12 +7,14 @@ import api from "@api";
 import LoadingOrErrorComponent from "@common/MessageService/LoadingOrErrorComponent";
 import { SystemRoleModel } from "@model/SystemRoleModel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FormattedMessage } from "react-intl";
 import { PaginationModel } from "@model/PaginationModel";
 import SuperAdminRoleDetailButton from "@/component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 import { SuperAdminRoleQueryPaginationModel } from "@model/SuperAdminRoleQueryPaginationModel";
 import { useMultipleQuery } from "@/common/use-hook";
+import { v4 } from "uuid";
+import RoleCreateOrUpdateDialog from "./RoleCreateOrUpdateDialog";
 
 export default observer(() => {
 
@@ -23,6 +25,10 @@ export default observer(() => {
     const state = useMobxState({
         query: new SuperAdminRoleQueryPaginationModel(),
         paginationModel: new PaginationModel<SystemRoleModel>(),
+        createDialog: {
+            id: v4(),
+            open: false,
+        },
         columns: [
             {
                 headerName: 'ID',
@@ -60,6 +66,16 @@ export default observer(() => {
 
     const dataGridRef = useGridApiRef();
 
+
+    const openCreateDialog = () => {
+        state.createDialog.id = v4();
+        state.createDialog.open = true;
+    };
+
+    const closeCreateDialog = () => {
+        state.createDialog.open = false;
+    };
+
     return <LoadingOrErrorComponent ready={roleQueryState.ready} error={roleQueryState.error}>
         <div className="flex flex-col flex-auto" style={{ paddingLeft: "50px", paddingRight: "50px" }}>
             <div className="flex flex-row" style={{ marginTop: "10px", marginBottom: "10px" }}>
@@ -69,6 +85,14 @@ export default observer(() => {
                     startIcon={<FontAwesomeIcon icon={roleQueryState.loading ? faSpinner : faSearch} spin={roleQueryState.loading} />}
                 >
                     <FormattedMessage id="Refresh" defaultMessage="Refresh" />
+                </Button>
+                <Button
+                    variant="contained"
+                    onClick={openCreateDialog}
+                    startIcon={<FontAwesomeIcon icon={faPlus} />}
+                    style={{ marginLeft: "1em" }}
+                >
+                    <FormattedMessage id="Create" defaultMessage="Create" />
                 </Button>
             </div>
             <div className="flex flex-auto" style={{ paddingBottom: "1px" }}>
@@ -97,5 +121,10 @@ export default observer(() => {
                 </AutoSizer>
             </div>
         </div>
+        {state.createDialog.open && <RoleCreateOrUpdateDialog
+            searchByPagination={roleQueryState.requery}
+            id={""}
+            closeDialog={closeCreateDialog}
+        />}
     </LoadingOrErrorComponent>
 })

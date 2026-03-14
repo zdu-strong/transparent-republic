@@ -118,5 +118,7 @@
     "PermissionList": "Permission List",
     "RoleList": "Role List",
     "PermissionListIsEmpty": "Permission list is empty",
-    "AreYouSureDeleteRole": "Are you sure you want to delete the role \"{roleName}\"?"
+    "AreYouSureDeleteRole": "Are you sure you want to delete the role \"{roleName}\"?",
+    "Create": "Create",
+    "Save": "Save"
 }
