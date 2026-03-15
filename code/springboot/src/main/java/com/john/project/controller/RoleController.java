@@ -20,10 +20,24 @@ public class RoleController extends BaseController {
         return ResponseEntity.ok(roleOneModel);
     }
 
+    @PostMapping("/role/update")
+    public ResponseEntity<?> update(@RequestBody RoleModel roleModel) {
+        this.permissionUtil.checkIsSignIn(request);
+        this.validationFieldUtil.checkNotBlankOfRoleName(roleModel.getName());
+        this.validationFieldUtil.checkNotEmptyOfPermissionList(roleModel);
+        this.roleService.checkExistRoleById(roleModel.getId());
+        this.roleService.checkCanUpdateRole(roleModel, request);
+
+        this.roleService.update(roleModel);
+
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping("/role/delete")
     public ResponseEntity<?> delete(@RequestParam String id) {
         this.permissionUtil.checkIsSignIn(request);
         this.validationFieldUtil.checkNotBlankOfId(id);
+        this.roleService.checkExistRoleById(id);
 
         this.roleService.delete(id);
 

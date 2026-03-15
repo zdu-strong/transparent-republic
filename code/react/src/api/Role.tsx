@@ -10,3 +10,12 @@ export async function getRoleById(roleId: string) {
 export async function deleteRoleById(roleId: string) {
     await axios.post("/role/delete", null, { params: { id: roleId } });
 }
+
+export async function createRole(role: SystemRoleModel) {
+    const { data } = await axios.post("/role/create", role);
+    return new TypedJSON(SystemRoleModel).parse(data)!;
+}
+
+export async function updateRole(role: SystemRoleModel) {
+    await axios.post("/role/update", role);
+}

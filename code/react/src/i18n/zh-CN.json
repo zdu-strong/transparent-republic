@@ -120,5 +120,10 @@
     "PermissionListIsEmpty": "权限列表是空的",
     "AreYouSureDeleteRole": "你确定要删除角色 \"{roleName}\" 吗?",
     "Create": "新增",
-    "Save": "保存"
+    "Save": "保存",
+    "SystemRole": "系统角色",
+    "OrganizeRole": "组织角色",
+    "Update": "更新",
+    "RoleNameCannotBeDuplicated": "角色名称不能重复",
+    "PermissionListCannotBeEmpty": "权限列表不能为空"
 }

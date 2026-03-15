@@ -120,5 +120,10 @@
     "PermissionListIsEmpty": "Permission list is empty",
     "AreYouSureDeleteRole": "Are you sure you want to delete the role \"{roleName}\"?",
     "Create": "Create",
-    "Save": "Save"
+    "Save": "Save",
+    "SystemRole": "System Role",
+    "OrganizeRole": "Organize Role",
+    "Update": "Update",
+    "RoleNameCannotBeDuplicated": "Role name cannot be duplicated",
+    "PermissionListCannotBeEmpty": "permission list cannot be empty"
 }
