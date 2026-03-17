@@ -1,5 +1,5 @@
 import LumenExchange from "@/component/Lumen/LumenExchange";
-import CheckPermissionComponent from "@common/checkPermission/CheckPagePermissionComponent";
+import CheckPermissionComponent from "@/common/Server/CheckPagePermissionComponent";
 import MainMenu from "@component/SystemMenu/MainMenu";
 
 export default <CheckPermissionComponent

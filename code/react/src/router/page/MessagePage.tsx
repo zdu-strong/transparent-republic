@@ -1,4 +1,4 @@
-import CheckPermissionComponent from "@common/checkPermission/CheckPagePermissionComponent";
+import CheckPermissionComponent from "@/common/Server/CheckPagePermissionComponent";
 import MessageEntry from "@component/Message/MessageEntry";
 import MainMenu from "@component/SystemMenu/MainMenu";
 

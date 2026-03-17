@@ -147,7 +147,7 @@ export default observer((props: Props) => {
                                 <FormControlLabel
                                     key={permission}
                                     control={<Checkbox
-                                        defaultChecked={linq.from(state.role.permissionList).any(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission)}
+                                        checked={linq.from(state.role.permissionList).any(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission)}
                                         onChange={(e) => switchCheckedOfPermission(e, permission)}
                                     />}
                                     label={permission}

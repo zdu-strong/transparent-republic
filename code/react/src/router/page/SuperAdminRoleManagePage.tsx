@@ -1,4 +1,4 @@
-import CheckPermissionComponent from "@common/checkPermission/CheckPagePermissionComponent";
+import CheckPermissionComponent from "@/common/Server/CheckPagePermissionComponent";
 import MainMenu from "@component/SystemMenu/MainMenu";
 import SuperAdminRoleManage from "@component/SuperAdminRoleManage/SuperAdminRoleManage";
 

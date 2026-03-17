@@ -1,4 +1,4 @@
-import CheckPermissionComponent from "@common/checkPermission/CheckPagePermissionComponent";
+import CheckPermissionComponent from "@/common/Server/CheckPagePermissionComponent";
 import SignIn from '@component/SignIn/SignIn';
 
 

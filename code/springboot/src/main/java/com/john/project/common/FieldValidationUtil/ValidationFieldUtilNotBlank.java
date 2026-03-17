@@ -51,4 +51,10 @@ public abstract class ValidationFieldUtilNotBlank extends ValidationFieldUtilBas
         }
     }
 
+    public void checkNotBlankOfPermission(String permission) {
+        if (StringUtils.isBlank(permission)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "permission cannot be blank");
+        }
+    }
+
 }

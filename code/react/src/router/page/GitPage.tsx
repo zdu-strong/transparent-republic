@@ -1,4 +1,4 @@
-import CheckPermissionComponent from "@common/checkPermission/CheckPagePermissionComponent";
+import CheckPermissionComponent from "@/common/Server/CheckPagePermissionComponent";
 import GitInfoComponent from "@component/GitInfo";
 import MainMenu from "@component/SystemMenu/MainMenu";
 
