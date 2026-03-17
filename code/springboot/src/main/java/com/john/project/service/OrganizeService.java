@@ -80,6 +80,7 @@ public class OrganizeService extends BaseService {
     public PaginationModel<OrganizeModel> searchOrganizeForSuperAdminByPagination(SuperAdminOrganizeQueryPaginationModel query) {
         var stream = this.streamAll(OrganizeEntity.class)
                 .where(s -> s.getIsCompany())
+                .where(s -> s.getIsDeleted().equals(false))
                 .sortedDescendingBy(s -> s.getId())
                 .sortedDescendingBy(s -> s.getCreateDate());
         return new PaginationModel<>(query, stream, this.organizeFormatter::format);

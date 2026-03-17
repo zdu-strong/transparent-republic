@@ -125,5 +125,7 @@
     "OrganizeRole": "Organize Role",
     "Update": "Update",
     "RoleNameCannotBeDuplicated": "Role name cannot be duplicated",
-    "PermissionListCannotBeEmpty": "permission list cannot be empty"
+    "PermissionListCannotBeEmpty": "permission list cannot be empty",
+    "OrganizeName": "Organize Name",
+    "AreYouSureDeleteOrganize": "Are you sure you want to delete the organize \"{name}\"?"
 }

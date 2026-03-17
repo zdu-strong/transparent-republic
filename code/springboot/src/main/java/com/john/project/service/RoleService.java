@@ -125,22 +125,28 @@ public class RoleService extends BaseService {
     @Transactional(readOnly = true)
     public void checkCanCreateRole(RoleModel roleModel, HttpServletRequest request) {
         var roleName = roleModel.getName();
-        if (roleModel.getPermissionList().stream().anyMatch(s -> !s.getIsOrganizePermission())) {
+        if (roleModel.getPermissionList().stream().anyMatch(s -> !SystemPermissionEnum.parse(s.getPermission()).getIsOrganizeRole())) {
             if (this.streamAll(RoleEntity.class).anyMatch(s -> s.getName().equals(roleName))) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Role name cannot be duplicated");
             }
-        } else {
-            for (var permissionModel : roleModel.getPermissionList()) {
-                var organizeId = permissionModel.getOrganize().getId();
-                if (this.streamAll(PermissionRelationEntity.class)
-                        .where(s -> s.getOrganize().getId().equals(organizeId))
-                        .where(s -> s.getRole().getName().equals(roleName))
-                        .exists()
-                ) {
-                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Role name cannot be duplicated");
-                }
+        }
+
+        for (var permissionModel : roleModel.getPermissionList()) {
+            if (!SystemPermissionEnum.parse((permissionModel.getPermission())).getIsOrganizeRole()) {
+                continue;
+            }
+
+            var organizeId = permissionModel.getOrganize().getId();
+
+            if (this.streamAll(PermissionRelationEntity.class)
+                    .where(s -> s.getOrganize().getId().equals(organizeId))
+                    .where(s -> s.getRole().getName().equals(roleName))
+                    .exists()
+            ) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Role name cannot be duplicated");
             }
         }
+
         if (!roleModel.getPermissionList().stream().anyMatch(s -> Arrays.stream(SystemPermissionEnum.values())
                 .filter(m -> !m.getIsOrganizeRole()).map(m -> m.getValue()).toList().contains(s))) {
             return;

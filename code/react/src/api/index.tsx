@@ -11,6 +11,7 @@ import * as User from '@api/User';
 import * as SuperAdminOrganizeQuery from '@api/SuperAdminOrganizeQuery';
 import * as Lumen from '@api/Lumen';
 import * as Role from '@api/Role';
+import * as Organize from '@api/Organize';
 
 export default {
     Authorization,
@@ -26,4 +27,5 @@ export default {
     User,
     Lumen,
     Role,
+    Organize
 }

@@ -14,7 +14,7 @@ import SuperAdminRoleDetailButton from "@/component/SuperAdminRoleManage/SuperAd
 import { SuperAdminRoleQueryPaginationModel } from "@model/SuperAdminRoleQueryPaginationModel";
 import { useMultipleQuery } from "@/common/use-hook";
 import { v4 } from "uuid";
-import RoleCreateOrUpdateDialog from "./RoleCreateOrUpdateDialog";
+import RoleCreateOrUpdateDialog from "@component/SuperAdminRoleManage/RoleCreateOrUpdateDialog";
 
 export default observer(() => {
 
@@ -122,6 +122,7 @@ export default observer(() => {
             </div>
         </div>
         {state.createDialog.open && <RoleCreateOrUpdateDialog
+            key={state.createDialog.id}
             searchByPagination={roleQueryState.requery}
             id={""}
             closeDialog={closeCreateDialog}

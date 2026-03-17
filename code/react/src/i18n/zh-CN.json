@@ -125,5 +125,7 @@
     "OrganizeRole": "组织角色",
     "Update": "更新",
     "RoleNameCannotBeDuplicated": "角色名称不能重复",
-    "PermissionListCannotBeEmpty": "权限列表不能为空"
+    "PermissionListCannotBeEmpty": "权限列表不能为空",
+    "OrganizeName": "组织名称",
+    "AreYouSureDeleteOrganize": "你确定要删除组织 \"{name}\"?"
 }

@@ -6,19 +6,25 @@ import { AutoSizer } from "react-virtualized";
 import api from "@api";
 import LoadingOrErrorComponent from "@common/MessageService/LoadingOrErrorComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
 import { FormattedMessage } from "react-intl";
 import { PaginationModel } from "@model/PaginationModel";
 import { OrganizeModel } from "@model/OrganizeModel";
 import { SuperAdminOrganizeQueryPaginationModel } from "@model/SuperAdminOrganizeQueryPaginationModel";
 import { useMultipleQuery } from "@/common/use-hook";
+import { v4 } from "uuid";
+import OrganizeCreateOrUpdateDialog from "@component/SuperAdminOrganizeManage/OrganizeCreateOrUpdateDialog";
 
 export default observer(() => {
 
     const state = useMobxState({
         query: new SuperAdminOrganizeQueryPaginationModel(),
         paginationModel: new PaginationModel<OrganizeModel>(),
+        createDialog: {
+            id: v4(),
+            open: false,
+        },
         columns: [
             {
                 headerName: 'ID',
@@ -59,42 +65,68 @@ export default observer(() => {
         state.paginationModel = await api.SuperAdminOrganizeQuery.searchByPagination(state.query);
     });
 
-    return <LoadingOrErrorComponent ready={organizeQueryState.ready} error={organizeQueryState.error}>
-        <div className="flex flex-col flex-auto" style={{ paddingLeft: "50px", paddingRight: "50px" }}>
-            <div className="flex flex-row" style={{ marginTop: "10px", marginBottom: "10px" }}>
-                <Button
-                    variant="contained"
-                    onClick={organizeQueryState.requery}
-                    startIcon={<FontAwesomeIcon icon={organizeQueryState.loading ? faSpinner : faSearch} spin={organizeQueryState.loading} />}
-                >
-                    <FormattedMessage id="Refresh" defaultMessage="Refresh" />
-                </Button>
+
+    const openCreateDialog = () => {
+        state.createDialog.id = v4();
+        state.createDialog.open = true;
+    };
+
+    const closeCreateDialog = () => {
+        state.createDialog.open = false;
+    };
+
+    return <>
+        <LoadingOrErrorComponent ready={organizeQueryState.ready} error={organizeQueryState.error}>
+            <div className="flex flex-col flex-auto" style={{ paddingLeft: "50px", paddingRight: "50px" }}>
+                <div className="flex flex-row" style={{ marginTop: "10px", marginBottom: "10px" }}>
+                    <Button
+                        variant="contained"
+                        onClick={organizeQueryState.requery}
+                        startIcon={<FontAwesomeIcon icon={organizeQueryState.loading ? faSpinner : faSearch} spin={organizeQueryState.loading} />}
+                    >
+                        <FormattedMessage id="Refresh" defaultMessage="Refresh" />
+                    </Button>
+                    <Button
+                        variant="contained"
+                        onClick={openCreateDialog}
+                        startIcon={<FontAwesomeIcon icon={faPlus} />}
+                        style={{ marginLeft: "1em" }}
+                    >
+                        <FormattedMessage id="Create" defaultMessage="Create" />
+                    </Button>
+                </div>
+                <div className="flex flex-auto" style={{ paddingBottom: "1px" }}>
+                    <AutoSizer>
+                        {({ width, height }) => <Box width={Math.max(width, 100)} height={Math.max(height, 100)}>
+                            <DataGrid
+                                rows={state.paginationModel.items}
+                                rowCount={state.paginationModel.totalRecords}
+                                onPaginationModelChange={(s) => {
+                                    state.query.pageNum = Math.max(s.page + 1, 1);
+                                    state.query.pageSize = Math.max(s.pageSize, 1);
+                                    organizeQueryState.requery();
+                                }}
+                                apiRef={dataGridRef}
+                                sortingMode="server"
+                                paginationMode="server"
+                                getRowId={(s) => s.id}
+                                columns={state.columns}
+                                autoPageSize
+                                disableRowSelectionOnClick
+                                disableColumnMenu
+                                disableColumnResize
+                                disableColumnSorting
+                            />
+                        </Box>}
+                    </AutoSizer>
+                </div>
             </div>
-            <div className="flex flex-auto" style={{ paddingBottom: "1px" }}>
-                <AutoSizer>
-                    {({ width, height }) => <Box width={Math.max(width, 100)} height={Math.max(height, 100)}>
-                        <DataGrid
-                            rows={state.paginationModel.items}
-                            rowCount={state.paginationModel.totalRecords}
-                            onPaginationModelChange={(s) => {
-                                state.query.pageNum = Math.max(s.page + 1, 1);
-                                state.query.pageSize = Math.max(s.pageSize, 1);
-                                organizeQueryState.requery();
-                            }}
-                            apiRef={dataGridRef}
-                            sortingMode="server"
-                            paginationMode="server"
-                            getRowId={(s) => s.id}
-                            columns={state.columns}
-                            autoPageSize
-                            disableRowSelectionOnClick
-                            disableColumnMenu
-                            disableColumnResize
-                            disableColumnSorting
-                        />
-                    </Box>}
-                </AutoSizer>
-            </div>
-        </div>
-    </LoadingOrErrorComponent>
+        </LoadingOrErrorComponent>
+        {state.createDialog.open && <OrganizeCreateOrUpdateDialog
+            key={state.createDialog.id}
+            id={""}
+            searchByPagination={organizeQueryState.requery}
+            closeDialog={closeCreateDialog}
+        />}
+    </>
 })

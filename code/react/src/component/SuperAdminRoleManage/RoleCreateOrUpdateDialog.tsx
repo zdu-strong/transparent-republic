@@ -80,24 +80,22 @@ export default observer((props: Props) => {
 
     function switchCheckedOfPermission(e: React.ChangeEvent<HTMLInputElement>, permission: SystemPermissionEnum, organizeId?: string) {
         if (isSystemPermission(permission)) {
-            const index = state.role.permissionList.findIndex(s => !s.isOrganizePermission && s.permission === permission);
+            const index = state.role.permissionList.findIndex(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission);
             if (index >= 0) {
                 state.role.permissionList.splice(index, 1);
             } else {
                 const systemPermissionModel = new SystemPermissionModel();
                 systemPermissionModel.id = v7();
-                systemPermissionModel.isOrganizePermission = false;
                 systemPermissionModel.permission = permission;
                 state.role.permissionList.push(systemPermissionModel);
             }
         } else {
-            const index = state.role.permissionList.findIndex(s => s.isOrganizePermission && s.organize.id === organizeId && s.permission === permission);
+            const index = state.role.permissionList.findIndex(s => isOrganizePermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.organize.id === organizeId && s.permission === permission);
             if (index >= 0) {
                 state.role.permissionList.splice(index, 1);
             } else {
                 const systemPermissionModel = new SystemPermissionModel();
                 systemPermissionModel.id = v7();
-                systemPermissionModel.isOrganizePermission = true;
                 systemPermissionModel.permission = permission;
                 systemPermissionModel.organize = new OrganizeModel();
                 systemPermissionModel.organize.id = organizeId!;
@@ -133,6 +131,7 @@ export default observer((props: Props) => {
                             onChange={(e) => state.role.name = e.target.value}
                             error={!!state.errors.name()}
                             helperText={state.errors.name()}
+                            autoFocus={true}
                         />
                     </div>
                     <div className="flex flex-row">
@@ -148,7 +147,7 @@ export default observer((props: Props) => {
                                 <FormControlLabel
                                     key={permission}
                                     control={<Checkbox
-                                        defaultChecked={linq.from(state.role.permissionList).any(s => !s.isOrganizePermission && s.permission === permission)}
+                                        defaultChecked={linq.from(state.role.permissionList).any(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission)}
                                         onChange={(e) => switchCheckedOfPermission(e, permission)}
                                     />}
                                     label={permission}

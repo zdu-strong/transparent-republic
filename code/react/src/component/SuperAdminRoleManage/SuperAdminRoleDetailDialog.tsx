@@ -7,10 +7,10 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { SystemRoleModel } from "@/model/SystemRoleModel";
-import RoleDetail from "./RoleDetail";
+import RoleDetail from "@component/SuperAdminRoleManage/RoleDetail";
 import { MessageService } from "@/common/MessageService";
 import { v4 } from "uuid";
-import RoleCreateOrUpdateDialog from "./RoleCreateOrUpdateDialog";
+import RoleCreateOrUpdateDialog from "@component/SuperAdminRoleManage/RoleCreateOrUpdateDialog";
 
 type Props = {
     id: string;
