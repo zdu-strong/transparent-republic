@@ -77,6 +77,7 @@ public class UserService extends BaseService {
         var userEntity = this.streamAll(UserEntity.class)
                 .where(s -> s.getId().equals(userId))
                 .getOnlyValue();
+        userEntity.setUsername(userModel.getUsername());
         this.merge(userEntity);
 
         var userRoleRelationList = this.streamAll(UserEntity.class)

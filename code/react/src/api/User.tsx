@@ -2,11 +2,20 @@ import { UserModel } from "@model/UserModel";
 import axios from "axios";
 import { TypedJSON } from "typedjson";
 
+
+export async function createUser(user: UserModel) {
+    const { data } = await axios.post("/user/create", user);
+    return new TypedJSON(UserModel).parse(data)!;
+}
+
+export async function updateUser(user: UserModel) {
+    await axios.post("/user/update", user);
+}
+
 export async function getUserById(userId: string) {
     const { data } = await axios.get("/user", { params: { id: userId } });
     return new TypedJSON(UserModel).parse(data)!;
 }
-
 
 export async function deleteUserById(userId: string) {
     await axios.post("/user/delete", null, { params: { id: userId } });

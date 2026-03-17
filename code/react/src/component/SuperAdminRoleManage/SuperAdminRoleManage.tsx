@@ -66,7 +66,6 @@ export default observer(() => {
 
     const dataGridRef = useGridApiRef();
 
-
     const openCreateDialog = () => {
         state.createDialog.id = v4();
         state.createDialog.open = true;
