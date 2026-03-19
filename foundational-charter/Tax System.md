@@ -2,6 +2,7 @@ The central government collects taxes centrally and allocates 30% of the tax rev
 If a state deems 30% insufficient, it must submit a detailed budget for review by its finance team, after which additional funds will be allocated.<br/>
 States have full control over their finances, and the central government cannot interfere.<br/>
 Taxes include consumption tax, property tax, corporate profit tax, tariff.<br/>
+All goods are subject to a unified profit tax rate and a unified consumption tax rate, while different cost ratios are assigned to different product categories. For small businesses, product categories are not distinguished; instead, a fixed cost ratio is assigned based on the type of business.<br/>
 Abolishing personal income tax will allow capital to flow freely.<br/>
 
 Property tax:<br/>
