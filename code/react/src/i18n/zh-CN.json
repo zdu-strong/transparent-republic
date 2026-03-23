@@ -127,5 +127,7 @@
     "RoleNameCannotBeDuplicated": "角色名称不能重复",
     "PermissionListCannotBeEmpty": "权限列表不能为空",
     "OrganizeName": "组织名称",
-    "AreYouSureDeleteOrganize": "你确定要删除组织 \"{name}\"?"
+    "AreYouSureDeleteOrganize": "你确定要删除组织 \"{name}\"?",
+    "SystemPermission": "系统权限",
+    "OrganizePermission": "组织权限"
 }

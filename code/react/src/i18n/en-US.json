@@ -127,5 +127,7 @@
     "RoleNameCannotBeDuplicated": "Role name cannot be duplicated",
     "PermissionListCannotBeEmpty": "permission list cannot be empty",
     "OrganizeName": "Organize Name",
-    "AreYouSureDeleteOrganize": "Are you sure you want to delete the organize \"{name}\"?"
+    "AreYouSureDeleteOrganize": "Are you sure you want to delete the organize \"{name}\"?",
+    "SystemPermission": "System Permission",
+    "OrganizePermission": "Organize Permission"
 }

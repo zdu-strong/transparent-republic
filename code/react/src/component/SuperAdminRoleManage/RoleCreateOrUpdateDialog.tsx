@@ -141,7 +141,7 @@ export default observer((props: Props) => {
                     </div>
                     <div className="flex flex-row">
                         <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                            <FormattedMessage id="SystemRole" defaultMessage="System Role" />
+                            <FormattedMessage id="SystemPermission" defaultMessage="System Permission" />
                             {":"}
                         </div>
                         {state.permissionListOfSystem.length == 0 && <div className="flex flex-row">
@@ -162,7 +162,7 @@ export default observer((props: Props) => {
                     </div>
                     <div className="flex flex-row">
                         <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                            <FormattedMessage id="OrganizeRole" defaultMessage="Organize Role" />
+                            <FormattedMessage id="OrganizePermission" defaultMessage="Organize Permission" />
                             {":"}
                         </div>
                         {/* {state.permissionListOfSystem.length == 0 && <div className="flex flex-row">
