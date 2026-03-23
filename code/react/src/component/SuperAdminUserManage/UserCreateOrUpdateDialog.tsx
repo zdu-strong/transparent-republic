@@ -142,13 +142,16 @@ export default observer((props: Props) => {
                             <FormattedMessage id="SystemRole" defaultMessage="System Role" />
                             {":"}
                         </div>
-                        <FormGroup>
+                        {state.systemRoleList.length == 0 && <div className="flex flex-row">
+                            <FormattedMessage id="RoleListIsEmpty" defaultMessage="Role list is empty" />
+                        </div>}
+                        {state.systemRoleList.length > 0 && <FormGroup>
                             {state.systemRoleList.map(role => <FormControlLabel
                                 control={<Checkbox checked={isCheckedOfRole(role)} onChange={(e) => switchCheckedOfRole(e, role)} />}
                                 label={role.name}
                                 key={role.id}
                             />)}
-                        </FormGroup>
+                        </FormGroup>}
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
