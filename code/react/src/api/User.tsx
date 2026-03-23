@@ -1,15 +1,22 @@
 import { UserModel } from "@model/UserModel";
 import axios from "axios";
 import { TypedJSON } from "typedjson";
+import { getEncryptedPassword } from "@api/Authorization";
 
 
 export async function createUser(user: UserModel) {
-    const { data } = await axios.post("/user/create", user);
+    const body = new TypedJSON(UserModel).parse(JSON.stringify(user))!;
+    body.password = await getEncryptedPassword(body.password);
+    const { data } = await axios.post("/user/create", body);
     return new TypedJSON(UserModel).parse(data)!;
 }
 
 export async function updateUser(user: UserModel) {
-    await axios.post("/user/update", user);
+    const body = new TypedJSON(UserModel).parse(JSON.stringify(user))!;
+    if (body.password) {
+        body.password = await getEncryptedPassword(body.password);
+    }
+    await axios.post("/user/update", body);
 }
 
 export async function getUserById(userId: string) {

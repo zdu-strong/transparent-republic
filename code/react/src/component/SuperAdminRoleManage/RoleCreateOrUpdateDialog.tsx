@@ -104,6 +104,11 @@ export default observer((props: Props) => {
         }
     }
 
+    function isCheckedOfPermission(permission: SystemPermissionEnum, organizeId?: string) {
+        const isChecked = linq.from(state.role.permissionList).any(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission);
+        return isChecked;
+    }
+
     return <>
         <Dialog
             open={true}
@@ -147,7 +152,7 @@ export default observer((props: Props) => {
                                 <FormControlLabel
                                     key={permission}
                                     control={<Checkbox
-                                        checked={linq.from(state.role.permissionList).any(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission)}
+                                        checked={isCheckedOfPermission(permission)}
                                         onChange={(e) => switchCheckedOfPermission(e, permission)}
                                     />}
                                     label={permission}

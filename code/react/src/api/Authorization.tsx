@@ -62,6 +62,6 @@ export async function isSignIn() {
     return true;
 }
 
-async function getEncryptedPassword(password: string) {
+export async function getEncryptedPassword(password: string) {
     return await encryptByPublicKeyOfRSA(JSON.stringify([sha3_512(password), new Date()]), await getKeyOfRSAPublicKey());
 }

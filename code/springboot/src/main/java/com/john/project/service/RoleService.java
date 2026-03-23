@@ -175,6 +175,10 @@ public class RoleService extends BaseService {
         if (!this.permissionUtil.hasAnyPermission(request, SystemPermissionEnum.SUPER_ADMIN, SystemPermissionEnum.ORGANIZE_MANAGE)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Only administrators can create roles");
         }
+
+        if (JinqStream.from(roleModel.getPermissionList()).select(s -> SystemPermissionEnum.parse(s.getPermission())).group(s -> s.getIsOrganizeRole(), (s, t) -> s).count() > 1) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "System permissions and organizational permissions cannot coexist");
+        }
     }
 
     @Transactional(readOnly = true)
@@ -204,7 +208,7 @@ public class RoleService extends BaseService {
 
 
         if (roleModel.getPermissionList().stream().anyMatch(s -> !SystemPermissionEnum.parse(s.getPermission()).getIsOrganizeRole())) {
-            if (this.streamAll(RoleEntity.class).anyMatch(s -> s.getName().equals(roleName) && !s.getId().equals(roleId))) {
+            if (this.streamAll(RoleEntity.class).anyMatch(s -> s.getName().equals(roleName) && !s.getId().equals(roleId) && s.getIsDeleted().equals(false))) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Role name cannot be duplicated");
             }
         }
@@ -220,6 +224,7 @@ public class RoleService extends BaseService {
                     .where(s -> s.getOrganize().getId().equals(organizeId))
                     .where(s -> s.getRole().getName().equals(roleName))
                     .where(s -> !s.getRole().getId().equals(roleId))
+                    .where(s -> s.getRole().getIsDeleted().equals(false))
                     .exists()
             ) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Role name cannot be duplicated");
@@ -257,6 +262,9 @@ public class RoleService extends BaseService {
 
         if (!this.permissionUtil.hasAnyPermission(request, SystemPermissionEnum.SUPER_ADMIN, SystemPermissionEnum.ORGANIZE_MANAGE)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Only administrators can update roles");
+        }
+        if (JinqStream.from(roleModel.getPermissionList()).select(s -> SystemPermissionEnum.parse(s.getPermission())).group(s -> s.getIsOrganizeRole(), (s, t) -> s).count() > 1) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "System permissions and organizational permissions cannot coexist");
         }
     }
 

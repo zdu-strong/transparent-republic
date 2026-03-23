@@ -1,6 +1,6 @@
 # Getting Started
 
-This project is to do some knowledge backup.<br/>
+This project is about building a second-generation democratic system..<br/>
 If you have any questions, please contact zdu.strong@gmail.com.<br/>
 
 ### `Environmental description`

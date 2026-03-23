@@ -3,11 +3,13 @@ import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorCompo
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
 import { faFloppyDisk, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, TextField } from "@mui/material";
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, FormControlLabel, FormGroup, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { timer } from "rxjs";
 import { UserModel } from "@/model/UserModel";
+import type { SystemRoleModel } from "@/model/SystemRoleModel";
+import { SuperAdminRoleQueryPaginationModel } from "@/model/SuperAdminRoleQueryPaginationModel";
 
 type Props = {
     id: string;
@@ -20,14 +22,24 @@ export default observer((props: Props) => {
     const state = useMobxState(() => {
         const user = new UserModel();
         user.username = "";
+        user.password = "";
+        user.roleList = [];
+        user.userEmailList = [];
         return {
             user: user,
             submit: false,
+            systemRoleList: [] as SystemRoleModel[],
             errors: {
                 name() {
-                    return state.submit &&
-                        !state.user.username &&
-                        "Please fill in the username";
+                    return state.submit
+                        && !state.user.username
+                        && "Please fill in the username";
+                },
+                password() {
+                    return state.submit
+                        && !props.id
+                        && !state.user.password
+                        && "Please fill in the password";
                 },
                 hasError() {
                     return Object.keys(state.errors)
@@ -42,6 +54,9 @@ export default observer((props: Props) => {
         if (props.id) {
             state.user = await api.User.getUserById(props.id);
         }
+        const queryBody = new SuperAdminRoleQueryPaginationModel();
+        queryBody.pageSize = 10;
+        state.systemRoleList = (await api.SuperAdminSystemRoleQuery.searchByPagination(queryBody)).items;
     });
 
     const { loading, resubmit } = useOnceSubmitWhileTrue(async () => {
@@ -66,6 +81,21 @@ export default observer((props: Props) => {
             return;
         }
         props.closeDialog();
+    }
+
+    function switchCheckedOfRole(e: React.ChangeEvent<HTMLInputElement>, role: SystemRoleModel) {
+        const index = state.user.roleList.findIndex(s => s.id === role.id);
+        if (index >= 0) {
+            state.user.roleList.splice(index, 1);
+        } else {
+            state.user.roleList.push(role);
+        }
+    }
+
+    function isCheckedOfRole(role: SystemRoleModel) {
+        const index = state.user.roleList.findIndex(s => s.id === role.id);
+        const isChecked = index >= 0;
+        return isChecked;
     }
 
     return <>
@@ -97,6 +127,28 @@ export default observer((props: Props) => {
                             helperText={state.errors.name()}
                             autoFocus={true}
                         />
+                    </div>
+                    <div className="flex flex-row" style={{ marginTop: "1em" }}>
+                        <TextField
+                            label={<FormattedMessage id="Password" defaultMessage="Password" />}
+                            defaultValue={state.user.password}
+                            onChange={(e) => state.user.password = e.target.value}
+                            error={!!state.errors.password()}
+                            helperText={state.errors.password()}
+                        />
+                    </div>
+                    <div className="flex flex-row" style={{ marginTop: "1em" }}>
+                        <div className="flex flex-row" style={{ marginRight: "1em" }}>
+                            <FormattedMessage id="SystemRole" defaultMessage="System Role" />
+                            {":"}
+                        </div>
+                        <FormGroup>
+                            {state.systemRoleList.map(role => <FormControlLabel
+                                control={<Checkbox checked={isCheckedOfRole(role)} onChange={(e) => switchCheckedOfRole(e, role)} />}
+                                label={role.name}
+                                key={role.id}
+                            />)}
+                        </FormGroup>
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
