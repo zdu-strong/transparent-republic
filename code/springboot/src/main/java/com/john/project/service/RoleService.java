@@ -42,6 +42,8 @@ public class RoleService extends BaseService {
         roleEntity.setUpdateDate(new Date());
         roleEntity.setName(roleModel.getName());
         roleEntity.setIsDeleted(false);
+        roleEntity.setHasSystemPermission(hasSystemPermission(roleModel));
+        roleEntity.setHasOrganizePermission(hasOrganizePermission(roleModel));
         this.persist(roleEntity);
 
         for (var permission : roleModel.getPermissionList()) {
@@ -58,6 +60,8 @@ public class RoleService extends BaseService {
                 .getOnlyValue();
         roleEntity.setName(roleModel.getName());
         roleEntity.setUpdateDate(new Date());
+        roleEntity.setHasSystemPermission(hasSystemPermission(roleModel));
+        roleEntity.setHasOrganizePermission(hasOrganizePermission(roleModel));
         this.merge(roleEntity);
 
         var permissionList = this.streamAll(PermissionRelationEntity.class)
@@ -295,6 +299,10 @@ public class RoleService extends BaseService {
             stream = stream.where(s -> JPQL.like(s.getOne().getName(), roleName + "%"));
         }
 
+        if (ObjectUtil.isNotNull(query.getIsOnlySystemRole()) && query.getIsOnlySystemRole()) {
+            stream = stream.where(s -> s.getOne().getHasSystemPermission());
+        }
+
         var roleStream = stream.group(s -> s.getOne(), (s, t) -> s)
                 .select(s -> s.getOne());
 
@@ -313,6 +321,20 @@ public class RoleService extends BaseService {
                 .where(s -> s.getId().equals(id))
                 .exists();
         return exists;
+    }
+
+    private boolean hasSystemPermission(RoleModel roleModel) {
+        var hasSystemPermission = JinqStream.from(roleModel.getPermissionList())
+                .where(s -> !SystemPermissionEnum.parse(s.getPermission()).getIsOrganizeRole())
+                .exists();
+        return hasSystemPermission;
+    }
+
+    private boolean hasOrganizePermission(RoleModel roleModel) {
+        var hasOrganizePermission = JinqStream.from(roleModel.getPermissionList())
+                .where(s -> SystemPermissionEnum.parse(s.getPermission()).getIsOrganizeRole())
+                .exists();
+        return hasOrganizePermission;
     }
 
 //    @Transactional(readOnly = true)

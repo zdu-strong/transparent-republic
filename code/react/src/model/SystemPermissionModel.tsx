@@ -11,9 +11,6 @@ export class SystemPermissionModel {
     @jsonMember(String)
     permission!: string;
 
-    @jsonMember(Boolean)
-    isOrganizePermission!: boolean;
-
     @jsonMember(Date)
     createDate!: Date;
 

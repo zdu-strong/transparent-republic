@@ -129,5 +129,6 @@
     "OrganizeName": "Organize Name",
     "AreYouSureDeleteOrganize": "Are you sure you want to delete the organize \"{name}\"?",
     "SystemPermission": "System Permission",
-    "OrganizePermission": "Organize Permission"
+    "OrganizePermission": "Organize Permission",
+    "Filter": "Filter"
 }

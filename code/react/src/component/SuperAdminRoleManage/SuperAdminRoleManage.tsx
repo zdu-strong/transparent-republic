@@ -7,7 +7,7 @@ import api from "@api";
 import LoadingOrErrorComponent from "@common/MessageService/LoadingOrErrorComponent";
 import { SystemRoleModel } from "@model/SystemRoleModel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faFilter, faPlus, faSearch, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FormattedMessage } from "react-intl";
 import { PaginationModel } from "@model/PaginationModel";
 import SuperAdminRoleDetailButton from "@/component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
@@ -22,46 +22,54 @@ export default observer(() => {
         state.paginationModel = await api.SuperAdminSystemRoleQuery.searchByPagination(state.query);
     });
 
-    const state = useMobxState({
-        query: new SuperAdminRoleQueryPaginationModel(),
-        paginationModel: new PaginationModel<SystemRoleModel>(),
-        createDialog: {
-            id: v4(),
-            open: false,
-        },
-        columns: [
-            {
-                headerName: 'ID',
-                field: 'id',
-                width: 290
+    const state = useMobxState(() => {
+        const query = new SuperAdminRoleQueryPaginationModel();
+        query.isOnlySystemRole = true;
+        return {
+            query: query,
+            paginationModel: new PaginationModel<SystemRoleModel>(),
+            createDialog: {
+                id: v4(),
+                open: false,
             },
-            {
-                renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
-                field: 'name',
-                width: 150,
-                flex: 1,
+            filterDialog: {
+                id: v4(),
+                open: false,
             },
-            {
-                renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
-                field: 'createDate',
-                description: 'This column has a value getter and is not sortable.',
-                renderCell: (row) => {
-                    return <div>
-                        {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
-                    </div>
+            columns: [
+                {
+                    headerName: 'ID',
+                    field: 'id',
+                    width: 290
                 },
-                width: 150,
-            },
-            {
-                renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
-                field: '',
-                renderCell: (row) => <SuperAdminRoleDetailButton
-                    id={row.row.id}
-                    searchByPagination={roleQueryState.requery}
-                />,
-                width: 150,
-            },
-        ] as GridColDef<SystemRoleModel>[],
+                {
+                    renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+                    field: 'name',
+                    width: 150,
+                    flex: 1,
+                },
+                {
+                    renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
+                    field: 'createDate',
+                    description: 'This column has a value getter and is not sortable.',
+                    renderCell: (row) => {
+                        return <div>
+                            {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
+                        </div>
+                    },
+                    width: 150,
+                },
+                {
+                    renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
+                    field: '',
+                    renderCell: (row) => <SuperAdminRoleDetailButton
+                        id={row.row.id}
+                        searchByPagination={roleQueryState.requery}
+                    />,
+                    width: 150,
+                },
+            ] as GridColDef<SystemRoleModel>[],
+        };
     });
 
     const dataGridRef = useGridApiRef();
@@ -75,6 +83,15 @@ export default observer(() => {
         state.createDialog.open = false;
     };
 
+    const openFilterDialog = () => {
+        state.filterDialog.id = v4();
+        state.filterDialog.open = true;
+    };
+
+    const closeFilterDialog = () => {
+        state.filterDialog.open = false;
+    };
+
     return <LoadingOrErrorComponent ready={roleQueryState.ready} error={roleQueryState.error}>
         <div className="flex flex-col flex-auto" style={{ paddingLeft: "50px", paddingRight: "50px" }}>
             <div className="flex flex-row" style={{ marginTop: "10px", marginBottom: "10px" }}>
@@ -84,6 +101,14 @@ export default observer(() => {
                     startIcon={<FontAwesomeIcon icon={roleQueryState.loading ? faSpinner : faSearch} spin={roleQueryState.loading} />}
                 >
                     <FormattedMessage id="Refresh" defaultMessage="Refresh" />
+                </Button>
+                <Button
+                    variant="contained"
+                    onClick={openFilterDialog}
+                    startIcon={<FontAwesomeIcon icon={faFilter} />}
+                    style={{ marginLeft: "1em" }}
+                >
+                    <FormattedMessage id="Filter" defaultMessage="Filter" />
                 </Button>
                 <Button
                     variant="contained"

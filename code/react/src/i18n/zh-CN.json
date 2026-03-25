@@ -129,5 +129,6 @@
     "OrganizeName": "组织名称",
     "AreYouSureDeleteOrganize": "你确定要删除组织 \"{name}\"?",
     "SystemPermission": "系统权限",
-    "OrganizePermission": "组织权限"
+    "OrganizePermission": "组织权限",
+    "Filter": "筛选"
 }
