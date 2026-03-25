@@ -130,5 +130,6 @@
     "AreYouSureDeleteOrganize": "你确定要删除组织 \"{name}\"?",
     "SystemPermission": "系统权限",
     "OrganizePermission": "组织权限",
-    "Filter": "筛选"
+    "Filter": "筛选",
+    "Add": "添加"
 }

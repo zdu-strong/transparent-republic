@@ -54,64 +54,65 @@ export default observer(() => {
         loading: {
             sendVerificationCode: {} as Record<string, boolean>,
         },
-        errors: {
-            username() {
-                if (state.username) {
-                    if (state.username.replaceAll(new RegExp('^\\s+', 'g'), '').length !== state.username.length) {
-                        return <FormattedMessage id="ThereShouldBeNoSpacesAtTheBeginningOfTheUsername" defaultMessage="There should be no spaces at the beginning of the username" />
-                    }
-                    if (state.username.replaceAll(new RegExp('\\s+$', 'g'), '').length !== state.username.length) {
-                        return <FormattedMessage id="TheUsernameCannotHaveASpaceAtTheEnd" defaultMessage="The username cannot have a space at the end" />
-                    }
+    })
+
+    const errors = {
+        username() {
+            if (state.username) {
+                if (state.username.replaceAll(new RegExp('^\\s+', 'g'), '').length !== state.username.length) {
+                    return <FormattedMessage id="ThereShouldBeNoSpacesAtTheBeginningOfTheUsername" defaultMessage="There should be no spaces at the beginning of the username" />
                 }
-                if (!state.submitted) {
-                    return false;
+                if (state.username.replaceAll(new RegExp('\\s+$', 'g'), '').length !== state.username.length) {
+                    return <FormattedMessage id="TheUsernameCannotHaveASpaceAtTheEnd" defaultMessage="The username cannot have a space at the end" />
                 }
-                if (!state.username) {
-                    return <FormattedMessage id="PleaseFillInUsername" defaultMessage="Please fill in username" />
-                }
-                return false;
-            },
-            password() {
-                if (state.password) {
-                    if (state.password.replaceAll(new RegExp('^\\s+', 'g'), '').length !== state.password.length) {
-                        return <FormattedMessage id="PasswordMustNotHaveSpacesAtTheBeginning" defaultMessage="Password must not have spaces at the beginning" />
-                    }
-                    if (state.password.replaceAll(new RegExp('\\s+$', 'g'), '').length !== state.password.length) {
-                        return <FormattedMessage id="PasswordCannotHaveASpaceAtTheEnd" defaultMessage="Password cannot have a space at the end" />
-                    }
-                }
-                if (!state.submitted) {
-                    return false;
-                }
-                if (!state.password) {
-                    return <FormattedMessage id="PleaseFillInThePassword" defaultMessage="Please fill in the password" />
-                }
-                return false;
-            },
-            email(emailInfo: UserEmailModel) {
-                if (!state.submitted) {
-                    return false;
-                }
-                if (!emailInfo.email) {
-                    return <FormattedMessage id="PleaseEnterYourEmail" defaultMessage="Please enter your email" />
-                }
-                if (!new RegExp('^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$').test(emailInfo.email)) {
-                    return <FormattedMessage id="EMailFormatIsIncorrect" defaultMessage="E-mail format is incorrect" />
-                }
-                return false;
-            },
-            verificationCode(emailInfo: UserEmailModel) {
-                if (!state.submitted) {
-                    return false;
-                }
-                if (!emailInfo.verificationCodeEmail.verificationCode) {
-                    return <FormattedMessage id="PleaseFillInTheVerificationCode" defaultMessage="Please fill in the verification code" />
-                }
+            }
+            if (!state.submitted) {
                 return false;
             }
+            if (!state.username) {
+                return <FormattedMessage id="PleaseFillInUsername" defaultMessage="Please fill in username" />
+            }
+            return false;
         },
-    })
+        password() {
+            if (state.password) {
+                if (state.password.replaceAll(new RegExp('^\\s+', 'g'), '').length !== state.password.length) {
+                    return <FormattedMessage id="PasswordMustNotHaveSpacesAtTheBeginning" defaultMessage="Password must not have spaces at the beginning" />
+                }
+                if (state.password.replaceAll(new RegExp('\\s+$', 'g'), '').length !== state.password.length) {
+                    return <FormattedMessage id="PasswordCannotHaveASpaceAtTheEnd" defaultMessage="Password cannot have a space at the end" />
+                }
+            }
+            if (!state.submitted) {
+                return false;
+            }
+            if (!state.password) {
+                return <FormattedMessage id="PleaseFillInThePassword" defaultMessage="Please fill in the password" />
+            }
+            return false;
+        },
+        email(emailInfo: UserEmailModel) {
+            if (!state.submitted) {
+                return false;
+            }
+            if (!emailInfo.email) {
+                return <FormattedMessage id="PleaseEnterYourEmail" defaultMessage="Please enter your email" />
+            }
+            if (!new RegExp('^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$').test(emailInfo.email)) {
+                return <FormattedMessage id="EMailFormatIsIncorrect" defaultMessage="E-mail format is incorrect" />
+            }
+            return false;
+        },
+        verificationCode(emailInfo: UserEmailModel) {
+            if (!state.submitted) {
+                return false;
+            }
+            if (!emailInfo.verificationCodeEmail.verificationCode) {
+                return <FormattedMessage id="PleaseFillInTheVerificationCode" defaultMessage="Please fill in the verification code" />
+            }
+            return false;
+        }
+    };
 
     const signUp = useOnceSubmit(async function () {
         const userEmailList: UserEmailModel[] = state.emailList.map(s => ({
@@ -123,16 +124,16 @@ export default observer(() => {
 
     function nextStep() {
         state.submitted = true;
-        if (state.activeStep === 0 && state.errors.username()) {
+        if (state.activeStep === 0 && errors.username()) {
             return;
         }
-        if (state.activeStep === 1 && state.errors.password()) {
+        if (state.activeStep === 1 && errors.password()) {
             return;
         }
-        if (state.activeStep === 2 && state.emailList.some(s => state.errors.email(s))) {
+        if (state.activeStep === 2 && state.emailList.some(s => errors.email(s))) {
             return;
         }
-        if (state.activeStep === 2 && state.emailList.some(s => state.errors.verificationCode(s))) {
+        if (state.activeStep === 2 && state.emailList.some(s => errors.verificationCode(s))) {
             return;
         }
         state.submitted = false
@@ -163,7 +164,7 @@ export default observer(() => {
     async function sendVerificationCode(userEmailModel: UserEmailModel) {
         try {
             state.submitted = true;
-            if (state.errors.email(userEmailModel)) {
+            if (errors.email(userEmailModel)) {
                 return;
             }
             state.submitted = false;
@@ -198,8 +199,8 @@ export default observer(() => {
                         }}
                         value={state.username}
                         autoComplete="off"
-                        error={!!state.errors.username()}
-                        helperText={state.errors.username()}
+                        error={!!errors.username()}
+                        helperText={errors.username()}
                         style={{ marginTop: "1em" }}
                         onKeyDown={(e) => {
                             if (!e.shiftKey && e.key === "Enter") {
@@ -258,8 +259,8 @@ export default observer(() => {
                         autoComplete="off"
                         multiline={true}
                         rows={6}
-                        error={!!state.errors.password()}
-                        helperText={state.errors.password()}
+                        error={!!errors.password()}
+                        helperText={errors.password()}
                         autoFocus={true}
                     />
                 </div>}
@@ -289,8 +290,8 @@ export default observer(() => {
                             value={s.email}
                             autoComplete="off"
                             className="w-full"
-                            error={!!state.errors.email(s)}
-                            helperText={state.errors.email(s)}
+                            error={!!errors.email(s)}
+                            helperText={errors.email(s)}
                             autoFocus={true}
                         />
                         <div style={{ height: "56px" }} className="flex items-center">
@@ -318,8 +319,8 @@ export default observer(() => {
                             value={s.verificationCodeEmail.verificationCode}
                             autoComplete="off"
                             className="w-full"
-                            error={!!state.errors.verificationCode(s)}
-                            helperText={state.errors.verificationCode(s)}
+                            error={!!errors.verificationCode(s)}
+                            helperText={errors.verificationCode(s)}
                             style={{ marginLeft: "1em" }}
                         />
                         <div style={{ height: "56px" }} className="flex items-center">

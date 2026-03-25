@@ -23,20 +23,21 @@ export default observer((props: Props) => {
         return {
             organize: organize,
             submit: false,
-            errors: {
-                name() {
-                    return state.submit &&
-                        !state.organize.name &&
-                        "Please fill in the name";
-                },
-                hasError() {
-                    return Object.keys(state.errors)
-                        .filter(s => s !== "hasError")
-                        .some(s => (state.errors as any)[s]());
-                }
-            }
         };
     });
+
+    const errors = {
+        name() {
+            return state.submit &&
+                !state.organize.name &&
+                "Please fill in the name";
+        },
+        hasError() {
+            return Object.keys(errors)
+                .filter(s => s !== "hasError")
+                .some(s => (errors as any)[s]());
+        }
+    };
 
     const { ready, error } = useMultipleQuery(async () => {
         if (props.id) {
@@ -46,7 +47,7 @@ export default observer((props: Props) => {
 
     const { loading, resubmit } = useOnceSubmitWhileTrue(async () => {
         state.submit = true;
-        if (state.errors.hasError()) {
+        if (errors.hasError()) {
             return false;
         }
         await timer(500).toPromise();
@@ -93,8 +94,8 @@ export default observer((props: Props) => {
                             label={<FormattedMessage id="OrganizeName" defaultMessage="Organize Name" />}
                             defaultValue={state.organize.name}
                             onChange={(e) => state.organize.name = e.target.value}
-                            error={!!state.errors.name()}
-                            helperText={state.errors.name()}
+                            error={!!errors.name()}
+                            helperText={errors.name()}
                             autoFocus={true}
                         />
                     </div>

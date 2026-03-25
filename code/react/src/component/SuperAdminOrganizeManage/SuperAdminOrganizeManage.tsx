@@ -25,39 +25,40 @@ export default observer(() => {
             id: v4(),
             open: false,
         },
-        columns: [
-            {
-                headerName: 'ID',
-                field: 'id',
-                width: 290
-            },
-            {
-                renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
-                field: 'name',
-                width: 150,
-                flex: 1,
-            },
-            {
-                renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
-                field: 'createDate',
-                renderCell: (row) => {
-                    return <div>
-                        {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
-                    </div>
-                },
-                width: 150,
-            },
-            {
-                renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
-                field: '',
-                renderCell: (row) => <SuperAdminOrganizeDetailButton
-                    id={row.row.id}
-                    searchByPagination={organizeQueryState.requery}
-                />,
-                width: 150,
-            },
-        ] as GridColDef<OrganizeModel>[],
     });
+
+    const columns: GridColDef<OrganizeModel>[] = [
+        {
+            headerName: 'ID',
+            field: 'id',
+            width: 290
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+            field: 'name',
+            width: 150,
+            flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
+            field: 'createDate',
+            renderCell: (row) => {
+                return <div>
+                    {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
+                </div>
+            },
+            width: 150,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
+            field: '',
+            renderCell: (row) => <SuperAdminOrganizeDetailButton
+                id={row.row.id}
+                searchByPagination={organizeQueryState.requery}
+            />,
+            width: 150,
+        },
+    ];
 
     const dataGridRef = useGridApiRef();
 
@@ -110,7 +111,7 @@ export default observer(() => {
                                 sortingMode="server"
                                 paginationMode="server"
                                 getRowId={(s) => s.id}
-                                columns={state.columns}
+                                columns={columns}
                                 autoPageSize
                                 disableRowSelectionOnClick
                                 disableColumnMenu

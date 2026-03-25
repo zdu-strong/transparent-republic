@@ -1,9 +1,9 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
-import { faFloppyDisk, faSpinner, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faSpinner, faSquarePlus, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, FormControlLabel, FormGroup, TextField } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { timer } from "rxjs";
@@ -12,6 +12,8 @@ import type { SystemRoleModel } from "@/model/SystemRoleModel";
 import { SuperAdminRoleQueryPaginationModel } from "@/model/SuperAdminRoleQueryPaginationModel";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
+import { v4 } from "uuid";
+import UserChooseRoleDialog from "@component/SuperAdminUserManage/UserChooseRoleDialog";
 
 type Props = {
     id: string;
@@ -31,59 +33,74 @@ export default observer((props: Props) => {
             user: user,
             submit: false,
             systemRoleList: [] as SystemRoleModel[],
-            columns: [
-                {
-                    headerName: 'ID',
-                    field: 'id',
-                    width: 290
-                },
-                {
-                    renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
-                    field: 'name',
-                    width: 150,
-                    flex: 1,
-                },
-                {
-                    renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
-                    field: '',
-                    renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
-                        <SuperAdminRoleDetailButton
-                            id={row.row.id}
-                            searchByPagination={() => { }}
-                            isOnlyView={true}
-                        />
-                        <Button
-                            variant="contained"
-                            onClick={() => removeCheckedOfRole(row.row)}
-                            startIcon={<FontAwesomeIcon icon={faTrashCan} />}
-                            style={{ marginLeft: "1em" }}
-                        >
-                            <FormattedMessage id="Delete" defaultMessage="Delete" />
-                        </Button>
-                    </div>,
-                    width: 230,
-                },
-            ] as GridColDef<SystemRoleModel>[],
-            errors: {
-                name() {
-                    return state.submit
-                        && !state.user.username
-                        && "Please fill in the username";
-                },
-                password() {
-                    return state.submit
-                        && !props.id
-                        && !state.user.password
-                        && "Please fill in the password";
-                },
-                hasError() {
-                    return Object.keys(state.errors)
-                        .filter(s => s !== "hasError")
-                        .some(s => (state.errors as any)[s]());
-                }
-            }
+            addDialog: {
+                id: v4(),
+                open: false,
+            },
+
         };
     });
+
+    const errors = {
+        name() {
+            return state.submit
+                && !state.user.username
+                && "Please fill in the username";
+        },
+        password() {
+            return state.submit
+                && !props.id
+                && !state.user.password
+                && "Please fill in the password";
+        },
+        hasError() {
+            return Object.keys(errors)
+                .filter(s => s !== "hasError")
+                .some(s => (errors as any)[s]());
+        }
+    };
+
+    const columns: GridColDef<SystemRoleModel>[] = [
+        {
+            headerName: 'ID',
+            field: 'id',
+            width: 290
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+            field: 'name',
+            width: 150,
+            flex: 1,
+        },
+        {
+            renderHeader: () => <Button
+                variant="contained"
+                onClick={openAddDialog}
+                startIcon={<FontAwesomeIcon icon={faSquarePlus} />}
+                style={{ marginLeft: "1em" }}
+                size="small"
+            >
+                <FormattedMessage id="Add" defaultMessage="Add" />
+            </Button>,
+            field: '',
+            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
+                <SuperAdminRoleDetailButton
+                    id={row.row.id}
+                    searchByPagination={() => { }}
+                    isOnlyView={true}
+                />
+                <Button
+                    variant="contained"
+                    onClick={() => removeCheckedOfRole(row.row)}
+                    startIcon={<FontAwesomeIcon icon={faTrashCan} />}
+                    style={{ marginLeft: "1em" }}
+                >
+                    <FormattedMessage id="Delete" defaultMessage="Delete" />
+                </Button>
+            </div>,
+            width: 230,
+        },
+    ];
 
     const dataGridRef = useGridApiRef();
 
@@ -98,7 +115,7 @@ export default observer((props: Props) => {
 
     const { loading, resubmit } = useOnceSubmitWhileTrue(async () => {
         state.submit = true;
-        if (state.errors.hasError()) {
+        if (errors.hasError()) {
             return false;
         }
         await timer(500).toPromise();
@@ -142,6 +159,15 @@ export default observer((props: Props) => {
         return isChecked;
     }
 
+    function openAddDialog() {
+        state.addDialog.id = v4();
+        state.addDialog.open = true;
+    }
+
+    function closeAddDialog() {
+        state.addDialog.open = false;
+    }
+
     return <>
         <Dialog
             open={true}
@@ -168,8 +194,8 @@ export default observer((props: Props) => {
                             label={<FormattedMessage id="Username" defaultMessage="Username" />}
                             defaultValue={state.user.username}
                             onChange={(e) => state.user.username = e.target.value}
-                            error={!!state.errors.name()}
-                            helperText={state.errors.name()}
+                            error={!!errors.name()}
+                            helperText={errors.name()}
                             autoFocus={true}
                         />
                     </div>
@@ -178,8 +204,8 @@ export default observer((props: Props) => {
                             label={<FormattedMessage id="Password" defaultMessage="Password" />}
                             defaultValue={state.user.password}
                             onChange={(e) => state.user.password = e.target.value}
-                            error={!!state.errors.password()}
-                            helperText={state.errors.password()}
+                            error={!!errors.password()}
+                            helperText={errors.password()}
                         />
                     </div>
                     <div className="flex flex-row">
@@ -194,29 +220,13 @@ export default observer((props: Props) => {
                             sortingMode="server"
                             paginationMode="server"
                             getRowId={(s) => s.id}
-                            columns={state.columns}
+                            columns={columns}
                             hideFooter
                             disableRowSelectionOnClick
                             disableColumnMenu
                             disableColumnResize
                             disableColumnSorting
                         />
-                    </div>
-                    <div className="flex flex-row" style={{ marginTop: "1em" }}>
-                        <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                            <FormattedMessage id="SystemRole" defaultMessage="System Role" />
-                            {":"}
-                        </div>
-                        {state.systemRoleList.length == 0 && <div className="flex flex-row">
-                            <FormattedMessage id="RoleListIsEmpty" defaultMessage="Role list is empty" />
-                        </div>}
-                        {state.systemRoleList.length > 0 && <FormGroup>
-                            {state.systemRoleList.map(role => <FormControlLabel
-                                control={<Checkbox checked={isCheckedOfRole(role)} onChange={(e) => switchCheckedOfRole(e, role)} />}
-                                label={role.name}
-                                key={role.id}
-                            />)}
-                        </FormGroup>}
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
@@ -231,5 +241,10 @@ export default observer((props: Props) => {
                 </Button>
             </DialogActions>
         </Dialog>
+        {state.addDialog.open && <UserChooseRoleDialog
+            switchCheckedOfRole={switchCheckedOfRole}
+            isCheckedOfRole={isCheckedOfRole}
+            closeDialog={closeAddDialog}
+        />}
     </>
 })

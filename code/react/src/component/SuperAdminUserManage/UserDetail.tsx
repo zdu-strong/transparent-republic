@@ -1,5 +1,5 @@
 import { UserModel } from "@/model/UserModel";
-import { observer, useMobxState } from "mobx-react-use-autorun";
+import { observer } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { format } from "date-fns";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
@@ -14,31 +14,29 @@ export default observer((props: Props) => {
 
     const dataGridRef = useGridApiRef();
 
-    const state = useMobxState({
-        columns: [
-            {
-                headerName: 'ID',
-                field: 'id',
-                width: 290
-            },
-            {
-                renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
-                field: 'name',
-                width: 150,
-                flex: 1,
-            },
-            {
-                renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
-                field: '',
-                renderCell: (row) => <SuperAdminRoleDetailButton
-                    id={row.row.id}
-                    searchByPagination={() => { }}
-                    isOnlyView={true}
-                />,
-                width: 150,
-            },
-        ] as GridColDef<SystemRoleModel>[],
-    });
+    const columns: GridColDef<SystemRoleModel>[] = [
+        {
+            headerName: 'ID',
+            field: 'id',
+            width: 290
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+            field: 'name',
+            width: 150,
+            flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
+            field: '',
+            renderCell: (row) => <SuperAdminRoleDetailButton
+                id={row.row.id}
+                searchByPagination={() => { }}
+                isOnlyView={true}
+            />,
+            width: 150,
+        },
+    ];
 
     return <>
         <div className="flex flex-row">
@@ -89,7 +87,7 @@ export default observer((props: Props) => {
                 sortingMode="server"
                 paginationMode="server"
                 getRowId={(s) => s.id}
-                columns={state.columns}
+                columns={columns}
                 hideFooter
                 disableRowSelectionOnClick
                 disableColumnMenu

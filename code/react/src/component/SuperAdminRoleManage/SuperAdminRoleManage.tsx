@@ -18,10 +18,6 @@ import RoleCreateOrUpdateDialog from "@component/SuperAdminRoleManage/RoleCreate
 
 export default observer(() => {
 
-    const roleQueryState = useMultipleQuery(async () => {
-        state.paginationModel = await api.SuperAdminSystemRoleQuery.searchByPagination(state.query);
-    });
-
     const state = useMobxState(() => {
         const query = new SuperAdminRoleQueryPaginationModel();
         query.isOnlySystemRole = true;
@@ -36,42 +32,47 @@ export default observer(() => {
                 id: v4(),
                 open: false,
             },
-            columns: [
-                {
-                    headerName: 'ID',
-                    field: 'id',
-                    width: 290
-                },
-                {
-                    renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
-                    field: 'name',
-                    width: 150,
-                    flex: 1,
-                },
-                {
-                    renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
-                    field: 'createDate',
-                    description: 'This column has a value getter and is not sortable.',
-                    renderCell: (row) => {
-                        return <div>
-                            {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
-                        </div>
-                    },
-                    width: 150,
-                },
-                {
-                    renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
-                    field: '',
-                    renderCell: (row) => <SuperAdminRoleDetailButton
-                        id={row.row.id}
-                        searchByPagination={roleQueryState.requery}
-                        isOnlyView={false}
-                    />,
-                    width: 150,
-                },
-            ] as GridColDef<SystemRoleModel>[],
         };
     });
+
+    const roleQueryState = useMultipleQuery(async () => {
+        state.paginationModel = await api.SuperAdminSystemRoleQuery.searchByPagination(state.query);
+    });
+
+    const columns: GridColDef<SystemRoleModel>[] = [
+        {
+            headerName: 'ID',
+            field: 'id',
+            width: 290
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+            field: 'name',
+            width: 150,
+            flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
+            field: 'createDate',
+            description: 'This column has a value getter and is not sortable.',
+            renderCell: (row) => {
+                return <div>
+                    {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
+                </div>
+            },
+            width: 150,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
+            field: '',
+            renderCell: (row) => <SuperAdminRoleDetailButton
+                id={row.row.id}
+                searchByPagination={roleQueryState.requery}
+                isOnlyView={false}
+            />,
+            width: 150,
+        },
+    ];
 
     const dataGridRef = useGridApiRef();
 
@@ -135,7 +136,7 @@ export default observer(() => {
                             sortingMode="server"
                             paginationMode="server"
                             getRowId={(s) => s.id}
-                            columns={state.columns}
+                            columns={columns}
                             autoPageSize
                             disableRowSelectionOnClick
                             disableColumnMenu

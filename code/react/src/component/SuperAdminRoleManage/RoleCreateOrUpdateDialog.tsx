@@ -33,20 +33,21 @@ export default observer((props: Props) => {
             submit: false,
             permissionListOfSystem: permissionListOfSystem,
             permissionListOfOrganize: permissionListOfOrganize,
-            errors: {
-                name() {
-                    return state.submit &&
-                        !state.role.name &&
-                        "Please fill in the name";
-                },
-                hasError() {
-                    return Object.keys(state.errors)
-                        .filter(s => s !== "hasError")
-                        .some(s => (state.errors as any)[s]());
-                }
-            }
         };
     });
+
+    const errors = {
+        name() {
+            return state.submit &&
+                !state.role.name &&
+                "Please fill in the name";
+        },
+        hasError() {
+            return Object.keys(errors)
+                .filter(s => s !== "hasError")
+                .some(s => (errors as any)[s]());
+        }
+    };
 
     const { ready, error } = useMultipleQuery(async () => {
         if (props.id) {
@@ -56,7 +57,7 @@ export default observer((props: Props) => {
 
     const { loading, resubmit } = useOnceSubmitWhileTrue(async () => {
         state.submit = true;
-        if (state.errors.hasError()) {
+        if (errors.hasError()) {
             return false;
         }
         await timer(500).toPromise();
@@ -134,8 +135,8 @@ export default observer((props: Props) => {
                             label={<FormattedMessage id="RoleName" defaultMessage="Role Name" />}
                             defaultValue={state.role.name}
                             onChange={(e) => state.role.name = e.target.value}
-                            error={!!state.errors.name()}
-                            helperText={state.errors.name()}
+                            error={!!errors.name()}
+                            helperText={errors.name()}
                             autoFocus={true}
                         />
                     </div>
@@ -165,21 +166,6 @@ export default observer((props: Props) => {
                             <FormattedMessage id="OrganizePermission" defaultMessage="Organize Permission" />
                             {":"}
                         </div>
-                        {/* {state.permissionListOfSystem.length == 0 && <div className="flex flex-row">
-                            <FormattedMessage id="RoleListIsEmpty" defaultMessage="Role list is empty" />
-                        </div>}
-                        {state.permissionListOfSystem.length > 0 && <FormGroup>
-                            {state.permissionListOfSystem.map(permission =>
-                                <FormControlLabel
-                                    key={permission}
-                                    control={<Checkbox
-                                        defaultChecked={linq.from(state.role.permissionList).any(s => !s.isOrganizePermission && s.permission === permission)}
-                                        onChange={(e) => switchCheckedOfPermission(e, permission)}
-                                    />}
-                                    label={permission}
-                                />
-                            )}
-                        </FormGroup>} */}
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
