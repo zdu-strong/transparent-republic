@@ -9,6 +9,7 @@ import { FormattedMessage } from "react-intl";
 type Props = {
     id: string;
     searchByPagination: () => void;
+    isOnlyView: boolean;
 }
 
 export default observer((props: Props) => {
@@ -45,6 +46,7 @@ export default observer((props: Props) => {
                 searchByPagination={props.searchByPagination}
                 key={state.dialog.id}
                 closeDialog={closeDialog}
+                isOnlyView={props.isOnlyView}
             />
         }
     </>

@@ -65,6 +65,7 @@ export default observer(() => {
                     renderCell: (row) => <SuperAdminRoleDetailButton
                         id={row.row.id}
                         searchByPagination={roleQueryState.requery}
+                        isOnlyView={false}
                     />,
                     width: 150,
                 },

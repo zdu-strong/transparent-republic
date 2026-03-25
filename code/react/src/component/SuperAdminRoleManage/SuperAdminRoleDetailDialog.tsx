@@ -16,6 +16,7 @@ type Props = {
     id: string;
     searchByPagination: () => void;
     closeDialog: () => void;
+    isOnlyView: boolean;
 }
 
 export default observer((props: Props) => {
@@ -93,7 +94,7 @@ export default observer((props: Props) => {
                 </LoadingOrErrorComponent>
             </DialogContent>
             <Divider />
-            <DialogActions>
+            {!props.isOnlyView && <DialogActions>
                 <Button
                     variant="contained"
                     onClick={openUpdateDialog}
@@ -108,7 +109,7 @@ export default observer((props: Props) => {
                 >
                     <FormattedMessage id="Delete" defaultMessage="Delete" />
                 </Button>
-            </DialogActions>
+            </DialogActions>}
         </Dialog>
         {state.updateDialog.open && <RoleCreateOrUpdateDialog
             id={props.id}

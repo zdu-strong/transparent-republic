@@ -1,7 +1,7 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
-import { faFloppyDisk, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faSpinner, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, FormControlLabel, FormGroup, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
@@ -10,6 +10,8 @@ import { timer } from "rxjs";
 import { UserModel } from "@/model/UserModel";
 import type { SystemRoleModel } from "@/model/SystemRoleModel";
 import { SuperAdminRoleQueryPaginationModel } from "@/model/SuperAdminRoleQueryPaginationModel";
+import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
+import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 
 type Props = {
     id: string;
@@ -29,6 +31,39 @@ export default observer((props: Props) => {
             user: user,
             submit: false,
             systemRoleList: [] as SystemRoleModel[],
+            columns: [
+                {
+                    headerName: 'ID',
+                    field: 'id',
+                    width: 290
+                },
+                {
+                    renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+                    field: 'name',
+                    width: 150,
+                    flex: 1,
+                },
+                {
+                    renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
+                    field: '',
+                    renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
+                        <SuperAdminRoleDetailButton
+                            id={row.row.id}
+                            searchByPagination={() => { }}
+                            isOnlyView={true}
+                        />
+                        <Button
+                            variant="contained"
+                            onClick={() => removeCheckedOfRole(row.row)}
+                            startIcon={<FontAwesomeIcon icon={faTrashCan} />}
+                            style={{ marginLeft: "1em" }}
+                        >
+                            <FormattedMessage id="Delete" defaultMessage="Delete" />
+                        </Button>
+                    </div>,
+                    width: 230,
+                },
+            ] as GridColDef<SystemRoleModel>[],
             errors: {
                 name() {
                     return state.submit
@@ -49,6 +84,8 @@ export default observer((props: Props) => {
             }
         };
     });
+
+    const dataGridRef = useGridApiRef();
 
     const { ready, error } = useMultipleQuery(async () => {
         if (props.id) {
@@ -83,6 +120,13 @@ export default observer((props: Props) => {
         props.closeDialog();
     }
 
+    function removeCheckedOfRole(role: SystemRoleModel) {
+        const index = state.user.roleList.findIndex(s => s.id === role.id);
+        if (index >= 0) {
+            state.user.roleList.splice(index, 1);
+        }
+    }
+
     function switchCheckedOfRole(e: React.ChangeEvent<HTMLInputElement>, role: SystemRoleModel) {
         const index = state.user.roleList.findIndex(s => s.id === role.id);
         if (index >= 0) {
@@ -104,6 +148,7 @@ export default observer((props: Props) => {
             onClose={closeDialog}
             disableRestoreFocus={true}
             fullWidth={true}
+            maxWidth="xl"
         >
             <DialogTitle className="justify-between items-center flex-row flex-auto flex">
                 <div className="flex flex-row items-center" >
@@ -135,6 +180,26 @@ export default observer((props: Props) => {
                             onChange={(e) => state.user.password = e.target.value}
                             error={!!state.errors.password()}
                             helperText={state.errors.password()}
+                        />
+                    </div>
+                    <div className="flex flex-row">
+                        <FormattedMessage id="RoleList" defaultMessage="Role List" />
+                        {":"}
+                    </div>
+                    <div className="flex flex-row" style={{ paddingBottom: "1px" }}>
+                        <DataGrid
+                            rows={state.user.roleList}
+                            rowCount={state.user.roleList.length}
+                            apiRef={dataGridRef}
+                            sortingMode="server"
+                            paginationMode="server"
+                            getRowId={(s) => s.id}
+                            columns={state.columns}
+                            hideFooter
+                            disableRowSelectionOnClick
+                            disableColumnMenu
+                            disableColumnResize
+                            disableColumnSorting
                         />
                     </div>
                     <div className="flex flex-row" style={{ marginTop: "1em" }}>
