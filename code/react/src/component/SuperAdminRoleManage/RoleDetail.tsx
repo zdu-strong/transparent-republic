@@ -9,6 +9,8 @@ import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import { isOrganizePermission, isSystemPermission, SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
 import { $enum } from "ts-enum-util";
 import linq from 'linq';
+import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
+import type { OrganizeModel } from "@/model/OrganizeModel";
 
 type Props = {
     role: SystemRoleModel;
@@ -34,10 +36,13 @@ export default observer((props: Props) => {
         .where(s => isCheckedOfPermission(s))
         .toArray();
 
-    const permissionListOfOrganize = linq.from(props.role.permissionList)
+    const organizeList = linq.from(props.role.permissionList)
         .where(s => isOrganizePermission(s.permission))
-        .orderBy(s => s.organize.id)
-        .orderBy(s => s.organize.createDate)
+        .select(s => s.organize)
+        .groupBy(s => s.id)
+        .select(s => s.first())
+        .orderBy(s => s.id)
+        .orderBy(s => s.createDate)
         .toArray();
 
     const columnsOfSystemPermission: GridColDef<SystemPermissionModel>[] = [
@@ -66,39 +71,47 @@ export default observer((props: Props) => {
         },
     ];
 
-    const columnsOfOrganizePermission: GridColDef<SystemPermissionModel>[] = [
+    const columnsOfOrganizePermission: GridColDef<OrganizeModel>[] = [
         {
             headerName: 'ID',
             field: 'id',
             width: 290
         },
         {
-            renderHeader: () => <FormattedMessage id="OrganizeName" defaultMessage="Organize Name" />,
-            field: 'organize',
-            renderCell: (row) => {
-                return <div>
-                    {row.row.organize ? row.row.organize.name : ""}
-                </div>
-            },
+            renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+            field: 'name',
             width: 150,
             flex: 1,
         },
         {
             renderHeader: () => <FormattedMessage id="Permission" defaultMessage="Permission" />,
-            field: 'permission',
+            field: 'permissionList',
+            renderCell: (row) => {
+                return <div>
+                    {getPermissionsName(row.row)}
+                </div>
+            },
+            width: 400,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
+            field: 'createDate',
+            renderCell: (row) => {
+                return <div>
+                    {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
+                </div>
+            },
             width: 150,
         },
         {
             renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
             field: '',
-            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
-                <SuperAdminRoleDetailButton
-                    id={row.row.id}
-                    searchByPagination={() => { }}
-                    isOnlyView={true}
-                />
-            </div>,
-            width: 230,
+            renderCell: (row) => <SuperAdminOrganizeDetailButton
+                id={row.row.id}
+                searchByPagination={() => { }}
+                isOnlyView={true}
+            />,
+            width: 300,
         },
     ];
 
@@ -115,6 +128,21 @@ export default observer((props: Props) => {
         return isChecked;
     }
 
+    function getPermissionsName(orgainze: OrganizeModel) {
+        return $enum(SystemPermissionEnum)
+            .getValues()
+            .map(s => {
+                const systemPermissionModel = new SystemPermissionModel();
+                systemPermissionModel.id = v4();
+                systemPermissionModel.organize = orgainze;
+                systemPermissionModel.permission = s;
+                return systemPermissionModel;
+            })
+            .filter(s => isOrganizePermission(s.permission))
+            .filter(s => isCheckedOfPermission(s))
+            .map(s => s.permission)
+            .join(", ");
+    }
 
     return <>
         <div className="flex flex-row">
@@ -179,8 +207,8 @@ export default observer((props: Props) => {
         </div>
         <div className="flex flex-row" style={{ paddingBottom: "1px" }}>
             <DataGrid
-                rows={permissionListOfOrganize}
-                rowCount={permissionListOfOrganize.length}
+                rows={organizeList}
+                rowCount={organizeList.length}
                 apiRef={dataGridOfOrganizePermissionRef}
                 sortingMode="server"
                 paginationMode="server"

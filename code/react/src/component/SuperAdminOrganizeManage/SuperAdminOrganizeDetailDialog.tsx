@@ -16,6 +16,7 @@ type Props = {
     id: string;
     searchByPagination: () => void;
     closeDialog: () => void;
+    isOnlyView: boolean;
 }
 
 export default observer((props: Props) => {
@@ -93,7 +94,7 @@ export default observer((props: Props) => {
                     />
                 </LoadingOrErrorComponent>
             </DialogContent>
-            {ready && <>
+            {ready && !props.isOnlyView && <>
                 <Divider />
                 <DialogActions>
                     <Button

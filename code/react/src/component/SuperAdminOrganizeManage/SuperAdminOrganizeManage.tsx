@@ -55,6 +55,7 @@ export default observer(() => {
             renderCell: (row) => <SuperAdminOrganizeDetailButton
                 id={row.row.id}
                 searchByPagination={organizeQueryState.requery}
+                isOnlyView={false}
             />,
             width: 150,
         },

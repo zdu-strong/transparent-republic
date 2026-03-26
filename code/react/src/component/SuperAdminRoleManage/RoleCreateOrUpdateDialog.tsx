@@ -168,6 +168,7 @@ export default observer((props: Props) => {
                 <SuperAdminOrganizeDetailButton
                     id={row.row.id}
                     searchByPagination={() => { }}
+                    isOnlyView={true}
                 />
                 <SuperAdminOrganizeChoosePermissionButton
                     organize={row.row}

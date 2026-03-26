@@ -62,6 +62,7 @@ export default observer((props: Props) => {
             renderCell: (row) => <SuperAdminOrganizeDetailButton
                 id={row.row.id}
                 searchByPagination={() => { }}
+                isOnlyView={true}
             />,
             width: 300,
         },

@@ -98,6 +98,7 @@ export default observer((props: Props) => {
                 <SuperAdminOrganizeDetailButton
                     id={row.row.id}
                     searchByPagination={organizeQueryState.requery}
+                    isOnlyView={true}
                 />
                 <SuperAdminOrganizeChoosePermissionButton
                     organize={row.row}
