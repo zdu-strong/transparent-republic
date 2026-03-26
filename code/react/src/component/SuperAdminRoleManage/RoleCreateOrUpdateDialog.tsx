@@ -16,6 +16,7 @@ import { v4, v7 } from "uuid";
 import { OrganizeModel } from "@/model/OrganizeModel";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
+import RoleChoosePermissionDialog from "./RoleChoosePermissionDialog";
 
 type Props = {
     id: string;
@@ -339,5 +340,10 @@ export default observer((props: Props) => {
                 </DialogActions>
             </>}
         </Dialog>
+        {state.addDialog.open && <RoleChoosePermissionDialog
+            closeDialog={closeAddDialog}
+            isCheckedOfPermission={isCheckedOfPermission}
+            switchCheckedOfPermission={switchCheckedOfPermission}
+        />}
     </>
 })

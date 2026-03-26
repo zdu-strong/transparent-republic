@@ -3,8 +3,8 @@ import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorCompo
 import { useMultipleQuery } from "@/common/use-hook";
 import { faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
-import { observer, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
+import { Button, Checkbox, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
+import { observer, toJS, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import { PaginationModel } from "@/model/PaginationModel";
@@ -13,9 +13,10 @@ import type { OrganizeModel } from "@/model/OrganizeModel";
 import { SuperAdminOrganizeQueryPaginationModel } from "@/model/SuperAdminOrganizeQueryPaginationModel";
 import { format } from "date-fns";
 import SuperAdminOrganizeDetailButton from "../SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
+import linq from "linq";
 
 type Props = {
-    switchCheckedOfPermission: (e: React.ChangeEvent<HTMLInputElement>, systemPermissionModel: SystemPermissionModel) => void;
+    switchCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => void;
     isCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => boolean;
     closeDialog: () => void;
 }
@@ -27,6 +28,7 @@ export default observer((props: Props) => {
         return {
             query: query,
             paginationModel: new PaginationModel<OrganizeModel>(),
+            organizeOfCheckedList: [] as OrganizeModel[],
         };
     });
 
@@ -34,16 +36,30 @@ export default observer((props: Props) => {
         state.paginationModel = await api.SuperAdminOrganizeQuery.searchByPagination(state.query);
     });
 
+    function isCheckedOfOrganize(organize: OrganizeModel) {
+        return linq.from(state.organizeOfCheckedList)
+            .any(s => s.id === organize.id);
+    }
+
+    function switchCheckedOfOrganize(organize: OrganizeModel) {
+        const index = state.organizeOfCheckedList.findIndex(s => s.id === organize.id);
+        if (index >= 0) {
+            state.organizeOfCheckedList.splice(index, 1);
+        } else {
+            state.organizeOfCheckedList.push(organize);
+        }
+    }
+
     const columns: GridColDef<OrganizeModel>[] = [
-        // {
-        //     renderHeader: () => "",
-        //     field: 'createDate',
-        //     renderCell: (row) => <Checkbox
-        //         checked={props.isCheckedOfRole(row.row)}
-        //         onChange={(e) => props.switchCheckedOfRole(e, row.row)}
-        //     />,
-        //     width: 70,
-        // },
+        {
+            renderHeader: () => "",
+            field: 'checkbox',
+            renderCell: (row) => <Checkbox
+                checked={isCheckedOfOrganize(row.row)}
+                onChange={(e) => switchCheckedOfOrganize(row.row)}
+            />,
+            width: 70,
+        },
         {
             headerName: 'ID',
             field: 'id',
@@ -89,6 +105,8 @@ export default observer((props: Props) => {
         organizeQueryState.requery();
     }, [state.query])
 
+    toJS(state.organizeOfCheckedList)
+
     return <>
         <Dialog
             open={true}
@@ -117,16 +135,6 @@ export default observer((props: Props) => {
                         >
                             <FormattedMessage id="Refresh" defaultMessage="Refresh" />
                         </Button>
-                        {/* <FormControlLabel
-                            label={<FormattedMessage id="IsOnlyViewSystemRole" defaultMessage="Don't Show Organize Role" />}
-                            style={{ marginLeft: "1em" }}
-                            control={
-                                <Checkbox
-                                    checked={state.query.isOnlySystemRole}
-                                    onChange={(e) => state.query.isOnlySystemRole = e.target.checked}
-                                />
-                            }
-                        /> */}
                     </div>
                     <div className="flex flex-auto" style={{ paddingBottom: "1px" }}>
                         <DataGrid
