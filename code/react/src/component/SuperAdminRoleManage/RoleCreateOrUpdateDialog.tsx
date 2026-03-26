@@ -1,7 +1,7 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
-import { faFloppyDisk, faSpinner, faSquarePlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faPlus, faSpinner, faSquarePlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
@@ -16,10 +16,10 @@ import { v4 } from "uuid";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 import RoleChooseOrganizeDialog from "@/component/SuperAdminRoleManage/RoleChooseOrganizeDialog";
-import SuperAdminOrganizeChoosePermissionButton from "@component/SuperAdminRoleManage/SuperAdminOrganizeChoosePermissionButton";
-import type { OrganizeModel } from "@/model/OrganizeModel";
+import { OrganizeModel } from "@/model/OrganizeModel";
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
 import { format } from 'date-fns';
+import SuperAdminOrganizeChoosePermissionDialog from "@component/SuperAdminRoleManage/SuperAdminOrganizeChoosePermissionDialog";
 
 type Props = {
     id: string;
@@ -47,6 +47,11 @@ export default observer((props: Props) => {
                 id: v4(),
                 open: false,
             },
+            permissionDialog: {
+                id: v4(),
+                open: false,
+                organize: new OrganizeModel(),
+            }
         };
     });
 
@@ -170,12 +175,14 @@ export default observer((props: Props) => {
                     searchByPagination={() => { }}
                     isOnlyView={true}
                 />
-                <SuperAdminOrganizeChoosePermissionButton
-                    organize={row.row}
-                    isCheckedOfPermission={isCheckedOfPermission}
-                    switchCheckedOfPermission={switchCheckedOfPermission}
-                    closeDialog={() => { }}
-                />
+                <Button
+                    variant="contained"
+                    onClick={() => openPermissionDialog(row.row)}
+                    startIcon={<FontAwesomeIcon icon={faPlus} />}
+                    style={{ marginLeft: "1em" }}
+                >
+                    <FormattedMessage id="AddPermission" defaultMessage="Add Permission" />
+                </Button>
             </div>,
             width: 300,
         },
@@ -251,22 +258,6 @@ export default observer((props: Props) => {
         }
     }
 
-    function removeCheckedOfPermission(systemPermissionModel: SystemPermissionModel) {
-        const organizeId: string = systemPermissionModel.organize ? systemPermissionModel.organize.id : "";
-        const permission = systemPermissionModel.permission;
-        if (isSystemPermission(permission)) {
-            const index = state.role.permissionList.findIndex(s => isSystemPermission(s.permission) && s.permission === permission);
-            if (index >= 0) {
-                state.role.permissionList.splice(index, 1);
-            }
-        } else {
-            const index = state.role.permissionList.findIndex(s => isOrganizePermission(s.permission) && s.organize.id === organizeId && s.permission === permission);
-            if (index >= 0) {
-                state.role.permissionList.splice(index, 1);
-            }
-        }
-    }
-
     function isCheckedOfPermission(systemPermissionModel: SystemPermissionModel) {
         const permission = systemPermissionModel.permission;
         const organizeId: string = systemPermissionModel.organize ? systemPermissionModel.organize.id : "";
@@ -274,6 +265,16 @@ export default observer((props: Props) => {
             .where(s => s.permission === permission)
             .any(s => isSystemPermission(permission) || s.organize.id === organizeId);
         return isChecked;
+    }
+
+    function openPermissionDialog(organize: OrganizeModel) {
+        state.permissionDialog.organize = organize;
+        state.permissionDialog.id = v4()
+        state.permissionDialog.open = true;
+    }
+
+    function closePermissionDialog() {
+        state.permissionDialog.open = false;
     }
 
     return <>
@@ -367,5 +368,14 @@ export default observer((props: Props) => {
             isCheckedOfPermission={isCheckedOfPermission}
             switchCheckedOfPermission={switchCheckedOfPermission}
         />}
+        {
+            state.permissionDialog.open && <SuperAdminOrganizeChoosePermissionDialog
+                key={state.permissionDialog.id}
+                closeDialog={closePermissionDialog}
+                organize={state.permissionDialog.organize}
+                isCheckedOfPermission={isCheckedOfPermission}
+                switchCheckedOfPermission={switchCheckedOfPermission}
+            />
+        }
     </>
 })
