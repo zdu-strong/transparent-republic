@@ -41,7 +41,9 @@ public class SystemInitScheduledInitUserRoleAfterCreateOrganinzeTest extends Bas
     public void beforeEach() {
         this.systemInitScheduled.scheduled();
         var organizeModel = new OrganizeModel().setName("Super Saiyan Son Goku");
-        this.organizeId = this.organizeUtil.create(organizeModel).getId();
+        var organize = this.organizeUtil.create(organizeModel);
+        this.organizeId = organize.getId();
+        this.initOrganizeRoleList(organize);
     }
 
 }

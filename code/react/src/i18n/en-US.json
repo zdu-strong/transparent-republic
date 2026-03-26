@@ -133,5 +133,6 @@
     "Filter": "Filter",
     "Add": "Add",
     "IsOnlyViewSystemRole": "Don't Show Organize Role",
-    "Permission": "Permission"
+    "Permission": "Permission",
+    "AddPermission": "Add Permission"
 }

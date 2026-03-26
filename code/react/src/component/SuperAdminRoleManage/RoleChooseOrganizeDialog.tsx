@@ -3,17 +3,20 @@ import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorCompo
 import { useMultipleQuery } from "@/common/use-hook";
 import { faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Checkbox, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
-import { observer, toJS, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
+import { Button, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
+import { observer, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import { PaginationModel } from "@/model/PaginationModel";
-import type { SystemPermissionModel } from "@/model/SystemPermissionModel";
-import type { OrganizeModel } from "@/model/OrganizeModel";
+import { SystemPermissionModel } from "@/model/SystemPermissionModel";
+import { OrganizeModel } from "@/model/OrganizeModel";
 import { SuperAdminOrganizeQueryPaginationModel } from "@/model/SuperAdminOrganizeQueryPaginationModel";
 import { format } from "date-fns";
-import SuperAdminOrganizeDetailButton from "../SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
-import linq from "linq";
+import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
+import { $enum } from "ts-enum-util";
+import { isOrganizePermission, SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
+import { v4 } from "uuid";
+import SuperAdminOrganizeChoosePermissionButton from "@component/SuperAdminRoleManage/SuperAdminOrganizeChoosePermissionButton";
 
 type Props = {
     switchCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => void;
@@ -28,7 +31,11 @@ export default observer((props: Props) => {
         return {
             query: query,
             paginationModel: new PaginationModel<OrganizeModel>(),
-            organizeOfCheckedList: [] as OrganizeModel[],
+            addDialog: {
+                id: v4(),
+                open: false,
+                organize: new OrganizeModel(),
+            }
         };
     });
 
@@ -36,30 +43,23 @@ export default observer((props: Props) => {
         state.paginationModel = await api.SuperAdminOrganizeQuery.searchByPagination(state.query);
     });
 
-    function isCheckedOfOrganize(organize: OrganizeModel) {
-        return linq.from(state.organizeOfCheckedList)
-            .any(s => s.id === organize.id);
-    }
-
-    function switchCheckedOfOrganize(organize: OrganizeModel) {
-        const index = state.organizeOfCheckedList.findIndex(s => s.id === organize.id);
-        if (index >= 0) {
-            state.organizeOfCheckedList.splice(index, 1);
-        } else {
-            state.organizeOfCheckedList.push(organize);
-        }
+    function getPermissionsName(orgainze: OrganizeModel) {
+        return $enum(SystemPermissionEnum)
+            .getValues()
+            .map(s => {
+                const systemPermissionModel = new SystemPermissionModel();
+                systemPermissionModel.id = v4();
+                systemPermissionModel.organize = orgainze;
+                systemPermissionModel.permission = s;
+                return systemPermissionModel;
+            })
+            .filter(s => isOrganizePermission(s.permission))
+            .filter(s => props.isCheckedOfPermission(s))
+            .map(s => s.permission)
+            .join(", ");
     }
 
     const columns: GridColDef<OrganizeModel>[] = [
-        {
-            renderHeader: () => "",
-            field: 'checkbox',
-            renderCell: (row) => <Checkbox
-                checked={isCheckedOfOrganize(row.row)}
-                onChange={(e) => switchCheckedOfOrganize(row.row)}
-            />,
-            width: 70,
-        },
         {
             headerName: 'ID',
             field: 'id',
@@ -70,6 +70,16 @@ export default observer((props: Props) => {
             field: 'name',
             width: 150,
             flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Permission" defaultMessage="Permission" />,
+            field: 'permissionList',
+            renderCell: (row) => {
+                return <div>
+                    {getPermissionsName(row.row)}
+                </div>
+            },
+            width: 400,
         },
         {
             renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
@@ -84,11 +94,18 @@ export default observer((props: Props) => {
         {
             renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
             field: '',
-            renderCell: (row) => <SuperAdminOrganizeDetailButton
-                id={row.row.id}
-                searchByPagination={organizeQueryState.requery}
-            />,
-            width: 150,
+            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
+                <SuperAdminOrganizeDetailButton
+                    id={row.row.id}
+                    searchByPagination={organizeQueryState.requery}
+                />
+                <SuperAdminOrganizeChoosePermissionButton
+                    organize={row.row}
+                    isCheckedOfPermission={props.isCheckedOfPermission}
+                    switchCheckedOfPermission={props.switchCheckedOfPermission}
+                />
+            </div>,
+            width: 300,
         },
     ];
 
@@ -104,8 +121,6 @@ export default observer((props: Props) => {
     useMobxEffect(() => {
         organizeQueryState.requery();
     }, [state.query])
-
-    toJS(state.organizeOfCheckedList)
 
     return <>
         <Dialog
@@ -150,7 +165,6 @@ export default observer((props: Props) => {
                             paginationMode="server"
                             getRowId={(s) => s.id}
                             columns={columns}
-                            autoPageSize
                             disableRowSelectionOnClick
                             disableColumnMenu
                             disableColumnResize

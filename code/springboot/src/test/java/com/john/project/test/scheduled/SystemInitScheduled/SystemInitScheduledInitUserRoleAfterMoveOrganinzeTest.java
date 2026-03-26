@@ -42,8 +42,10 @@ public class SystemInitScheduledInitUserRoleAfterMoveOrganinzeTest extends BaseT
         this.systemInitScheduled.scheduled();
         var organizeModel = new OrganizeModel().setName("Super Saiyan Son Goku");
         var parent = this.organizeUtil.create(organizeModel);
-        this.organizeId = this.organizeUtil.create(new OrganizeModel().setName("Son Gohan").setParent(parent))
-                .getId();
+        this.initOrganizeRoleList(parent);
+        var childOrganize = this.organizeUtil.create(new OrganizeModel().setName("Son Gohan").setParent(parent));
+        this.organizeId = childOrganize.getId();
+        this.initOrganizeRoleList(childOrganize);
         this.organizeUtil.move(organizeId, null);
     }
 

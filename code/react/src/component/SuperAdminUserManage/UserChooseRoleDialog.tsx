@@ -132,7 +132,6 @@ export default observer((props: Props) => {
                             paginationMode="server"
                             getRowId={(s) => s.id}
                             columns={columns}
-                            autoPageSize
                             disableRowSelectionOnClick
                             disableColumnMenu
                             disableColumnResize

@@ -1,7 +1,7 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
-import { faFloppyDisk, faSpinner, faSquarePlus, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faSpinner, faSquarePlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
@@ -12,11 +12,14 @@ import { isOrganizePermission, isSystemPermission, SystemPermissionEnum } from "
 import { $enum } from "ts-enum-util";
 import linq from 'linq';
 import { SystemPermissionModel } from "@/model/SystemPermissionModel";
-import { v4, v7 } from "uuid";
-import { OrganizeModel } from "@/model/OrganizeModel";
+import { v4 } from "uuid";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
-import RoleChoosePermissionDialog from "./RoleChoosePermissionDialog";
+import RoleChooseOrganizeDialog from "@/component/SuperAdminRoleManage/RoleChooseOrganizeDialog";
+import SuperAdminOrganizeChoosePermissionButton from "@component/SuperAdminRoleManage/SuperAdminOrganizeChoosePermissionButton";
+import type { OrganizeModel } from "@/model/OrganizeModel";
+import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
+import { format } from 'date-fns';
 
 type Props = {
     id: string;
@@ -52,10 +55,13 @@ export default observer((props: Props) => {
         .orderByDescending(s => isCheckedOfPermission(s))
         .toArray();
 
-    const permissionListOfOrganize = linq.from(state.role.permissionList)
+    const organizeList = linq.from(state.role.permissionList)
         .where(s => isOrganizePermission(s.permission))
-        .orderBy(s => s.organize.id)
-        .orderBy(s => s.organize.createDate)
+        .select(s => s.organize)
+        .groupBy(s => s.id)
+        .select(s => s.first())
+        .orderBy(s => s.id)
+        .orderBy(s => s.createDate)
         .toArray();
 
     const errors = {
@@ -115,26 +121,36 @@ export default observer((props: Props) => {
         },
     ];
 
-    const columnsOfOrganizePermission: GridColDef<SystemPermissionModel>[] = [
+    const columnsOfOrganizePermission: GridColDef<OrganizeModel>[] = [
         {
             headerName: 'ID',
             field: 'id',
             width: 290
         },
         {
-            renderHeader: () => <FormattedMessage id="OrganizeName" defaultMessage="Organize Name" />,
-            field: 'organize',
-            renderCell: (row) => {
-                return <div>
-                    {row.row.organize ? row.row.organize.name : ""}
-                </div>
-            },
+            renderHeader: () => <FormattedMessage id="Name" defaultMessage="Name" />,
+            field: 'name',
             width: 150,
             flex: 1,
         },
         {
             renderHeader: () => <FormattedMessage id="Permission" defaultMessage="Permission" />,
-            field: 'permission',
+            field: 'permissionList',
+            renderCell: (row) => {
+                return <div>
+                    {getPermissionsName(row.row)}
+                </div>
+            },
+            width: 400,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
+            field: 'createDate',
+            renderCell: (row) => {
+                return <div>
+                    {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
+                </div>
+            },
             width: 150,
         },
         {
@@ -149,21 +165,17 @@ export default observer((props: Props) => {
             </Button>,
             field: '',
             renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
-                <SuperAdminRoleDetailButton
+                <SuperAdminOrganizeDetailButton
                     id={row.row.id}
                     searchByPagination={() => { }}
-                    isOnlyView={true}
                 />
-                <Button
-                    variant="contained"
-                    onClick={() => removeCheckedOfPermission(row.row)}
-                    startIcon={<FontAwesomeIcon icon={faTrashCan} />}
-                    style={{ marginLeft: "1em" }}
-                >
-                    <FormattedMessage id="Delete" defaultMessage="Delete" />
-                </Button>
+                <SuperAdminOrganizeChoosePermissionButton
+                    organize={row.row}
+                    isCheckedOfPermission={isCheckedOfPermission}
+                    switchCheckedOfPermission={switchCheckedOfPermission}
+                />
             </div>,
-            width: 230,
+            width: 300,
         },
     ];
 
@@ -171,7 +183,7 @@ export default observer((props: Props) => {
 
     const dataGridOfSystemPermissionRef = useGridApiRef();
 
-    const { ready, error } = useMultipleQuery(async () => {
+    const { ready, error, requery } = useMultipleQuery(async () => {
         if (props.id) {
             state.role = await api.Role.getRoleById(props.id);
         }
@@ -194,6 +206,22 @@ export default observer((props: Props) => {
         return true;
     })
 
+    function getPermissionsName(orgainze: OrganizeModel) {
+        return $enum(SystemPermissionEnum)
+            .getValues()
+            .map(s => {
+                const systemPermissionModel = new SystemPermissionModel();
+                systemPermissionModel.id = v4();
+                systemPermissionModel.organize = orgainze;
+                systemPermissionModel.permission = s;
+                return systemPermissionModel;
+            })
+            .filter(s => isOrganizePermission(s.permission))
+            .filter(s => isCheckedOfPermission(s))
+            .map(s => s.permission)
+            .join(", ");
+    }
+
     function closeDialog(event: {}, reason: "backdropClick" | "escapeKeyDown") {
         if (reason === "backdropClick") {
             return;
@@ -209,9 +237,6 @@ export default observer((props: Props) => {
             if (index >= 0) {
                 state.role.permissionList.splice(index, 1);
             } else {
-                const systemPermissionModel = new SystemPermissionModel();
-                systemPermissionModel.id = v7();
-                systemPermissionModel.permission = permission;
                 state.role.permissionList.push(systemPermissionModel);
             }
         } else {
@@ -219,11 +244,6 @@ export default observer((props: Props) => {
             if (index >= 0) {
                 state.role.permissionList.splice(index, 1);
             } else {
-                const systemPermissionModel = new SystemPermissionModel();
-                systemPermissionModel.id = v7();
-                systemPermissionModel.permission = permission;
-                systemPermissionModel.organize = new OrganizeModel();
-                systemPermissionModel.organize.id = organizeId!;
                 state.role.permissionList.push(systemPermissionModel);
             }
         }
@@ -311,8 +331,8 @@ export default observer((props: Props) => {
                     </div>
                     <div className="flex flex-row" style={{ paddingBottom: "1px" }}>
                         <DataGrid
-                            rows={permissionListOfOrganize}
-                            rowCount={permissionListOfOrganize.length}
+                            rows={organizeList}
+                            rowCount={organizeList.length}
                             apiRef={dataGridOfOrganizePermissionRef}
                             sortingMode="server"
                             paginationMode="server"
@@ -340,7 +360,7 @@ export default observer((props: Props) => {
                 </DialogActions>
             </>}
         </Dialog>
-        {state.addDialog.open && <RoleChoosePermissionDialog
+        {state.addDialog.open && <RoleChooseOrganizeDialog
             closeDialog={closeAddDialog}
             isCheckedOfPermission={isCheckedOfPermission}
             switchCheckedOfPermission={switchCheckedOfPermission}

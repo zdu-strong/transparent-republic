@@ -179,10 +179,6 @@ public class RoleService extends BaseService {
         if (!this.permissionUtil.hasAnyPermission(request, SystemPermissionEnum.SUPER_ADMIN, SystemPermissionEnum.ORGANIZE_MANAGE)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Only administrators can create roles");
         }
-
-        if (JinqStream.from(roleModel.getPermissionList()).select(s -> SystemPermissionEnum.parse(s.getPermission())).group(s -> s.getIsOrganizeRole(), (s, t) -> s).count() > 1) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "System permissions and organizational permissions cannot coexist");
-        }
     }
 
     @Transactional(readOnly = true)
@@ -266,9 +262,6 @@ public class RoleService extends BaseService {
 
         if (!this.permissionUtil.hasAnyPermission(request, SystemPermissionEnum.SUPER_ADMIN, SystemPermissionEnum.ORGANIZE_MANAGE)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Only administrators can update roles");
-        }
-        if (JinqStream.from(roleModel.getPermissionList()).select(s -> SystemPermissionEnum.parse(s.getPermission())).group(s -> s.getIsOrganizeRole(), (s, t) -> s).count() > 1) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "System permissions and organizational permissions cannot coexist");
         }
     }
 

@@ -56,6 +56,7 @@ public class SuperAdminRoleQueryControllerSearchByPaginationByRoleNameTest exten
             var organizeModel = new OrganizeModel().setName("Super Saiyan Son Goku");
             var organize = this.organizeUtil.create(organizeModel);
             this.organizeId = organize.getId();
+            this.initOrganizeRoleList(organize);
         }
         {
             var email = this.uuidUtil.v4() + "zdu.strong@gmail.com";
