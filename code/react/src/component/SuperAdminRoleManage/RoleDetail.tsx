@@ -11,6 +11,7 @@ import { $enum } from "ts-enum-util";
 import linq from 'linq';
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
 import type { OrganizeModel } from "@/model/OrganizeModel";
+import SuperAdminOrganizeViewPermissionButton from "@component/SuperAdminRoleManage/SuperAdminOrganizeViewPermissionButton";
 
 type Props = {
     role: SystemRoleModel;
@@ -106,11 +107,18 @@ export default observer((props: Props) => {
         {
             renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
             field: '',
-            renderCell: (row) => <SuperAdminOrganizeDetailButton
-                id={row.row.id}
-                searchByPagination={() => { }}
-                isOnlyView={true}
-            />,
+            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
+                <SuperAdminOrganizeDetailButton
+                    id={row.row.id}
+                    searchByPagination={() => { }}
+                    isOnlyView={true}
+                />
+                <SuperAdminOrganizeViewPermissionButton
+                    organize={row.row}
+                    isCheckedOfPermission={isCheckedOfPermission}
+                    switchCheckedOfPermission={() => { }}
+                />
+            </div>,
             width: 300,
         },
     ];
