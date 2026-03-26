@@ -12,6 +12,7 @@ type Props = {
     switchCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => void;
     isCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => boolean;
     organize: OrganizeModel;
+    closeDialog: () => void;
 }
 
 export default observer((props: Props) => {
@@ -32,6 +33,7 @@ export default observer((props: Props) => {
 
     function closeDialog() {
         state.dialog.open = false;
+        props.closeDialog();
     }
 
     return <>

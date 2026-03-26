@@ -174,6 +174,7 @@ export default observer((props: Props) => {
                     organize={row.row}
                     isCheckedOfPermission={isCheckedOfPermission}
                     switchCheckedOfPermission={switchCheckedOfPermission}
+                    closeDialog={() => { }}
                 />
             </div>,
             width: 300,
