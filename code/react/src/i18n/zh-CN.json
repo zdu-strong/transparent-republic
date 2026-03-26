@@ -134,5 +134,6 @@
     "Add": "添加",
     "IsOnlyViewSystemRole": "不显示组织角色",
     "Permission": "权限",
-    "AddPermission": "添加权限"
+    "AddPermission": "添加权限",
+    "AddOrganizePermission": "添加组织权限"
 }

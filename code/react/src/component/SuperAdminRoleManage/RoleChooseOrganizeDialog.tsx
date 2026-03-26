@@ -135,7 +135,7 @@ export default observer((props: Props) => {
         >
             <DialogTitle className="justify-between items-center flex-row flex-auto flex">
                 <div className="flex flex-row items-center" >
-                    <FormattedMessage id="Add" defaultMessage="Add" />
+                    <FormattedMessage id="AddOrganizePermission" defaultMessage="Add Organize Permission" />
                 </div>
                 <Fab color="default" id="closeButton" onClick={props.closeDialog}>
                     <FontAwesomeIcon icon={faXmark} size="xl" />
