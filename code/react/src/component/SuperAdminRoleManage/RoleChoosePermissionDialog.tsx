@@ -3,46 +3,47 @@ import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorCompo
 import { useMultipleQuery } from "@/common/use-hook";
 import { faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Checkbox, Dialog, DialogContent, DialogTitle, Divider, Fab, FormControlLabel } from "@mui/material";
+import { Button, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
 import { observer, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
-import { SystemRoleModel } from "@/model/SystemRoleModel";
-import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
-import { SuperAdminRoleQueryPaginationModel } from "@/model/SuperAdminRoleQueryPaginationModel";
 import { PaginationModel } from "@/model/PaginationModel";
+import type { SystemPermissionModel } from "@/model/SystemPermissionModel";
+import type { OrganizeModel } from "@/model/OrganizeModel";
+import { SuperAdminOrganizeQueryPaginationModel } from "@/model/SuperAdminOrganizeQueryPaginationModel";
+import { format } from "date-fns";
+import SuperAdminOrganizeDetailButton from "../SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
 
 type Props = {
-    switchCheckedOfRole: (e: React.ChangeEvent<HTMLInputElement>, role: SystemRoleModel) => void;
-    isCheckedOfRole: (role: SystemRoleModel) => boolean;
+    switchCheckedOfPermission: (e: React.ChangeEvent<HTMLInputElement>, systemPermissionModel: SystemPermissionModel) => void;
+    isCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => boolean;
     closeDialog: () => void;
 }
 
 export default observer((props: Props) => {
 
     const state = useMobxState(() => {
-        const query = new SuperAdminRoleQueryPaginationModel();
-        query.isOnlySystemRole = true;
+        const query = new SuperAdminOrganizeQueryPaginationModel();
         return {
             query: query,
-            paginationModel: new PaginationModel<SystemRoleModel>(),
+            paginationModel: new PaginationModel<OrganizeModel>(),
         };
     });
 
-    const roleQueryState = useMultipleQuery(async () => {
-        state.paginationModel = await api.SuperAdminSystemRoleQuery.searchByPagination(state.query);
+    const organizeQueryState = useMultipleQuery(async () => {
+        state.paginationModel = await api.SuperAdminOrganizeQuery.searchByPagination(state.query);
     });
 
-    const columns: GridColDef<SystemRoleModel>[] = [
-        {
-            renderHeader: () => "",
-            field: 'checkbox',
-            renderCell: (row) => <Checkbox
-                checked={props.isCheckedOfRole(row.row)}
-                onChange={(e) => props.switchCheckedOfRole(e, row.row)}
-            />,
-            width: 70,
-        },
+    const columns: GridColDef<OrganizeModel>[] = [
+        // {
+        //     renderHeader: () => "",
+        //     field: 'createDate',
+        //     renderCell: (row) => <Checkbox
+        //         checked={props.isCheckedOfRole(row.row)}
+        //         onChange={(e) => props.switchCheckedOfRole(e, row.row)}
+        //     />,
+        //     width: 70,
+        // },
         {
             headerName: 'ID',
             field: 'id',
@@ -55,12 +56,21 @@ export default observer((props: Props) => {
             flex: 1,
         },
         {
+            renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
+            field: 'createDate',
+            renderCell: (row) => {
+                return <div>
+                    {format(row.row.createDate, "yyyy-MM-dd HH:mm:ss")}
+                </div>
+            },
+            width: 150,
+        },
+        {
             renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
             field: '',
-            renderCell: (row) => <SuperAdminRoleDetailButton
+            renderCell: (row) => <SuperAdminOrganizeDetailButton
                 id={row.row.id}
-                searchByPagination={() => { }}
-                isOnlyView={true}
+                searchByPagination={organizeQueryState.requery}
             />,
             width: 150,
         },
@@ -76,7 +86,7 @@ export default observer((props: Props) => {
     }
 
     useMobxEffect(() => {
-        roleQueryState.requery();
+        organizeQueryState.requery();
     }, [state.query])
 
     return <>
@@ -98,16 +108,16 @@ export default observer((props: Props) => {
             </DialogTitle>
             <Divider />
             <DialogContent style={{ padding: "1em" }}>
-                <LoadingOrErrorComponent ready={roleQueryState.ready} error={roleQueryState.error} >
+                <LoadingOrErrorComponent ready={organizeQueryState.ready} error={organizeQueryState.error} >
                     <div className="flex flex-row" style={{ marginTop: "1em", marginBottom: "1em" }}>
                         <Button
                             variant="contained"
-                            onClick={roleQueryState.requery}
-                            startIcon={<FontAwesomeIcon icon={roleQueryState.loading ? faSpinner : faSearch} spin={roleQueryState.loading} />}
+                            onClick={organizeQueryState.requery}
+                            startIcon={<FontAwesomeIcon icon={organizeQueryState.loading ? faSpinner : faSearch} spin={organizeQueryState.loading} />}
                         >
                             <FormattedMessage id="Refresh" defaultMessage="Refresh" />
                         </Button>
-                        <FormControlLabel
+                        {/* <FormControlLabel
                             label={<FormattedMessage id="IsOnlyViewSystemRole" defaultMessage="Don't Show Organize Role" />}
                             style={{ marginLeft: "1em" }}
                             control={
@@ -116,7 +126,7 @@ export default observer((props: Props) => {
                                     onChange={(e) => state.query.isOnlySystemRole = e.target.checked}
                                 />
                             }
-                        />
+                        /> */}
                     </div>
                     <div className="flex flex-auto" style={{ paddingBottom: "1px" }}>
                         <DataGrid
@@ -125,7 +135,7 @@ export default observer((props: Props) => {
                             onPaginationModelChange={(s) => {
                                 state.query.pageNum = Math.max(s.page + 1, 1);
                                 state.query.pageSize = Math.max(s.pageSize, 1);
-                                roleQueryState.requery();
+                                organizeQueryState.requery();
                             }}
                             apiRef={dataGridRef}
                             sortingMode="server"

@@ -6,13 +6,12 @@ export enum SystemPermissionEnum {
     ORGANIZE_VIEW = "ORGANIZE_VIEW",
 }
 
-export function isSystemPermission(permission: SystemPermissionEnum) {
-    return [SystemPermissionEnum.SUPER_ADMIN].includes(permission);
+export function isSystemPermission(permission: string) {
+    return [SystemPermissionEnum.SUPER_ADMIN].includes($enum(SystemPermissionEnum).asValueOrThrow(permission));
 }
 
-export function isOrganizePermission(permission: SystemPermissionEnum) {
+export function isOrganizePermission(permission: string) {
     return !isSystemPermission(permission);
-
 }
 
 async function main() {

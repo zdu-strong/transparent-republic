@@ -1,9 +1,9 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
-import { faFloppyDisk, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faSpinner, faSquarePlus, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, FormControlLabel, FormGroup, TextField } from "@mui/material";
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { SystemRoleModel } from "@/model/SystemRoleModel";
@@ -12,8 +12,10 @@ import { isOrganizePermission, isSystemPermission, SystemPermissionEnum } from "
 import { $enum } from "ts-enum-util";
 import linq from 'linq';
 import { SystemPermissionModel } from "@/model/SystemPermissionModel";
-import { v7 } from "uuid";
+import { v4, v7 } from "uuid";
 import { OrganizeModel } from "@/model/OrganizeModel";
+import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
+import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 
 type Props = {
     id: string;
@@ -26,15 +28,34 @@ export default observer((props: Props) => {
     const state = useMobxState(() => {
         const role = new SystemRoleModel();
         role.permissionList = [];
-        const permissionListOfSystem = $enum(SystemPermissionEnum).getValues().filter(s => isSystemPermission(s));
-        const permissionListOfOrganize = $enum(SystemPermissionEnum).getValues().filter(s => isOrganizePermission(s));
+        const allPermissionList = $enum(SystemPermissionEnum).getValues()
+            .map(s => {
+                const systemPermissionModel = new SystemPermissionModel();
+                systemPermissionModel.id = v4();
+                systemPermissionModel.permission = s;
+                return systemPermissionModel;
+            });
         return {
             role: role,
             submit: false,
-            permissionListOfSystem: permissionListOfSystem,
-            permissionListOfOrganize: permissionListOfOrganize,
+            allPermissionList,
+            addDialog: {
+                id: v4(),
+                open: false,
+            },
         };
     });
+
+    const permissionListOfSystem = linq.from(state.allPermissionList)
+        .where(s => isSystemPermission(s.permission))
+        .orderByDescending(s => isCheckedOfPermission(s))
+        .toArray();
+
+    const permissionListOfOrganize = linq.from(state.role.permissionList)
+        .where(s => isOrganizePermission(s.permission))
+        .orderBy(s => s.organize.id)
+        .orderBy(s => s.organize.createDate)
+        .toArray();
 
     const errors = {
         name() {
@@ -48,6 +69,106 @@ export default observer((props: Props) => {
                 .some(s => (errors as any)[s]());
         }
     };
+
+    function openAddDialog() {
+        state.addDialog.id = v4();
+        state.addDialog.open = true;
+    }
+
+    function closeAddDialog() {
+        state.addDialog.open = false;
+    }
+
+    const columnsOfSystemPermission: GridColDef<SystemPermissionModel>[] = [
+        {
+            renderHeader: () => "",
+            field: 'checkbox',
+            renderCell: (row) => <Checkbox
+                checked={isCheckedOfPermission(row.row)}
+                onChange={(e) => switchCheckedOfPermission(row.row)}
+            />,
+            width: 70,
+        },
+        {
+            headerName: 'ID',
+            field: 'id',
+            width: 290
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Permission" defaultMessage="Permission" />,
+            field: 'permission',
+            width: 150,
+            flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
+            field: '',
+            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
+                <SuperAdminRoleDetailButton
+                    id={row.row.id}
+                    searchByPagination={() => { }}
+                    isOnlyView={true}
+                />
+            </div>,
+            width: 230,
+        },
+    ];
+
+    const columnsOfOrganizePermission: GridColDef<SystemPermissionModel>[] = [
+        {
+            headerName: 'ID',
+            field: 'id',
+            width: 290
+        },
+        {
+            renderHeader: () => <FormattedMessage id="OrganizeName" defaultMessage="Organize Name" />,
+            field: 'organize',
+            renderCell: (row) => {
+                return <div>
+                    {row.row.organize ? row.row.organize.name : ""}
+                </div>
+            },
+            width: 150,
+            flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Permission" defaultMessage="Permission" />,
+            field: 'permission',
+            width: 150,
+        },
+        {
+            renderHeader: () => <Button
+                variant="contained"
+                onClick={openAddDialog}
+                startIcon={<FontAwesomeIcon icon={faSquarePlus} />}
+                style={{ marginLeft: "1em" }}
+                size="small"
+            >
+                <FormattedMessage id="Add" defaultMessage="Add" />
+            </Button>,
+            field: '',
+            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
+                <SuperAdminRoleDetailButton
+                    id={row.row.id}
+                    searchByPagination={() => { }}
+                    isOnlyView={true}
+                />
+                <Button
+                    variant="contained"
+                    onClick={() => removeCheckedOfPermission(row.row)}
+                    startIcon={<FontAwesomeIcon icon={faTrashCan} />}
+                    style={{ marginLeft: "1em" }}
+                >
+                    <FormattedMessage id="Delete" defaultMessage="Delete" />
+                </Button>
+            </div>,
+            width: 230,
+        },
+    ];
+
+    const dataGridOfOrganizePermissionRef = useGridApiRef();
+
+    const dataGridOfSystemPermissionRef = useGridApiRef();
 
     const { ready, error } = useMultipleQuery(async () => {
         if (props.id) {
@@ -79,9 +200,11 @@ export default observer((props: Props) => {
         props.closeDialog();
     }
 
-    function switchCheckedOfPermission(e: React.ChangeEvent<HTMLInputElement>, permission: SystemPermissionEnum, organizeId?: string) {
+    function switchCheckedOfPermission(systemPermissionModel: SystemPermissionModel) {
+        const permission = systemPermissionModel.permission;
+        const organizeId: string = systemPermissionModel.organize ? systemPermissionModel.organize.id : "";
         if (isSystemPermission(permission)) {
-            const index = state.role.permissionList.findIndex(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission);
+            const index = state.role.permissionList.findIndex(s => isSystemPermission(s.permission) && s.permission === permission);
             if (index >= 0) {
                 state.role.permissionList.splice(index, 1);
             } else {
@@ -91,7 +214,7 @@ export default observer((props: Props) => {
                 state.role.permissionList.push(systemPermissionModel);
             }
         } else {
-            const index = state.role.permissionList.findIndex(s => isOrganizePermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.organize.id === organizeId && s.permission === permission);
+            const index = state.role.permissionList.findIndex(s => isOrganizePermission(s.permission) && s.organize.id === organizeId && s.permission === permission);
             if (index >= 0) {
                 state.role.permissionList.splice(index, 1);
             } else {
@@ -105,8 +228,28 @@ export default observer((props: Props) => {
         }
     }
 
-    function isCheckedOfPermission(permission: SystemPermissionEnum, organizeId?: string) {
-        const isChecked = linq.from(state.role.permissionList).any(s => isSystemPermission($enum(SystemPermissionEnum).asValueOrThrow(s.permission)) && s.permission === permission);
+    function removeCheckedOfPermission(systemPermissionModel: SystemPermissionModel) {
+        const organizeId: string = systemPermissionModel.organize ? systemPermissionModel.organize.id : "";
+        const permission = systemPermissionModel.permission;
+        if (isSystemPermission(permission)) {
+            const index = state.role.permissionList.findIndex(s => isSystemPermission(s.permission) && s.permission === permission);
+            if (index >= 0) {
+                state.role.permissionList.splice(index, 1);
+            }
+        } else {
+            const index = state.role.permissionList.findIndex(s => isOrganizePermission(s.permission) && s.organize.id === organizeId && s.permission === permission);
+            if (index >= 0) {
+                state.role.permissionList.splice(index, 1);
+            }
+        }
+    }
+
+    function isCheckedOfPermission(systemPermissionModel: SystemPermissionModel) {
+        const permission = systemPermissionModel.permission;
+        const organizeId: string = systemPermissionModel.organize ? systemPermissionModel.organize.id : "";
+        const isChecked = linq.from(state.role.permissionList)
+            .where(s => s.permission === permission)
+            .any(s => isSystemPermission(permission) || s.organize.id === organizeId);
         return isChecked;
     }
 
@@ -116,6 +259,7 @@ export default observer((props: Props) => {
             onClose={closeDialog}
             disableRestoreFocus={true}
             fullWidth={true}
+            maxWidth="xl"
         >
             <DialogTitle className="justify-between items-center flex-row flex-auto flex">
                 <div className="flex flex-row items-center" >
@@ -141,31 +285,44 @@ export default observer((props: Props) => {
                         />
                     </div>
                     <div className="flex flex-row">
-                        <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                            <FormattedMessage id="SystemPermission" defaultMessage="System Permission" />
-                            {":"}
-                        </div>
-                        {state.permissionListOfSystem.length == 0 && <div className="flex flex-row">
-                            <FormattedMessage id="RoleListIsEmpty" defaultMessage="Role list is empty" />
-                        </div>}
-                        {state.permissionListOfSystem.length > 0 && <FormGroup>
-                            {state.permissionListOfSystem.map(permission =>
-                                <FormControlLabel
-                                    key={permission}
-                                    control={<Checkbox
-                                        checked={isCheckedOfPermission(permission)}
-                                        onChange={(e) => switchCheckedOfPermission(e, permission)}
-                                    />}
-                                    label={permission}
-                                />
-                            )}
-                        </FormGroup>}
+                        <FormattedMessage id="SystemPermission" defaultMessage="System Permission" />
+                        {":"}
+                    </div>
+                    <div className="flex flex-row" style={{ paddingBottom: "1px" }}>
+                        <DataGrid
+                            rows={permissionListOfSystem}
+                            rowCount={permissionListOfSystem.length}
+                            apiRef={dataGridOfSystemPermissionRef}
+                            sortingMode="server"
+                            paginationMode="server"
+                            getRowId={(s) => s.id}
+                            columns={columnsOfSystemPermission}
+                            hideFooter
+                            disableRowSelectionOnClick
+                            disableColumnMenu
+                            disableColumnResize
+                            disableColumnSorting
+                        />
                     </div>
                     <div className="flex flex-row">
-                        <div className="flex flex-row" style={{ marginRight: "1em" }}>
-                            <FormattedMessage id="OrganizePermission" defaultMessage="Organize Permission" />
-                            {":"}
-                        </div>
+                        <FormattedMessage id="OrganizePermission" defaultMessage="Organize Permission" />
+                        {":"}
+                    </div>
+                    <div className="flex flex-row" style={{ paddingBottom: "1px" }}>
+                        <DataGrid
+                            rows={permissionListOfOrganize}
+                            rowCount={permissionListOfOrganize.length}
+                            apiRef={dataGridOfOrganizePermissionRef}
+                            sortingMode="server"
+                            paginationMode="server"
+                            getRowId={(s) => s.id}
+                            columns={columnsOfOrganizePermission}
+                            hideFooter
+                            disableRowSelectionOnClick
+                            disableColumnMenu
+                            disableColumnResize
+                            disableColumnSorting
+                        />
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>

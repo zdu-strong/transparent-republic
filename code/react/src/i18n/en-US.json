@@ -132,5 +132,6 @@
     "OrganizePermission": "Organize Permission",
     "Filter": "Filter",
     "Add": "Add",
-    "IsOnlyViewSystemRole": "Don't Show Organize Role"
+    "IsOnlyViewSystemRole": "Don't Show Organize Role",
+    "Permission": "Permission"
 }

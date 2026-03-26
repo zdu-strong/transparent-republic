@@ -37,7 +37,6 @@ export default observer((props: Props) => {
                 id: v4(),
                 open: false,
             },
-
         };
     });
 

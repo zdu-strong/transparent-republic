@@ -132,5 +132,6 @@
     "OrganizePermission": "组织权限",
     "Filter": "筛选",
     "Add": "添加",
-    "IsOnlyViewSystemRole": "不显示组织角色"
+    "IsOnlyViewSystemRole": "不显示组织角色",
+    "Permission": "权限"
 }
