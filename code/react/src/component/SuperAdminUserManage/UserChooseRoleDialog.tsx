@@ -1,10 +1,10 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery } from "@/common/use-hook";
-import { faCircleCheck, faCircleXmark, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
-import { observer, useMobxState } from "mobx-react-use-autorun";
+import { Button, Checkbox, Dialog, DialogContent, DialogTitle, Divider, Fab, FormControlLabel } from "@mui/material";
+import { observer, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { SystemRoleModel } from "@/model/SystemRoleModel";
 import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
@@ -75,6 +75,10 @@ export default observer((props: Props) => {
         props.closeDialog();
     }
 
+    useMobxEffect(() => {
+        roleQueryState.requery();
+    }, [state.query])
+
     return <>
         <Dialog
             open={true}
@@ -95,6 +99,25 @@ export default observer((props: Props) => {
             <Divider />
             <DialogContent style={{ padding: "1em" }}>
                 <LoadingOrErrorComponent ready={roleQueryState.ready} error={roleQueryState.error} >
+                    <div className="flex flex-row" style={{ marginTop: "1em", marginBottom: "1em" }}>
+                        <Button
+                            variant="contained"
+                            onClick={roleQueryState.requery}
+                            startIcon={<FontAwesomeIcon icon={roleQueryState.loading ? faSpinner : faSearch} spin={roleQueryState.loading} />}
+                        >
+                            <FormattedMessage id="Refresh" defaultMessage="Refresh" />
+                        </Button>
+                        <FormControlLabel
+                            label={<FormattedMessage id="IsOnlyViewSystemRole" defaultMessage="Don't Show Organize Role" />}
+                            style={{ marginLeft: "1em" }}
+                            control={
+                                <Checkbox
+                                    checked={state.query.isOnlySystemRole}
+                                    onChange={(e) => state.query.isOnlySystemRole = e.target.checked}
+                                />
+                            }
+                        />
+                    </div>
                     <div className="flex flex-auto" style={{ paddingBottom: "1px" }}>
                         <DataGrid
                             rows={state.paginationModel.items}
@@ -119,23 +142,6 @@ export default observer((props: Props) => {
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
-            <Divider />
-            <DialogActions>
-                <Button
-                    variant="contained"
-                    startIcon={<FontAwesomeIcon icon={faCircleXmark} size="xl" />}
-                    onClick={props.closeDialog}
-                >
-                    <FormattedMessage id="Cancel" defaultMessage="Cancel" />
-                </Button>
-                <Button
-                    variant="contained"
-                    startIcon={<FontAwesomeIcon icon={faCircleCheck} size="xl" />}
-                    onClick={props.closeDialog}
-                >
-                    <FormattedMessage id="Confirm" defaultMessage="Confirm" />
-                </Button>
-            </DialogActions>
         </Dialog>
     </>
 })
