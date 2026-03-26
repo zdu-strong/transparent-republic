@@ -93,23 +93,25 @@ export default observer((props: Props) => {
                     />
                 </LoadingOrErrorComponent>
             </DialogContent>
-            <Divider />
-            <DialogActions>
-                <Button
-                    variant="contained"
-                    onClick={openUpdateDialog}
-                    startIcon={<FontAwesomeIcon icon={faPenToSquare} />}
-                >
-                    <FormattedMessage id="Update" defaultMessage="Update" />
-                </Button>
-                <Button
-                    variant="contained"
-                    onClick={confirmDeleteUser}
-                    startIcon={<FontAwesomeIcon icon={loading ? faSpinner : faTrashCan} spin={loading} />}
-                >
-                    <FormattedMessage id="Delete" defaultMessage="Delete" />
-                </Button>
-            </DialogActions>
+            {ready && <>
+                <Divider />
+                <DialogActions>
+                    <Button
+                        variant="contained"
+                        onClick={openUpdateDialog}
+                        startIcon={<FontAwesomeIcon icon={faPenToSquare} />}
+                    >
+                        <FormattedMessage id="Update" defaultMessage="Update" />
+                    </Button>
+                    <Button
+                        variant="contained"
+                        onClick={confirmDeleteUser}
+                        startIcon={<FontAwesomeIcon icon={loading ? faSpinner : faTrashCan} spin={loading} />}
+                    >
+                        <FormattedMessage id="Delete" defaultMessage="Delete" />
+                    </Button>
+                </DialogActions>
+            </>}
         </Dialog>
         {state.updateDialog.open && <OrganizeCreateOrUpdateDialog
             id={props.id}

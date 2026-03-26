@@ -94,7 +94,7 @@ export default observer((props: Props) => {
                 </LoadingOrErrorComponent>
             </DialogContent>
             <Divider />
-            {!props.isOnlyView && <DialogActions>
+            {ready && !props.isOnlyView && <DialogActions>
                 <Button
                     variant="contained"
                     onClick={openUpdateDialog}

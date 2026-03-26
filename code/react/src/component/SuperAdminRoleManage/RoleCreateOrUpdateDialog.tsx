@@ -169,16 +169,18 @@ export default observer((props: Props) => {
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
-            <Divider />
-            <DialogActions>
-                <Button
-                    variant="contained"
-                    onClick={resubmit}
-                    startIcon={<FontAwesomeIcon icon={loading ? faSpinner : faFloppyDisk} spin={loading} />}
-                >
-                    <FormattedMessage id="Save" defaultMessage="Save" />
-                </Button>
-            </DialogActions>
+            {ready && <>
+                <Divider />
+                <DialogActions>
+                    <Button
+                        variant="contained"
+                        onClick={resubmit}
+                        startIcon={<FontAwesomeIcon icon={loading ? faSpinner : faFloppyDisk} spin={loading} />}
+                    >
+                        <FormattedMessage id="Save" defaultMessage="Save" />
+                    </Button>
+                </DialogActions>
+            </>}
         </Dialog>
     </>
 })
