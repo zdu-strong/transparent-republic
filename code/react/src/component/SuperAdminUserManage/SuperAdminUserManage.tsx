@@ -31,6 +31,10 @@ export default observer(() => {
         },
     });
 
+    function getRolesName(user: UserModel) {
+        return user.roleList.map(s => s.name).join(", ");
+    }
+
     const columns: GridColDef<UserModel>[] = [
         {
             headerName: 'ID',
@@ -42,6 +46,16 @@ export default observer(() => {
             field: 'username',
             width: 150,
             flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Role" defaultMessage="Role" />,
+            field: 'roleList',
+            renderCell: (row) => {
+                return <div>
+                    {getRolesName(row.row)}
+                </div>
+            },
+            width: 300,
         },
         {
             renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
