@@ -14,6 +14,7 @@ import com.john.project.common.DistributedExecution.OrganizeClosureRefreshDistri
 import com.john.project.common.DistributedExecution.StorageSpaceCleanDistributedExecution;
 import com.john.project.common.FieldValidationUtil.ValidationFieldUtil;
 import com.john.project.common.uuid.UUIDUtil;
+import com.john.project.enums.OrganizeTypeEnum;
 import com.john.project.model.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -235,8 +236,11 @@ public abstract class BaseTest {
         var userModel = createAccountOfSuperAdmin(email);
         {
             var url = new URIBuilder("/organize/create").build();
-            var response = this.testRestTemplate.postForEntity(url, new OrganizeModel()
-                    .setName(uuidUtil.v4()), OrganizeModel.class);
+            var response = this.testRestTemplate.postForEntity(url,
+                    new OrganizeModel()
+                            .setName(uuidUtil.v4())
+                            .setOrganizeType(OrganizeTypeEnum.ORGANIZE.getValue()),
+                    OrganizeModel.class);
             assertEquals(HttpStatus.OK, response.getStatusCode());
             this.initOrganizeRoleList(response.getBody());
             var superAdminRoleQueryPaginationModel = new SuperAdminRoleQueryPaginationModel();

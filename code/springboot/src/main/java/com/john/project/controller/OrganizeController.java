@@ -16,7 +16,7 @@ public class OrganizeController extends BaseController {
     public ResponseEntity<?> create(@RequestBody OrganizeModel organizeModel) {
         this.permissionUtil.checkIsSignIn(request);
         this.validationFieldUtil.checkNotBlankOfOrganizeType(organizeModel.getOrganizeType());
-        this.validationFieldUtil.checkValidOfOrganizeType(organizeModel.getOrganizeType());
+        this.validationFieldUtil.checkValidOfOrganizeType(organizeModel);
         this.organizeService.checkHasExistOfParentOrganize(organizeModel);
 
         var organize = this.organizeUtil.create(organizeModel);
@@ -27,8 +27,8 @@ public class OrganizeController extends BaseController {
     public ResponseEntity<?> update(@RequestBody OrganizeModel organizeModel) {
         this.permissionUtil.checkIsSignIn(request);
         this.validationFieldUtil.checkNotBlankOfId(organizeModel.getId());
-        this.validationFieldUtil.checkNotBlankOfOrganizeType(organizeModel.getOrganizeType());
-        this.validationFieldUtil.checkValidOfOrganizeType(organizeModel.getOrganizeType());
+//        this.validationFieldUtil.checkNotBlankOfOrganizeType(organizeModel.getOrganizeType());
+//        this.validationFieldUtil.checkValidOfOrganizeType(organizeModel);
         this.organizeService.checkHasExistById(organizeModel.getId());
 
         this.organizeUtil.update(organizeModel);
