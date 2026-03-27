@@ -32,9 +32,7 @@ public class IdentityCardModel {
 
     private UserModel user;
 
-    private OrganizeModel country;
-
-    private OrganizeModel alliance;
+    private OrganizeModel topOrganize;
 
     private OrganizeModel governanceRegion;
 

@@ -136,5 +136,10 @@
     "Permission": "Permission",
     "AddPermission": "Add Permission",
     "AddOrganizePermission": "Add Organize Permission",
-    "PermissionDetail": "Permission Detail"
+    "PermissionDetail": "Permission Detail",
+    "IdentityCardList": "Identity Card List",
+    "IdentityType": "Identity Type",
+    "OrganizeType": "Organize Type",
+    "GovernanceRegion": "Governance Region",
+    "Address": "Address"
 }

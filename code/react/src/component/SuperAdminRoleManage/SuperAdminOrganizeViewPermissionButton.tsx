@@ -6,7 +6,7 @@ import { v7 } from "uuid";
 import { FormattedMessage } from "react-intl";
 import type { SystemPermissionModel } from "@/model/SystemPermissionModel";
 import type { OrganizeModel } from "@/model/OrganizeModel";
-import SuperAdminOrganizeViewPermissionDialog from "./SuperAdminOrganizeViewPermissionDialog";
+import SuperAdminOrganizeViewPermissionDialog from "@component/SuperAdminRoleManage/SuperAdminOrganizeViewPermissionDialog";
 
 type Props = {
     switchCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => void;

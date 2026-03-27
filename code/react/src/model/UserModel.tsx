@@ -2,6 +2,7 @@ import { jsonArrayMember, jsonMember, jsonObject } from 'typedjson'
 import { UserEmailModel } from '@model/UserEmailModel';
 import { makeAutoObservable } from 'mobx-react-use-autorun'
 import { SystemRoleModel } from '@model/SystemRoleModel';
+import { IdentityCardModel } from '@model/IdentityCardModel';
 
 @jsonObject
 export class UserModel {
@@ -20,6 +21,9 @@ export class UserModel {
 
     @jsonArrayMember(SystemRoleModel)
     roleList!: SystemRoleModel[];
+
+    @jsonArrayMember(IdentityCardModel)
+    identityCardList!: IdentityCardModel[];
 
     @jsonMember(String)
     accessToken!: string;

@@ -136,5 +136,10 @@
     "Permission": "权限",
     "AddPermission": "添加权限",
     "AddOrganizePermission": "添加组织权限",
-    "PermissionDetail": "权限详情"
+    "PermissionDetail": "权限详情",
+    "IdentityCardList": "身份证列表",
+    "IdentityType": "身份类型",
+    "OrganizeType": "组织类型",
+    "GovernanceRegion": "治理区域",
+    "Address": "地址"
 }
