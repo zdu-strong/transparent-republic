@@ -13,8 +13,7 @@ import { OrganizeModel } from "@/model/OrganizeModel";
 import { SuperAdminOrganizeQueryPaginationModel } from "@/model/SuperAdminOrganizeQueryPaginationModel";
 import { format } from "date-fns";
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
-import { $enum } from "ts-enum-util";
-import { isOrganizePermission, SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
+import { SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
 import { v4 } from "uuid";
 import SuperAdminOrganizeChoosePermissionButton from "@component/SuperAdminRoleManage/SuperAdminOrganizeChoosePermissionButton";
 
@@ -44,16 +43,15 @@ export default observer((props: Props) => {
     });
 
     function getPermissionsName(orgainze: OrganizeModel) {
-        return $enum(SystemPermissionEnum)
-            .getValues()
+        return SystemPermissionEnum.values()
+            .filter(s => s.isOrganizePermission)
             .map(s => {
                 const systemPermissionModel = new SystemPermissionModel();
                 systemPermissionModel.id = v4();
                 systemPermissionModel.organize = orgainze;
-                systemPermissionModel.permission = s;
+                systemPermissionModel.permission = s.value;
                 return systemPermissionModel;
             })
-            .filter(s => isOrganizePermission(s.permission))
             .filter(s => props.isCheckedOfPermission(s))
             .map(s => s.permission)
             .join(", ");

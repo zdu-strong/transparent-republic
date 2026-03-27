@@ -7,8 +7,7 @@ import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import { SystemPermissionModel } from "@/model/SystemPermissionModel";
 import { OrganizeModel } from "@/model/OrganizeModel";
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
-import { $enum } from "ts-enum-util";
-import { isOrganizePermission, SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
+import { SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
 import { v4 } from "uuid";
 
 type Props = {
@@ -21,12 +20,12 @@ type Props = {
 export default observer((props: Props) => {
 
     const state = useMobxState(() => {
-        const allPermissionList = $enum(SystemPermissionEnum).getValues()
-            .filter(s => isOrganizePermission(s))
+        const allPermissionList = SystemPermissionEnum.values()
+            .filter(s => s.isOrganizePermission)
             .map(s => {
                 const systemPermissionModel = new SystemPermissionModel();
                 systemPermissionModel.id = v4();
-                systemPermissionModel.permission = s;
+                systemPermissionModel.permission = s.value;
                 systemPermissionModel.organize = props.organize;
                 return systemPermissionModel;
             });

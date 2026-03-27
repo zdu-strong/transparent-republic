@@ -3,6 +3,7 @@ package com.john.project.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.john.project.SpringBootProjectApplication;
+import com.john.project.enums.SystemPermissionEnum;
 import org.junit.jupiter.api.Test;
 import com.john.project.test.common.BaseTest.BaseTest;
 

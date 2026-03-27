@@ -6,8 +6,7 @@ import { v4 } from "uuid";
 import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 import { SystemPermissionModel } from "@/model/SystemPermissionModel";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
-import { isOrganizePermission, isSystemPermission, SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
-import { $enum } from "ts-enum-util";
+import { SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
 import linq from 'linq';
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
 import type { OrganizeModel } from "@/model/OrganizeModel";
@@ -20,11 +19,11 @@ type Props = {
 export default observer((props: Props) => {
 
     const state = useMobxState(() => {
-        const allPermissionList = $enum(SystemPermissionEnum).getValues()
+        const allPermissionList = SystemPermissionEnum.values()
             .map(s => {
                 const systemPermissionModel = new SystemPermissionModel();
                 systemPermissionModel.id = v4();
-                systemPermissionModel.permission = s;
+                systemPermissionModel.permission = s.value;
                 return systemPermissionModel;
             });
         return {
@@ -33,12 +32,12 @@ export default observer((props: Props) => {
     });
 
     const permissionListOfSystem = linq.from(state.allPermissionList)
-        .where(s => isSystemPermission(s.permission))
+        .where(s => !SystemPermissionEnum.parse(s.permission).isOrganizePermission)
         .where(s => isCheckedOfPermission(s))
         .toArray();
 
     const organizeList = linq.from(props.role.permissionList)
-        .where(s => isOrganizePermission(s.permission))
+        .where(s => SystemPermissionEnum.parse(s.permission).isOrganizePermission)
         .select(s => s.organize)
         .groupBy(s => s.id)
         .select(s => s.first())
@@ -132,21 +131,20 @@ export default observer((props: Props) => {
         const organizeId: string = systemPermissionModel.organize ? systemPermissionModel.organize.id : "";
         const isChecked = linq.from(props.role.permissionList)
             .where(s => s.permission === permission)
-            .any(s => isSystemPermission(permission) || s.organize.id === organizeId);
+            .any(s => !SystemPermissionEnum.parse(permission).isOrganizePermission || s.organize.id === organizeId);
         return isChecked;
     }
 
     function getPermissionsName(orgainze: OrganizeModel) {
-        return $enum(SystemPermissionEnum)
-            .getValues()
+        return SystemPermissionEnum.values()
+            .filter(s => s.isOrganizePermission)
             .map(s => {
                 const systemPermissionModel = new SystemPermissionModel();
                 systemPermissionModel.id = v4();
                 systemPermissionModel.organize = orgainze;
-                systemPermissionModel.permission = s;
+                systemPermissionModel.permission = s.value;
                 return systemPermissionModel;
             })
-            .filter(s => isOrganizePermission(s.permission))
             .filter(s => isCheckedOfPermission(s))
             .map(s => s.permission)
             .join(", ");

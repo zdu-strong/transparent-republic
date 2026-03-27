@@ -9,11 +9,11 @@ export function checkAnyPermission(permission: SystemPermissionEnum | SystemPerm
 }
 
 export function hasAnyPermission(permission: SystemPermissionEnum | SystemPermissionEnum[]): boolean {
-    if (typeof permission === "string") {
+    if (permission instanceof SystemPermissionEnum) {
         const permissionEnum = permission as SystemPermissionEnum;
         if (linq.from(GlobalUserInfo.roleList)
             .selectMany(s => s.permissionList)
-            .where(s => s.permission === permissionEnum)
+            .where(s => s.permission === permissionEnum.value)
             .isEmpty()
         ) {
             return false;
