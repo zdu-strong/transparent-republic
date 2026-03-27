@@ -1,6 +1,6 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Checkbox, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
+import { Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
@@ -11,7 +11,6 @@ import { v4 } from "uuid";
 import SuperAdminPermissionDetailButton from "@component/SuperAdminRoleManage/SuperAdminPermissionDetailButton";
 
 type Props = {
-    switchCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => void;
     isCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => boolean;
     closeDialog: () => void;
     organize: OrganizeModel;
@@ -28,22 +27,14 @@ export default observer((props: Props) => {
                 systemPermissionModel.permission = s.value;
                 systemPermissionModel.organize = props.organize;
                 return systemPermissionModel;
-            });
+            })
+            .filter(s => props.isCheckedOfPermission(s));
         return {
             allPermissionList: allPermissionList,
         };
     });
 
     const columns: GridColDef<SystemPermissionModel>[] = [
-        {
-            renderHeader: () => "",
-            field: 'checkbox',
-            renderCell: (row) => <Checkbox
-                checked={props.isCheckedOfPermission(row.row)}
-                onChange={(e) => props.switchCheckedOfPermission(row.row)}
-            />,
-            width: 70,
-        },
         {
             headerName: 'ID',
             field: 'id',
@@ -85,7 +76,7 @@ export default observer((props: Props) => {
         >
             <DialogTitle className="justify-between items-center flex-row flex-auto flex">
                 <div className="flex flex-row items-center" >
-                    <FormattedMessage id="AddPermission" defaultMessage="Add Permission" />
+                    <FormattedMessage id="Permission" defaultMessage="Permission" />
                 </div>
                 <Fab color="default" id="closeButton" onClick={props.closeDialog}>
                     <FontAwesomeIcon icon={faXmark} size="xl" />

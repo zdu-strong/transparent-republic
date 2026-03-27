@@ -3,28 +3,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { v7 } from "uuid";
-import SuperAdminUserDetailDialog from "@component/SuperAdminUserManage/SuperAdminUserDetailDialog";
 import { FormattedMessage } from "react-intl";
+import SuperAdminPermissionDetailDialog from "@component/SuperAdminRoleManage/SuperAdminPermissionDetailDialog";
 
 type Props = {
-    id: string;
-    searchByPagination: () => void;
+    permission: string;
 }
 
 export default observer((props: Props) => {
 
     const state = useMobxState({
         dialog: {
-            id: v7(),
             open: false,
+            id: v7()
         }
     })
 
     function openDialog() {
-        state.dialog = {
-            id: v7(),
-            open: true,
-        }
+        state.dialog.id = v7();
+        state.dialog.open = true;
     }
 
     function closeDialog() {
@@ -36,15 +33,15 @@ export default observer((props: Props) => {
             onClick={openDialog}
             variant="contained"
             startIcon={<FontAwesomeIcon icon={faCircleInfo} />}
+            style={{ marginLeft: "1em" }}
         >
             <FormattedMessage id="Detail" defaultMessage="Detail" />
         </Button>
         {
-            state.dialog.open && <SuperAdminUserDetailDialog
-                id={props.id}
-                searchByPagination={props.searchByPagination}
+            state.dialog.open && <SuperAdminPermissionDetailDialog
                 key={state.dialog.id}
                 closeDialog={closeDialog}
+                permission={props.permission}
             />
         }
     </>

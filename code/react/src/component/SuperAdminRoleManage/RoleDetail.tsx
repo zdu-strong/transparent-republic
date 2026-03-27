@@ -3,7 +3,6 @@ import { FormattedMessage } from "react-intl";
 import { format } from "date-fns";
 import type { SystemRoleModel } from "@/model/SystemRoleModel";
 import { v4 } from "uuid";
-import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 import { SystemPermissionModel } from "@/model/SystemPermissionModel";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import { SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
@@ -11,6 +10,7 @@ import linq from 'linq';
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
 import type { OrganizeModel } from "@/model/OrganizeModel";
 import SuperAdminOrganizeViewPermissionButton from "@component/SuperAdminRoleManage/SuperAdminOrganizeViewPermissionButton";
+import SuperAdminPermissionDetailButton from "@component/SuperAdminRoleManage/SuperAdminPermissionDetailButton";
 
 type Props = {
     role: SystemRoleModel;
@@ -60,13 +60,9 @@ export default observer((props: Props) => {
         {
             renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
             field: '',
-            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
-                <SuperAdminRoleDetailButton
-                    id={row.row.id}
-                    searchByPagination={() => { }}
-                    isOnlyView={true}
-                />
-            </div>,
+            renderCell: (row) => <SuperAdminPermissionDetailButton
+                permission={row.row.permission}
+            />,
             width: 230,
         },
     ];

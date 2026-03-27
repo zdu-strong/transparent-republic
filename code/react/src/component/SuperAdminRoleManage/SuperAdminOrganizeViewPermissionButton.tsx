@@ -6,6 +6,7 @@ import { v7 } from "uuid";
 import { FormattedMessage } from "react-intl";
 import type { SystemPermissionModel } from "@/model/SystemPermissionModel";
 import type { OrganizeModel } from "@/model/OrganizeModel";
+import SuperAdminOrganizeViewPermissionDialog from "./SuperAdminOrganizeViewPermissionDialog";
 
 type Props = {
     switchCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => void;
@@ -17,15 +18,15 @@ export default observer((props: Props) => {
 
     const state = useMobxState({
         dialog: {
+            id: v7(),
             open: false,
-            id: v7()
         }
     })
 
     function openDialog() {
         state.dialog = {
+            id: v7(),
             open: true,
-            id: v7()
         }
     }
 
@@ -42,14 +43,13 @@ export default observer((props: Props) => {
         >
             <FormattedMessage id="Permission" defaultMessage="Permission" />
         </Button>
-        {/* {
-            state.dialog.open && <SuperAdminOrganizeChoosePermissionDialog
+        {
+            state.dialog.open && <SuperAdminOrganizeViewPermissionDialog
                 key={state.dialog.id}
                 closeDialog={closeDialog}
                 organize={props.organize}
                 isCheckedOfPermission={props.isCheckedOfPermission}
-                switchCheckedOfPermission={props.switchCheckedOfPermission}
             />
-        } */}
+        }
     </>
 })

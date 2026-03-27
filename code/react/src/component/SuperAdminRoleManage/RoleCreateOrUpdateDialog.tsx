@@ -13,12 +13,12 @@ import linq from 'linq';
 import { SystemPermissionModel } from "@/model/SystemPermissionModel";
 import { v4 } from "uuid";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
-import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
-import RoleChooseOrganizeDialog from "@/component/SuperAdminRoleManage/RoleChooseOrganizeDialog";
+import SuperAdminRoleChooseOrganizeDialog from "@/component/SuperAdminRoleManage/SuperAdminRoleChooseOrganizeDialog";
 import { OrganizeModel } from "@/model/OrganizeModel";
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
 import { format } from 'date-fns';
 import SuperAdminOrganizeChoosePermissionDialog from "@component/SuperAdminRoleManage/SuperAdminOrganizeChoosePermissionDialog";
+import SuperAdminPermissionDetailButton from "@component/SuperAdminRoleManage/SuperAdminPermissionDetailButton";
 
 type Props = {
     id: string;
@@ -114,13 +114,9 @@ export default observer((props: Props) => {
         {
             renderHeader: () => <FormattedMessage id="Operation" defaultMessage="Operation" />,
             field: '',
-            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
-                <SuperAdminRoleDetailButton
-                    id={row.row.id}
-                    searchByPagination={() => { }}
-                    isOnlyView={true}
-                />
-            </div>,
+            renderCell: (row) => <SuperAdminPermissionDetailButton
+                permission={row.row.permission}
+            />,
             width: 230,
         },
     ];
@@ -361,7 +357,7 @@ export default observer((props: Props) => {
                 </DialogActions>
             </>}
         </Dialog>
-        {state.addDialog.open && <RoleChooseOrganizeDialog
+        {state.addDialog.open && <SuperAdminRoleChooseOrganizeDialog
             closeDialog={closeAddDialog}
             isCheckedOfPermission={isCheckedOfPermission}
             switchCheckedOfPermission={switchCheckedOfPermission}

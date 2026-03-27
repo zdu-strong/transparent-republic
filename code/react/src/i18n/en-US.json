@@ -135,5 +135,6 @@
     "IsOnlyViewSystemRole": "Don't Show Organize Role",
     "Permission": "Permission",
     "AddPermission": "Add Permission",
-    "AddOrganizePermission": "Add Organize Permission"
+    "AddOrganizePermission": "Add Organize Permission",
+    "PermissionDetail": "Permission Detail"
 }
