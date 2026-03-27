@@ -119,13 +119,13 @@ export default observer((props: Props) => {
             {ready && !props.isOnlyView && <>
                 <Divider />
                 <DialogActions>
-                    {[OrganizeTypeEnum.COUNTRY, OrganizeTypeEnum.ALLIANCE].includes(OrganizeTypeEnum.parse(state.organize.organizeType)) && <Button
+                    <Button
                         variant="contained"
                         onClick={openCreateOrganizeDialog}
                         startIcon={<FontAwesomeIcon icon={faPenToSquare} />}
                     >
                         <FormattedMessage id="CreateOrganize" defaultMessage="Create Organize" />
-                    </Button>}
+                    </Button>
                     {[OrganizeTypeEnum.COUNTRY, OrganizeTypeEnum.ALLIANCE].includes(OrganizeTypeEnum.parse(state.organize.organizeType)) && <Button
                         variant="contained"
                         onClick={openCreateRegionDialog}
