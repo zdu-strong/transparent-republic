@@ -3,14 +3,18 @@ import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorCompo
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
 import { faFloppyDisk, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, TextField } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { timer } from "rxjs";
 import { OrganizeModel } from "@/model/OrganizeModel";
+import { v4 } from "uuid";
+import { OrganizeTypeEnum } from "@/enums/OrganizeTypeEnum";
 
 type Props = {
     id: string;
+    parentId: string;
+    organizeType: string;
     searchByPagination: () => void;
     closeDialog: () => void;
 }
@@ -20,9 +24,13 @@ export default observer((props: Props) => {
     const state = useMobxState(() => {
         const organize = new OrganizeModel();
         organize.name = "";
+        organize.organizeType = props.organizeType || OrganizeTypeEnum.COUNTRY.value;
+        organize.parent = new OrganizeModel();
+        organize.parent.id = props.parentId;
         return {
             organize: organize,
             submit: false,
+            organizeTypeLabelId: v4()
         };
     });
 
@@ -99,6 +107,26 @@ export default observer((props: Props) => {
                             autoFocus={true}
                         />
                     </div>
+                    {!props.id && <div className="flex flex-row" style={{ marginTop: "1em" }}>
+                        <FormControl fullWidth>
+                            <InputLabel id={state.organizeTypeLabelId}>
+                                <FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />
+                            </InputLabel>
+                            <Select
+                                disabled={!!props.organizeType}
+                                labelId={state.organizeTypeLabelId}
+                                value={state.organize.organizeType}
+                                label={<FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />}
+                                onChange={(e) => state.organize.organizeType = e.target.value}
+                            >
+                                {OrganizeTypeEnum.values().map(organizeTypeEnum => <MenuItem
+                                    value={organizeTypeEnum.value}
+                                >
+                                    {organizeTypeEnum.value}
+                                </MenuItem>)}
+                            </Select>
+                        </FormControl>
+                    </div>}
                 </LoadingOrErrorComponent>
             </DialogContent>
             {ready && <>

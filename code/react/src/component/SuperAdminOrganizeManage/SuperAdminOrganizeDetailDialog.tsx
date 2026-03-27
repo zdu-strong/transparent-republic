@@ -11,6 +11,7 @@ import OrganizeDetail from "@component/SuperAdminOrganizeManage/OrganizeDetail";
 import { OrganizeModel } from "@/model/OrganizeModel";
 import { v4 } from "uuid";
 import OrganizeCreateOrUpdateDialog from "@component/SuperAdminOrganizeManage/OrganizeCreateOrUpdateDialog";
+import { OrganizeTypeEnum } from "@/enums/OrganizeTypeEnum";
 
 type Props = {
     id: string;
@@ -25,6 +26,8 @@ export default observer((props: Props) => {
         organize: new OrganizeModel(),
         updateDialog: {
             id: v4(),
+            organizeId: "",
+            parentId: "",
             open: false,
         }
     });
@@ -56,8 +59,16 @@ export default observer((props: Props) => {
         props.closeDialog();
     }
 
+    function openCreateDialog() {
+        state.updateDialog.organizeId = "";
+        state.updateDialog.parentId = props.id;
+        state.updateDialog.id = v4();
+        state.updateDialog.open = true;
+    }
 
     function openUpdateDialog() {
+        state.updateDialog.organizeId = props.id;
+        state.updateDialog.parentId = "";
         state.updateDialog.id = v4();
         state.updateDialog.open = true;
     }
@@ -97,6 +108,13 @@ export default observer((props: Props) => {
             {ready && !props.isOnlyView && <>
                 <Divider />
                 <DialogActions>
+                    {state.organize.organizeType === OrganizeTypeEnum.COUNTRY.value && <Button
+                        variant="contained"
+                        onClick={openCreateDialog}
+                        startIcon={<FontAwesomeIcon icon={faPenToSquare} />}
+                    >
+                        <FormattedMessage id="CreateRegion" defaultMessage="Create Region" />
+                    </Button>}
                     <Button
                         variant="contained"
                         onClick={openUpdateDialog}
@@ -115,7 +133,10 @@ export default observer((props: Props) => {
             </>}
         </Dialog>
         {state.updateDialog.open && <OrganizeCreateOrUpdateDialog
-            id={props.id}
+            key={state.updateDialog.id}
+            id={state.updateDialog.organizeId}
+            organizeType={state.organize.level === 0 ? OrganizeTypeEnum.GOVERNANCE_REGION.value : ""}
+            parentId=""
             searchByPagination={requeryOfUpdateDialog}
             closeDialog={closeUpdateDialog}
         />}

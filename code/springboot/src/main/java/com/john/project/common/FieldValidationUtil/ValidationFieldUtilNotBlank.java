@@ -57,4 +57,10 @@ public abstract class ValidationFieldUtilNotBlank extends ValidationFieldUtilBas
         }
     }
 
+    public void checkNotBlankOfOrganizeType(String organizeType) {
+        if (StringUtils.isBlank(organizeType)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "organizeType cannot be blank");
+        }
+    }
+
 }

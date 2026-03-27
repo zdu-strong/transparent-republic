@@ -30,6 +30,15 @@ export default observer((props: Props) => {
         </div>
         <div className="flex flex-row">
             <div className="flex flex-row" style={{ marginRight: "1em" }}>
+                <FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />
+                {":"}
+            </div>
+            <div className="flex flex-row">
+                {props.organize.organizeType}
+            </div>
+        </div>
+        <div className="flex flex-row">
+            <div className="flex flex-row" style={{ marginRight: "1em" }}>
                 <FormattedMessage id="CreateDate" defaultMessage="Create Date" />
                 {":"}
             </div>

@@ -141,5 +141,6 @@
     "IdentityType": "身份类型",
     "OrganizeType": "组织类型",
     "GovernanceRegion": "治理区域",
-    "Address": "地址"
+    "Address": "地址",
+    "CreateRegion": "创建区域"
 }

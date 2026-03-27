@@ -141,5 +141,6 @@
     "IdentityType": "Identity Type",
     "OrganizeType": "Organize Type",
     "GovernanceRegion": "Governance Region",
-    "Address": "Address"
+    "Address": "Address",
+    "CreateRegion": "Create Region"
 }

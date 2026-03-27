@@ -20,8 +20,8 @@ export class SystemPermissionEnum {
     @jsonMember(Boolean)
     isOrganizePermission!: boolean;
 
-    static parse(permission: string) {
-        return linq.from(SystemPermissionEnum.values()).where(s => s.value === permission).single();
+    static parse(value: string) {
+        return linq.from(SystemPermissionEnum.values()).where(s => s.value === value).single();
     }
 
     static values() {

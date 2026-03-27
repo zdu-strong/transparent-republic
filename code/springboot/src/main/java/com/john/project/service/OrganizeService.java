@@ -33,7 +33,7 @@ public class OrganizeService extends BaseService {
         organizeEntity.setUpdateDate(new Date());
         organizeEntity.setParent(parentOrganize);
         organizeEntity.setIsTopOrganize(organizeEntity.getParent() == null);
-        organizeEntity.setOrganizeType(OrganizeTypeEnum.ORGANIZE.getValue());
+        organizeEntity.setOrganizeType(organizeModel.getOrganizeType());
         this.persist(organizeEntity);
 
         return this.organizeFormatter.format(organizeEntity);

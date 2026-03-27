@@ -75,6 +75,7 @@ export default observer((props: Props) => {
             onClose={closeDialog}
             disableRestoreFocus={true}
             fullWidth={true}
+            maxWidth="xl"
         >
             <DialogTitle className="justify-between items-center flex-row flex-auto flex">
                 <div className="flex flex-row items-center" >

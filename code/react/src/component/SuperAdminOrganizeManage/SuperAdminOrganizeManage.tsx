@@ -40,6 +40,11 @@ export default observer(() => {
             flex: 1,
         },
         {
+            renderHeader: () => <FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />,
+            field: 'organizeType',
+            width: 200,
+        },
+        {
             renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
             field: 'createDate',
             renderCell: (row) => {
@@ -126,7 +131,9 @@ export default observer(() => {
         </LoadingOrErrorComponent>
         {state.createDialog.open && <OrganizeCreateOrUpdateDialog
             key={state.createDialog.id}
-            id={""}
+            id=""
+            parentId=""
+            organizeType=""
             searchByPagination={organizeQueryState.requery}
             closeDialog={closeCreateDialog}
         />}
