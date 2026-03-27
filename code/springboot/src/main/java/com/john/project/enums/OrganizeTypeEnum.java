@@ -12,6 +12,7 @@ public enum OrganizeTypeEnum {
 
     COUNTRY("COUNTRY"),
     ALLIANCE("ALLIANCE"),
+    GOVERNANCE_REGION("GOVERNANCE_REGION"),
     ORGANIZE("ORGANIZE"),
     ;
 
