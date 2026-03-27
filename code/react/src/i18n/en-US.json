@@ -142,5 +142,6 @@
     "OrganizeType": "Organize Type",
     "GovernanceRegion": "Governance Region",
     "Address": "Address",
-    "CreateRegion": "Create Region"
+    "CreateRegion": "Create Region",
+    "CreateOrganize": "Create Organize"
 }

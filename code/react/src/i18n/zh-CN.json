@@ -142,5 +142,6 @@
     "OrganizeType": "组织类型",
     "GovernanceRegion": "治理区域",
     "Address": "地址",
-    "CreateRegion": "创建区域"
+    "CreateRegion": "创建区域",
+    "CreateOrganize": "创建部门"
 }

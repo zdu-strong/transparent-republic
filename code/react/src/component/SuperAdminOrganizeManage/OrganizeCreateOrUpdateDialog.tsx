@@ -10,6 +10,7 @@ import { timer } from "rxjs";
 import { OrganizeModel } from "@/model/OrganizeModel";
 import { v4 } from "uuid";
 import { OrganizeTypeEnum } from "@/enums/OrganizeTypeEnum";
+import linq from "linq";
 
 type Props = {
     id: string;
@@ -22,15 +23,28 @@ type Props = {
 export default observer((props: Props) => {
 
     const state = useMobxState(() => {
+        let allOrganizeTypeEnumList = OrganizeTypeEnum.values();
+        if (!props.id && !props.parentId) {
+            allOrganizeTypeEnumList = allOrganizeTypeEnumList.filter(s => [OrganizeTypeEnum.COUNTRY, OrganizeTypeEnum.ALLIANCE, OrganizeTypeEnum.ORGANIZE].includes(OrganizeTypeEnum.parse(s.value)));
+        }
+        if (!props.id && props.parentId && !props.organizeType) {
+            allOrganizeTypeEnumList = allOrganizeTypeEnumList.filter(s => ![OrganizeTypeEnum.COUNTRY, OrganizeTypeEnum.ALLIANCE, OrganizeTypeEnum.GOVERNANCE_REGION].includes(OrganizeTypeEnum.parse(s.value)));
+        }
+
         const organize = new OrganizeModel();
         organize.name = "";
-        organize.organizeType = props.organizeType || OrganizeTypeEnum.COUNTRY.value;
         organize.parent = new OrganizeModel();
         organize.parent.id = props.parentId;
+        organize.organizeType = linq.from(allOrganizeTypeEnumList)
+            .orderByDescending(s => s.value === OrganizeTypeEnum.COUNTRY.value)
+            .orderByDescending(s => s.value === props.organizeType)
+            .select(s => s.value)
+            .firstOrDefault("");
         return {
             organize: organize,
             submit: false,
-            organizeTypeLabelId: v4()
+            organizeTypeLabelId: v4(),
+            allOrganizeTypeEnumList: allOrganizeTypeEnumList,
         };
     });
 
@@ -107,7 +121,7 @@ export default observer((props: Props) => {
                             autoFocus={true}
                         />
                     </div>
-                    {!props.id && <div className="flex flex-row" style={{ marginTop: "1em" }}>
+                    {!props.id && !props.organizeType && <div className="flex flex-row" style={{ marginTop: "1em" }}>
                         <FormControl fullWidth>
                             <InputLabel id={state.organizeTypeLabelId}>
                                 <FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />
@@ -119,7 +133,8 @@ export default observer((props: Props) => {
                                 label={<FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />}
                                 onChange={(e) => state.organize.organizeType = e.target.value}
                             >
-                                {OrganizeTypeEnum.values().map(organizeTypeEnum => <MenuItem
+                                {state.allOrganizeTypeEnumList.map(organizeTypeEnum => <MenuItem
+                                    key={organizeTypeEnum.value}
                                     value={organizeTypeEnum.value}
                                 >
                                     {organizeTypeEnum.value}
