@@ -71,7 +71,7 @@ The President holds all executive power. All orders are carried out by the relev
 ## 🔷 5. Election & Continuity<br/>
 Annual performance evaluations determine continuation:<br/>
 
-Everyone, from Local Supervisors to the President, must retain high satisfaction or a low dismissal rate to remain.<br/>
+Everyone, from Local Supervisors to the President, must retain high satisfaction or a low dismissal rate to remain (satisfaction >=60% or dismissal < 20%).<br/>
 
 No absolute term limits—only performance and public trust matter.<br/>
 
