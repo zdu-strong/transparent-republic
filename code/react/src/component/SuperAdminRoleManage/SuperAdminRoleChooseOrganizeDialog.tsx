@@ -27,6 +27,7 @@ export default observer((props: Props) => {
 
     const state = useMobxState(() => {
         const query = new SuperAdminOrganizeQueryPaginationModel();
+        query.pageSize = 10;
         return {
             query: query,
             paginationModel: new PaginationModel<OrganizeModel>(),
@@ -160,6 +161,7 @@ export default observer((props: Props) => {
                                 state.query.pageSize = Math.max(s.pageSize, 1);
                                 organizeQueryState.requery();
                             }}
+                            paginationModel={{ pageSize: state.query.pageSize, page: state.query.pageNum - 1 }}
                             apiRef={dataGridRef}
                             sortingMode="server"
                             paginationMode="server"

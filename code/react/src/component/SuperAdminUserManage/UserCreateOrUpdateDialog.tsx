@@ -14,6 +14,7 @@ import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdminRoleDetailButton";
 import { v4 } from "uuid";
 import UserChooseRoleDialog from "@component/SuperAdminUserManage/UserChooseRoleDialog";
+import type { IdentityCardModel } from "@/model/IdentityCardModel";
 
 type Props = {
     id: string;
@@ -29,6 +30,7 @@ export default observer((props: Props) => {
         user.password = "";
         user.roleList = [];
         user.userEmailList = [];
+        user.identityCardList = [];
         return {
             user: user,
             submit: false,
@@ -37,6 +39,10 @@ export default observer((props: Props) => {
                 id: v4(),
                 open: false,
             },
+            addIdentityCardDialog: {
+                id: v4(),
+                open: false,
+            }
         };
     });
 
@@ -59,7 +65,7 @@ export default observer((props: Props) => {
         }
     };
 
-    const columns: GridColDef<SystemRoleModel>[] = [
+    const columnsOfRoles: GridColDef<SystemRoleModel>[] = [
         {
             headerName: 'ID',
             field: 'id',
@@ -91,6 +97,83 @@ export default observer((props: Props) => {
                 <Button
                     variant="contained"
                     onClick={() => removeCheckedOfRole(row.row)}
+                    startIcon={<FontAwesomeIcon icon={faTrashCan} />}
+                    style={{ marginLeft: "1em" }}
+                >
+                    <FormattedMessage id="Delete" defaultMessage="Delete" />
+                </Button>
+            </div>,
+            width: 230,
+        },
+    ];
+
+    const columnsOfIdentityCardList: GridColDef<IdentityCardModel>[] = [
+        {
+            headerName: 'ID',
+            field: 'id',
+            width: 290
+        },
+        {
+            renderHeader: () => <FormattedMessage id="OrganizeName" defaultMessage="Organize Name" />,
+            field: 'organize',
+            width: 150,
+            flex: 1,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />,
+            field: 'organizeType',
+            renderCell: (row) => {
+                return <div>
+                    {row.row.topOrganize.organizeType}
+                </div>
+            },
+            width: 150,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="IdentityType" defaultMessage="Identity Type" />,
+            field: 'identityType',
+            renderCell: (row) => {
+                return <div>
+                    {row.row.identityType}
+                </div>
+            },
+            width: 150,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="GovernanceRegion" defaultMessage="Governance Region" />,
+            field: 'governanceRegion',
+            renderCell: (row) => {
+                return <div>
+                    {row.row.governanceRegion.name}
+                </div>
+            },
+            width: 150,
+        },
+        {
+            renderHeader: () => <FormattedMessage id="Address" defaultMessage="Address" />,
+            field: 'address',
+            width: 150,
+        },
+        {
+            renderHeader: () => <Button
+                variant="contained"
+                onClick={openAddIdentityCardDialog}
+                startIcon={<FontAwesomeIcon icon={faSquarePlus} />}
+                style={{ marginLeft: "1em" }}
+                size="small"
+            >
+                <FormattedMessage id="Add" defaultMessage="Add" />
+            </Button>,
+            field: '',
+            renderCell: (row) => <div className="flex flex-row items-center justify-between h-full">
+                <SuperAdminRoleDetailButton
+                    id={row.row.id}
+                    searchByPagination={() => { }}
+                    isOnlyView={true}
+                />
+                <Button
+                    variant="contained"
+                    // onClick={() => removeCheckedOfRole(row.row)}
                     startIcon={<FontAwesomeIcon icon={faTrashCan} />}
                     style={{ marginLeft: "1em" }}
                 >
@@ -167,6 +250,15 @@ export default observer((props: Props) => {
         state.addDialog.open = false;
     }
 
+    function openAddIdentityCardDialog() {
+        state.addIdentityCardDialog.id = v4();
+        state.addIdentityCardDialog.open = true;
+    }
+
+    function closeAddIdentityCardDialog() {
+        state.addIdentityCardDialog.open = false;
+    }
+
     return <>
         <Dialog
             open={true}
@@ -219,7 +311,26 @@ export default observer((props: Props) => {
                             sortingMode="server"
                             paginationMode="server"
                             getRowId={(s) => s.id}
-                            columns={columns}
+                            columns={columnsOfRoles}
+                            hideFooter
+                            disableRowSelectionOnClick
+                            disableColumnMenu
+                            disableColumnResize
+                            disableColumnSorting
+                        />
+                    </div>
+                    <div className="flex flex-row">
+                        <FormattedMessage id="IdentityCardList" defaultMessage="Identity Card List" />
+                        {":"}
+                    </div>
+                    <div className="flex flex-row" style={{ paddingBottom: "1px" }}>
+                        <DataGrid
+                            rows={state.user.identityCardList}
+                            rowCount={state.user.identityCardList.length}
+                            sortingMode="server"
+                            paginationMode="server"
+                            getRowId={(s) => s.id}
+                            columns={columnsOfIdentityCardList}
                             hideFooter
                             disableRowSelectionOnClick
                             disableColumnMenu
