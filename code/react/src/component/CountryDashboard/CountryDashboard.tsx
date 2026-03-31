@@ -1,10 +1,10 @@
 import { observer } from "mobx-react-use-autorun";
-import { BarChart } from '@mui/x-charts/BarChart';
 import { Box, Chip, Typography } from "@mui/material";
 import Income from "@component/CountryDashboard/Income";
 import Outlay from "@component/CountryDashboard/Outlay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faCircleDollarToSlot, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
+import { LineChart } from "@mui/x-charts";
 
 export default observer(() => {
 
@@ -50,11 +50,14 @@ export default observer(() => {
                     {/* {"National Reserves comparison (2024 vs 2010-19 Avg)"} */}
                     {"National Reserves"}
                 </Typography>
-                <BarChart
-                    dataset={datasetOfNationalReserves}
-                    xAxis={[{ dataKey: 'month' }]}
-                    // xAxis={[{ data: ['National Reserves'] }]}
-                    series={[{ dataKey: 'london', label: 'National Reserves', valueFormatter }]}
+                <LineChart
+                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                    series={[
+                        {
+                            data: [2, 5.5, 2, 8.5, 1.5, 5],
+                            area: true,
+                        },
+                    ]}
                     height={300}
                 />
             </Box>
@@ -71,9 +74,14 @@ export default observer(() => {
                     {/* {"Basic living allowance comparison (2024 vs 2010-19 Avg)"} */}
                     {"Basic living allowance"}
                 </Typography>
-                <BarChart
-                    xAxis={[{ data: ['Basic living allowance'] }]}
-                    series={[{ data: [4] }, { data: [1] }, { data: [6] }]}
+                <LineChart
+                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                    series={[
+                        {
+                            data: [2, 5.5, 2, 8.5, 1.5, 5],
+                            area: true,
+                        },
+                    ]}
                     height={300}
                 />
             </Box>
@@ -90,9 +98,14 @@ export default observer(() => {
                     {/* {"Sovereign Dividend comparison (2024 vs 2010-19 Avg)"} */}
                     {"Sovereign Dividend"}
                 </Typography>
-                <BarChart
-                    xAxis={[{ data: ['Sovereign Dividend'] }]}
-                    series={[{ data: [4] }, { data: [1] }, { data: [6] }]}
+                 <LineChart
+                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                    series={[
+                        {
+                            data: [2, 5.5, 2, 8.5, 1.5, 5],
+                            area: true,
+                        },
+                    ]}
                     height={300}
                 />
             </Box>
@@ -101,9 +114,12 @@ export default observer(() => {
             <Income />
             <Outlay />
             <div className="flex flex-col justify-center">
-                <Chip icon={<FontAwesomeIcon icon={faCartShopping} />} label="Consumption tax: 10%" style={{ marginBottom: "1em" }} />
-                <Chip icon={<FontAwesomeIcon icon={faCircleDollarToSlot} />} label="Profit tax: 40%" style={{ marginBottom: "1em" }} />
-                <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="Fixed asset tax: 2%" />
+                <Chip icon={<FontAwesomeIcon icon={faCartShopping} />} label="Consumption tax: 10%" />
+                <Chip icon={<FontAwesomeIcon icon={faCircleDollarToSlot} />} label="Profit tax: 40%" style={{ marginTop: "1em" }} />
+                <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="Fixed asset tax: 2%" style={{ marginTop: "1em" }} />
+                <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="National Reserves: $1000" style={{ marginTop: "1em" }} />
+                <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="Basic living allowance: $100/day" style={{ marginTop: "1em" }} />
+                <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="Sovereign Dividend: $100/day" style={{ marginTop: "1em" }} />
             </div>
         </div>
     </div>
