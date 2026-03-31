@@ -8,8 +8,8 @@ it('', () => {
 })
 
 before(() => {
-    cy.visit("/sign-up")
     action.signUp(email, password)
+    cy.visit("/chat")
 })
 
 const message = `Hello, World! ${v4()}`

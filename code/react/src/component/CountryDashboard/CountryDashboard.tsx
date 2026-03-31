@@ -8,33 +8,6 @@ import { LineChart } from "@mui/x-charts";
 
 export default observer(() => {
 
-    const datasetOfNationalReserves = [
-        {
-            london: 59,
-            paris: 57,
-            newYork: 86,
-            seoul: 21,
-            month: 'Jan',
-        },
-        {
-            london: 50,
-            paris: 52,
-            newYork: 78,
-            seoul: 28,
-            month: 'Feb',
-        },
-        {
-            london: 47,
-            paris: 53,
-            newYork: 106,
-            seoul: 41,
-            month: 'Mar',
-        }];
-
-    function valueFormatter(value: number | null) {
-        return `${value}$`;
-    }
-
     return <div className="flex flex-col">
         <div className="flex flex-row justify-between">
             <Box

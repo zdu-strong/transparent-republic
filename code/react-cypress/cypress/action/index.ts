@@ -2,6 +2,7 @@ import page from '@/page'
 import { v4 } from 'uuid'
 
 export function signUp(email: string, password: string) {
+    cy.visit("/sign-up")
     page.SignUp.username().type(`John Williams-${v4()}`)
     page.SignUp.nextStepButton().click()
     page.SignUp.password().type(password)
