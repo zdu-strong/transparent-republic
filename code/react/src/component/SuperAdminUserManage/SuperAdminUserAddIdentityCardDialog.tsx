@@ -8,18 +8,13 @@ import { observer, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
 import { PaginationModel } from "@/model/PaginationModel";
-import { SystemPermissionModel } from "@/model/SystemPermissionModel";
 import { OrganizeModel } from "@/model/OrganizeModel";
 import { SuperAdminOrganizeQueryPaginationModel } from "@/model/SuperAdminOrganizeQueryPaginationModel";
 import { format } from "date-fns";
 import SuperAdminOrganizeDetailButton from "@component/SuperAdminOrganizeManage/SuperAdminOrganizeDetailButton";
-import { SystemPermissionEnum } from "@/enums/SystemPermissionEnum";
 import { v4 } from "uuid";
-import SuperAdminOrganizeChoosePermissionButton from "@component/SuperAdminRoleManage/SuperAdminOrganizeChoosePermissionButton";
 
 type Props = {
-    switchCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => void;
-    isCheckedOfPermission: (systemPermissionModel: SystemPermissionModel) => boolean;
     closeDialog: () => void;
 }
 
@@ -43,21 +38,6 @@ export default observer((props: Props) => {
         state.paginationModel = await api.SuperAdminOrganizeQuery.searchByPagination(state.query);
     });
 
-    function getPermissionsName(orgainze: OrganizeModel) {
-        return SystemPermissionEnum.values()
-            .filter(s => s.isOrganizePermission)
-            .map(s => {
-                const systemPermissionModel = new SystemPermissionModel();
-                systemPermissionModel.id = v4();
-                systemPermissionModel.organize = orgainze;
-                systemPermissionModel.permission = s.value;
-                return systemPermissionModel;
-            })
-            .filter(s => props.isCheckedOfPermission(s))
-            .map(s => s.permission)
-            .join(", ");
-    }
-
     const columns: GridColDef<OrganizeModel>[] = [
         {
             headerName: 'ID',
@@ -74,16 +54,6 @@ export default observer((props: Props) => {
             renderHeader: () => <FormattedMessage id="OrganizeType" defaultMessage="Organize Type" />,
             field: 'organizeType',
             width: 200,
-        },
-        {
-            renderHeader: () => <FormattedMessage id="Permission" defaultMessage="Permission" />,
-            field: 'permissionList',
-            renderCell: (row) => {
-                return <div>
-                    {getPermissionsName(row.row)}
-                </div>
-            },
-            width: 400,
         },
         {
             renderHeader: () => <FormattedMessage id="CreateDate" defaultMessage="Create Date" />,
@@ -104,12 +74,12 @@ export default observer((props: Props) => {
                     searchByPagination={organizeQueryState.requery}
                     isOnlyView={true}
                 />
-                <SuperAdminOrganizeChoosePermissionButton
+                {/* <SuperAdminOrganizeChoosePermissionButton
                     organize={row.row}
                     isCheckedOfPermission={props.isCheckedOfPermission}
                     switchCheckedOfPermission={props.switchCheckedOfPermission}
                     closeDialog={props.closeDialog}
-                />
+                /> */}
             </div>,
             width: 300,
         },
@@ -139,7 +109,7 @@ export default observer((props: Props) => {
         >
             <DialogTitle className="justify-between items-center flex-row flex-auto flex">
                 <div className="flex flex-row items-center" >
-                    <FormattedMessage id="AddOrganizePermission" defaultMessage="Add Organize Permission" />
+                    <FormattedMessage id="AddIdentityCard" defaultMessage="Add Identity Card" />
                 </div>
                 <Fab color="default" id="closeButton" onClick={props.closeDialog}>
                     <FontAwesomeIcon icon={faXmark} size="xl" />

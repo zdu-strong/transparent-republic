@@ -143,5 +143,6 @@
     "GovernanceRegion": "Governance Region",
     "Address": "Address",
     "CreateRegion": "Create Region",
-    "CreateOrganize": "Create Organize"
+    "CreateOrganize": "Create Organize",
+    "AddIdentityCard": "Add Identity Card"
 }

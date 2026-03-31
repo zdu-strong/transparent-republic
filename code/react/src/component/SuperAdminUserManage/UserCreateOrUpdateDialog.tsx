@@ -15,6 +15,7 @@ import SuperAdminRoleDetailButton from "@component/SuperAdminRoleManage/SuperAdm
 import { v4 } from "uuid";
 import UserChooseRoleDialog from "@component/SuperAdminUserManage/UserChooseRoleDialog";
 import type { IdentityCardModel } from "@/model/IdentityCardModel";
+import SuperAdminUserAddIdentityCardDialog from "@component/SuperAdminUserManage/SuperAdminUserAddIdentityCardDialog";
 
 type Props = {
     id: string;
@@ -354,9 +355,13 @@ export default observer((props: Props) => {
             </>}
         </Dialog>
         {state.addDialog.open && <UserChooseRoleDialog
+            key={state.addDialog.id}
             switchCheckedOfRole={switchCheckedOfRole}
             isCheckedOfRole={isCheckedOfRole}
             closeDialog={closeAddDialog}
+        />}
+        {state.addIdentityCardDialog.open && <SuperAdminUserAddIdentityCardDialog
+            closeDialog={closeAddIdentityCardDialog}
         />}
     </>
 })

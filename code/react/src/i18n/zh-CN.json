@@ -143,5 +143,6 @@
     "GovernanceRegion": "治理区域",
     "Address": "地址",
     "CreateRegion": "创建区域",
-    "CreateOrganize": "创建部门"
+    "CreateOrganize": "创建部门",
+    "AddIdentityCard": "添加身份"
 }
