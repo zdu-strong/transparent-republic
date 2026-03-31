@@ -1,9 +1,9 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery } from "@/common/use-hook";
-import { faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Checkbox, Dialog, DialogContent, DialogTitle, Divider, Fab, FormControlLabel } from "@mui/material";
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, FormControlLabel } from "@mui/material";
 import { observer, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { SystemRoleModel } from "@/model/SystemRoleModel";
@@ -142,6 +142,18 @@ export default observer((props: Props) => {
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
+            {roleQueryState.ready && <>
+                <Divider />
+                <DialogActions>
+                    <Button
+                        variant="contained"
+                        onClick={props.closeDialog}
+                        startIcon={<FontAwesomeIcon icon={faCircleCheck} />}
+                    >
+                        <FormattedMessage id="Confirm" defaultMessage="Confirm" />
+                    </Button>
+                </DialogActions>
+            </>}
         </Dialog>
     </>
 })
