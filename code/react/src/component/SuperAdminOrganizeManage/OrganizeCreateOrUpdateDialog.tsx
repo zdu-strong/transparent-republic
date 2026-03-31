@@ -25,7 +25,7 @@ export default observer((props: Props) => {
     const state = useMobxState(() => {
         let allOrganizeTypeEnumList = OrganizeTypeEnum.values();
         if (!props.id && !props.parentId) {
-            allOrganizeTypeEnumList = allOrganizeTypeEnumList.filter(s => [OrganizeTypeEnum.COUNTRY, OrganizeTypeEnum.ALLIANCE, OrganizeTypeEnum.ORGANIZE].includes(OrganizeTypeEnum.parse(s.value)));
+            allOrganizeTypeEnumList = allOrganizeTypeEnumList.filter(s => [OrganizeTypeEnum.COUNTRY, OrganizeTypeEnum.ALLIANCE].includes(OrganizeTypeEnum.parse(s.value)));
         }
         if (!props.id && props.parentId && !props.organizeType) {
             allOrganizeTypeEnumList = allOrganizeTypeEnumList.filter(s => ![OrganizeTypeEnum.COUNTRY, OrganizeTypeEnum.ALLIANCE, OrganizeTypeEnum.GOVERNANCE_REGION].includes(OrganizeTypeEnum.parse(s.value)));
