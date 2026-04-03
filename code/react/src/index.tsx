@@ -1,6 +1,7 @@
 import 'tailwindcss/utilities.css';
 import '@common/app-base-css/index.css';
 import '@fontsource/roboto';
+import '@fontsource/roboto-serif';
 import '@common/Server';
 import ReactDom from 'react-dom/client'
 import App from '@/App';

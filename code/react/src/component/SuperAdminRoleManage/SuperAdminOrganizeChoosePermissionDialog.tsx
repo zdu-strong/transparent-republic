@@ -1,6 +1,6 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Checkbox, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
+import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
@@ -110,6 +110,16 @@ export default observer((props: Props) => {
                     />
                 </div>
             </DialogContent>
+            <Divider />
+            <DialogActions>
+                <Button
+                    variant="contained"
+                    onClick={props.closeDialog}
+                    startIcon={<FontAwesomeIcon icon={faCircleCheck} />}
+                >
+                    <FormattedMessage id="Confirm" defaultMessage="Confirm" />
+                </Button>
+            </DialogActions>
         </Dialog>
     </>
 })

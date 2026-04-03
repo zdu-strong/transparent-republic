@@ -1,18 +1,23 @@
 body {
     margin: 0;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Roboto Serif", "Helvetica", "Arial", serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Roboto Serif", "Helvetica", "Arial", serif;
 }
 
 a.MuiButton-root {
     text-transform: none;
+    font-family: "Roboto Serif", "Helvetica", "Arial", serif;
 }
 
 button.MuiButton-root {
     text-transform: none;
+    font-family: "Roboto Serif", "Helvetica", "Arial", serif;
+}
+input.MuiInputBase-input {
+    font-family: "Roboto Serif", "Helvetica", "Arial", serif;
 }

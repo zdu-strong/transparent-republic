@@ -1,9 +1,9 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery } from "@/common/use-hook";
-import { faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faSearch, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Dialog, DialogContent, DialogTitle, Divider, Fab } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, Radio } from "@mui/material";
 import { observer, useMobxEffect, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { DataGrid, useGridApiRef, type GridColDef } from "@mui/x-data-grid";
@@ -26,6 +26,7 @@ export default observer((props: Props) => {
         return {
             query: query,
             paginationModel: new PaginationModel<OrganizeModel>(),
+            selectedOrganize: new OrganizeModel(),
             addDialog: {
                 id: v4(),
                 open: false,
@@ -39,6 +40,18 @@ export default observer((props: Props) => {
     });
 
     const columns: GridColDef<OrganizeModel>[] = [
+        {
+            renderHeader: () => "",
+            field: 'checkbox',
+            renderCell: (row) => <Radio
+                checked={state.selectedOrganize.id === row.row.id}
+                onChange={() => state.selectedOrganize = row.row}
+                value="a"
+                name="radio-buttons"
+                inputProps={{ 'aria-label': row.row.name }}
+            />,
+            width: 70,
+        },
         {
             headerName: 'ID',
             field: 'id',
@@ -81,7 +94,7 @@ export default observer((props: Props) => {
                     closeDialog={props.closeDialog}
                 /> */}
             </div>,
-            width: 300,
+            width: 150,
         },
     ];
 
@@ -151,6 +164,19 @@ export default observer((props: Props) => {
                     </div>
                 </LoadingOrErrorComponent>
             </DialogContent>
+            {organizeQueryState.ready && <>
+                <Divider />
+                <DialogActions>
+                    <Button
+                        variant="contained"
+                        onClick={props.closeDialog}
+                        disabled={!state.selectedOrganize.id}
+                        startIcon={<FontAwesomeIcon icon={faCircleCheck} />}
+                    >
+                        <FormattedMessage id="Next" defaultMessage="Next" />
+                    </Button>
+                </DialogActions>
+            </>}
         </Dialog>
     </>
 })
