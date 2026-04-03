@@ -1,4 +1,4 @@
-body {
+html > body {
     margin: 0;
     font-family: "Roboto Serif", "Helvetica", "Arial", serif;
     -webkit-font-smoothing: antialiased;
