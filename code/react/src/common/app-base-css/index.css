@@ -21,3 +21,6 @@ button.MuiButton-root {
 input.MuiInputBase-input {
     font-family: "Roboto Serif", "Helvetica", "Arial", serif;
 }
+textarea.MuiInputBase-input {
+    font-family: "Roboto Serif", "Helvetica", "Arial", serif;
+}
