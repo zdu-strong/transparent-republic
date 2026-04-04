@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.function.Supplier;
 
 import com.john.project.common.DistributedExecution.NonceCleanDistributedExecution;
@@ -87,8 +88,7 @@ public abstract class BaseTest {
     @Autowired
     protected TestRestTemplate testRestTemplate;
 
-    @Autowired
-    protected Executor applicationTaskExecutor;
+    protected final Executor executor = Executors.newVirtualThreadPerTaskExecutor();
 
     protected MockHttpServletRequest request = new MockHttpServletRequest();
 
