@@ -1,9 +1,8 @@
 import { UserModel } from "@model/UserModel"
 import { makeAutoObservable } from "mobx-react-use-autorun";
-import { jsonMember, jsonObject, toJson } from "typedjson";
+import { jsonMember, jsonObject } from "typedjson";
 
 @jsonObject
-@toJson
 export class UserMessageModel {
 
     @jsonMember(String)

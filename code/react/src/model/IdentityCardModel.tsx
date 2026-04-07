@@ -1,10 +1,9 @@
-import { jsonMember, jsonObject, toJson, TypedJSON } from 'typedjson'
+import { jsonMember, jsonObject, TypedJSON } from 'typedjson'
 import { makeAutoObservable } from 'mobx-react-use-autorun'
 import { UserModel } from '@model/UserModel';
 import { OrganizeModel } from '@model/OrganizeModel';
 
 @jsonObject
-@toJson
 export class IdentityCardModel {
 
     @jsonMember(String)

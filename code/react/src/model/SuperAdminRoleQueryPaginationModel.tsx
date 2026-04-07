@@ -1,8 +1,7 @@
-import { jsonArrayMember, jsonMember, jsonObject, toJson } from 'typedjson'
+import { jsonArrayMember, jsonMember, jsonObject } from 'typedjson'
 import { makeAutoObservable } from 'mobx-react-use-autorun'
 
 @jsonObject
-@toJson
 export class SuperAdminRoleQueryPaginationModel {
 
     @jsonMember(Number)

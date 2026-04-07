@@ -1,8 +1,7 @@
-import { AnyT, jsonArrayMember, jsonMember, jsonObject, toJson, TypedJSON } from 'typedjson'
+import { AnyT, jsonArrayMember, jsonMember, jsonObject, TypedJSON } from 'typedjson'
 import { makeAutoObservable } from 'mobx-react-use-autorun'
 
 @jsonObject
-@toJson
 export class OrganizeModel {
 
     @jsonMember(String)
