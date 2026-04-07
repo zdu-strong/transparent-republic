@@ -1,7 +1,8 @@
-import { jsonMember, jsonObject } from 'typedjson'
+import { jsonMember, jsonObject, toJson } from 'typedjson'
 import { makeAutoObservable } from 'mobx-react-use-autorun'
 
 @jsonObject
+@toJson
 export class SuperAdminOrganizeQueryPaginationModel {
 
     @jsonMember(Number)

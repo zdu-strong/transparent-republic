@@ -1,8 +1,9 @@
 import { makeAutoObservable } from 'mobx-react-use-autorun';
-import { jsonMember, jsonObject } from 'typedjson'
+import { jsonMember, jsonObject, toJson } from 'typedjson'
 import { UserModel } from '@model/UserModel';
 
 @jsonObject
+@toJson
 export class FriendshipModel {
 
     @jsonMember(String)
