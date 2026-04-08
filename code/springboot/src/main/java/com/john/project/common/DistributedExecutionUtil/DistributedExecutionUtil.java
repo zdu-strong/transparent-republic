@@ -50,7 +50,9 @@ public class DistributedExecutionUtil {
     @Autowired
     private LongTermTaskService longTermTaskService;
 
-    private final Executor executor = Executors.newVirtualThreadPerTaskExecutor();
+    private final Executor executorOfRefreshDataMethod = Executors.newVirtualThreadPerTaskExecutor();
+
+    private final Executor executorOfInitializeInSystemInitScheduled = Executors.newVirtualThreadPerTaskExecutor();
 
     @Autowired
     protected DevelopmentMockModeProperties developmentMockModeProperties;
@@ -68,7 +70,7 @@ public class DistributedExecutionUtil {
             }
             Flowable.fromIterable(partitionNumList)
                     .parallel(partitionNumList.size())
-                    .runOn(Schedulers.from(executor))
+                    .runOn(Schedulers.from(executorOfRefreshDataMethod))
                     .doOnNext((partitionNum) -> {
                         runByPartitionNum(distributedExecutionMainModel, baseDistributedExecution, partitionNum);
                     })
@@ -84,7 +86,7 @@ public class DistributedExecutionUtil {
         for (var baseDistributedExecution : SpringUtil.getBeansOfType(BaseDistributedExecution.class).values()) {
             var isFirstAtomicBoolean = new AtomicBoolean(true);
             Flowable.just(StringUtils.EMPTY)
-                    .observeOn(Schedulers.from(executor))
+                    .observeOn(Schedulers.from(executorOfInitializeInSystemInitScheduled))
                     .concatMap(s -> {
                         if (isFirstAtomicBoolean.get()) {
                             isFirstAtomicBoolean.set(false);
@@ -103,7 +105,7 @@ public class DistributedExecutionUtil {
                             return Flowable.timer(delayMilliseconds, TimeUnit.MILLISECONDS);
                         }
                     })
-                    .observeOn(Schedulers.from(executor))
+                    .observeOn(Schedulers.from(executorOfInitializeInSystemInitScheduled))
                     .doOnNext(s -> {
                         this.refreshData(baseDistributedExecution);
                     })
