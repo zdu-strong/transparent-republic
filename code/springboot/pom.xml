@@ -229,7 +229,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.0-M4</version>
+        <version>4.0.5</version>
     </parent>
 
     <build>
@@ -347,7 +347,7 @@
                         <ignoreVersions>
                             <ignoreVersion>
                                 <type>regex</type>
-                                <version>.+-(alpha.*|beta.*|BETA.*)</version>
+                                <version>.+-(alpha.*|beta.*|BETA.*|M\d+.*)</version>
                             </ignoreVersion>
                         </ignoreVersions>
                     </ruleSet>
