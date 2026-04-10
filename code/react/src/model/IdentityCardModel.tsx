@@ -1,4 +1,4 @@
-import { jsonMember, jsonObject, TypedJSON } from 'typedjson'
+import { jsonMember, jsonObject } from 'typedjson'
 import { makeAutoObservable } from 'mobx-react-use-autorun'
 import { UserModel } from '@model/UserModel';
 import { OrganizeModel } from '@model/OrganizeModel';
@@ -21,13 +21,13 @@ export class IdentityCardModel {
     @jsonMember(Date)
     updateDate!: Date;
 
-    @jsonMember({ deserializer: (value: any) => new TypedJSON(UserModel).parse(value) })
+    @jsonMember(() => UserModel)
     user!: UserModel;
 
-    @jsonMember({ deserializer: (value: any) => new TypedJSON(OrganizeModel).parse(value) })
+    @jsonMember(() => OrganizeModel)
     topOrganize!: OrganizeModel;
 
-    @jsonMember({ deserializer: (value: any) => new TypedJSON(OrganizeModel).parse(value) })
+    @jsonMember(() => OrganizeModel)
     governanceRegion!: OrganizeModel;
 
     constructor() {
