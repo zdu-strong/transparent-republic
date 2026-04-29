@@ -20,3 +20,19 @@ Each Alliance Commissioner recruits between 10 and 100 Alliance Popular Represen
 For example, the Alliance Leader may announce the qualification requirements for the preliminary selection of a Minister of Finance, stating that anyone who has served at or above a junior financial official position may run.
 After eligible candidates upload their application materials, the system randomly assigns a group of candidates to each Alliance Popular Representative, with four candidates in each group.
 The four candidates with the highest weighted support advance to an in-person final selection before the Alliance Council.
+
+## Alliance Officials and Military Forces
+
+Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.
+
+## Alliance Finance
+
+The Alliance's finances are funded by membership fees and donations from member states.
+
+## Alliance companies
+
+The Alliance Council appoints a Minister of Commerce, who is responsible for establishing companies and appointing their managers. The Minister of Commerce oversees the appointment and removal of positions such as the CEO and Minister of Finance, but does not participate in the daily operations of the companies.
+
+The companies’ products are used by the Alliance, which also provides feedback on product quality.
+
+The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.
