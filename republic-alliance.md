@@ -1,6 +1,6 @@
 # Getting Started
 
-The Republican Alliance is a visionary political union, bringing peace through its design.
+The Republican Alliance protects its member states through independent military forces and an independent official system, while providing a framework for administering and building democratic nations.
 
 # Design
 
