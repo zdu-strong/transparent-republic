@@ -8,7 +8,7 @@ The Republican Alliance is built on one belief:
 
 Peace requires institutions strong enough to defend it.
 
-# Design
+# Institutional Design
 
 ## 1. Alliance Council
 
