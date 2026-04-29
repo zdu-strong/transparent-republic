@@ -2,6 +2,12 @@
 
 The Republican Alliance protects its member states through independent military forces and an independent official system, while providing a framework for administering and building democratic nations.
 
+# Closing Statement
+
+The Republican Alliance is built on one belief:
+
+Peace requires institutions strong enough to defend it.
+
 # Design
 
 ## 1. Alliance Council
