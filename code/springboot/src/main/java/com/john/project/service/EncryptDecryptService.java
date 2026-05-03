@@ -200,7 +200,28 @@ public class EncryptDecryptService extends BaseService {
             return;
         }
         Flowable.interval(100, TimeUnit.MILLISECONDS)
-                .filter(s -> this.ready)
+                .filter(m -> {
+                    if (!this.ready) {
+                        var name = getClass().getSimpleName();
+                        if (this.streamAll(EncryptDecryptEntity.class)
+                                .where(s -> s.getName().equals(name))
+                                .exists()) {
+                            EncryptDecryptEntity encryptDecryptEntity = this.streamAll(EncryptDecryptEntity.class)
+                                    .where(s -> s.getName().equals(name))
+                                    .getOnlyValue();
+                            this.keyOfRSAPublicKey = (RSAPublicKey) KeyFactory.getInstance("RSA")
+                                    .generatePublic(new X509EncodedKeySpec(
+                                            HexUtil.decodeHex(encryptDecryptEntity.getPublicKeyOfRSA())));
+                            this.keyOfRSAPrivateKey = (RSAPrivateKey) KeyFactory.getInstance("RSA")
+                                    .generatePrivate(new PKCS8EncodedKeySpec(
+                                            HexUtil.decodeHex(encryptDecryptEntity.getPrivateKeyOfRSA())));
+                            this.keyOfAESSecretKey = new SecretKeySpec(
+                                    HexUtil.decodeHex(encryptDecryptEntity.getSecretKeyOfAES()), "AES");
+                            this.ready = true;
+                        }
+                    }
+                    return this.ready;
+                })
                 .take(1)
                 .timeout(1, TimeUnit.DAYS)
                 .blockingSubscribe();
@@ -236,18 +257,6 @@ public class EncryptDecryptService extends BaseService {
 
                         this.persist(encryptDecryptEntity);
                     }
-                    EncryptDecryptEntity encryptDecryptEntity = this.streamAll(EncryptDecryptEntity.class)
-                            .where(s -> s.getName().equals(name))
-                            .getOnlyValue();
-                    this.keyOfRSAPublicKey = (RSAPublicKey) KeyFactory.getInstance("RSA")
-                            .generatePublic(new X509EncodedKeySpec(
-                                    HexUtil.decodeHex(encryptDecryptEntity.getPublicKeyOfRSA())));
-                    this.keyOfRSAPrivateKey = (RSAPrivateKey) KeyFactory.getInstance("RSA")
-                            .generatePrivate(new PKCS8EncodedKeySpec(
-                                    HexUtil.decodeHex(encryptDecryptEntity.getPrivateKeyOfRSA())));
-                    this.keyOfAESSecretKey = new SecretKeySpec(
-                            HexUtil.decodeHex(encryptDecryptEntity.getSecretKeyOfAES()), "AES");
-                    this.ready = true;
                 }
             }
         }
