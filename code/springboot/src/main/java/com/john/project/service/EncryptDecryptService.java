@@ -229,37 +229,35 @@ public class EncryptDecryptService extends BaseService {
 
     @SneakyThrows
     public void init() {
-        if (!this.ready) {
-            synchronized (getClass()) {
-                if (!this.ready) {
-                    var name = getClass().getSimpleName();
-                    if (!this.streamAll(EncryptDecryptEntity.class)
-                            .where(s -> s.getName().equals(name))
-                            .exists()) {
-
-                        EncryptDecryptEntity encryptDecryptEntity = new EncryptDecryptEntity();
-                        encryptDecryptEntity.setId(newId());
-                        encryptDecryptEntity.setName(name);
-                        encryptDecryptEntity.setCreateDate(new Date());
-                        encryptDecryptEntity.setUpdateDate(new Date());
-
-                        /**
-                         * aes for common uses
-                         */
-                        encryptDecryptEntity.setSecretKeyOfAES(this.generateSecretKeyOfAES());
-
-                        /**
-                         * rsa for common uses
-                         */
-                        var keyPairOfRSA = this.generateKeyPairOfRSA();
-                        encryptDecryptEntity.setPublicKeyOfRSA(keyPairOfRSA.getPublicKeyOfRSA());
-                        encryptDecryptEntity.setPrivateKeyOfRSA(keyPairOfRSA.getPrivateKeyOfRSA());
-
-                        this.persist(encryptDecryptEntity);
-                    }
-                }
-            }
+        if (this.ready) {
+            return;
         }
+        var name = getClass().getSimpleName();
+        if (this.streamAll(EncryptDecryptEntity.class)
+                .where(s -> s.getName().equals(name))
+                .exists()) {
+            return;
+        }
+
+        EncryptDecryptEntity encryptDecryptEntity = new EncryptDecryptEntity();
+        encryptDecryptEntity.setId(newId());
+        encryptDecryptEntity.setName(name);
+        encryptDecryptEntity.setCreateDate(new Date());
+        encryptDecryptEntity.setUpdateDate(new Date());
+
+        /**
+         * aes for common uses
+         */
+        encryptDecryptEntity.setSecretKeyOfAES(this.generateSecretKeyOfAES());
+
+        /**
+         * rsa for common uses
+         */
+        var keyPairOfRSA = this.generateKeyPairOfRSA();
+        encryptDecryptEntity.setPublicKeyOfRSA(keyPairOfRSA.getPublicKeyOfRSA());
+        encryptDecryptEntity.setPrivateKeyOfRSA(keyPairOfRSA.getPrivateKeyOfRSA());
+
+        this.persist(encryptDecryptEntity);
     }
 
 }
