@@ -27,21 +27,21 @@ ENV JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 RUN dnf install -y procps-ng
 RUN dnf install -y xorg-x11-server-Xvfb
 RUN dnf install -y gtk3-devel
-COPY . /all_code
-WORKDIR /all_code/code/springboot
+COPY . /all-code
+RUN rm -rf /all-code/code/react/node_modules
+RUN rm -rf /all-code/code/react-cypress/node_modules
+WORKDIR /all-code/code/springboot
 RUN chmod +x mvn
-WORKDIR /all_code/code/react-cypress
-RUN rm -rf ../react/node_modules
-RUN rm -rf ./node_modules
+WORKDIR /all-code/code/react-cypress
 RUN npm test
 
 # compile code
-WORKDIR /all_code/code/react
+WORKDIR /all-code/code/react
 RUN npm run build
 
 # copy build folder
 FROM first_docker
-COPY --from=second_docker /all_code/code/react/build /build
+COPY --from=second_docker /all-code/code/react/build /build
 
 EXPOSE 443
 
