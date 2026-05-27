@@ -242,7 +242,7 @@
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
                     <failOnNoGitDirectory>true</failOnNoGitDirectory>
                     <dotGitDirectory>
-                        ${project.basedir}/../.git
+                        ${project.basedir}/../../.git
                     </dotGitDirectory>
                     <offline>true</offline>
                 </configuration>
