@@ -6,48 +6,56 @@ import { pluginEslint } from '@rsbuild/plugin-eslint';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
 export default defineConfig({
-  plugins: [
-    pluginReact(),
-    pluginBabel({
-      babelLoaderOptions: (cfg, { addPlugins }) => {
-        addPlugins(['babel-plugin-macros']);
-      },
-    }),
-    pluginNodePolyfill(),
-    pluginEslint(),
-    pluginTypeCheck(),
-  ],
-  resolve: {
-    "alias": {
-      "@": "./src",
-      "@component": "./src/component",
-      "@common": "./src/common",
-      "@api": "./src/api",
-      "@enums": "./src/enums",
-      "@model": "./src/model",
-    }
-  },
-  tools: {
-    rspack: {
-      cache: false,
-      target: "web"
-    }
-  },
-  source: {
-    define: loadEnv({ prefixes: ['REACT_APP_'] }).publicVars,
-    decorators: {
-      version: 'legacy',
+    plugins: [
+        pluginReact(),
+        pluginBabel({
+            babelLoaderOptions: (cfg, { addPlugins }) => {
+                addPlugins(['babel-plugin-macros']);
+            },
+        }),
+        pluginNodePolyfill(),
+        pluginEslint(),
+        pluginTypeCheck(),
+    ],
+    resolve: {
+        "alias": {
+            "@": "./src",
+            "@component": "./src/component",
+            "@common": "./src/common",
+            "@api": "./src/api",
+            "@enums": "./src/enums",
+            "@model": "./src/model",
+        }
     },
-  },
-  output: {
-    distPath: {
-      root: 'build'
+    tools: {
+        rspack: {
+            cache: false,
+            target: "web"
+        }
     },
-    assetPrefix: "/"
-  },
-  server: {
-    open: process.env.RSBUILD_OPEN === 'true',
-    port: Number(process.env.RSBUILD_PORT) || undefined,
-    cors: true,
-  },
+    source: {
+        define: loadEnv({ prefixes: ['REACT_APP_'] }).publicVars,
+        decorators: {
+            version: 'legacy',
+        },
+    },
+    output: {
+        distPath: {
+            root: 'build'
+        },
+        assetPrefix: "/"
+    },
+    server: {
+        open: process.env.RSBUILD_OPEN === 'true',
+        port: Number(process.env.RSBUILD_PORT) || undefined,
+        cors: true,
+    },
+    dev: {
+        lazyCompilation: false,
+        performance: {
+            chunkSplit: {
+                strategy: 'split-by-experience',
+            },
+        },
+    },
 });
