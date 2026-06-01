@@ -66,7 +66,7 @@ Officials may still be directly revoked in cases of severe misconduct, but defau
 
 ## 🔷 4. President<br/>
 
-The President holds all executive power. All orders are carried out by the relevant departments and are permanently recorded. Major orders are subject to a three-day delay, allowing the National Supervisory Council to review and oversee them.<br/>
+The president holds full executive authority. All orders shall be reviewed and approved by the ministers of the relevant departments before execution, and shall be permanently recorded.<br/>
 
 ## 🔷 5. Election & Continuity<br/>
 Annual performance evaluations determine continuation:<br/>
