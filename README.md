@@ -14,9 +14,15 @@ Citizens directly elect Community Supervisors.<br/>
 
 Each community elects one Community Supervisor. There is no population limit for a community, but the Community Supervisor of a community with fewer than 1,000 residents does not receive a salary.<br/>
 
-Citizens can vote to re-elect or impeach their Community Supervisor:<br/>
+Hold only four powers:<br/>
 
-If the impeachment rate ≥ 50%, the supervisor is removed immediately.<br/>
+✅ The power to elect the Community Supervisor.<br/>
+
+✅ The power to revoke their Community Supervisor, when the impeachment rate reaches ≥ 50%.<br/>
+
+✅ The power to create a governance region, and the court will review it afterward.<br/>
+
+✅ The power to adjust the governance region they belong to, and the court will review it afterward.<br/>
 
 ## 🔷 2. Community Supervisors  <br/>
 
@@ -74,13 +80,7 @@ No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
-## 🔷 6. Governance Region<br/>
-Every citizen may create a governance region, and the court will review it afterward.<br/>
-
-Every citizen may adjust the governance region they belong to, and the court will review it afterward.<br/>
-
-
-## 🔷 7. International Transparency<br/>
+## 🔷 6. International Transparency<br/>
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
 Number of impeachments.<br/>
