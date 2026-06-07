@@ -36,6 +36,7 @@ Hold only two powers:<br/>
 
 
 ## 🔷 3. National Supervisory Council<br/>
+
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
 Holds exactly two powers:<br/>
@@ -52,6 +53,7 @@ This encourages active management and responsibility at every level, while avoid
 Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
 
 ## 🔷 4. Governance Region Supervisory Council<br/>
+
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
 Holds exactly two powers:<br/>
@@ -72,6 +74,7 @@ Officials may still be directly revoked in cases of severe misconduct, but defau
 The president holds full executive authority. All orders shall be reviewed and approved by the ministers of the relevant departments before execution, and shall be permanently recorded.<br/>
 
 ## 🔷 5. Election & Continuity<br/>
+
 Annual performance evaluations determine continuation:<br/>
 
 Everyone, from Local Supervisors to the President, must retain high satisfaction or a low dismissal rate to remain (satisfaction >=60% or dismissal < 20%).<br/>
@@ -81,6 +84,7 @@ No absolute term limits—only performance and public trust matter.<br/>
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
 ## 🔷 6. International Transparency<br/>
+
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
 Number of impeachments.<br/>
@@ -93,8 +97,8 @@ Public satisfaction levels.<br/>
 
 Citizens can compare their country's freedom, justice, and transparency with others.<br/>
 
+## 🔷 7. Summary<br/>
 
-## 🔷 8. Summary<br/>
 No gods. No kings. No dictators. Only systems.<br/>
 
 The Transparent Republic is not a utopia—but a self-correcting, living structure that evolves with its citizens. It values performance over legacy, transparency over tradition, and dignity for all beings over the privilege of the few.<br/>
