@@ -78,7 +78,13 @@ No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
-## 🔷 6. International Transparency<br/>
+## 🔷 6. Governance Region<br/>
+Every citizen may first create a governance region, and the court will review it afterward.
+
+Every citizen may adjust the governance region they belong to, and the court will review it afterward.
+
+
+## 🔷 7. International Transparency<br/>
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
 Number of impeachments.<br/>
@@ -91,7 +97,8 @@ Public satisfaction levels.<br/>
 
 Citizens can compare their country's freedom, justice, and transparency with others.<br/>
 
-## 🔷 7. Summary<br/>
+
+## 🔷 8. Summary<br/>
 No gods. No kings. No dictators. Only systems.<br/>
 
 The Transparent Republic is not a utopia—but a self-correcting, living structure that evolves with its citizens. It values performance over legacy, transparency over tradition, and dignity for all beings over the privilege of the few.<br/>
