@@ -12,8 +12,8 @@ The Transparent Republic is a post-democratic governance model that replaces cen
 
 Citizens directly elect Community Supervisors.<br/>
 
-Each community has at least 1,000 people, and each community elects one Community Supervisor.<br/>
-A community with only one person is also allowed, but the community supervisor of a community with fewer than 1,000 people will not receive a salary.
+Each community elects one Community Supervisor. There is no population limit for a community, but the Community Supervisor of a community with fewer than 1,000 residents does not receive a salary.<br/>
+
 
 Citizens can vote to re-elect or impeach their Community Supervisor:<br/>
 
