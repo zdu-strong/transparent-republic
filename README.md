@@ -19,9 +19,6 @@ Citizens can vote to re-elect or impeach their Community Supervisor:<br/>
 
 If the impeachment rate ≥ 50%, the supervisor is removed immediately.<br/>
 
-If approval rate ≥ 60% in annual evaluations, the supervisor may continue.<br/>
-
-
 ## 🔷 2. Community Supervisors  <br/>
 
 Each Community Supervisor represents a defined community.<br/>
