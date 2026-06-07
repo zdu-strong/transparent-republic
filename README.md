@@ -28,9 +28,9 @@ Each Community Supervisor represents a defined community or region.<br/>
 
 Hold only two powers:<br/>
 
-✅ The power to elect the National Supervisory Council and the State Supervisory Councils.<br/>
+✅ The power to elect the National Supervisory Council and the Governance Region Supervisory Councils.<br/>
 
-✅ The power to revoke any member of the National Supervisory Council or the State Supervisory Councils, when the impeachment rate reaches ≥ 50%.<br/>
+✅ The power to revoke any member of the National Supervisory Council or the Governance Region Supervisory Councils, when the impeachment rate reaches ≥ 50%.<br/>
 
 
 ## 🔷 3. National Supervisory Council<br/>
@@ -49,17 +49,17 @@ This encourages active management and responsibility at every level, while avoid
 
 Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
 
-## 🔷 4. State Supervisory Council<br/>
+## 🔷 4. Governance Region Supervisory Council<br/>
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
 Holds exactly two powers:<br/>
 
-✅ To appoint key state officials — including the State Governors, and State Budget Teams.(≥60% approval required)<br/>
+✅ To appoint key state officials — including the Governance Region Governors, and State Budget Teams.(≥60% approval required)<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
 
 
-If a lower official abuses their power, their superior can be revoked by the State Supervisory Council.<br/>
+If a lower official abuses their power, their superior can be revoked by the Governance Region Supervisory Council.<br/>
 
 This encourages active management and responsibility at every level, while avoiding bureaucratic overload at the top.<br/>
 
