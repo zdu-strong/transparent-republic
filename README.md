@@ -14,7 +14,6 @@ Citizens directly elect Community Supervisors.<br/>
 
 Each community elects one Community Supervisor. There is no population limit for a community, but the Community Supervisor of a community with fewer than 1,000 residents does not receive a salary.<br/>
 
-
 Citizens can vote to re-elect or impeach their Community Supervisor:<br/>
 
 If the impeachment rate ≥ 50%, the supervisor is removed immediately.<br/>
