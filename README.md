@@ -38,7 +38,7 @@ Consists of 300 members elected by Community Supervisors, a collective body with
 
 Holds exactly two powers:<br/>
 
-✅ To appoint key national officials — including the President, Supreme Court Justices, Military Commanders, and National Budget Teams.(≥60% approval required)<br/>
+✅ To appoint key national officials — including the President, Supreme Court Justices, Military Commanders, and National Budget Teams.<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
 
@@ -54,7 +54,7 @@ Consists of 300 members elected by Community Supervisors, a collective body with
 
 Holds exactly two powers:<br/>
 
-✅ To appoint key state officials — including the Governance Region Governors, and State Budget Teams.(≥60% approval required)<br/>
+✅ To appoint key state officials — including the Governance Region Governors, and State Budget Teams.<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
 
