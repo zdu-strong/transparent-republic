@@ -24,13 +24,13 @@ If approval rate ≥ 60% in annual evaluations, the supervisor may continue.<br/
 
 ## 🔷 2. Community Supervisors  <br/>
 
-Each Community Supervisor represents a defined community or region.<br/>
+Each Community Supervisor represents a defined community.<br/>
 
 Hold only two powers:<br/>
 
-✅ The power to elect the National Supervisory Council and the Governance Region Supervisory Councils.<br/>
+✅ The power to elect the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
-✅ The power to revoke any member of the National Supervisory Council or the Governance Region Supervisory Councils, when the impeachment rate reaches ≥ 50%.<br/>
+✅ The power to revoke any member of the National Supervisory Council or the Governance Region Supervisory Council, when the impeachment rate reaches ≥ 50%.<br/>
 
 
 ## 🔷 3. National Supervisory Council<br/>
