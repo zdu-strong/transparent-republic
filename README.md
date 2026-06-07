@@ -24,6 +24,8 @@ Hold only four powers:<br/>
 
 ✅ The power to adjust the governance region they belong to, and the court will review it afterward.<br/>
 
+✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community.<br/>
+
 ## 🔷 2. Community Supervisors  <br/>
 
 Each Community Supervisor represents a defined community.<br/>
