@@ -14,7 +14,7 @@ Citizens directly elect Community Supervisors.<br/>
 
 Each community elects one Community Supervisor. There is no population limit for a community, but the Community Supervisor of a community with fewer than 1,000 residents does not receive a salary.<br/>
 
-Hold only four powers:<br/>
+Hold only five powers:<br/>
 
 ✅ The power to elect the Community Supervisor.<br/>
 
