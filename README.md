@@ -20,11 +20,11 @@ Hold only five powers:<br/>
 
 ✅ The power to revoke their Community Supervisor, when the impeachment rate reaches ≥ 50%.<br/>
 
+✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community.<br/>
+
 ✅ The power to create a governance region, and the court will review it afterward.<br/>
 
 ✅ The power to adjust the governance region they belong to, and the court will review it afterward.<br/>
-
-✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community.<br/>
 
 ## 🔷 2. Community Supervisors  <br/>
 
