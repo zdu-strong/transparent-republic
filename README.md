@@ -79,9 +79,9 @@ No absolute term limits—only performance and public trust matter.<br/>
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
 ## 🔷 6. Governance Region<br/>
-Every citizen may first create a governance region, and the court will review it afterward.
+Every citizen may first create a governance region, and the court will review it afterward.<br/>
 
-Every citizen may adjust the governance region they belong to, and the court will review it afterward.
+Every citizen may adjust the governance region they belong to, and the court will review it afterward.<br/>
 
 
 ## 🔷 7. International Transparency<br/>
