@@ -18,7 +18,7 @@ Hold only five powers:<br/>
 
 ✅ The power to elect the Community Supervisor.<br/>
 
-✅ The power to revoke their Community Supervisor, when the impeachment rate reaches > 50%.<br/>
+✅ The power to revoke their Community Supervisor, when the impeachment rate reaches >= 51%.<br/>
 
 ✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community.<br/>
 
@@ -34,7 +34,7 @@ Hold only two powers:<br/>
 
 ✅ The power to elect the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
-✅ The power to revoke any member of the National Supervisory Council or the Governance Region Supervisory Council, when the impeachment rate reaches > 50%.<br/>
+✅ The power to revoke any member of the National Supervisory Council or the Governance Region Supervisory Council, when the impeachment rate reaches >= 51%.<br/>
 
 
 ## 🔷 3. National Supervisory Council<br/>
@@ -45,7 +45,7 @@ Holds exactly two powers:<br/>
 
 ✅ To appoint key national officials — including the President, Supreme Court Justices, Military Commanders, and National Budget Teams.<br/>
 
-✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>50% vote required)<br/>
+✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>=51% vote required)<br/>
 
 
 If a lower official abuses their power, their superior can be revoked by the National Supervisory Council.<br/>
@@ -62,7 +62,7 @@ Holds exactly two powers:<br/>
 
 ✅ To appoint key state officials — including the Governance Region Governors, and State Budget Teams.<br/>
 
-✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>50% vote required)<br/>
+✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>=51% vote required)<br/>
 
 
 If a lower official abuses their power, their superior can be revoked by the Governance Region Supervisory Council.<br/>
