@@ -62,7 +62,7 @@ Holds exactly two powers:<br/>
 
 ✅ To appoint key state officials — including the Governance Region Governors, and State Budget Teams.<br/>
 
-✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(≥50% vote required)<br/>
+✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>50% vote required)<br/>
 
 
 If a lower official abuses their power, their superior can be revoked by the Governance Region Supervisory Council.<br/>
