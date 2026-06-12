@@ -30,7 +30,7 @@ Hold only five powers:<br/>
 
 Each Community Supervisor represents a defined community, it needs to receive likes from citizens in order to increase its voting weight.<br/>
 
-Each community supervisor can support only one national supervisory council, but can recall multiple national supervisory Council.
+Each community supervisor can support only one national supervisory council to increase that member's voting weight, but can recall multiple national supervisory council.<br/>
 
 Hold only two powers:<br/>
 
