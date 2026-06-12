@@ -20,7 +20,7 @@ Hold only five powers:<br/>
 
 ✅ The power to revoke their Community Supervisor, when the impeachment rate reaches >= 51%.<br/>
 
-✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community.<br/>
+✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community. Self-built communities do not have a recall button. They only have two buttons: Like and Exit. Like is selected by default and cannot be canceled. System communities have both a Like button and a Recall button.<br/>
 
 ✅ The power to create a governance region, and the court will review it afterward.<br/>
 
@@ -28,7 +28,7 @@ Hold only five powers:<br/>
 
 ## 🔷 2. Community Supervisors  <br/>
 
-Each Community Supervisor represents a defined community.<br/>
+Each Community Supervisor represents a defined community, it needs to receive likes from citizens in order to increase its voting weight.<br/>
 
 Hold only two powers:<br/>
 
