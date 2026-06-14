@@ -49,13 +49,6 @@ Holds exactly two powers:<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>=51% vote required)<br/>
 
-
-If a lower official abuses their power, their superior can be revoked by the National Supervisory Council.<br/>
-
-This encourages active management and responsibility at every level, while avoiding bureaucratic overload at the top.<br/>
-
-Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
-
 ## 🔷 4. Governance Region Supervisory Council<br/>
 
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
@@ -65,13 +58,6 @@ Holds exactly two powers:<br/>
 ✅ To appoint key state officials — including the Governance Region Governors, and State Budget Teams.<br/>
 
 ✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>=51% vote required)<br/>
-
-
-If a lower official abuses their power, their superior can be revoked by the Governance Region Supervisory Council.<br/>
-
-This encourages active management and responsibility at every level, while avoiding bureaucratic overload at the top.<br/>
-
-Officials may still be directly revoked in cases of severe misconduct, but default responsibility always travels upward.<br/>
 
 ## 🔷 4. President<br/>
 
