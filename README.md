@@ -79,7 +79,7 @@ The president holds full executive authority. All orders shall be reviewed and a
 
 Annual performance evaluations determine continuation:<br/>
 
-Everyone, from Local Supervisors to the President, must retain high satisfaction or a low dismissal rate to remain (satisfaction >=60% or dismissal < 20%).<br/>
+Everyone, from Local Supervisors to the President, must retain high satisfaction or a low dismissal rate to remain (satisfaction >=60% or opposition < 20%).<br/>
 
 No absolute term limits—only performance and public trust matter.<br/>
 
