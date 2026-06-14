@@ -49,7 +49,7 @@ In the first round, if the candidate in first place receives more votes than the
 
 In the second round, voting is held between the winner of the first round and maintaining the incumbent official. If the winner of the first round receives more votes than the total of the votes for maintaining the incumbent and the number of non-votes, the second round of the election succeeds.<br/>
 
-Holds exactly two powers:<br/>
+Hold only two powers:<br/>
 
 ✅ To appoint key national officials — including the President, Supreme Court Justices, Military Commanders, and National Budget Teams.<br/>
 
@@ -65,7 +65,7 @@ In the first round, if the candidate in first place receives more votes than the
 
 In the second round, voting is held between the winner of the first round and maintaining the incumbent official. If the winner of the first round receives more votes than the total of the votes for maintaining the incumbent and the number of non-votes, the second round of the election succeeds.<br/>
 
-Holds exactly two powers:<br/>
+Hold only two powers:<br/>
 
 ✅ To appoint key Governance Region officials — including the Governance Region Governors, and Governance Region Budget Teams.<br/>
 
