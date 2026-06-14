@@ -67,9 +67,9 @@ In the second round, voting is held between the winner of the first round and ma
 
 Holds exactly two powers:<br/>
 
-✅ To appoint key state officials — including the Governance Region Governors, and State Budget Teams.<br/>
+✅ To appoint key Governance Region officials — including the Governance Region Governors, and Governance Region Budget Teams.<br/>
 
-✅ Vote to praise or oppose key state officials.<br/>
+✅ Vote to praise or oppose key Governance Region officials.<br/>
 
 ## 🔷 4. President<br/>
 
