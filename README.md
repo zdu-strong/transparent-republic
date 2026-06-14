@@ -43,15 +43,27 @@ Hold only two powers:<br/>
 
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
+Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
+
+In the first round, if the candidate in first place receives more votes than the total of the votes received by the candidate in second place and the number of non-votes, the first round of the election succeeds.<br/>
+
+In the second round, voting is held between the winner of the first round and maintaining the incumbent official. If the winner of the first round receives more votes than the total of the votes for maintaining the incumbent and the number of non-votes, the second round of the election succeeds.<br/>
+
 Holds exactly two powers:<br/>
 
 ✅ To appoint key national officials — including the President, Supreme Court Justices, Military Commanders, and National Budget Teams.<br/>
 
-✅ To revoke any government official, including law enforcement personnel, via majority internal vote.(>=51% vote required)<br/>
+✅ Vote to praise or oppose key national officials.<br/>
 
 ## 🔷 4. Governance Region Supervisory Council<br/>
 
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
+
+Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
+
+In the first round, if the candidate in first place receives more votes than the total of the votes received by the candidate in second place and the number of non-votes, the first round of the election succeeds.<br/>
+
+In the second round, voting is held between the winner of the first round and maintaining the incumbent official. If the winner of the first round receives more votes than the total of the votes for maintaining the incumbent and the number of non-votes, the second round of the election succeeds.<br/>
 
 Holds exactly two powers:<br/>
 
@@ -72,13 +84,6 @@ Everyone, from Local Supervisors to the President, must retain high satisfaction
 No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
-
-Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
-
-In the first round, if the candidate in first place receives more votes than the total of the votes received by the candidate in second place and the number of non-votes, the first round of the election succeeds.<br/>
-
-In the second round, voting is held between the winner of the first round and maintaining the incumbent official. If the winner of the first round receives more votes than the total of the votes for maintaining the incumbent and the number of non-votes, the second round of the election succeeds.<br/>
-
 
 ## 🔷 6. International Transparency<br/>
 
