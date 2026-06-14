@@ -18,9 +18,9 @@ Hold only five powers:<br/>
 
 ✅ The power to elect the Community Supervisor.<br/>
 
-✅ The power to vote again for another candidate for community supervisor<br/>
+✅ The power to re-elect the Community Supervisor.<br/>
 
-✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community. Self-built communities do not have a recall button. They only have two buttons: Like and Exit. Like is selected by default and cannot be canceled. System communities have both a Like button and a Recall button.<br/>
+✅ The power to create the community, and the system assigns users to communities by default, with approximately 1,000 people per community. Self-built communities do not have a Re-elect button. They only have two buttons: Like and Exit. Like is selected by default and cannot be canceled. System communities have both a Like button and a Re-elect button.<br/>
 
 ✅ The power to create a governance region, and the court will review it afterward.<br/>
 
