@@ -30,14 +30,13 @@ Hold only five powers:<br/>
 
 Each Community Supervisor represents a defined community, it needs to receive likes from citizens in order to increase its voting weight.<br/>
 
-Each Community Supervisor may support only one National Supervisory Council member and one Governance Region Supervisory Council member, thereby increasing those members’ voting weights. However, each Community Supervisor may vote to recall multiple members of both councils.<br/>
-
+Each Community Supervisor may support only one National Supervisory Council member and one Governance Region Supervisory Council member, thereby increasing those members’ voting weights.<br/>
 
 Hold only two powers:<br/>
 
 ✅ The power to elect the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
-✅ The power to revoke any member of the National Supervisory Council or the Governance Region Supervisory Council, when the impeachment rate reaches >= 51%.<br/>
+✅ The power to re-elect the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
 
 ## 🔷 3. National Supervisory Council<br/>
