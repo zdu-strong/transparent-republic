@@ -13,7 +13,7 @@ async function buildReact() {
             "docker build",
             "-t react",
             "-f ./Dockerfile",
-            "../../../..",
+            "../../..",
         ].join(" "),
         {
             stdio: "inherit",
@@ -28,7 +28,7 @@ async function buildSpringboot() {
             "docker build",
             "-t springboot",
             "-f ./Dockerfile",
-            "../../../..",
+            "../../..",
         ].join(" "),
         {
             stdio: "inherit",
@@ -43,7 +43,7 @@ async function buildCloud() {
             "docker build",
             "-t cloud",
             "-f ./Dockerfile",
-            "../../../..",
+            "../../..",
         ].join(" "),
         {
             stdio: "inherit",
