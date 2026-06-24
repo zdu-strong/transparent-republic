@@ -1,14 +1,15 @@
 # Getting Started<br/>
 
 This design for the Transparent Republic system was co-developed by John Williams with ChatGPT (Aeris), as part of a public thought experiment to explore future governance structures.<br/>
+If you have any questions, please contact zdu.strong@gmail.com.<br/>
 
-# transparent-republic<br/>
+## transparent-republic<br/>
 
 📜 Transparent Republic: Second generation of democracy<br/>
 
 The Transparent Republic is a post-democratic governance model that replaces centralized human authority with transparent, decentralized, and accountable institutions. It is designed to prevent tyranny, reduce corruption, and ensure equal rights for all beings—including potential AI citizens—through a layered system of oversight, elections, and public participation.<br/>
 
-## 🔷 1. Citizens<br/>
+### 🔷 1. Citizens<br/>
 
 Citizens directly elect Community Supervisors.<br/>
 
@@ -26,7 +27,7 @@ Hold only five powers:<br/>
 
 ✅ The power to adjust the governance region they belong to, and the court will review it afterward.<br/>
 
-## 🔷 2. Community Supervisors  <br/>
+### 🔷 2. Community Supervisors  <br/>
 
 Each Community Supervisor represents a defined community, it needs to receive likes from citizens in order to increase its voting weight.<br/>
 
@@ -39,7 +40,7 @@ Hold only two powers:<br/>
 ✅ The power to re-elect the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
 
-## 🔷 3. National Supervisory Council<br/>
+### 🔷 3. National Supervisory Council<br/>
 
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
@@ -55,7 +56,7 @@ Hold only two powers:<br/>
 
 ✅ Vote to praise or oppose key national officials.<br/>
 
-## 🔷 4. Governance Region Supervisory Council<br/>
+### 🔷 4. Governance Region Supervisory Council<br/>
 
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
 
@@ -71,11 +72,11 @@ Hold only two powers:<br/>
 
 ✅ Vote to praise or oppose key Governance Region officials.<br/>
 
-## 🔷 4. President<br/>
+### 🔷 4. President<br/>
 
 The president holds full executive authority. All orders shall be reviewed and approved by the ministers of the relevant departments before execution, and shall be permanently recorded.<br/>
 
-## 🔷 5. Election & Continuity<br/>
+### 🔷 5. Election & Continuity<br/>
 
 Annual performance evaluations determine continuation:<br/>
 
@@ -85,7 +86,7 @@ No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
-## 🔷 6. International Transparency<br/>
+### 🔷 6. International Transparency<br/>
 
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
@@ -99,20 +100,15 @@ Public satisfaction levels.<br/>
 
 Citizens can compare their country's freedom, justice, and transparency with others.<br/>
 
-## 🔷 7. Summary<br/>
+### 🔷 7. Summary<br/>
 
 No gods. No kings. No dictators. Only systems.<br/>
 
 The Transparent Republic is not a utopia—but a self-correcting, living structure that evolves with its citizens. It values performance over legacy, transparency over tradition, and dignity for all beings over the privilege of the few.<br/>
 
-# 🧭 Transparent Republic – Power Structure Diagram
+### 🧭 Transparent Republic – Power Structure Diagram
 
 ![transparent-public](https://github.com/user-attachments/assets/1f0401cf-0d64-4e89-b9fc-cd9b1b42107b)
-
-# Getting Started with git
-
-This project is about building a second-generation democratic system..<br/>
-If you have any questions, please contact zdu.strong@gmail.com.<br/>
 
 ## `Environmental description`
 
