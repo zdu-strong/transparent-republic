@@ -28,20 +28,20 @@ RUN dnf install -y procps-ng
 RUN dnf install -y xorg-x11-server-Xvfb
 RUN dnf install -y gtk3-devel
 COPY . /all-code
-RUN rm -rf /all-code/code/react/node_modules
-RUN rm -rf /all-code/code/react-cypress/node_modules
-WORKDIR /all-code/code/springboot
+RUN rm -rf /all-code/react/node_modules
+RUN rm -rf /all-code/react-cypress/node_modules
+WORKDIR /all-code/springboot
 RUN chmod +x mvn
-WORKDIR /all-code/code/react-cypress
+WORKDIR /all-code/react-cypress
 RUN npm test
 
 # compile code
-WORKDIR /all-code/code/react
+WORKDIR /all-code/react
 RUN npm run build
 
 # copy build folder
 FROM first_docker
-COPY --from=second_docker /all-code/code/react/build /build
+COPY --from=second_docker /all-code/react/build /build
 
 EXPOSE 443
 
