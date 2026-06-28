@@ -9,10 +9,10 @@ import { LineChart } from "@mui/x-charts";
 export default observer(() => {
 
     return <div className="flex flex-col">
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-start">
             <Box
                 sx={{
-                    width: '100%',
+                    width: '50%',
                     overflow: 'auto',
                     display: 'flex',
                     flexDirection: 'column',
@@ -34,59 +34,7 @@ export default observer(() => {
                     height={300}
                 />
             </Box>
-            <Box
-                sx={{
-                    width: '100%',
-                    overflow: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
-            >
-                <Typography variant="h6">
-                    {/* {"Basic living allowance comparison (2024 vs 2010-19 Avg)"} */}
-                    {"Basic living allowance"}
-                </Typography>
-                <LineChart
-                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                    series={[
-                        {
-                            data: [2, 5.5, 2, 8.5, 1.5, 5],
-                            area: true,
-                        },
-                    ]}
-                    height={300}
-                />
-            </Box>
-            <Box
-                sx={{
-                    width: '100%',
-                    overflow: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
-            >
-                <Typography variant="h6">
-                    {/* {"Sovereign Dividend comparison (2024 vs 2010-19 Avg)"} */}
-                    {"Sovereign Dividend"}
-                </Typography>
-                 <LineChart
-                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                    series={[
-                        {
-                            data: [2, 5.5, 2, 8.5, 1.5, 5],
-                            area: true,
-                        },
-                    ]}
-                    height={300}
-                />
-            </Box>
-        </div>
-        <div className="flex flex-row" style={{ width: "1000px" }}>
-            <Income />
-            <Outlay />
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center" >
                 <Chip icon={<FontAwesomeIcon icon={faCartShopping} />} label="Consumption tax: 10%" />
                 <Chip icon={<FontAwesomeIcon icon={faCircleDollarToSlot} />} label="Profit tax: 40%" style={{ marginTop: "1em" }} />
                 <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="Fixed asset tax: 2%" style={{ marginTop: "1em" }} />
@@ -94,6 +42,10 @@ export default observer(() => {
                 <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="Basic living allowance: $100/day" style={{ marginTop: "1em" }} />
                 <Chip icon={<FontAwesomeIcon icon={faHouseChimney} />} label="Sovereign Dividend: $100/day" style={{ marginTop: "1em" }} />
             </div>
+        </div>
+        <div className="flex flex-row" style={{ width: "1000px" }}>
+            <Income />
+            <Outlay />
         </div>
     </div>
 })
