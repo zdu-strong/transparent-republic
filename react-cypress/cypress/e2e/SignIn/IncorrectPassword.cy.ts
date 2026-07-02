@@ -12,7 +12,8 @@ it('', () => {
 
 before(() => {
     action.signUp(email, password)
-    page.Chat.signOutButton().click()
+    page.Chat.SettingButton().click()
+    page.Chat.SignOutButton().click()
     cy.location('pathname').should('equal', '/sign-in')
 })
 
