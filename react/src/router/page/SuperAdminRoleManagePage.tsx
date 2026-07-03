@@ -1,12 +1,8 @@
 import CheckPermissionComponent from "@/common/Server/CheckPagePermissionComponent";
-import MainMenu from "@component/SystemMenu/MainMenu";
 import SuperAdminRoleManage from "@component/SuperAdminRoleManage/SuperAdminRoleManage";
 
 export default <CheckPermissionComponent
-    isAutoLogin={true}
     checkIsSignIn={true}
 >
-    <MainMenu>
-        <SuperAdminRoleManage />
-    </MainMenu>
+    <SuperAdminRoleManage />
 </CheckPermissionComponent>

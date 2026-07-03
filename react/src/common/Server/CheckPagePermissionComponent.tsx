@@ -7,10 +7,11 @@ import { ReplaySubject, from } from "rxjs";
 import { exhaustMapWithTrailing } from "rxjs-exhaustmap-with-trailing";
 import { v4, v7 } from "uuid";
 import { useCommonContext } from "@/common/CommonContext";
+import MainMenu from "@/component/SystemMenu/MainMenu";
+import MainMenuForSignIn from "@/component/SystemMenu/MainMenuForSignIn";
 
 type Props = {
     children: ReactNode;
-    isAutoLogin?: boolean;
     checkIsSignIn?: boolean;
     checkIsNotSignIn?: boolean;
 }
@@ -24,7 +25,9 @@ export default observer((props: Props) => {
         error: null as any,
         hasInitAccessToken: false,
     }), {
-        ...props
+        isAutoLogin: !!props.checkIsSignIn,
+        checkIsNotSignIn: props.checkIsNotSignIn || !props.checkIsSignIn,
+        checkIsSignIn: !!props.checkIsSignIn,
     })
 
     useMount(async (subscription) => {
@@ -91,6 +94,11 @@ export default observer((props: Props) => {
     }
 
     return <LoadingOrErrorComponent ready={isReady()} error={state.error} >
-        {state.children}
+        {state.checkIsSignIn && <MainMenu>
+            {props.children}
+        </MainMenu>}
+        {state.checkIsNotSignIn && <MainMenuForSignIn>
+            {props.children}
+        </MainMenuForSignIn>}
     </LoadingOrErrorComponent>
 })
