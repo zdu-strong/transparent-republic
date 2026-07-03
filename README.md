@@ -78,10 +78,6 @@ The president holds full executive authority. All orders shall be reviewed and a
 
 ### 🔷 5. Election & Continuity<br/>
 
-Annual performance evaluations determine continuation:<br/>
-
-Everyone, from Local Supervisors to the President, must retain high satisfaction or a low dismissal rate to remain (satisfaction >=60% or opposition < 20%).<br/>
-
 No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
