@@ -70,19 +70,19 @@ export function useReactRouterAppProviderNavigation() {
             title: 'Analytics',
         },
         {
-            segment: '.',
+            segment: 'lumen',
             title: 'Lumen',
             icon: <BarChartIcon />,
             children: [
                 {
-                    segment: 'lumen/exchange',
+                    segment: 'exchange',
                     title: 'Exchange',
                     icon: <DescriptionIcon />,
                 },
             ],
         },
         {
-            segment: '.',
+            segment: 'report',
             title: 'Reports',
             icon: <BarChartIcon />,
             children: [
