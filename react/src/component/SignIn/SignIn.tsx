@@ -5,9 +5,8 @@ import { style } from "typestyle";
 import AccountTooltipDialog from "@component/SignIn/AccountTooltipDialog";
 import PasswordTooltipDialog from "@component/SignIn/PasswordTooltipDialog";
 import api from "@api";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faArrowRightToBracket, faSpinner, faHome, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCircleQuestion, faArrowRightToBracket, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { useOnceSubmitWhileTrue } from "@/common/use-hook";
 
 const container = style({
@@ -187,24 +186,6 @@ export default observer(() => {
             >
                 <FormattedMessage id="SignIn" defaultMessage="SignIn" />
             </Button>
-        </div>
-        <div className="w-full" style={{ marginTop: "2em" }}>
-            <Link to="/sign-up" >
-                <Button
-                    variant="contained"
-                    startIcon={<FontAwesomeIcon icon={faUserPlus} />}
-                >
-                    <FormattedMessage id="SignUp" defaultMessage="SignUp" />
-                </Button>
-            </Link>
-            <Link to="/" style={{ marginLeft: "2em" }}>
-                <Button
-                    variant="contained"
-                    startIcon={<FontAwesomeIcon icon={faHome} />}
-                >
-                    <FormattedMessage id="ReturnToHomePage" defaultMessage="To home" />
-                </Button>
-            </Link>
         </div>
         {state.usernameTooltipDialog.open && <AccountTooltipDialog
             closeDialog={closeUsernameTooltip}

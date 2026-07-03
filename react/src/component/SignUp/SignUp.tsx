@@ -1,4 +1,4 @@
-import { Button, Divider, Fab, IconButton, TextField } from "@mui/material";
+import { Button, Divider, Fab, IconButton, TextField, Typography } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
 import { FormattedMessage } from "react-intl";
 import { style } from "typestyle";
@@ -10,9 +10,8 @@ import StepLabel from '@mui/material/StepLabel';
 import api from "@api";
 import { MessageService } from "@common/MessageService";
 import { UserEmailModel } from "@model/UserEmailModel";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFloppyDisk, faPaperPlane, faPlus, faSpinner, faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faPaperPlane, faPlus, faSpinner, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useOnceSubmit } from "@/common/use-hook";
 
 const container = style({
@@ -229,18 +228,18 @@ export default observer(() => {
                     <FormattedMessage id="PasswordSettingIsComplete" defaultMessage="Password setting is complete" />
                 </div>}
                 {state.activeStep === 1 && <div className="flex flex-col">
-                    <div className="flex" style={{ marginBottom: "0em" }} >
+                    <Typography style={{ marginBottom: "0em" }}>
                         <FormattedMessage id="JustLikeTheTreasureMapLetUsHideThePasswordInThisWorld" defaultMessage="Just like the treasure map, let's hide the password in this world. For example, select a paragraph as a password from Shakespeare's works." />
-                    </div>
-                    <div className="flex" style={{ marginBottom: "0em" }} >
+                    </Typography>
+                    <Typography style={{ marginBottom: "0em" }}>
                         <FormattedMessage id="ThePasswordSupportsAllTheCharactersOfUTF8" defaultMessage="The password supports all the characters of UTF-8. You can use any of the language content you like as the password." />
-                    </div>
-                    <div className="flex" style={{ marginBottom: "0em" }}>
+                    </Typography>
+                    <Typography style={{ marginBottom: "0em" }}>
                         <FormattedMessage id="WeDoNotProvideResetPasswordSoRememberYourPassword" defaultMessage="We do not provide reset password functions. So, remember your password." />
-                    </div>
-                    <div className="flex" style={{ marginBottom: "1em" }}>
+                    </Typography>
+                    <Typography style={{ marginBottom: "1em" }}>
                         <FormattedMessage id="OnlyYouWhocanKnowThePassword" defaultMessage="We can't know your chat content and file content. Only you who can know the password." />
-                    </div>
+                    </Typography>
                     <TextField
                         label={<FormattedMessage id="Password" defaultMessage="Password" />}
                         className="flex flex-auto"
@@ -371,14 +370,6 @@ export default observer(() => {
                     >
                         <FormattedMessage id="Previous" defaultMessage="Previous" />
                     </Button>}
-                    <Link to="/sign-in">
-                        <Button
-                            variant="contained"
-                            startIcon={<FontAwesomeIcon icon={faUser} />}
-                        >
-                            <FormattedMessage id="SignIn" defaultMessage="SignIn" />
-                        </Button>
-                    </Link>
                     {state.activeStep < state.steps.length - 1 && <Button
                         variant="contained"
                         startIcon={<FontAwesomeIcon icon={faFloppyDisk} />}
