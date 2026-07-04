@@ -136,6 +136,8 @@ use typescript and cypress to write end-to-end tests for react project
 
 ## `foundational-charter`
 
+Introduce the economic structure and legal design of the Transparent Republic.
+
 ## `republic-alliance`
 
 The Republican Alliance protects its member states through independent military forces and an independent official system.
