@@ -138,6 +138,8 @@ use typescript and cypress to write end-to-end tests for react project
 
 ## `republic-alliance`
 
+The Republican Alliance protects its member states through independent military forces and an independent official system.
+
 ## Notes - Easier to use git
 
 Sometimes, you'll see a prompt like this: This repository currently has approximately 1500 loose objects.<br/>
