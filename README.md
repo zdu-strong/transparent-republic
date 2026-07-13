@@ -68,7 +68,7 @@ In the second round, voting is held between the winner of the first round and ma
 
 Hold only two powers:<br/>
 
-✅ To appoint key Governance Region officials — including the Governance Region Governors, and Governance Region Budget Teams.<br/>
+✅ To appoint key Governance Region officials — including the Governance Region Mayor, and Governance Region Budget Teams.<br/>
 
 ✅ Vote to praise or oppose key Governance Region officials.<br/>
 
