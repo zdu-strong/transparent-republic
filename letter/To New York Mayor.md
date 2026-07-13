@@ -2,7 +2,7 @@
 
 Mayor Zohran, it is a pleasure to meet you. I greatly appreciate your public explanations of your policies.
 
-I would like to introduce a method for reducing housing costs called **Contract Housing**. It comes from Chapter 20, [“Contract Goods”](https://google.com) in the foundational section of *Transparent Republic*.
+I would like to introduce a method for reducing housing costs called **Contract Housing**. It comes from Chapter 20, [“Contract Goods”](https://github.com/zdu-strong/transparent-republic/blob/master/foundational-charter/20.%20Extra%20-%20Contract%20Goods.md) in the foundational section of *Transparent Republic*.
 
 Under Contract Housing, the government signs a voluntary contract with a landlord. The contract specifies the government subsidy, the rental price, the landlord’s maintenance obligations, and the obligation not to raise the rent arbitrarily. The landlord may breach or terminate the contract at any time without any penalty.
 
