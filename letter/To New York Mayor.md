@@ -26,11 +26,11 @@ The apartment is rented very quickly, and the government subsidy of $300 arrives
 
 The mayor signs a contract with a second landlord:
 
-“Your apartment currently rents for $1,400 per month. We will subsidize it by $500 per month, and you will rent it for $900.”
+“Your apartment currently rents for $1,400 per month. We will subsidize it by $500 per month, and the rent will be $900 per month.”
 
 The mayor signs another contract with a third landlord:
 
-“Your apartment currently rents for $900 per month. We will subsidize it by $300 per month, and you will rent it for $600.”
+“Your apartment currently rents for $900 per month. We will subsidize it by $300 per month, and the rent will be $600 per month.”
 
 As the number of Contract Housing units increases, the government increases the subsidies, allowing the tenant’s rent to fall from $900 to $800, then to $700, $600, and eventually $500.
 
