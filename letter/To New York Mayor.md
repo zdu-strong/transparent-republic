@@ -54,7 +54,7 @@ One year later, the mayor approaches the landlord again and says:
 
 The landlord refuses to sign.
 
-However, the landlord is unable to rent the apartment on the private market, and it remains vacant for one month.
+However, because the rent was too high, the landlord was unable to rent the apartment on the private market, and it remained vacant for one month.
 
 The mayor then returns with the previous contract and says:
 
