@@ -1,3 +1,5 @@
+## Introductory Section
+
 Mayor Zohran, it is a pleasure to meet you. I greatly appreciate your public explanations of your policies.
 
 I would like to introduce a method for reducing housing costs called **Contract Housing**. It comes from Chapter 20, “Contract Goods,” in the foundational section of *Transparent Republic*.
@@ -9,6 +11,8 @@ The government may also refuse to renew the contract with the landlord.
 The minimum government subsidy for Contract Housing would be $300 per month. This ensures that when a property leaves the Contract Housing system, there remains a meaningful price difference between ordinary market housing and Contract Housing.
 
 Contract Housing is intended only for basic housing where affordability is the main priority. It is not intended for high-end housing where quality and premium features are the primary goals.
+
+## Story
 
 I will explain the idea through a story to make it easier to understand.
 
@@ -56,4 +60,5 @@ The mayor then returns with the previous contract and says:
 
 “We have heard your concerns. We will continue to provide a subsidy of $600 per month, while the tenant pays $500. Please sign the contract.”
 
+## Closing Remarks
 Chinese is my native language, and my English is not very strong, so I am unable to communicate effectively through spoken conversation.
