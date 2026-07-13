@@ -1,4 +1,3 @@
-
 Mayor Zohran, it is a pleasure to meet you. I greatly appreciate your public explanations of your policies.
 
 I would like to introduce a method for reducing housing costs called **Contract Housing**. It comes from Chapter 20, “Contract Goods,” in the foundational section of *Transparent Republic*.
@@ -7,15 +6,15 @@ Under Contract Housing, the government signs a voluntary contract with a landlor
 
 The government may also refuse to renew the contract with the landlord.
 
-The minimum government subsidy for Contract Housing would be $300 per month. This ensures that after a property leaves the Contract Housing system, there remains a meaningful price difference between ordinary market housing and Contract Housing.
+The minimum government subsidy for Contract Housing would be $300 per month. This ensures that when a property leaves the Contract Housing system, there remains a meaningful price difference between ordinary market housing and Contract Housing.
 
-Contract Housing is intended only for basic housing where affordability is the main priority. It is not intended for luxury housing where quality and premium features are the primary goals.
+Contract Housing is intended only for basic housing where affordability is the main priority. It is not intended for high-end housing where quality and premium features are the primary goals.
 
 I will explain the idea through a story to make it easier to understand.
 
 The mayor knocks on a landlord’s door and says:
 
-“Your apartment currently rents for $1,200 per month. We will subsidize it by $300 per month, and you will rent it to the tenant for $900. You must guarantee maintenance, but there will be no penalty if you terminate the contract. Would you like to sign?”
+“Your apartment currently rents for $1,200 per month. We will subsidize it by $300 per month, and you will rent it to the tenant for $900. You will be required to guarantee maintenance. There will be no penalty if you terminate the contract. Would you like to sign?”
 
 The landlord reads the contract. With $900 in rent plus the $300 subsidy, the landlord still receives $1,200 per month. The apartment will also be easier to rent, and there is no penalty for ending the contract. Therefore, the landlord signs it.
 
@@ -31,7 +30,7 @@ The mayor signs another contract with a third landlord:
 
 As the number of Contract Housing units increases, the government increases the subsidies, allowing the tenant’s rent to fall from $900 to $800, then to $700, $600, and eventually $500.
 
-One landlord whose apartment normally rents for $1,400 wants to raise the price to $1,500. The government refuses to sign a new contract at that price.
+One landlord whose apartment normally rents for $1,400 wants to raise the price to $1,500. The government refuses to sign a contract at that price.
 
 The landlord places the apartment on the private market, but prospective tenants ask:
 
@@ -55,6 +54,6 @@ However, the landlord is unable to rent the apartment on the private market, and
 
 The mayor then returns with the previous contract and says:
 
-“We have heard your concerns. We will continue to provide a subsidy of $600 per month, while the tenant pays $500. Please return to the Contract Housing program.”
+“We have heard your concerns. We will continue to provide a subsidy of $600 per month, while the tenant pays $500. Please sign the contract.”
 
 Chinese is my native language, and my English is not very strong, so I am unable to communicate effectively through spoken conversation.
