@@ -76,13 +76,15 @@ Hold only two powers:<br/>
 
 The president holds full executive authority. All orders shall be reviewed and approved by the ministers of the relevant departments before execution, and shall be permanently recorded.<br/>
 
-### 🔷 5. Election & Continuity<br/>
+### 🔷 5. Mayor<br/>
+
+### 🔷 6. Election & Continuity<br/>
 
 No absolute term limits—only performance and public trust matter.<br/>
 
 If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
 
-### 🔷 6. International Transparency<br/>
+### 🔷 7. International Transparency<br/>
 
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
@@ -96,7 +98,7 @@ Public satisfaction levels.<br/>
 
 Citizens can compare their country's freedom, justice, and transparency with others.<br/>
 
-### 🔷 7. Summary<br/>
+### 🔷 8. Summary<br/>
 
 No gods. No kings. No dictators. Only systems.<br/>
 
