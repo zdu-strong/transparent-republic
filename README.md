@@ -78,6 +78,8 @@ The president holds full executive authority. All orders shall be reviewed and a
 
 ### 🔷 5. Mayor<br/>
 
+The mayor holds full executive authority. All orders shall be reviewed and approved by the ministers of the relevant departments before execution, and shall be permanently recorded.<br/>
+
 ### 🔷 6. Election & Continuity<br/>
 
 No absolute term limits—only performance and public trust matter.<br/>
