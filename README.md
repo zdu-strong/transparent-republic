@@ -84,7 +84,7 @@ The mayor holds full executive authority. All orders shall be reviewed and appro
 
 No absolute term limits—only performance and public trust matter.<br/>
 
-If a President is removed, the system seamlessly transitions to a new one appointed by the Council with zero downtime.<br/>
+If the president is removed from office, the system will seamlessly transition to a new president appointed by the council, with no downtime.<br/>
 
 ### 🔷 7. International Transparency<br/>
 
