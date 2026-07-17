@@ -146,6 +146,10 @@ Introduce the economic structure and legal design of the Transparent Republic.
 
 The Republican Alliance protects its member states through independent military forces and an independent official system.
 
+## `letter`
+
+An Open Letter to the Public
+
 ## Notes - Easier to use git
 
 Sometimes, you'll see a prompt like this: This repository currently has approximately 1500 loose objects.<br/>
