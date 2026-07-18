@@ -235,3 +235,18 @@ Users pay in any currency. System auto-converts with no fees.<br/>
 Lumen的利润为温和取整.<br/>
 两种方式赚取利润. 一种是把100美元换成日元时, 本来能换到10009.87日元, Lumen取日元个位数以及之后的钱作为公司利润, 只换给用户10000日元. 另一种是用户要支付给其他人10000日元, 本来只需要101.78美元, 将个位数之后的金额向上取整, 用户要付102美元, 0.22美元就成了公司利润. Lumen依靠调整这两种方式的小数位数来决定公司利润, 比如, 小数点后两位, 小数点后1位, 个位数. Lumen没有固定比例的手续费, 即便是富人的大额财富转移, 也只会付出微小的代价作为手续费, 而损失的滑点价值并不是给Lumen公司, 而是由其他货币持有人获得. 而频繁交易的用户, 才是支撑公司利润的人.<br/>
 对小额交易的利润进行优化, 降低取整精度, 减少影响<br/>
+
+Lumen earns its profit through gentle rounding.<br/>
+
+There are two ways for Lumen to generate profit. The first occurs when a user exchanges one currency for another. For example, when exchanging US$100 into Japanese yen, the user might normally receive ¥10,009.87. Lumen keeps the amount below the selected rounding unit as company profit and gives the user ¥10,000.<br/>
+
+The second occurs when a user wants to pay another person a specific amount. For example, sending ¥10,000 might normally require only US$101.78. Lumen rounds the amount upward, so the user pays US$102, and the remaining US$0.22 becomes company profit.<br/>
+
+Lumen determines its profit by adjusting the rounding precision used in these two methods, such as two decimal places, one decimal place, or the ones digit.<br/>
+
+Lumen does not charge a fixed percentage-based fee. Even wealthy users transferring large amounts of money would pay only a very small transaction cost. Any value lost through exchange-rate slippage would not go to Lumen, but would instead be distributed among other holders of the relevant currencies.<br/>
+
+Therefore, users who trade frequently, rather than users who transfer large amounts, are the primary source of Lumen’s profit.<br/>
+
+For small transactions, the rounding precision can be reduced to optimize profitability while minimizing the effect on users.<br/>
+
