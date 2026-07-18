@@ -225,10 +225,14 @@ Users pay in any currency. System auto-converts with no fees.<br/>
 
 数据库只负责查询, 程序负责汇率公式计算. 多个人同时用大额美元兑换日元, 按美元总和计算, 再按比例得到属于自己的货币, 每个人会获得比顺序兑换更少的日元. 少兑换的日元会留在Lumen, 增加中央币的价值<br/>
 
-## 跨币种兑换
+## Cross-Currency Exchange
 
 先把所有货币数据从数据库查询到本地, 只在本地进行模拟, 得到最优路径.<br/>
 直接按最优路径去兑换<br/>
+
+First, retrieve all currency data from the database and load it into local memory. Perform simulations locally to determine the optimal exchange path.<br/>
+
+Then execute the exchange directly along the optimal path.<br/>
 
 ## Profit 
 
