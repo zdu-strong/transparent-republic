@@ -146,6 +146,10 @@ Introduce the economic structure and legal design of the Transparent Republic.
 
 The Republican Alliance protects its member states through independent military forces and an independent official system.
 
+## `lumen`
+
+Lumen is a free, open currency exchange system with floating exchange rates determined by contributions and market dynamics.
+
 ## `letter`
 
 An Open Letter to the Public
