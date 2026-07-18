@@ -125,9 +125,105 @@ During Withdrawal:<br/>
 The lumens to be withdrawn are proportionally split according to each CCU’s share of the total lumens.<br/>
 The corresponding amounts of CCUs are then withdrawn and converted into the target currency.<br/>
 
-##### 示例
+##### Example
 
-###### 存入示例
+###### Deposit Example
+
+1. Central Currency Pools
+
+US$1,000
+(5,500 USD–JPY central currency)
+¥10,000
+(5,500 USD–JPY central currency)
+
+US$10,000
+(10,000 USD–EUR central currency)
+€20,000
+(10,000 USD–EUR central currency)
+
+€1,000
+(5,000 JPY–EUR central currency)
+¥5,000
+(5,000 JPY–EUR central currency)
+
+2. Combined Central Currency Pools
+
+0 USD–JPY central currency
+(0 lumens)
+
+0 USD–EUR central currency
+(0 lumens)
+
+0 JPY–EUR central currency
+(0 lumens)
+
+3. First deposit: US$300.
+
+Divide the amount equally into three portions and convert each portion into one of the three types of central currency:
+
+US$100 is converted into USD–JPY central currency.
+
+US$100 is converted into USD–EUR central currency.
+
+US$100 is converted into JPY–EUR central currency.
+
+4. US$100 is converted into 500 units of USD–JPY central currency.
+
+Central Currency Pools
+
+US$1,100
+(5,000 USD–JPY central currency)
+¥10,000
+(5,500 USD–JPY central currency)
+
+US$10,000
+(10,000 USD–EUR central currency)
+€20,000
+(10,000 USD–EUR central currency)
+
+€1,000
+(5,000 JPY–EUR central currency)
+¥5,000
+(5,000 JPY–EUR central currency)
+
+5. US$100 is converted into 99 units of USD–EUR central currency.
+
+Central Currency Pools
+
+US$1,100
+(5,750 USD–JPY central currency)
+¥10,000
+(5,750 USD–JPY central currency)
+
+US$10,100
+(10,049.5 USD–EUR central currency)
+€20,000
+(10,049.5 USD–EUR central currency)
+
+€1,000
+(5,000 JPY–EUR central currency)
+¥5,000
+(5,000 JPY–EUR central currency)
+
+6. US$100 is converted into JPY–EUR central currency.
+
+Central Currency Pools
+
+US$1,100
+(5,750 USD–JPY central currency)
+¥10,000
+(5,750 USD–JPY central currency)
+
+US$10,100
+(10,049.5 USD–EUR central currency)
+€20,000
+(10,049.5 USD–EUR central currency)
+
+€1,000
+(5,000 JPY–EUR central currency)
+¥5,000
+(5,000 JPY–EUR central currency)
+
 
 1. 中央币的池子<br/>
 * 1000美元(5500中央币-美元-日元)     10000日元(5500中央币-美元-日元)<br/>
