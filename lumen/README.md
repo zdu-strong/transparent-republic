@@ -221,9 +221,13 @@ Users pay in any currency. System auto-converts with no fees.<br/>
 两边的货币价值相等, 但中央币数量不对等<br/>
 两个货币相同的池子合并, 究竟结果如何<br/>
 
-## 并行计算
+## Parallel Computation
 
-数据库只负责查询, 程序负责汇率公式计算. 多个人同时用大额美元兑换日元, 按美元总和计算, 再按比例得到属于自己的货币, 每个人会获得比顺序兑换更少的日元. 少兑换的日元会留在Lumen, 增加中央币的价值<br/>
+The database is responsible only for data retrieval, while the application performs the exchange-rate calculations.<br/>
+
+When multiple users simultaneously exchange large amounts of US dollars for Japanese yen, Lumen calculates the exchange based on the combined total amount of US dollars and then distributes the resulting yen among the users in proportion to their individual contributions.<br/>
+
+Each user will receive fewer yen than they would through sequential exchanges. The undistributed yen remains within Lumen, increasing the value of the central currency.<br/>
 
 ## Cross-Currency Exchange
 
