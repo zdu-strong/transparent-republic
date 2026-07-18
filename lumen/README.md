@@ -227,9 +227,6 @@ Users pay in any currency. System auto-converts with no fees.<br/>
 
 ## Cross-Currency Exchange
 
-先把所有货币数据从数据库查询到本地, 只在本地进行模拟, 得到最优路径.<br/>
-直接按最优路径去兑换<br/>
-
 First, retrieve all currency data from the database and load it into local memory. Perform simulations locally to determine the optimal exchange path.<br/>
 
 Then execute the exchange directly along the optimal path.<br/>
