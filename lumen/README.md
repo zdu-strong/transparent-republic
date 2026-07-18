@@ -210,16 +210,19 @@ If rate changes, user is prompted to confirm.<br/>
 Merchants may choose accepted currency types.<br/>
 Users pay in any currency. System auto-converts with no fees.<br/>
 
-## 思考 - 成对注入时等值分配
+## Thinking: Equal-Value Allocation During Paired Deposits
 
-交换时, 两边的中央币结果不相等, 就像水流一样, 从一个池子流到另一个池子, 如何分配<br/>
-兑换公式错了<br/>
-先成对注入100美元和200日元,<br/>
-再成对注入200美元和100日元的结果,<br/>
-应该与一次性注入300美元和300日元的结果相等<br/>
-兑换分为先存入单种货币获得中央币, 再将中央币取出<br/>
-两边的货币价值相等, 但中央币数量不对等<br/>
-两个货币相同的池子合并, 究竟结果如何<br/>
+During an exchange, the resulting amounts of central currency on the two sides are unequal. Like water flowing from one pool into another, how should the value be allocated?<br/>
+
+The exchange formula is incorrect.<br/>
+
+The combined result of first depositing US$100 together with ¥200, and then depositing US$200 together with ¥100, should be equal to the result of depositing US$300 and ¥300 in a single operation.<br/>
+
+An exchange consists of two stages: first, depositing a single currency to obtain central currency, and then withdrawing another currency by redeeming the central currency.<br/>
+
+The values of the currencies on both sides are equal, but the amounts of central currency are unequal.<br/>
+
+What exactly should happen when two pools containing the same currencies are merged?<br/>
 
 ## Parallel Computation
 
