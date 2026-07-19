@@ -23,7 +23,7 @@ No ID required. Any being may use all features.<br/>
 
 ### Low Transaction Fees
 
-No Fixed or Percentage-Based Transaction Fees. Lumen earns its profit through gentle upward or downward rounding.<br/>
+No fixed or percentage-based transaction fees. Lumen earns its profit through gentle upward or downward rounding.<br/>
 
 ### Transparency
 
