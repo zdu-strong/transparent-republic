@@ -21,7 +21,7 @@ Lumen automatically monitors currency stability and trends, generates a recommen
 
 No ID required. Any being may use all features.<br/>
 
-### Free of Charge
+### Low Transaction Fees
 
 No Fixed or Percentage-Based Transaction Fees. Operational costs are covered by rounding gains.<br/>
 
