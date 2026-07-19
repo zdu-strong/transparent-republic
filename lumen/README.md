@@ -1,6 +1,8 @@
 
 # Getting Started
 
+Lumen is a free, open currency exchange system with floating exchange rates determined by contributions and market dynamics. It consists of Contribution Mode, Exchange Mode, Trade Mode, Storage Mode, and Withdrawal Mode.<br/>
+
 This design for the Lumen system was co-developed by John Williams with ChatGPT (Aeris), as part of a public exploration of trustless, borderless currency exchange. It serves as a foundational module of the Transparent Republic, imagining a future where money flows freely, anonymously, and fairly — without banks, without borders, and without coercion. 
 
 ## Draft Status Disclaimer
@@ -9,7 +11,7 @@ This is only a draft. The current logic is incorrect and cannot be verified or d
 
 ## Lumen Overview
 
-Lumen is a free, open currency exchange system with floating exchange rates determined by contributions and market dynamics. It consists of Contribution Mode, Exchange Mode, Trade Mode, Storage Mode, and Withdrawal Mode.<br/>
+
 
 Any individual can generate central currencies (CCUs) by contributing two currencies in pairs. For example, contributing USD and JPY yields CCU-USD-JPY. Contributing EUR and GBP yields CCU-EUR-GBP. The Transparent Republic periodically contributes some foreign currencies to ensure public access, and other countries or individuals are also free to contribute.<br/>
 
