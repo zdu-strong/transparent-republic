@@ -11,8 +11,6 @@ This is only a draft. The current logic is incorrect and cannot be verified or d
 
 ## Lumen Overview
 
-
-
 Any individual can generate central currencies (CCUs) by contributing two currencies in pairs. For example, contributing USD and JPY yields CCU-USD-JPY. Contributing EUR and GBP yields CCU-EUR-GBP. The Transparent Republic periodically contributes some foreign currencies to ensure public access, and other countries or individuals are also free to contribute.<br/>
 
 Lumen automatically monitors currency stability and trends, generates a recommendation list, and allows the Transparent Republic to select a set of trustworthy central currencies to form the Lumen unit. Upon withdrawal, users receive a mix of these CCUs converted proportionally into the desired currency.<br/>
@@ -25,7 +23,7 @@ No ID required. Any being may use all features.<br/>
 
 ### Free of Charge
 
-No transaction fees. Operational costs are covered by rounding gains.<br/>
+No Fixed or Percentage-Based Transaction Fees. Operational costs are covered by rounding gains.<br/>
 
 ### Transparency
 
