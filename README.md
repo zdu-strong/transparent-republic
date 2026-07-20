@@ -42,7 +42,7 @@ Hold only two powers:<br/>
 
 ### 🔷 3. National Supervisory Council<br/>
 
-Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
+Consists of 300 members elected by Community Supervisors, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
 
 Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
 
@@ -58,7 +58,7 @@ Hold only two powers:<br/>
 
 ### 🔷 4. Governance Region Supervisory Council<br/>
 
-Consists of 300 members elected by Community Supervisors, a collective body with no single leader.<br/>
+Consists of 300 members elected by Community Supervisors, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
 
 Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
 
