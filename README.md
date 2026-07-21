@@ -86,7 +86,7 @@ No absolute term limits—only performance and public trust matter.<br/>
 
 If the president is removed from office, the system will seamlessly transition to a new president appointed by the council, with no downtime.<br/>
 
-Amendments to the Constitution and laws take effect only after a delay. Certain fiscal spending plans are also subject to delayed implementation, giving citizens time to monitor officials and respond.<br/>
+Amendments to the Constitution and laws take effect only after a delay. Certain fiscal expenditures are also delayed, giving citizens time to monitor officials and respond.<br/>
 
 ### 🔷 7. International Transparency<br/>
 
