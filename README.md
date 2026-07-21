@@ -80,15 +80,17 @@ The president holds full executive authority. All orders shall be reviewed and a
 
 The mayor holds full executive authority. All orders shall be reviewed and approved by the ministers of the relevant departments before execution, and shall be permanently recorded.<br/>
 
-### 🔷 6. Election & Continuity<br/>
+### 🔷 6. Lagged Oversight Space<br/>
+
+Amendments to the Constitution and laws take effect only after a delay. Certain fiscal expenditures are also delayed, giving citizens time to monitor officials and respond.<br/>
+
+### 🔷 7. Election & Continuity<br/>
 
 No absolute term limits—only performance and public trust matter.<br/>
 
 If the president is removed from office, the system will seamlessly transition to a new president appointed by the council, with no downtime.<br/>
 
-Amendments to the Constitution and laws take effect only after a delay. Certain fiscal expenditures are also delayed, giving citizens time to monitor officials and respond.<br/>
-
-### 🔷 7. International Transparency<br/>
+### 🔷 8. International Transparency<br/>
 
 The Transparent Republic provides open data on all internal decisions, including:<br/>
 
@@ -102,7 +104,7 @@ Public satisfaction levels.<br/>
 
 Citizens can compare their country's freedom, justice, and transparency with others.<br/>
 
-### 🔷 8. Summary<br/>
+### 🔷 9. Summary<br/>
 
 No gods. No kings. No dictators. Only systems.<br/>
 
