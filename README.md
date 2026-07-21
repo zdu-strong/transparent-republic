@@ -82,7 +82,9 @@ The mayor holds full executive authority. All orders shall be reviewed and appro
 
 ### 🔷 6. Lagged Oversight Space<br/>
 
-Amendments to the Constitution and laws take effect only after a delay. Certain fiscal expenditures are also delayed, giving citizens time to monitor officials and respond.<br/>
+Amendments to the Constitution and laws take effect only after a delay.<br/>
+
+New or modified plans for budget allocations from national or district reserves to various departments are subject to a 3-day delay, giving citizens time to monitor officials and respond.<br/>
 
 ### 🔷 7. Election & Continuity<br/>
 
