@@ -50,13 +50,13 @@ The Alliance provides the companies with a daily investment fund, and each compa
 The country establishes a prison department, and the minister of prisons sends a Forward Triumvirate of three officials to manage each new prison.<br/>
 
 
-The three officials vote to elect the warden, while the other two officials serve as prison commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the prison warden.<br/>
+The three officials vote to elect the Squad Commander, while the other two officials serve as prison commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the prison Squad Commander.<br/>
 
-The warden is responsible for hiring staff and managing the prison.<br/>
+The Squad Commander is responsible for hiring staff and managing the prison.<br/>
 
-Each year, two new officials are sent to replace the prison commissioners. The prison commissioners do not take part in management; they are only responsible for oversight. The three officials may hold a vote at any time to elect a new warden.<br/>
+Each year, two new officials are sent to replace the prison commissioners. The prison commissioners do not take part in management; they are only responsible for oversight. The three officials may hold a vote at any time to elect a new Squad Commander.<br/>
 
-The three officials must assess the initial warden. Each assessment shall be positive, negative, or withheld.<br/>
+The three officials must assess the initial Squad Commander. Each assessment shall be positive, negative, or withheld.<br/>
 
 
 ## 7. Military Rotation
