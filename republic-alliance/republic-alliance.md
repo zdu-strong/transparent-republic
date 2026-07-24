@@ -43,21 +43,28 @@ The companies’ products are used by the Alliance, which also provides feedback
 
 The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.
 
+## 6. Forward Triumvirate Protocol
+To govern each deployed tactical unit, higher command shall assign a Forward Triumvirate consisting of three officers.
 
+1. Command Election & Succession
 
-## 6. Forward Triumvirate
+    + The three officers shall hold a vote to designate the Squad Commander; the remaining two officers shall serve as Oversight Commissioners.
 
-The platoon commander dispatched a forward triumvirate of three officers to manage a squad.<br/>
+    + The officer receiving the majority of votes is appointed as Squad Commander. In the event of a tie, the officer with the higher system rank takes command.
 
-The three officials vote to elect the Squad Commander, while the other two officials serve as commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the Squad Commander.<br/>
+    + The three officers retain the authority to call a vote and re-elect the Squad Commander at any time during operations.
 
-The squad leader is responsible for leading the squad in combat.<br/>
+2. Operational Division
 
-After every battle, two new officials replace the two commissioners. The commissioners don't direct the fighting, they only oversee it.<br/>
+    + The Squad Commander holds absolute authority to direct combat operations.
 
-The three officials can vote at any time to elect a new Squad Commander.<br/>
+    + Oversight Commissioners do not participate in tactical command; their sole function is field oversight and evaluation.
 
-The three officials must assess the initial Squad Commander. Each assessment shall be positive, negative, or withheld.<br/>
+3. Post-Battle Reshuffle & Evaluation
+
+    + Upon completion of each combat deployment, two new officers will be dispatched to replace the two Oversight Commissioners.
+
+    + All three officers must submit an evaluation of the initial Squad Commander. Each rating shall be recorded strictly as Positive, Negative, or Withheld.
 
 
 ## 7. Military Rotation
