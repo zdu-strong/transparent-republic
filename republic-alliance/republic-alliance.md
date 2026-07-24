@@ -42,3 +42,18 @@ The Alliance Council appoints a Minister of Commerce, who is responsible for est
 The companies’ products are used by the Alliance, which also provides feedback on product quality.
 
 The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.
+
+
+
+## 6. Forward Triumvirate
+
+The country establishes a prison department, and the minister of prisons sends a Forward Triumvirate of three officials to manage each new prison.<br/>
+
+
+The three officials vote to elect the warden, while the other two officials serve as prison commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the prison warden.<br/>
+
+The warden is responsible for hiring staff and managing the prison.<br/>
+
+Each year, two new officials are sent to replace the prison commissioners. The prison commissioners do not take part in management; they are only responsible for oversight. The three officials may hold a vote at any time to elect a new warden.<br/>
+
+The three officials must assess the initial warden. Each assessment shall be positive, negative, or withheld.<br/>
