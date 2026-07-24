@@ -51,7 +51,7 @@ The platoon commander dispatched a forward triumvirate of three officers to mana
 
 The three officials vote to elect the Squad Commander, while the other two officials serve as commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the Squad Commander.<br/>
 
-The Squad Commander is responsible for hiring staff and managing the prison.<br/>
+The squad leader is responsible for leading the squad in combat.<br/>
 
 Each year, two new officials replace the two commissioners. The commissioners do not manage the prison, they only oversee it.<br/>
 
