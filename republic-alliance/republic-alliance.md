@@ -53,7 +53,7 @@ The three officials vote to elect the Squad Commander, while the other two offic
 
 The squad leader is responsible for leading the squad in combat.<br/>
 
-After every battle, two new officials replace the two commissioners. The commissioners do not manage the prison, they only oversee it.<br/>
+After every battle, two new officials replace the two commissioners. The commissioners don't direct the fighting, they only oversee it.<br/>
 
 The three officials can vote at any time to elect a new Squad Commander.<br/>
 
