@@ -44,6 +44,7 @@ The companies’ products are used by the Alliance, which also provides feedback
 The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.
 
 ## 6. Forward Triumvirate Protocol
+
 To govern each deployed tactical unit, higher command shall assign a Forward Triumvirate consisting of three officers.
 
 1. Command Election & Succession
