@@ -51,7 +51,7 @@ To govern each deployed tactical unit, higher command shall assign a Forward Tri
 
   + The three officers shall hold a vote to designate the Squad Commander; the remaining two officers shall serve as Oversight Commissioners.
 
-  + The officer receiving the majority of votes is appointed as Squad Commander. In the event of a tie, the officer with the higher system rank takes command.
+  + The officer receiving the majority of votes is appointed as Squad Commander. In the event of a tie, the officer with the higher system rank takes command. If a tie occurs during subsequent votes, the current squad commander will retain their position.
   
   + The three officers retain the authority to call a vote and re-elect the Squad Commander at any time during operations.
 
