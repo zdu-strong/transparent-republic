@@ -57,3 +57,11 @@ The warden is responsible for hiring staff and managing the prison.<br/>
 Each year, two new officials are sent to replace the prison commissioners. The prison commissioners do not take part in management; they are only responsible for oversight. The three officials may hold a vote at any time to elect a new warden.<br/>
 
 The three officials must assess the initial warden. Each assessment shall be positive, negative, or withheld.<br/>
+
+
+## 7. Military Rotation
+
+Military pay is divided into training pay, rest pay, and combat pay.<br/>
+
+For every two years of service, soldiers receive two years of rest. During the rest period, they receive rest pay, which is equal to half of their training pay.<br/>
+
