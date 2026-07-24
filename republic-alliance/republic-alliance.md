@@ -49,23 +49,23 @@ To govern each deployed tactical unit, higher command shall assign a Forward Tri
 
 1. Command Election & Succession
 
-    + The three officers shall hold a vote to designate the Squad Commander; the remaining two officers shall serve as Oversight Commissioners.
+  + The three officers shall hold a vote to designate the Squad Commander; the remaining two officers shall serve as Oversight Commissioners.
 
-    + The officer receiving the majority of votes is appointed as Squad Commander. In the event of a tie, the officer with the higher system rank takes command.
-
-    + The three officers retain the authority to call a vote and re-elect the Squad Commander at any time during operations.
+  + The officer receiving the majority of votes is appointed as Squad Commander. In the event of a tie, the officer with the higher system rank takes command.
+  
+  + The three officers retain the authority to call a vote and re-elect the Squad Commander at any time during operations.
 
 2. Operational Division
 
-    + The Squad Commander holds absolute authority to direct combat operations.
+  + The Squad Commander holds absolute authority to direct combat operations.
 
-    + Oversight Commissioners do not participate in tactical command; their sole function is field oversight and evaluation.
+  + Oversight Commissioners do not participate in tactical command; their sole function is field oversight and evaluation.
 
 3. Post-Battle Reshuffle & Evaluation
 
-    + Upon completion of each combat deployment, two new officers will be dispatched to replace the two Oversight Commissioners.
+  + Upon completion of each combat deployment, two new officers will be dispatched to replace the two Oversight Commissioners.
 
-    + All three officers must submit an evaluation of the initial Squad Commander. Each rating shall be recorded strictly as Positive, Negative, or Withheld.
+  + All three officers must submit an evaluation of the initial Squad Commander. Each rating shall be recorded strictly as Positive, Negative, or Withheld.
 
 
 ## 7. Military Rotation
