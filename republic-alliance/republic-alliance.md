@@ -49,8 +49,7 @@ The Alliance provides the companies with a daily investment fund, and each compa
 
 The platoon commander dispatched a forward triumvirate of three officers to manage a squad.<br/>
 
-
-The three officials vote to elect the Squad Commander, while the other two officials serve as prison commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the prison Squad Commander.<br/>
+The three officials vote to elect the Squad Commander, while the other two officials serve as commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the Squad Commander.<br/>
 
 The Squad Commander is responsible for hiring staff and managing the prison.<br/>
 
