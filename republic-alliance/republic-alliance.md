@@ -56,6 +56,10 @@ The Squad Commander is responsible for hiring staff and managing the prison.<br/
 
 Each year, two new officials are sent to replace the prison commissioners. The prison commissioners do not take part in management; they are only responsible for oversight. The three officials may hold a vote at any time to elect a new Squad Commander.<br/>
 
+Each year, two new officials replace the two commissioners. The commissioners do not manage the prison, they only oversee it.<br/>
+
+The three officials can vote at any time to elect a new Squad Commander.<br/>
+
 The three officials must assess the initial Squad Commander. Each assessment shall be positive, negative, or withheld.<br/>
 
 
