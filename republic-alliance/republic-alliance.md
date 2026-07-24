@@ -47,7 +47,7 @@ The Alliance provides the companies with a daily investment fund, and each compa
 
 ## 6. Forward Triumvirate
 
-The country establishes a prison department, and the minister of prisons sends a Forward Triumvirate of three officials to manage each new prison.<br/>
+The Platoon Commander sends a Forward Triumvirate of three officials to manage each new prison.<br/>
 
 
 The three officials vote to elect the Squad Commander, while the other two officials serve as prison commissioners. If the vote totals differ, the official with the most votes becomes the warden. If the vote count is tied, the official ranked higher by the system will be elected as the prison Squad Commander.<br/>
