@@ -35,7 +35,7 @@ Alliance officials and the military are independent institutions. Alliance offic
 
 The Alliance's finances are funded by membership fees and donations from member states.
 
-## 5. Alliance companies
+## 5. Alliance Companies
 
 The Alliance Council appoints a Minister of Commerce, who is responsible for establishing companies and appointing their managers. The Minister of Commerce oversees the appointment and removal of positions such as the CEO and Minister of Finance, but does not participate in the daily operations of the companies.
 
