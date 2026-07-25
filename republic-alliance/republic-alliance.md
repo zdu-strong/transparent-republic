@@ -49,7 +49,7 @@ To govern each deployed tactical unit, higher command shall assign a Forward Tri
 
 1. Command Election & Succession
 
-  + The three officers shall hold a vote to designate the Squad Commander; the remaining two officers shall serve as Oversight Commissioners.
+  + The three officers shall hold a vote to designate the Squad Commander, the remaining two officers shall serve as Oversight Commissioners.
  
   + The officer receiving the majority of votes is appointed as Squad Commander. If the vote count is tied, the official ranked higher by the system will be elected as Squad Commander.
   
@@ -59,7 +59,7 @@ To govern each deployed tactical unit, higher command shall assign a Forward Tri
 
   + The Squad Commander holds absolute authority to direct combat operations.
 
-  + Oversight Commissioners do not participate in tactical command; their sole function is field oversight and evaluation.
+  + Oversight Commissioners do not participate in tactical command, their sole function is field oversight and evaluation.
 
 3. Post-Battle Reshuffle & Evaluation
 
