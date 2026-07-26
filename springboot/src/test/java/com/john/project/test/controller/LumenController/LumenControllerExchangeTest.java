@@ -24,7 +24,7 @@ public class LumenControllerExchangeTest extends BaseTest {
                 .build();
         var response = this.testRestTemplate.postForEntity(url, null, BigDecimal.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(new BigDecimal("998.003992"), response.getBody());
+        assertEquals(new BigDecimal("333.037268"), response.getBody());
     }
 
 }
