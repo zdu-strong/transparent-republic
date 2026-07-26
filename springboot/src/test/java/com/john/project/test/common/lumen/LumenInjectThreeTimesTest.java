@@ -1,7 +1,7 @@
 package com.john.project.test.common.lumen;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.john.project.model.LumenContextModel;
+import com.john.project.model.LumenContextCoreModel;
 import com.john.project.test.common.BaseTest.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LumenInjectThreeTimesTest extends BaseTest {
 
-    private LumenContextModel lumenContext;
+    private LumenContextCoreModel lumenContext;
 
     @Test
     public void test() {
@@ -20,12 +20,12 @@ public class LumenInjectThreeTimesTest extends BaseTest {
         var obtainCcuOfSecond = this.lumenContext.inject(lumenContext.getJapan(), new BigDecimal(100));
         var obtainCcuOfThree = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(50));
         var result = obtainCcuOfFirst.add(obtainCcuOfSecond).add(obtainCcuOfThree);
-        assertTrue(ObjectUtil.equals(new BigDecimal("199.999964"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("199.999998"), result));
     }
 
     @BeforeEach
     public void beforeEach() {
-        this.lumenContext = new LumenContextModel();
+        this.lumenContext = new LumenContextCoreModel();
         this.lumenContext.injectPair(new BigDecimal(100), new BigDecimal(100));
     }
 

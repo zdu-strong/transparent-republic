@@ -1,7 +1,7 @@
 package com.john.project.test.common.lumen;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.john.project.model.LumenContextModel;
+import com.john.project.model.LumenContextCoreModel;
 import com.john.project.test.common.BaseTest.BaseTest;
 import org.jinq.orm.stream.JinqStream;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LumenInjectSingleCurrencyTest extends BaseTest {
 
-    private LumenContextModel lumenContext;
+    private LumenContextCoreModel lumenContext;
 
     @Test
     public void test() {
@@ -36,13 +36,13 @@ public class LumenInjectSingleCurrencyTest extends BaseTest {
                 ))
                 .sumBigDecimal(s -> s);
         var obtainJapanCurrencyBalance = this.lumenContext.withdrawal(this.lumenContext.getJapan(), result);
-        assertTrue(ObjectUtil.equals(new BigDecimal("196.899192"), result));
-        assertTrue(ObjectUtil.equals(new BigDecimal("49.803916"), obtainJapanCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("98.449606"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("33.101451"), obtainJapanCurrencyBalance));
     }
 
     @BeforeEach
     public void beforeEach() {
-        this.lumenContext = new LumenContextModel();
+        this.lumenContext = new LumenContextCoreModel();
         this.lumenContext.injectPair(new BigDecimal(100), new BigDecimal(100));
     }
 
