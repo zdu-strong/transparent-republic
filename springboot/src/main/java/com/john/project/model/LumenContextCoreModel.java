@@ -60,20 +60,6 @@ public class LumenContextCoreModel {
         return obtainCcuBalance;
     }
 
-    public BigDecimal inject(LumenCurrencyModel sourceCurrency, BigDecimal sourceBalance) {
-        var sourceUsdCurrencyBalance = Optional.of(sourceBalance).filter(s -> ObjectUtil.equals(usd.getId(), sourceCurrency.getId())).orElse(BigDecimal.ZERO);
-        var sourceJapanCurrencyBalance = Optional.of(sourceBalance).filter(s -> ObjectUtil.equals(japan.getId(), sourceCurrency.getId())).orElse(BigDecimal.ZERO);
-        return injectPair(sourceUsdCurrencyBalance, sourceJapanCurrencyBalance);
-    }
-
-    public BigDecimal exchange(LumenCurrencyModel sourceCurrency, BigDecimal sourceBalance) {
-        checkBalanceGreaterThanZero();
-        var ccuBalanceOfInject = inject(sourceCurrency, sourceBalance);
-        var targetCurrency = getTargetCurrency(sourceCurrency);
-        var targetCurrencyBalance = withdrawal(targetCurrency, ccuBalanceOfInject);
-        return targetCurrencyBalance;
-    }
-
     @SneakyThrows
     public List<LumenCcuBalanceModel> withdrawalPair(BigDecimal ccuBalance) {
         checkBalanceGreaterThanOrEqualToZero();
@@ -112,6 +98,20 @@ public class LumenContextCoreModel {
         return obtainList;
     }
 
+    public BigDecimal exchange(LumenCurrencyModel sourceCurrency, BigDecimal sourceBalance) {
+        checkBalanceGreaterThanZero();
+        var ccuBalanceOfInject = inject(sourceCurrency, sourceBalance);
+        var targetCurrency = getTargetCurrency(sourceCurrency);
+        var targetCurrencyBalance = withdrawal(targetCurrency, ccuBalanceOfInject);
+        return targetCurrencyBalance;
+    }
+
+    public BigDecimal inject(LumenCurrencyModel sourceCurrency, BigDecimal sourceBalance) {
+        var sourceUsdCurrencyBalance = Optional.of(sourceBalance).filter(s -> ObjectUtil.equals(usd.getId(), sourceCurrency.getId())).orElse(BigDecimal.ZERO);
+        var sourceJapanCurrencyBalance = Optional.of(sourceBalance).filter(s -> ObjectUtil.equals(japan.getId(), sourceCurrency.getId())).orElse(BigDecimal.ZERO);
+        return injectPair(sourceUsdCurrencyBalance, sourceJapanCurrencyBalance);
+    }
+
     public BigDecimal withdrawal(LumenCurrencyModel targetCurrency, BigDecimal ccuBalance) {
         checkCcuBalanceGreaterThanOrEqualZero(ccuBalance);
 
@@ -121,35 +121,11 @@ public class LumenContextCoreModel {
 
         var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
         var sourceCurrency = getTargetCurrency(targetCurrency);
-        var sourceCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getJapanCurrency() : getUsdCurrency();
         var targetCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCurrency() : getJapanCurrency();
         var targetCcuBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCcu() : getJapanCcu();
 
-
         var obtainCcuBalanceEachSide = ccuBalance.divide(BigDecimal.TWO, 6, RoundingMode.FLOOR);
-        var obtainTargetCurrencyBalanceOfFirst = targetCurrencyBalance.multiply(obtainCcuBalanceEachSide).divide(targetCcuBalance, 6, RoundingMode.FLOOR);
-
-        var obtainTargetCurrencyBalanceOfSecond = BigDecimal.ZERO;
-        if (NumberUtil.isLessOrEqual(sourceCurrencyBalance, targetCcuBalance.subtract(obtainCcuBalanceEachSide))) {
-            var ccuBalanceOfSecond = targetCcuBalance.subtract(obtainCcuBalanceEachSide).multiply(BigDecimal.TWO).subtract(sourceCurrencyBalance);
-            var maxTargetCurrencyBalance = ccuBalanceOfSecond.multiply(sourceCurrencyBalance).divide(ccuBalanceOfSecond.subtract(sourceCurrencyBalance.multiply(BigDecimal.TWO)), 6, RoundingMode.FLOOR);
-            obtainTargetCurrencyBalanceOfSecond = targetCurrencyBalance.subtract(obtainTargetCurrencyBalanceOfFirst).subtract(maxTargetCurrencyBalance).max(BigDecimal.ZERO);
-        } else {
-            // minCurrencyBalance = totalCCuOfTwoSide * maxCurrencyBalance / (maxCurrencyBalance * 3 + minCurrencyBalance - totalCCuOfTwoSide)
-            var totalCCuOfTwoSide = targetCcuBalance.subtract(obtainCcuBalanceEachSide).multiply(BigDecimal.TWO);
-            var amountOfSourceCurrencyBalanceMultiplyTotalCCuOfTwoSide = sourceCurrencyBalance.multiply(new BigDecimal(3)).subtract(totalCCuOfTwoSide);
-            var amountOfTotalCCuOfTwoSideMultiplySourceCurrencyBalance = totalCCuOfTwoSide.multiply(sourceCurrencyBalance);
-            var discriminant = amountOfSourceCurrencyBalanceMultiplyTotalCCuOfTwoSide.multiply(amountOfSourceCurrencyBalanceMultiplyTotalCCuOfTwoSide).add(amountOfTotalCCuOfTwoSideMultiplySourceCurrencyBalance.multiply(new BigDecimal(4)));
-
-            if (NumberUtil.isLess(discriminant, BigDecimal.ZERO)) {
-                throw new IllegalArgumentException("No real solution");
-            }
-
-            var totalTargetCurrencyBalanceOfNew = amountOfSourceCurrencyBalanceMultiplyTotalCCuOfTwoSide.multiply(new BigDecimal(-1)).add(discriminant.sqrt(MathContext.DECIMAL128)).divide(BigDecimal.TWO, 6, RoundingMode.FLOOR).max(BigDecimal.ZERO);
-            obtainTargetCurrencyBalanceOfSecond = targetCurrencyBalance.subtract(obtainTargetCurrencyBalanceOfFirst).subtract(totalTargetCurrencyBalanceOfNew).max(BigDecimal.ZERO);
-        }
-
-        var obtainTargetCurrencyBalance = obtainTargetCurrencyBalanceOfFirst.add(obtainTargetCurrencyBalanceOfSecond);
+        var obtainTargetCurrencyBalance = targetCurrencyBalance.multiply(ccuBalance).divide(targetCcuBalance.add(obtainCcuBalanceEachSide), 6, RoundingMode.FLOOR);
 
         ccuBalanceList.add(new LumenCcuBalanceModel()
                 .setId(uuidUtil.v4())
@@ -167,10 +143,11 @@ public class LumenContextCoreModel {
     private BigDecimal getTotalCcuBalance(BigDecimal sourceUsdCurrencyBalance, BigDecimal sourceJapanCurrencyBalance) {
         var minCurrencyBalance = sourceUsdCurrencyBalance.min(sourceJapanCurrencyBalance);
         var maxCurrencyBalance = sourceUsdCurrencyBalance.max(sourceJapanCurrencyBalance);
-        var maxCCUBalance = minCurrencyBalance.multiply(BigDecimal.TWO);
+        var maxCCUBalance = minCurrencyBalance.multiply(new BigDecimal(4));
         var ccuBalanceOfFirst = minCurrencyBalance;
-        var ccuBalanceOfSecond = maxCCUBalance.multiply(maxCurrencyBalance).divide(maxCurrencyBalance.add(minCurrencyBalance), 6, RoundingMode.FLOOR);
-        var totalCcuBalance = ccuBalanceOfFirst.add(ccuBalanceOfSecond);
+        var ccuBalanceOfSecond = minCurrencyBalance;
+        var ccuBalanceOfThird = maxCCUBalance.multiply(maxCurrencyBalance.subtract(minCurrencyBalance)).divide(maxCurrencyBalance.add(minCurrencyBalance), 6, RoundingMode.FLOOR);
+        var totalCcuBalance = ccuBalanceOfFirst.add(ccuBalanceOfSecond).add(ccuBalanceOfThird);
         return totalCcuBalance;
     }
 
