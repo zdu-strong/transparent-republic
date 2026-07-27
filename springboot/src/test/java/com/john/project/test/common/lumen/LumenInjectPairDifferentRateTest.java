@@ -19,7 +19,7 @@ public class LumenInjectPairDifferentRateTest extends BaseTest {
         var result = this.lumenContext.injectPair(new BigDecimal(200), new BigDecimal(100));
         var usdCcuBalance = this.lumenContext.getCcuBalanceOfEachSide();
         var japanCcuBalance = this.lumenContext.getCcuBalanceOfEachSide();
-        assertTrue(ObjectUtil.equals(new BigDecimal("266.666668"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("375.000000"), result));
         assertTrue(ObjectUtil.equals(new BigDecimal("300.000000"), usdCcuBalance));
         assertTrue(ObjectUtil.equals(new BigDecimal("300.000000"), japanCcuBalance));
     }
@@ -30,8 +30,8 @@ public class LumenInjectPairDifferentRateTest extends BaseTest {
         this.lumenContext.injectPair(new BigDecimal(100), new BigDecimal(200));
         var usdCcuBalance = this.lumenContext.getCcuBalanceOfEachSide();
         var japanCcuBalance = this.lumenContext.getCcuBalanceOfEachSide();
-        assertTrue(ObjectUtil.equals(new BigDecimal("166.666666"), usdCcuBalance));
-        assertTrue(ObjectUtil.equals(new BigDecimal("166.666666"), japanCcuBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("112.500000"), usdCcuBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("112.500000"), japanCcuBalance));
     }
 
 }
