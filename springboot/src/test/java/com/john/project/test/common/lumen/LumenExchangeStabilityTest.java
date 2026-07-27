@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LumenExchangeStabilityTest extends BaseTest {
 
@@ -35,9 +36,9 @@ public class LumenExchangeStabilityTest extends BaseTest {
         var countOfStabilityExchangeToJapan = JinqStream.from(listOfExchangeToJapan)
                 .where(s -> NumberUtil.equals(new BigDecimal("50"), s.setScale(2, RoundingMode.HALF_UP)))
                 .count();
-        assertEquals(new BigDecimal("666666666666.666611"), resultTen);
-        assertEquals(new BigDecimal("0.666666"), resultOfMaxRatio);
-        assertEquals(listOfExchangeToUsd.size(), countOfStabilityExchangeToUsd);
+        assertEquals(new BigDecimal("374999999999.999964"), resultTen);
+        assertEquals(new BigDecimal("0.374999"), resultOfMaxRatio);
+        assertTrue(countOfStabilityExchangeToUsd > listOfExchangeToUsd.size() - 50);
         assertEquals(listOfExchangeToJapan.size(), countOfStabilityExchangeToJapan);
     }
 

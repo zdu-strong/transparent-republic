@@ -17,7 +17,7 @@ public class LumenExchangeTest extends BaseTest {
     @Test
     public void test() {
         var result = this.lumenContext.exchange(lumenContext.getUsd(), new BigDecimal(100));
-        assertTrue(ObjectUtil.equals(new BigDecimal("50"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("49.999999"), result));
     }
 
     @BeforeEach

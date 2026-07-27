@@ -59,13 +59,13 @@ public class LumenContextCoreModel {
         checkCcuBalanceGreaterThanOrEqualZero(ccuBalance);
 
         var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
-        var usdCcuBalance = getCcuBalanceOfEachSide();
-        var japanCcuBalance = getCcuBalanceOfEachSide();
+        var totalCcuBalance = getTotalCcuBalance(getUsdCurrencyBalance(), getJapanCurrencyBalance());
+
         var usdCurrencyBalance = getUsdCurrencyBalance();
         var japanCurrencyBalance = getJapanCurrencyBalance();
         var obtainCcuBalanceEachSide = ccuBalance.divide(BigDecimal.TWO, 6, RoundingMode.FLOOR);
-        var obtainUsdCurrencyBalance = usdCurrencyBalance.multiply(obtainCcuBalanceEachSide).divide(usdCcuBalance, 6, RoundingMode.FLOOR);
-        var obtainJapanCurrencyBalance = japanCurrencyBalance.multiply(obtainCcuBalanceEachSide).divide(japanCcuBalance, 6, RoundingMode.FLOOR);
+        var obtainUsdCurrencyBalance = usdCurrencyBalance.multiply(obtainCcuBalanceEachSide).multiply(BigDecimal.TWO).divide(totalCcuBalance, 6, RoundingMode.FLOOR);
+        var obtainJapanCurrencyBalance = japanCurrencyBalance.multiply(obtainCcuBalanceEachSide).multiply(BigDecimal.TWO).divide(totalCcuBalance, 6, RoundingMode.FLOOR);
         var obtainLumenCcuBalanceModel = new LumenCcuBalanceModel()
                 .setId(uuidUtil.v4())
                 .setUsdCurrencyBalance(obtainUsdCurrencyBalance)
@@ -103,10 +103,10 @@ public class LumenContextCoreModel {
 
         var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
         var targetCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCurrencyBalance() : getJapanCurrencyBalance();
-        var targetCcuBalance = getCcuBalanceOfEachSide();
+        var totalCcuBalance = getTotalCcuBalance(getUsdCurrencyBalance(), getJapanCurrencyBalance());
 
         var obtainCcuBalanceEachSide = ccuBalance.divide(BigDecimal.TWO, 6, RoundingMode.FLOOR);
-        var obtainTargetCurrencyBalance = targetCurrencyBalance.multiply(ccuBalance).divide(targetCcuBalance.add(obtainCcuBalanceEachSide), 6, RoundingMode.FLOOR);
+        var obtainTargetCurrencyBalance = targetCurrencyBalance.multiply(obtainCcuBalanceEachSide).multiply(new BigDecimal(3)).divide(totalCcuBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
 
         ccuBalanceList.add(new LumenCcuBalanceModel()
                 .setId(uuidUtil.v4())
