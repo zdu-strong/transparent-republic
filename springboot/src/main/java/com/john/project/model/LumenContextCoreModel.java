@@ -41,8 +41,7 @@ public class LumenContextCoreModel {
         }
 
         var totalCCUOfNew = getTotalCcuBalance(getUsdCurrencyBalance().add(sourceUsdCurrencyBalance), getJapanCurrencyBalance().add(sourceJapanCurrencyBalance));
-        var totalCCUOfOld = getCcuBalanceOfEachSide().add(getCcuBalanceOfEachSide());
-
+        var totalCCUOfOld = getCcuBalanceOfEachSide().multiply(BigDecimal.TWO);
         var obtainCcuBalanceEachSide = totalCCUOfNew.subtract(totalCCUOfOld).max(BigDecimal.ZERO).divide(BigDecimal.TWO, 6, RoundingMode.FLOOR);
         var obtainCcuBalance = obtainCcuBalanceEachSide.multiply(BigDecimal.TWO);
         var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
@@ -191,7 +190,7 @@ public class LumenContextCoreModel {
     }
 
     private void checkCcuBalanceGreaterThanOrEqualZero(BigDecimal withdrawalCcuBalance) {
-        if (NumberUtil.isLess(getCcuBalanceOfEachSide().add(getCcuBalanceOfEachSide()), withdrawalCcuBalance)) {
+        if (NumberUtil.isLess(getCcuBalanceOfEachSide().multiply(BigDecimal.TWO), withdrawalCcuBalance)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "balance cannot less than 0");
         }
     }
@@ -234,7 +233,7 @@ public class LumenContextCoreModel {
 
     private boolean hasEqualToZero() {
         this.checkBalanceGreaterThanOrEqualToZero();
-        if (NumberUtil.isGreater(getUsdCurrencyBalance().add(getCcuBalanceOfEachSide()).add(getJapanCurrencyBalance()).add(getCcuBalanceOfEachSide()), BigDecimal.ZERO)) {
+        if (NumberUtil.isGreater(getUsdCurrencyBalance().add(getJapanCurrencyBalance()).add(getCcuBalanceOfEachSide()), BigDecimal.ZERO)) {
             this.checkBalanceGreaterThanZero();
             return false;
         } else {
