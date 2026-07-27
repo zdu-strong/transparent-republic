@@ -120,10 +120,8 @@ public class LumenContextCoreModel {
         var minCurrencyBalance = sourceUsdCurrencyBalance.min(sourceJapanCurrencyBalance);
         var maxCurrencyBalance = sourceUsdCurrencyBalance.max(sourceJapanCurrencyBalance);
         var maxCCUBalance = minCurrencyBalance.multiply(new BigDecimal(4));
-        var ccuBalanceOfFirst = minCurrencyBalance;
-        var ccuBalanceOfSecond = minCurrencyBalance;
         var ccuBalanceOfThird = maxCCUBalance.multiply(maxCurrencyBalance.subtract(minCurrencyBalance)).divide(maxCurrencyBalance.add(minCurrencyBalance), 6, RoundingMode.FLOOR);
-        var totalCcuBalance = ccuBalanceOfFirst.add(ccuBalanceOfSecond).add(ccuBalanceOfThird);
+        var totalCcuBalance = minCurrencyBalance.multiply(BigDecimal.TWO).add(ccuBalanceOfThird);
         return totalCcuBalance;
     }
 
