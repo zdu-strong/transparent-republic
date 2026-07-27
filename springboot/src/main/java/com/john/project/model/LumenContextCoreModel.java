@@ -41,7 +41,7 @@ public class LumenContextCoreModel {
         }
 
         var totalCCUOfNew = getTotalCcuBalance(getUsdCurrency().add(sourceUsdCurrencyBalance), getJapanCurrency().add(sourceJapanCurrencyBalance));
-        var totalCCUOfOld = getTotalCcuBalance(getUsdCurrency(), getJapanCurrency());
+        var totalCCUOfOld = getUsdCcu().add(getJapanCcu());
 
         var obtainCcuBalanceEachSide = totalCCUOfNew.subtract(totalCCUOfOld).max(BigDecimal.ZERO).divide(BigDecimal.TWO, 6, RoundingMode.FLOOR);
         var obtainCcuBalance = obtainCcuBalanceEachSide.multiply(BigDecimal.TWO);
