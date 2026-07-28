@@ -110,17 +110,18 @@ public class LumenContextCoreModel {
         var targetCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCurrencyBalance() : getJapanCurrencyBalance();
         var totalCcuBalance = sourceCcuBalance.add(targetCcuBalance);
 
-        var obtainTargetCurrencyBalanceFirst = targetCurrencyBalance.multiply(ccuBalance.add(sourceCcuBalance.min(targetCcuBalance))).divide(ccuBalance.add(totalCcuBalance), 6, RoundingMode.FLOOR);
+        var obtainTargetCurrencyBalanceFirst = targetCurrencyBalance.multiply(ccuBalance).divide(ccuBalance.add(targetCcuBalance), 6, RoundingMode.FLOOR);
+        var obtainTargetCurrencyBalanceSecond = targetCurrencyBalance.multiply(ccuBalance).multiply(BigDecimal.TWO).divide(ccuBalance.add(totalCcuBalance), 6, RoundingMode.FLOOR);
 
         var obtainLumenCcuBalance = this.withdrawalPair(ccuBalance);
         var obtainSourceCurrencyBalanceFirst = ObjectUtil.equals(usd.getId(), sourceCurrency.getId()) ? obtainLumenCcuBalance.getUsdCurrencyBalance() : obtainLumenCcuBalance.getJapanCurrencyBalance();
-        var obtainTargetCurrencyBalanceSecond = ObjectUtil.equals(usd.getId(), sourceCurrency.getId()) ? obtainLumenCcuBalance.getJapanCurrencyBalance() : obtainLumenCcuBalance.getUsdCurrencyBalance();
+        var obtainTargetCurrencyBalanceThird = ObjectUtil.equals(usd.getId(), sourceCurrency.getId()) ? obtainLumenCcuBalance.getJapanCurrencyBalance() : obtainLumenCcuBalance.getUsdCurrencyBalance();
 
         var obtainCcuBalanceFirst = this.inject(sourceCurrency, obtainSourceCurrencyBalanceFirst);
 
-        var obtainTargetCurrencyBalance = obtainTargetCurrencyBalanceFirst.max(obtainTargetCurrencyBalanceSecond);
+        var obtainTargetCurrencyBalance = obtainTargetCurrencyBalanceFirst.max(obtainTargetCurrencyBalanceSecond).max(obtainTargetCurrencyBalanceThird);
 
-        this.addCcuToList(sourceCurrency, BigDecimal.ZERO, BigDecimal.ZERO, targetCurrency, obtainTargetCurrencyBalanceSecond.subtract(obtainTargetCurrencyBalance), obtainCcuBalanceFirst.negate());
+        this.addCcuToList(sourceCurrency, BigDecimal.ZERO, BigDecimal.ZERO, targetCurrency, obtainTargetCurrencyBalanceThird.subtract(obtainTargetCurrencyBalance), obtainCcuBalanceFirst.negate());
 
         checkBalanceGreaterThanOrEqualToZero();
 
