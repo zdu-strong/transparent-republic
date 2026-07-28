@@ -163,6 +163,8 @@ public class LumenContextCoreModel {
             var obtainSourceCcuBalance = obtainSourceCcuBalanceSecond.subtract(targetCcuBalance).max(BigDecimal.ZERO);
             this.addCcuToList(sourceCurrency, sourceBalanceForInject, obtainSourceCcuBalance, targetCurrency, BigDecimal.ZERO, BigDecimal.ZERO);
             return obtainSourceCcuBalance;
+        } else {
+
         }
 
         return BigDecimal.ZERO;
@@ -175,8 +177,6 @@ public class LumenContextCoreModel {
         if (NumberUtil.equals(ccuBalance, BigDecimal.ZERO)) {
             return BigDecimal.ZERO;
         }
-
-        var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
         var sourceCurrency = getTargetCurrency(targetCurrency);
         var sourceCcuBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getJapanCcu() : getUsdCcu();
         var targetCcuBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCcu() : getJapanCcu();
@@ -184,30 +184,20 @@ public class LumenContextCoreModel {
         var targetCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCurrencyBalance() : getJapanCurrencyBalance();
         var totalCcuBalance = sourceCcuBalance.add(targetCcuBalance);
 
-        var obtainSourceCcuBalance = BigDecimal.ZERO;
-        var obtainTargetCcuBalance = BigDecimal.ZERO;
+        var obtainTargetCurrencyBalanceFirst = targetCurrencyBalance.multiply(ccuBalance).divide(ccuBalance.add(targetCcuBalance), 6, RoundingMode.FLOOR);
 
-        if (NumberUtil.isLess(sourceCcuBalance, targetCurrencyBalance)) {
-            obtainSourceCcuBalance = ccuBalance.divide(BigDecimal.TWO, 6, RoundingMode.FLOOR);
-            obtainTargetCcuBalance = ccuBalance.subtract(obtainSourceCcuBalance);
-        } else {
-            obtainTargetCcuBalance = ccuBalance.divide(BigDecimal.TWO, 6, RoundingMode.FLOOR);
-            obtainSourceCcuBalance = ccuBalance.subtract(obtainTargetCcuBalance);
-        }
+        var lumenCcuBalanceList = this.withdrawalPair(ccuBalance);
+        var obtainSourceCurrencyBalanceFirst = JinqStream.from(lumenCcuBalanceList)
+                .where(s -> ObjectUtil.equals(sourceCurrency.getId(), s.getCurrency().getId()))
+                .sumBigDecimal(s -> s.getCurrencyBalance());
+        var obtainTargetCurrencyBalanceSecond = JinqStream.from(lumenCcuBalanceList)
+                .where(s -> ObjectUtil.equals(targetCurrency.getId(), s.getCurrency().getId()))
+                .sumBigDecimal(s -> s.getCurrencyBalance());
+        var obtainCcuBalanceFirst = this.inject(sourceCurrency, obtainSourceCurrencyBalanceFirst);
 
-        var obtainTargetCurrencyBalance = targetCurrencyBalance.multiply(ccuBalance).multiply(BigDecimal.TWO).divide(totalCcuBalance, 6, RoundingMode.FLOOR);
+        var obtainTargetCurrencyBalance = obtainTargetCurrencyBalanceFirst.max(obtainTargetCurrencyBalanceSecond);
 
-        ccuBalanceList.add(new LumenCcuBalanceModel()
-                .setId(uuidUtil.v4())
-                .setCurrency(sourceCurrency)
-                .setCurrencyBalance(BigDecimal.ZERO)
-                .setCcuBalance(obtainSourceCcuBalance.negate()));
-
-        ccuBalanceList.add(new LumenCcuBalanceModel()
-                .setId(uuidUtil.v4())
-                .setCurrency(targetCurrency)
-                .setCurrencyBalance(obtainTargetCurrencyBalance.negate())
-                .setCcuBalance(obtainTargetCcuBalance.negate()));
+        this.addCcuToList(sourceCurrency, BigDecimal.ZERO, BigDecimal.ZERO, targetCurrency, obtainTargetCurrencyBalance.negate(), obtainCcuBalanceFirst.negate());
 
         checkBalanceGreaterThanOrEqualToZero();
 

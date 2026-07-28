@@ -24,7 +24,7 @@ public class LumenInjectSingleCurrencyTest extends BaseTest {
         var obtainCcuOfFour = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(800));
         var obtainCcuOfFive = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(1600));
         var obtainCcuOfSix = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(3200));
-        var obtainCcuOfSeven = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal("64009999999999999999999999999"));
+        var obtainCcuOfSeven = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal("999999999999999999999999999999"));
         var result = JinqStream.from(List.of(
                         obtainCcuOfFirst,
                         obtainCcuOfSecond,
