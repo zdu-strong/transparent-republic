@@ -19,8 +19,8 @@ public class LumenInjectPairTwiceTest extends BaseTest {
         var obtainCCUOfFirst = this.lumenContext.injectPair(new BigDecimal(50), new BigDecimal(100));
         var obtainCCUOfSecond = this.lumenContext.inject(this.lumenContext.getUsd(), new BigDecimal(150));
         var totalCCU = obtainCCUOfFirst.add(obtainCCUOfSecond);
-        assertTrue(ObjectUtil.equals(new BigDecimal("150.000000"), obtainCCUOfFirst));
-        assertTrue(ObjectUtil.equals(new BigDecimal("150.000000"), obtainCCUOfSecond));
+        assertTrue(ObjectUtil.equals(new BigDecimal("200.000000"), obtainCCUOfFirst));
+        assertTrue(ObjectUtil.equals(new BigDecimal("100.000000"), obtainCCUOfSecond));
         assertTrue(ObjectUtil.equals(new BigDecimal("300.000000"), totalCCU));
     }
 
@@ -30,8 +30,8 @@ public class LumenInjectPairTwiceTest extends BaseTest {
         this.lumenContext.injectPair(new BigDecimal(100), new BigDecimal(200));
         var usdCcuBalance = this.lumenContext.getUsdCcu();
         var japanCcuBalance = this.lumenContext.getJapanCcu();
-        assertTrue(ObjectUtil.equals(new BigDecimal("150.000000"), usdCcuBalance));
-        assertTrue(ObjectUtil.equals(new BigDecimal("150.000000"), japanCcuBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("200.000000"), usdCcuBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("200.000000"), japanCcuBalance));
     }
 
 }

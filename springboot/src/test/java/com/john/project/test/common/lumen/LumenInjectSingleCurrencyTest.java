@@ -24,7 +24,7 @@ public class LumenInjectSingleCurrencyTest extends BaseTest {
         var obtainCcuOfFour = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(800));
         var obtainCcuOfFive = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(1600));
         var obtainCcuOfSix = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(3200));
-        var obtainCcuOfSeven = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(6400));
+        var obtainCcuOfSeven = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal("64009999999999999999999999999"));
         var result = JinqStream.from(List.of(
                         obtainCcuOfFirst,
                         obtainCcuOfSecond,
@@ -36,8 +36,8 @@ public class LumenInjectSingleCurrencyTest extends BaseTest {
                 ))
                 .sumBigDecimal(s -> s);
         var obtainJapanCurrencyBalance = this.lumenContext.withdrawal(this.lumenContext.getJapan(), result);
-        assertTrue(ObjectUtil.equals(new BigDecimal("390.769230"), result));
-        assertTrue(ObjectUtil.equals(new BigDecimal("49.764890"), obtainJapanCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("99.999999"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("66.666666"), obtainJapanCurrencyBalance));
     }
 
     @BeforeEach
