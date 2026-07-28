@@ -158,7 +158,9 @@ public class LumenContextCoreModel {
         var totalCcuBalance = sourceCcuBalance.add(targetCcuBalance);
 
         if (NumberUtil.isLessOrEqual(sourceCcuBalance, targetCcuBalance)) {
-            var obtainSourceCcuBalance = sourceCcuBalance.multiply(sourceBalanceForInject).multiply(targetCcuBalance).divide(sourceCurrencyBalance.multiply(sourceBalanceForInject).multiply(totalCcuBalance), 6, RoundingMode.FLOOR);
+            var obtainSourceCcuBalanceFirst = sourceBalanceForInject.multiply(targetCcuBalance).divide(sourceCurrencyBalance, 6, RoundingMode.FLOOR);
+            var obtainSourceCcuBalanceSecond = sourceCcuBalance.multiply(BigDecimal.TWO).multiply(obtainSourceCcuBalanceFirst.add(targetCcuBalance)).divide(obtainSourceCcuBalanceFirst.add(totalCcuBalance), 6, RoundingMode.FLOOR);
+            var obtainSourceCcuBalance = obtainSourceCcuBalanceSecond.subtract(targetCcuBalance).max(BigDecimal.ZERO);
             this.addCcuToList(sourceCurrency, sourceBalanceForInject, obtainSourceCcuBalance, targetCurrency, BigDecimal.ZERO, BigDecimal.ZERO);
             return obtainSourceCcuBalance;
         }
