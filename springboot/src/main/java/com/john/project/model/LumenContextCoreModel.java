@@ -107,7 +107,6 @@ public class LumenContextCoreModel {
         var sourceCurrency = getTargetCurrency(targetCurrency);
         var sourceCcuBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getJapanCcuBalance() : getUsdCcuBalance();
         var targetCcuBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCcuBalance() : getJapanCcuBalance();
-        var sourceCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getJapanCurrencyBalance() : getUsdCurrencyBalance();
         var targetCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCurrencyBalance() : getJapanCurrencyBalance();
         var totalCcuBalance = sourceCcuBalance.add(targetCcuBalance);
 
