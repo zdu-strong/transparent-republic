@@ -75,6 +75,11 @@ public class LumenContextCoreModel {
             var reverseSecondCcuBalance = sourceFirstCcuBalance;
             sourceFirstCcuBalance = reverseFirstCcuBalance;
             sourceSecondCcuBalance = reverseSecondCcuBalance;
+        } else if (!hasEqualToZero() && NumberUtil.equals(sourceFirstCurrencyBalance, BigDecimal.ZERO) && NumberUtil.equals(sourceFirstCcuBalance, BigDecimal.ZERO)) {
+            var reverseFirstCcuBalance = sourceSecondCcuBalance;
+            var reverseSecondCcuBalance = sourceFirstCcuBalance;
+            sourceFirstCcuBalance = reverseFirstCcuBalance;
+            sourceSecondCcuBalance = reverseSecondCcuBalance;
         }
 
         ccuBalanceList.add(new LumenCcuBalanceModel()
