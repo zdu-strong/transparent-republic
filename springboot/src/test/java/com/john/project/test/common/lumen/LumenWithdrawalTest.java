@@ -17,7 +17,7 @@ public class LumenWithdrawalTest extends BaseTest {
     @Test
     public void test() {
         var result = this.lumenContext.withdrawal(lumenContext.getUsd(), new BigDecimal("100"));
-        assertTrue(ObjectUtil.equals(new BigDecimal("100"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("66.666666"), result));
     }
 
     @BeforeEach

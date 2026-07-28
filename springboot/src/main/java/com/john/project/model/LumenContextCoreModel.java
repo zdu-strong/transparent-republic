@@ -124,7 +124,7 @@ public class LumenContextCoreModel {
         var targetCurrencyBalance = ObjectUtil.equals(usd.getId(), targetCurrency.getId()) ? getUsdCurrencyBalance() : getJapanCurrencyBalance();
         var totalCcuBalance = sourceCcuBalance.add(targetCcuBalance);
 
-        var obtainTargetCurrencyBalanceFirst = targetCurrencyBalance.multiply(ccuBalance).divide(ccuBalance.add(targetCcuBalance), 6, RoundingMode.FLOOR);
+        var obtainTargetCurrencyBalanceFirst = targetCurrencyBalance.multiply(ccuBalance.add(targetCcuBalance)).divide(ccuBalance.add(totalCcuBalance), 6, RoundingMode.FLOOR);
 
         var lumenCcuBalanceList = this.withdrawalPair(ccuBalance);
         var obtainSourceCurrencyBalanceFirst = JinqStream.from(lumenCcuBalanceList)
@@ -137,7 +137,7 @@ public class LumenContextCoreModel {
 
         var obtainTargetCurrencyBalance = obtainTargetCurrencyBalanceFirst.max(obtainTargetCurrencyBalanceSecond);
 
-        this.addCcuToList(sourceCurrency, BigDecimal.ZERO, BigDecimal.ZERO, targetCurrency, obtainTargetCurrencyBalance.negate(), obtainCcuBalanceFirst.negate());
+        this.addCcuToList(sourceCurrency, BigDecimal.ZERO, BigDecimal.ZERO, targetCurrency, obtainTargetCurrencyBalanceSecond.subtract(obtainTargetCurrencyBalance), obtainCcuBalanceFirst.negate());
 
         checkBalanceGreaterThanOrEqualToZero();
 
@@ -186,12 +186,12 @@ public class LumenContextCoreModel {
             var hypotenuseSecondCcuBalance = totalCcuBalance.subtract(hypotenuseFirstCcuBalance);
             sourceFirstCcuBalance = hypotenuseFirstCcuBalance;
             sourceSecondCcuBalance = hypotenuseSecondCcuBalance;
-        } else if (!hasEqualToZero() && NumberUtil.equals(sourceSecondCurrencyBalance, BigDecimal.ZERO) && NumberUtil.equals(sourceSecondCcuBalance, BigDecimal.ZERO)) {
+        } else if (!hasEqualToZero() && NumberUtil.equals(sourceSecondCcuBalance, BigDecimal.ZERO)) {
             var reverseFirstCcuBalance = sourceSecondCcuBalance;
             var reverseSecondCcuBalance = sourceFirstCcuBalance;
             sourceFirstCcuBalance = reverseFirstCcuBalance;
             sourceSecondCcuBalance = reverseSecondCcuBalance;
-        } else if (!hasEqualToZero() && NumberUtil.equals(sourceFirstCurrencyBalance, BigDecimal.ZERO) && NumberUtil.equals(sourceFirstCcuBalance, BigDecimal.ZERO)) {
+        } else if (!hasEqualToZero() && NumberUtil.equals(sourceFirstCcuBalance, BigDecimal.ZERO)) {
             var reverseFirstCcuBalance = sourceSecondCcuBalance;
             var reverseSecondCcuBalance = sourceFirstCcuBalance;
             sourceFirstCcuBalance = reverseFirstCcuBalance;
