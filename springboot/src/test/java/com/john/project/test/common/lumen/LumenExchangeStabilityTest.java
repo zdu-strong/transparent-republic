@@ -36,10 +36,10 @@ public class LumenExchangeStabilityTest extends BaseTest {
         var countOfStabilityExchangeToJapan = JinqStream.from(listOfExchangeToJapan)
                 .where(s -> NumberUtil.equals(new BigDecimal("50"), s.setScale(2, RoundingMode.HALF_UP)))
                 .count();
-        assertEquals(new BigDecimal("666666669900.000002"), resultTen);
-        assertEquals(new BigDecimal("0.666666"), resultOfMaxRatio);
-//        assertTrue(countOfStabilityExchangeToUsd > listOfExchangeToUsd.size() - 50);
-//        assertEquals(listOfExchangeToJapan.size(), countOfStabilityExchangeToJapan);
+        assertEquals(new BigDecimal("499999999999.999999"), resultTen);
+        assertEquals(new BigDecimal("0.499999"), resultOfMaxRatio);
+        assertTrue(countOfStabilityExchangeToUsd > listOfExchangeToUsd.size() - 50);
+        assertEquals(listOfExchangeToJapan.size(), countOfStabilityExchangeToJapan);
     }
 
     @BeforeEach

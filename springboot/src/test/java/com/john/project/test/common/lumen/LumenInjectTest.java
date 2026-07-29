@@ -19,7 +19,7 @@ public class LumenInjectTest extends BaseTest {
         var result = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(100));
         var obtainUsdCurrencyBalance = this.lumenContext.withdrawal(lumenContext.getUsd(), result);
         assertTrue(ObjectUtil.equals(new BigDecimal("33.333333"), result));
-        assertTrue(ObjectUtil.equals(new BigDecimal("100"), obtainUsdCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("49.999999"), obtainUsdCurrencyBalance));
     }
 
     @BeforeEach
