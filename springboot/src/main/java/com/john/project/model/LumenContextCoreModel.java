@@ -75,7 +75,7 @@ public class LumenContextCoreModel {
         return this.withdrawal(targetCurrency, obtainSourceCcuBalance);
     }
 
-    public BigDecimal inject(LumenCurrencyModel sourceCurrency, BigDecimal sourceBalanceForInject) {
+    public BigDecimal inject(LumenCurrencyModel sourceCurrency, BigDecimal sourceCurrencyBalanceForInject) {
         var sourceCurrencyBalance = getCurrencyBalance(sourceCurrency);
         var sourceCcuBalance = getCcuBalance(sourceCurrency);
         var targetCurrency = getTargetCurrency(sourceCurrency);
@@ -83,18 +83,22 @@ public class LumenContextCoreModel {
         var targetCcuBalance = getCcuBalance(targetCurrency);
         var totalCcuBalance = sourceCcuBalance.add(targetCcuBalance);
 
+        checkSourceCurrencyBalanceGreaterOrEqualZero(sourceCurrencyBalance);
+
+        if (ObjectUtil.equals(sourceCurrencyBalanceForInject, BigDecimal.ZERO)) {
+            return BigDecimal.ZERO;
+        }
+
         if (NumberUtil.isLessOrEqual(sourceCcuBalance, targetCcuBalance)) {
-            var obtainSourceCcuBalanceFirst = sourceBalanceForInject.multiply(targetCcuBalance).divide(sourceCurrencyBalance, 6, RoundingMode.FLOOR);
+            var obtainSourceCcuBalanceFirst = sourceCurrencyBalanceForInject.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
             var obtainSourceCcuBalanceSecond = sourceCcuBalance.multiply(BigDecimal.TWO).multiply(obtainSourceCcuBalanceFirst.add(targetCcuBalance)).divide(obtainSourceCcuBalanceFirst.add(totalCcuBalance), 6, RoundingMode.FLOOR);
 
             var obtainSourceCcuBalance = obtainSourceCcuBalanceSecond.subtract(targetCcuBalance).max(BigDecimal.ZERO);
-            this.addCcuToList(sourceCurrency, sourceBalanceForInject, obtainSourceCcuBalance, targetCurrency, BigDecimal.ZERO, BigDecimal.ZERO);
+            this.addCcuToList(sourceCurrency, sourceCurrencyBalanceForInject, obtainSourceCcuBalance, targetCurrency, BigDecimal.ZERO, BigDecimal.ZERO);
             return obtainSourceCcuBalance;
         } else {
-
+            return injectPair(sourceCurrency, BigDecimal.ZERO, targetCurrency, BigDecimal.ZERO);
         }
-
-        return BigDecimal.ZERO;
     }
 
     public BigDecimal withdrawal(LumenCurrencyModel targetCurrency, BigDecimal ccuBalance) {
@@ -138,6 +142,10 @@ public class LumenContextCoreModel {
         checkSourceCurrencyBalanceGreaterOrEqualZero(sourceFirstCurrencyBalance);
         checkSourceCurrencyBalanceGreaterOrEqualZero(sourceSecondCurrencyBalance);
 
+        if (ObjectUtil.equals(sourceFirstCurrencyBalance, BigDecimal.ZERO) && ObjectUtil.equals(sourceSecondCurrencyBalance, BigDecimal.ZERO)) {
+            return BigDecimal.ZERO;
+        }
+
         if (hasEqualToZero()) {
             return injectPairByZeroBalance(sourceFirstCurrency, sourceFirstCurrencyBalance, sourceSecondCurrency, sourceSecondCurrencyBalance);
         }
@@ -163,13 +171,13 @@ public class LumenContextCoreModel {
         var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
 
         if (!hasEqualToZero() && NumberUtil.isGreater(sourceFirstCcuBalance, BigDecimal.ZERO) && NumberUtil.isGreater(sourceSecondCcuBalance, BigDecimal.ZERO)) {
-            var totalCcuBalance = sourceFirstCcuBalance.add(sourceSecondCcuBalance);
-            var firstCcuBalance = getCcuBalance(sourceFirstCurrency);
-            var secondCcuBalance = getCcuBalance(sourceSecondCurrency);
-            var hypotenuseFirstCcuBalance = totalCcuBalance.multiply(secondCcuBalance.add(sourceSecondCcuBalance)).divide(firstCcuBalance.add(secondCcuBalance).add(totalCcuBalance), 6, RoundingMode.FLOOR);
-            var hypotenuseSecondCcuBalance = totalCcuBalance.subtract(hypotenuseFirstCcuBalance);
-            sourceFirstCcuBalance = hypotenuseFirstCcuBalance;
-            sourceSecondCcuBalance = hypotenuseSecondCcuBalance;
+//            var totalCcuBalance = sourceFirstCcuBalance.add(sourceSecondCcuBalance);
+//            var firstCcuBalance = getCcuBalance(sourceFirstCurrency);
+//            var secondCcuBalance = getCcuBalance(sourceSecondCurrency);
+//            var hypotenuseFirstCcuBalance = totalCcuBalance.multiply(secondCcuBalance.add(sourceSecondCcuBalance)).divide(firstCcuBalance.add(secondCcuBalance).add(totalCcuBalance), 6, RoundingMode.FLOOR);
+//            var hypotenuseSecondCcuBalance = totalCcuBalance.subtract(hypotenuseFirstCcuBalance);
+//            sourceFirstCcuBalance = hypotenuseFirstCcuBalance;
+//            sourceSecondCcuBalance = hypotenuseSecondCcuBalance;
         } else if (!hasEqualToZero() && NumberUtil.equals(sourceSecondCcuBalance, BigDecimal.ZERO)) {
             var reverseFirstCcuBalance = sourceSecondCcuBalance;
             var reverseSecondCcuBalance = sourceFirstCcuBalance;
