@@ -7,9 +7,9 @@ This design for the Lumen system was co-developed by John Williams with ChatGPT 
 
 ## Draft Status Disclaimer
 
-Lumen has successfully run.
-Code location [Lumen](https://github.com/zdu-strong/transparent-republic/tree/master/lumen).
-Document needs to be updated.
+Lumen has successfully run.<br/>
+Code location [Lumen](https://github.com/zdu-strong/transparent-republic/tree/master/lumen).<br/>
+Document needs to be updated.<br/>
 
 ## Lumen Overview
 
