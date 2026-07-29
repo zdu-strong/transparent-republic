@@ -20,7 +20,7 @@ public class LumenInjectThreeTimesTest extends BaseTest {
         var obtainCcuOfSecond = this.lumenContext.inject(lumenContext.getJapan(), new BigDecimal(100));
         var obtainCcuOfThree = this.lumenContext.inject(lumenContext.getUsd(), new BigDecimal(50));
         var result = obtainCcuOfFirst.add(obtainCcuOfSecond).add(obtainCcuOfThree);
-        assertTrue(ObjectUtil.equals(new BigDecimal("163.636363"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("159.166666"), result));
     }
 
     @BeforeEach

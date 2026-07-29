@@ -18,8 +18,8 @@ public class LumenInjectPairDifferentRateTest extends BaseTest {
     public void test() {
         var result = this.lumenContext.injectPair(new BigDecimal(200), new BigDecimal(100));
         var totalCcuBalance = this.lumenContext.getTotalCcuBalance();
-        assertTrue(ObjectUtil.equals(new BigDecimal("200"), result));
-        assertTrue(ObjectUtil.equals(new BigDecimal("400"), totalCcuBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("250.000000"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("450.000000"), totalCcuBalance));
     }
 
     @BeforeEach
