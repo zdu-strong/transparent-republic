@@ -207,6 +207,22 @@ public class LumenContextCoreModel {
         return obtainCcuBalance;
     }
 
+
+    private BigDecimal getCcuBalanceBeGenerate(LumenCurrencyModel sourceCurrency, BigDecimal sourceCurrencyBalanceForInput, LumenCurrencyModel targetCurrency, BigDecimal targetCurrencyBalanceForInput) {
+        var sourceCurrencyBalance = getCurrencyBalance(sourceCurrency);
+        var targetCurrencyBalance = getCurrencyBalance(targetCurrency);
+        var ccuBalanceOfBase = sourceCurrencyBalanceForInput.add(sourceCurrencyBalance).min(targetCurrencyBalanceForInput.add(targetCurrencyBalance));
+        var totalCcuOfNow = getUsdCcuBalance().add(getJapanCcuBalance());
+
+        if(NumberUtil.isGreater(sourceCurrencyBalanceForInput.add(sourceCurrencyBalance), targetCurrencyBalanceForInput.add(targetCurrencyBalance))) {
+            return getCcuBalanceBeGenerate(targetCurrency, targetCurrencyBalanceForInput, sourceCurrency, sourceCurrencyBalanceForInput);
+        }
+
+        var obtainCcuBalanceFirst = ccuBalanceOfBase.multiply(targetCurrencyBalanceForInput.add(totalCcuOfNow)).divide(targetCurrencyBalanceForInput.add(totalCcuOfNow.multiply(BigDecimal.TWO)), RoundingMode.FLOOR);
+        var obtainCcuBalance = obtainCcuBalanceFirst.subtract(totalCcuOfNow).max(BigDecimal.ZERO);
+        return obtainCcuBalance;
+    }
+
     private LumenCurrencyModel getTargetCurrency(LumenCurrencyModel sourceCurrency) {
         var targetCurrency = JinqStream.from(
                         List.of(
