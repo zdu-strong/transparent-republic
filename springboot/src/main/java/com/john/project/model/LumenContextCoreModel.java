@@ -127,8 +127,10 @@ public class LumenContextCoreModel {
         if (hasCcuBalanceEqualsToZero()) {
             return obtainSourceCcuBalance.multiply(BigDecimal.TWO);
         }
+        var obtainTargetCcuBalanceFive = sourceCurrencyBalance.subtract(targetCurrencyBalance).max(BigDecimal.ZERO).min(targetCurrencyBalanceForInput);
+        obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFive);
 
-        var obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+        var obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput.subtract(obtainTargetCcuBalance).multiply(totalCcuBalance.add(obtainTargetCcuBalance)).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
         var obtainTargetCcuBalanceSecond = BigDecimal.ZERO;
 
         if (NumberUtil.isLessOrEqual(obtainTargetCcuBalanceFirst, obtainSourceCcuBalance)) {
@@ -138,7 +140,7 @@ public class LumenContextCoreModel {
             obtainTargetCcuBalanceSecond = obtainTargetCcuBalanceFirst.subtract(obtainSourceCcuBalance);
         }
         if (NumberUtil.isGreater(obtainTargetCcuBalanceSecond, BigDecimal.ZERO)) {
-            var surplusCcuBalance = ccuBalanceOfBase.multiply(new BigDecimal(3)).subtract(totalCcuBalance).subtract(obtainTargetCcuBalance).max(BigDecimal.ZERO);
+            var surplusCcuBalance = ccuBalanceOfBase.multiply(new BigDecimal(3)).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).max(BigDecimal.ZERO);
             var obtainTargetCcuBalanceThird = surplusCcuBalance.multiply(obtainTargetCcuBalanceSecond).divide(obtainTargetCcuBalanceSecond.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
             obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceThird);
         }
