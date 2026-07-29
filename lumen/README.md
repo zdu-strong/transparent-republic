@@ -8,7 +8,7 @@ This design for the Lumen system was co-developed by John Williams with ChatGPT 
 ## Draft Status Disclaimer
 
 Lumen has successfully run.<br/>
-Code location [Lumen](https://github.com/zdu-strong/transparent-republic/tree/master/lumen).<br/>
+Code location [Lumen](https://github.com/zdu-strong/transparent-republic/blob/master/springboot/src/main/java/com/john/project/model/LumenContextCoreModel.java).<br/>
 Document needs to be updated.<br/>
 
 ## Lumen Overview
