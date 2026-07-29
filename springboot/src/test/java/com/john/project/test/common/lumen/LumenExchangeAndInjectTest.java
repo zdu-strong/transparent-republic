@@ -16,9 +16,15 @@ public class LumenExchangeAndInjectTest extends BaseTest {
 
     @Test
     public void test() {
-        var obtainJapan = this.lumenContext.exchange(lumenContext.getUsd(), new BigDecimal(100));
-        var result = this.lumenContext.inject(lumenContext.getJapan(), new BigDecimal(100).add(obtainJapan));
-        assertTrue(ObjectUtil.equals(new BigDecimal("72.222220"), result));
+        var obtainJapanCurrencyBalance = this.lumenContext.exchange(lumenContext.getUsd(), new BigDecimal(100));
+        var result = this.lumenContext.inject(lumenContext.getJapan(), new BigDecimal(100).add(obtainJapanCurrencyBalance));
+        var usdCurrencyBalance = this.lumenContext.getUsdCurrencyBalance();
+        var japanCurrencyBalance = this.lumenContext.getJapanCurrencyBalance();
+        var totalCcuBalance = this.lumenContext.getTotalCcuBalance();
+        assertTrue(ObjectUtil.equals(new BigDecimal("100"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("100"), usdCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("100"), japanCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("100"), totalCcuBalance));
     }
 
     @BeforeEach

@@ -15,10 +15,8 @@ public class LumenCcuBalanceModel {
 
     private BigDecimal usdCurrencyBalance;
 
-    private BigDecimal usdCcuBalance;
+    private BigDecimal ccuBalance;
 
     private BigDecimal japanCurrencyBalance;
-
-    private BigDecimal japanCcuBalance;
 
 }
