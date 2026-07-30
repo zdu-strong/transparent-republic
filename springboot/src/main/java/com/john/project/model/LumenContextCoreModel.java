@@ -131,18 +131,15 @@ public class LumenContextCoreModel {
         obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFirst);
 
         var obtainTargetCcuBalanceSecond = targetCurrencyBalanceForInput.subtract(obtainTargetCcuBalance).multiply(totalCcuBalance.add(obtainTargetCcuBalance)).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
-        var obtainTargetCcuBalanceThird = BigDecimal.ZERO;
 
-        if (NumberUtil.isLessOrEqual(obtainTargetCcuBalanceSecond, obtainSourceCcuBalance)) {
-            obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceSecond);
-        } else {
-            obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainSourceCcuBalance);
-            obtainTargetCcuBalanceThird = obtainTargetCcuBalanceSecond.subtract(obtainSourceCcuBalance);
-        }
-        if (NumberUtil.isGreater(obtainTargetCcuBalanceThird, BigDecimal.ZERO)) {
+        var obtainTargetCcuBalanceThird = ccuBalanceOfBase.multiply(BigDecimal.TWO).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).max(BigDecimal.ZERO).min(obtainTargetCcuBalanceSecond);
+        obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceThird);
+        var obtainTargetCcuBalanceFourth = obtainTargetCcuBalanceSecond.subtract(obtainTargetCcuBalanceThird);
+
+        if (NumberUtil.isGreater(obtainTargetCcuBalanceFourth, BigDecimal.ZERO)) {
             var surplusCcuBalance = ccuBalanceOfBase.multiply(new BigDecimal(3)).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).max(BigDecimal.ZERO);
-            var obtainTargetCcuBalanceFourth = surplusCcuBalance.multiply(obtainTargetCcuBalanceThird).divide(obtainTargetCcuBalanceThird.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
-            obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFourth);
+            var obtainTargetCcuBalanceFive = surplusCcuBalance.multiply(obtainTargetCcuBalanceFourth).divide(obtainTargetCcuBalanceFourth.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
+            obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFive);
         }
         var obtainCcuBalance = obtainSourceCcuBalance.add(obtainTargetCcuBalance);
         return obtainCcuBalance;
