@@ -124,6 +124,25 @@ public class LumenContextCoreModel {
         // Convert currency to CCU
         var obtainSourceCcuBalanceFirst = sourceCurrencyBalanceForInput.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
         var obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+        if (NumberUtil.equals(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), ccuBalanceOfBase)) {
+            if (NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase)) {
+                if (NumberUtil.isGreaterOrEqual(sourceCurrencyBalance, targetCurrencyBalance)) {
+                    obtainSourceCcuBalanceFirst = sourceCurrencyBalanceForInput;
+                }
+            } else {
+                obtainSourceCcuBalanceFirst = sourceCurrencyBalanceForInput;
+            }
+        }
+        if (NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase)) {
+            if (NumberUtil.equals(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), ccuBalanceOfBase)) {
+                if (NumberUtil.isGreaterOrEqual(targetCurrencyBalance, sourceCurrencyBalance)) {
+                    obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput;
+                }
+            } else {
+                obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput;
+            }
+        }
+
 
         if (NumberUtil.isLess(obtainTargetCcuBalanceFirst, obtainSourceCcuBalanceFirst)) {
             return getCcuBalanceBeGenerate(targetCurrency, targetCurrencyBalanceForInput, sourceCurrency, sourceCurrencyBalanceForInput);
@@ -138,9 +157,6 @@ public class LumenContextCoreModel {
         obtainSourceCcuBalance = obtainSourceCcuBalance.add(obtainCcuBalanceEachSide);
         obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainCcuBalanceEachSide);
         var obtainTargetCcuBalanceSecond = obtainTargetCcuBalanceFirst.subtract(obtainCcuBalanceEachSide);
-        if (NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase)) {
-            obtainTargetCcuBalanceSecond = targetCurrencyBalanceForInput.subtract(obtainCcuBalanceEachSide);
-        }
 
         // Calculate the portion of CCU that is ready for immediate use.
         var obtainTargetCcuBalanceThird = BigDecimal.ZERO;
