@@ -126,7 +126,7 @@ public class LumenContextCoreModel {
         var obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
         if (NumberUtil.equals(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), ccuBalanceOfBase)) {
             if (NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase)) {
-                if (NumberUtil.isGreaterOrEqual(sourceCurrencyBalance, targetCurrencyBalance)) {
+                if (NumberUtil.isGreater(sourceCurrencyBalance, targetCurrencyBalance)) {
                     obtainSourceCcuBalanceFirst = sourceCurrencyBalanceForInput;
                 }
             } else {
@@ -135,7 +135,7 @@ public class LumenContextCoreModel {
         }
         if (NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase)) {
             if (NumberUtil.equals(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), ccuBalanceOfBase)) {
-                if (NumberUtil.isGreaterOrEqual(targetCurrencyBalance, sourceCurrencyBalance)) {
+                if (NumberUtil.isGreater(targetCurrencyBalance, sourceCurrencyBalance)) {
                     obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput;
                 }
             } else {
