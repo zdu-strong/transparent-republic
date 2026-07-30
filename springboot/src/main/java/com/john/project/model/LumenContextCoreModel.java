@@ -109,7 +109,7 @@ public class LumenContextCoreModel {
         var targetCurrencyBalance = getCurrencyBalance(targetCurrency);
         var totalCcuBalance = getTotalCcuBalance();
         var ccuBalanceOfBase = sourceCurrencyBalanceForInput.add(sourceCurrencyBalance).min(targetCurrencyBalanceForInput.add(targetCurrencyBalance));
-        var obtainSourceCcuBalance = sourceCurrencyBalanceForInput;
+        var obtainSourceCcuBalance = BigDecimal.ZERO;
         var obtainTargetCcuBalance = BigDecimal.ZERO;
 
         checkLumenCcuBalance();
@@ -125,22 +125,47 @@ public class LumenContextCoreModel {
         }
 
         if (hasCcuBalanceEqualsToZero()) {
-            return obtainSourceCcuBalance.multiply(BigDecimal.TWO);
+            return sourceCurrencyBalanceForInput.multiply(BigDecimal.TWO);
         }
-        var obtainTargetCcuBalanceFirst = sourceCurrencyBalance.subtract(targetCurrencyBalance).max(BigDecimal.ZERO).min(targetCurrencyBalanceForInput);
-        obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFirst);
 
-        var obtainTargetCcuBalanceSecond = targetCurrencyBalanceForInput.subtract(obtainTargetCcuBalance).multiply(totalCcuBalance.add(obtainTargetCcuBalance)).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+        // DConvert currency to CCU
+        var obtainSourceCcuBalanceTen = sourceCurrencyBalanceForInput;
+//        var obtainSourceCcuBalanceTen = sourceCurrencyBalanceForInput.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+        var obtainTargetCcuBalanceTen = targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+        var obtainCcuBalanceEachSide = obtainSourceCcuBalanceTen.min(obtainTargetCcuBalanceTen);
+        obtainSourceCcuBalance = obtainSourceCcuBalance.add(obtainCcuBalanceEachSide);
+        obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainCcuBalanceEachSide);
 
-        var obtainTargetCcuBalanceThird = ccuBalanceOfBase.multiply(BigDecimal.TWO).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).max(BigDecimal.ZERO).min(obtainTargetCcuBalanceSecond);
-        obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceThird);
-        var obtainTargetCcuBalanceFourth = obtainTargetCcuBalanceSecond.subtract(obtainTargetCcuBalanceThird);
+        // Calculate CCU exceeding the pairwise ratio
+        var obtainSourceCcuBalanceNine = obtainSourceCcuBalanceTen.subtract(obtainCcuBalanceEachSide);
+        var obtainTargetCcuBalanceNine = obtainTargetCcuBalanceTen.subtract(obtainCcuBalanceEachSide);
 
-        if (NumberUtil.isGreater(obtainTargetCcuBalanceFourth, BigDecimal.ZERO)) {
+        // Calculate the portion of CCU that is ready for immediate use.
+        var obtainSourceCcuBalanceEight = BigDecimal.ZERO;
+        var obtainTargetCcuBalanceEight = BigDecimal.ZERO;
+        if (NumberUtil.isGreater(obtainSourceCcuBalanceNine, BigDecimal.ZERO)) {
+            var obtainSourceCcuBalanceSeven = ccuBalanceOfBase.multiply(BigDecimal.TWO).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).min(obtainSourceCcuBalanceNine);
+            obtainSourceCcuBalanceEight = obtainSourceCcuBalanceNine.subtract(obtainSourceCcuBalanceSeven);
+            obtainSourceCcuBalance = obtainSourceCcuBalance.add(obtainSourceCcuBalanceSeven);
+        }
+        if (NumberUtil.isGreater(obtainTargetCcuBalanceNine, BigDecimal.ZERO)) {
+            var obtainTargetCcuBalanceSeven = ccuBalanceOfBase.multiply(BigDecimal.TWO).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).max(BigDecimal.ZERO).min(obtainTargetCcuBalanceNine);
+            obtainTargetCcuBalanceEight = obtainTargetCcuBalanceNine.subtract(obtainTargetCcuBalanceSeven);
+            obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceSeven);
+        }
+
+        // Lock the maximum CCU value
+        if (NumberUtil.isGreater(obtainSourceCcuBalanceEight, BigDecimal.ZERO)) {
             var surplusCcuBalance = ccuBalanceOfBase.multiply(new BigDecimal(3)).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).max(BigDecimal.ZERO);
-            var obtainTargetCcuBalanceFive = surplusCcuBalance.multiply(obtainTargetCcuBalanceFourth).divide(obtainTargetCcuBalanceFourth.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
+            var obtainSourceCcuBalanceFour = surplusCcuBalance.multiply(obtainSourceCcuBalanceEight).divide(obtainSourceCcuBalanceEight.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
+            obtainSourceCcuBalance = obtainSourceCcuBalance.add(obtainSourceCcuBalanceFour);
+        }
+        if (NumberUtil.isGreater(obtainTargetCcuBalanceEight, BigDecimal.ZERO)) {
+            var surplusCcuBalance = ccuBalanceOfBase.multiply(new BigDecimal(3)).subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).max(BigDecimal.ZERO);
+            var obtainTargetCcuBalanceFive = surplusCcuBalance.multiply(obtainTargetCcuBalanceEight).divide(obtainTargetCcuBalanceEight.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
             obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFive);
         }
+
         var obtainCcuBalance = obtainSourceCcuBalance.add(obtainTargetCcuBalance);
         return obtainCcuBalance;
     }
