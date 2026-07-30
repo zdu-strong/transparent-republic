@@ -121,7 +121,7 @@ public class LumenContextCoreModel {
             return ccuBalanceOfBase.multiply(BigDecimal.TWO);
         }
 
-        // DConvert currency to CCU
+        // Convert currency to CCU
         var obtainSourceCcuBalanceFirst = sourceCurrencyBalanceForInput.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
         var obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
 
