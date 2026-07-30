@@ -21,10 +21,10 @@ public class LumenExchangeAndInjectTest extends BaseTest {
         var usdCurrencyBalance = this.lumenContext.getUsdCurrencyBalance();
         var japanCurrencyBalance = this.lumenContext.getJapanCurrencyBalance();
         var totalCcuBalance = this.lumenContext.getTotalCcuBalance();
-        assertTrue(ObjectUtil.equals(new BigDecimal("199.999998"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("133.333333"), result));
         assertTrue(ObjectUtil.equals(new BigDecimal("200"), usdCurrencyBalance));
         assertTrue(ObjectUtil.equals(new BigDecimal("200"), japanCurrencyBalance));
-        assertTrue(ObjectUtil.equals(new BigDecimal("399.999998"), totalCcuBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("333.333333"), totalCcuBalance));
     }
 
     @BeforeEach

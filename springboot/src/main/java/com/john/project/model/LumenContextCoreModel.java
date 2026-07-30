@@ -129,7 +129,7 @@ public class LumenContextCoreModel {
             return getCcuBalanceBeGenerate(targetCurrency, targetCurrencyBalanceForInput, sourceCurrency, sourceCurrencyBalanceForInput);
         }
 
-        if (ObjectUtil.equals(obtainTargetCcuBalanceFirst, BigDecimal.ZERO)) {
+        if (NumberUtil.equals(obtainTargetCcuBalanceFirst, BigDecimal.ZERO)) {
             return BigDecimal.ZERO;
         }
 
@@ -138,6 +138,10 @@ public class LumenContextCoreModel {
         obtainSourceCcuBalance = obtainSourceCcuBalance.add(obtainCcuBalanceEachSide);
         obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainCcuBalanceEachSide);
         var obtainTargetCcuBalanceSecond = obtainTargetCcuBalanceFirst.subtract(obtainCcuBalanceEachSide);
+        if (NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase)) {
+            obtainTargetCcuBalanceSecond = targetCurrencyBalanceForInput.subtract(obtainCcuBalanceEachSide);
+            //
+        }
 
         // Calculate the portion of CCU that is ready for immediate use.
         var obtainTargetCcuBalanceThird = BigDecimal.ZERO;
