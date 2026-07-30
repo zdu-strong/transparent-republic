@@ -140,7 +140,6 @@ public class LumenContextCoreModel {
         var obtainTargetCcuBalanceSecond = obtainTargetCcuBalanceFirst.subtract(obtainCcuBalanceEachSide);
         if (NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase)) {
             obtainTargetCcuBalanceSecond = targetCurrencyBalanceForInput.subtract(obtainCcuBalanceEachSide);
-            //
         }
 
         // Calculate the portion of CCU that is ready for immediate use.

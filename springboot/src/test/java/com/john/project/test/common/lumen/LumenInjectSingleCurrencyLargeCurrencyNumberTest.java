@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LumenInjectSingleCurrencyAnotherTest extends BaseTest {
+public class LumenInjectSingleCurrencyLargeCurrencyNumberTest extends BaseTest {
 
     private LumenContextCoreModel lumenContext;
 
