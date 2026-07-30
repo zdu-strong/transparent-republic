@@ -38,6 +38,8 @@ public class LumenInjectSingleCurrencyAnotherTest extends BaseTest {
         var obtainJapanCurrencyBalance = this.lumenContext.withdrawal(this.lumenContext.getJapan(), result);
         assertTrue(ObjectUtil.equals(new BigDecimal("29799.999999"), result));
         assertTrue(ObjectUtil.equals(new BigDecimal("9966.555183"), obtainJapanCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("10000.000000"), obtainCcuOfFirst));
+        assertTrue(ObjectUtil.equals(new BigDecimal("46.658554"), obtainCcuOfSix));
     }
 
     @BeforeEach
