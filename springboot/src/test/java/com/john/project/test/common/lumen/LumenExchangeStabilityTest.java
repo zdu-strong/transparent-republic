@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LumenExchangeStabilityTest extends BaseTest {
 
@@ -31,14 +30,14 @@ public class LumenExchangeStabilityTest extends BaseTest {
         var resultTen = this.lumenContext.exchange(lumenContext.getUsd(), new BigDecimal("2000000000000000000000000000000"));
         var resultOfMaxRatio = resultTen.divide(new BigDecimal("1000000000000"), 6, RoundingMode.FLOOR);
         var countOfStabilityExchangeToUsd = JinqStream.from(listOfExchangeToUsd)
-                .where(s -> NumberUtil.equals(new BigDecimal("100"), s.setScale(2, RoundingMode.HALF_UP)))
+                .where(s -> NumberUtil.equals(new BigDecimal("100"), s.setScale(5, RoundingMode.HALF_UP)))
                 .count();
         var countOfStabilityExchangeToJapan = JinqStream.from(listOfExchangeToJapan)
-                .where(s -> NumberUtil.equals(new BigDecimal("50"), s.setScale(2, RoundingMode.HALF_UP)))
+                .where(s -> NumberUtil.equals(new BigDecimal("50"), s.setScale(5, RoundingMode.HALF_UP)))
                 .count();
         assertEquals(new BigDecimal("499999999999.999999"), resultTen);
         assertEquals(new BigDecimal("0.499999"), resultOfMaxRatio);
-        assertTrue(countOfStabilityExchangeToUsd > listOfExchangeToUsd.size() - 50);
+        assertEquals(listOfExchangeToUsd.size(), countOfStabilityExchangeToUsd);
         assertEquals(listOfExchangeToJapan.size(), countOfStabilityExchangeToJapan);
     }
 
