@@ -92,16 +92,19 @@ public class LumenContextCoreModel {
         return obtainTargetCurrencyBalance;
     }
 
-    private void addCcuToList(LumenCurrencyModel sourceCurrency, BigDecimal sourceCurrencyBalanceForInput, LumenCurrencyModel targetCurrency, BigDecimal targetCurrencyBalanceForInput, BigDecimal ccuBalance) {
-        var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
-        var isUsdOfSourceFirstCurrency = ObjectUtil.equals(usd.getId(), sourceCurrency.getId());
+    public BigDecimal getUsdCurrencyBalance() {
+        var balance = this.combineBalance();
+        return balance.getUsdCurrencyBalance();
+    }
 
-        ccuBalanceList.add(new LumenCcuBalanceModel()
-                .setId(uuidUtil.v4())
-                .setUsdCurrencyBalance(isUsdOfSourceFirstCurrency ? sourceCurrencyBalanceForInput : targetCurrencyBalanceForInput)
-                .setJapanCurrencyBalance(isUsdOfSourceFirstCurrency ? targetCurrencyBalanceForInput : sourceCurrencyBalanceForInput)
-                .setCcuBalance(ccuBalance));
-        checkLumenCcuBalance();
+    public BigDecimal getJapanCurrencyBalance() {
+        var balance = this.combineBalance();
+        return balance.getJapanCurrencyBalance();
+    }
+
+    public BigDecimal getTotalCcuBalance() {
+        var balance = this.combineBalance();
+        return balance.getCcuBalance();
     }
 
     private BigDecimal getCcuBalanceBeGenerate(LumenCurrencyModel sourceCurrency, BigDecimal sourceCurrencyBalanceForInput, LumenCurrencyModel targetCurrency, BigDecimal targetCurrencyBalanceForInput) {
@@ -170,6 +173,18 @@ public class LumenContextCoreModel {
         return obtainCcuBalance;
     }
 
+    private void addCcuToList(LumenCurrencyModel sourceCurrency, BigDecimal sourceCurrencyBalanceForInput, LumenCurrencyModel targetCurrency, BigDecimal targetCurrencyBalanceForInput, BigDecimal ccuBalance) {
+        var uuidUtil = SpringUtil.getBean(UUIDUtil.class);
+        var isUsdOfSourceFirstCurrency = ObjectUtil.equals(usd.getId(), sourceCurrency.getId());
+
+        ccuBalanceList.add(new LumenCcuBalanceModel()
+                .setId(uuidUtil.v4())
+                .setUsdCurrencyBalance(isUsdOfSourceFirstCurrency ? sourceCurrencyBalanceForInput : targetCurrencyBalanceForInput)
+                .setJapanCurrencyBalance(isUsdOfSourceFirstCurrency ? targetCurrencyBalanceForInput : sourceCurrencyBalanceForInput)
+                .setCcuBalance(ccuBalance));
+        checkLumenCcuBalance();
+    }
+
     private LumenCurrencyModel getTargetCurrency(LumenCurrencyModel sourceCurrency) {
         var targetCurrency = JinqStream.from(
                         List.of(
@@ -180,21 +195,6 @@ public class LumenContextCoreModel {
                 .where(s -> ObjectUtil.notEqual(sourceCurrency.getId(), s.getId()))
                 .getOnlyValue();
         return targetCurrency;
-    }
-
-    public BigDecimal getUsdCurrencyBalance() {
-        var balance = this.combineBalance();
-        return balance.getUsdCurrencyBalance();
-    }
-
-    public BigDecimal getJapanCurrencyBalance() {
-        var balance = this.combineBalance();
-        return balance.getJapanCurrencyBalance();
-    }
-
-    public BigDecimal getTotalCcuBalance() {
-        var balance = this.combineBalance();
-        return balance.getCcuBalance();
     }
 
     private BigDecimal getCurrencyBalance(LumenCurrencyModel lumenCurrencyModel) {
