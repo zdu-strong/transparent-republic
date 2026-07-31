@@ -45,7 +45,7 @@ The Alliance provides the companies with a daily investment fund, and each compa
 
 ## 6. Tri-Vector Commander
 
-To govern each deployed tactical unit, higher command shall assign a Tri-Vector Command consisting of three officers.
+To govern each deployed tactical unit, higher command shall assign a Tri-Vector Commander consisting of three officers.
 
 1. Command Election & Succession
 
