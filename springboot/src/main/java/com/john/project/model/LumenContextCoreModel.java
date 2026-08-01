@@ -114,7 +114,6 @@ public class LumenContextCoreModel {
         var ccuBalanceOfBase = sourceCurrencyBalance.add(sourceCurrencyBalanceForInput).min(targetCurrencyBalance.add(targetCurrencyBalanceForInput));
         var obtainSourceCcuBalance = BigDecimal.ZERO;
         var obtainTargetCcuBalance = BigDecimal.ZERO;
-        var isSourceCurrencyAsCcuBase = NumberUtil.equals(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), ccuBalanceOfBase) && (NumberUtil.isGreater(sourceCurrencyBalance, targetCurrencyBalance) || !NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase));
         var isTargetCurrencyAsCcuBase = NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase) && (NumberUtil.isGreater(targetCurrencyBalance, sourceCurrencyBalance) || !NumberUtil.equals(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), ccuBalanceOfBase));
 
         checkLumenCcuBalance();
@@ -126,8 +125,8 @@ public class LumenContextCoreModel {
         }
 
         // Convert currency to CCU
-        var obtainSourceCcuBalanceFirst = isSourceCurrencyAsCcuBase ? sourceCurrencyBalanceForInput : sourceCurrencyBalanceForInput.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
-        var obtainTargetCcuBalanceFirst = isTargetCurrencyAsCcuBase ? targetCurrencyBalanceForInput : targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+        var obtainSourceCcuBalanceFirst = sourceCurrencyBalanceForInput.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+        var obtainTargetCcuBalanceFirst = targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
 
         if (NumberUtil.isLess(obtainTargetCcuBalanceFirst, obtainSourceCcuBalanceFirst)) {
             return getCcuBalanceBeGenerate(targetCurrency, targetCurrencyBalanceForInput, sourceCurrency, sourceCurrencyBalanceForInput);

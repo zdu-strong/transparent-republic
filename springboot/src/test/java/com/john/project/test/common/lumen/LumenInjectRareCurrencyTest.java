@@ -36,8 +36,8 @@ public class LumenInjectRareCurrencyTest extends BaseTest {
                 ))
                 .sumBigDecimal(s -> s);
         var obtainJapanCurrencyBalance = this.lumenContext.withdrawal(this.lumenContext.getJapan(), result);
-        assertTrue(ObjectUtil.equals(new BigDecimal("738.894843"), result));
-        assertTrue(ObjectUtil.equals(new BigDecimal("880795.548054"), obtainJapanCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("149.543313"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("599267.963553"), obtainJapanCurrencyBalance));
     }
 
     @BeforeEach
