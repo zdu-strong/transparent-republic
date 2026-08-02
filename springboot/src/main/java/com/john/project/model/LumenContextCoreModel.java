@@ -112,6 +112,7 @@ public class LumenContextCoreModel {
         var targetCurrencyBalance = getCurrencyBalance(targetCurrency);
         var totalCcuBalance = getTotalCcuBalance();
         var ccuBalanceOfBase = sourceCurrencyBalance.add(sourceCurrencyBalanceForInput).min(targetCurrencyBalance.add(targetCurrencyBalanceForInput));
+        var ccuBalanceOfNonScarceCurrency = totalCcuBalance.max(totalCcuBalance.subtract(sourceCurrencyBalance.min(targetCurrencyBalance)).multiply(BigDecimal.TWO));
         var obtainSourceCcuBalance = BigDecimal.ZERO;
         var obtainTargetCcuBalance = BigDecimal.ZERO;
         var isSourceCurrencyAsCcuBase = NumberUtil.equals(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), ccuBalanceOfBase) && (NumberUtil.isGreater(sourceCurrencyBalance, targetCurrencyBalance) || !NumberUtil.equals(targetCurrencyBalance.add(targetCurrencyBalanceForInput), ccuBalanceOfBase));
@@ -126,12 +127,10 @@ public class LumenContextCoreModel {
         }
 
         // Convert currency to CCU
-        var obtainSourceCcuBalanceFirst = Optional.of(sourceCurrencyBalanceForInput.multiply(sourceCurrencyBalance.min(targetCurrencyBalance)).divide(sourceCurrencyBalance, 6, RoundingMode.FLOOR))
-                .map(s -> s.min(sourceCurrencyBalanceForInput.multiply(totalCcuBalance.divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR))))
+        var obtainSourceCcuBalanceFirst = Optional.of(sourceCurrencyBalanceForInput.multiply(ccuBalanceOfNonScarceCurrency).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR))
                 .map(s -> isSourceCurrencyAsCcuBase ? sourceCurrencyBalanceForInput : s)
                 .get();
-        var obtainTargetCcuBalanceFirst = Optional.of(targetCurrencyBalanceForInput.multiply(sourceCurrencyBalance.min(targetCurrencyBalance)).divide(targetCurrencyBalance, 6, RoundingMode.FLOOR))
-                .map(s -> s.min(targetCurrencyBalanceForInput.multiply(totalCcuBalance.divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR))))
+        var obtainTargetCcuBalanceFirst = Optional.of(targetCurrencyBalanceForInput.multiply(ccuBalanceOfNonScarceCurrency).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR))
                 .map(s -> isTargetCurrencyAsCcuBase ? targetCurrencyBalanceForInput : s)
                 .get();
 
@@ -157,7 +156,7 @@ public class LumenContextCoreModel {
             var obtainTargetCcuBalanceFourth = BigDecimal.ZERO;
             if (isTargetCurrencyAsCcuBase) {
                 obtainTargetCcuBalanceFourth = totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)
-                        .subtract(ccuBalanceOfBase.subtract(obtainTargetCcuBalanceSecond).multiply(BigDecimal.TWO))
+                        .subtract(targetCurrencyBalance.add(obtainTargetCcuBalanceSecond).multiply(BigDecimal.TWO))
                         .max(BigDecimal.ZERO)
                         .min(obtainTargetCcuBalanceSecond);
             } else {
