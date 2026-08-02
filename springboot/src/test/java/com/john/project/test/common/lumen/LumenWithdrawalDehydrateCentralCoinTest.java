@@ -13,29 +13,31 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LumenWithdrawalDehydrateCentralCoinTest extends BaseTest {
 
-    private LumenContextCoreModel lumenContextDehydrateFirst;
+    private LumenContextCoreModel lumenContextDehydrate;
     private BigDecimal obtainCcuBalanceFirst;
 
     @Test
     public void test() {
-        var ratioFirst = this.lumenContextDehydrateFirst.getTotalCcuBalance().divide(this.lumenContextDehydrateFirst.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
-        var obtainJapanCurrencyBalanceFirst = this.lumenContextDehydrateFirst.withdrawal(this.lumenContextDehydrateFirst.getJapan(), obtainCcuBalanceFirst);
-        var obtainCcuBalanceSecond = this.lumenContextDehydrateFirst.inject(this.lumenContextDehydrateFirst.getJapan(), obtainJapanCurrencyBalanceFirst);
-        var ratioSecond = this.lumenContextDehydrateFirst.getTotalCcuBalance().divide(this.lumenContextDehydrateFirst.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
-        var obtainUsdCurrencyBalanceSecond = this.lumenContextDehydrateFirst.withdrawal(this.lumenContextDehydrateFirst.getUsd(), obtainCcuBalanceSecond);
-        this.lumenContextDehydrateFirst.inject(this.lumenContextDehydrateFirst.getUsd(), obtainUsdCurrencyBalanceSecond);
-        var ratioThird = this.lumenContextDehydrateFirst.getTotalCcuBalance().divide(this.lumenContextDehydrateFirst.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
+        var ratioFirst = this.lumenContextDehydrate.getTotalCcuBalance().divide(this.lumenContextDehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
+        var obtainJapanCurrencyBalanceFirst = this.lumenContextDehydrate.withdrawal(this.lumenContextDehydrate.getJapan(), obtainCcuBalanceFirst);
+        var obtainCcuBalanceSecond = this.lumenContextDehydrate.inject(this.lumenContextDehydrate.getJapan(), obtainJapanCurrencyBalanceFirst);
+        var ratioSecond = this.lumenContextDehydrate.getTotalCcuBalance().divide(this.lumenContextDehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
+        var obtainUsdCurrencyBalanceSecond = this.lumenContextDehydrate.withdrawal(this.lumenContextDehydrate.getUsd(), obtainCcuBalanceSecond);
+        this.lumenContextDehydrate.inject(this.lumenContextDehydrate.getUsd(), obtainUsdCurrencyBalanceSecond);
+        var ratioThird = this.lumenContextDehydrate.getTotalCcuBalance().divide(this.lumenContextDehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
+        this.lumenContextDehydrate.withdrawal(this.lumenContextDehydrate.getJapan(), new BigDecimal(10));
+        var ratioFourth = this.lumenContextDehydrate.getTotalCcuBalance().divide(this.lumenContextDehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
         assertTrue(ObjectUtil.equals(new BigDecimal("2.333333"), ratioFirst));
         assertTrue(ObjectUtil.equals(new BigDecimal("2.249999"), ratioSecond));
         assertTrue(ObjectUtil.equals(new BigDecimal("2.199999"), ratioThird));
-
+        assertTrue(ObjectUtil.equals(new BigDecimal("2.099999"), ratioFourth));
     }
 
     @BeforeEach
     public void beforeEach() {
-        this.lumenContextDehydrateFirst = new LumenContextCoreModel();
-        this.lumenContextDehydrateFirst.injectPair(new BigDecimal(100), new BigDecimal(1000));
-        this.obtainCcuBalanceFirst = this.lumenContextDehydrateFirst.inject(this.lumenContextDehydrateFirst.getJapan(), new BigDecimal(500));
+        this.lumenContextDehydrate = new LumenContextCoreModel();
+        this.lumenContextDehydrate.injectPair(new BigDecimal(100), new BigDecimal(1000));
+        this.obtainCcuBalanceFirst = this.lumenContextDehydrate.inject(this.lumenContextDehydrate.getJapan(), new BigDecimal(500));
     }
 
 }
