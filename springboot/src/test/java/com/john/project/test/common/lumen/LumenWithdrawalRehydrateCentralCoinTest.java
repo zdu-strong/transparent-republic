@@ -18,17 +18,16 @@ public class LumenWithdrawalRehydrateCentralCoinTest extends BaseTest {
     @Test
     public void test() {
         var ratioFirst = this.lumenContextRehydrate.getTotalCcuBalance().divide(this.lumenContextRehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
-        var obtainJapanCurrencyBalanceFirst = this.lumenContextRehydrate.withdrawal(this.lumenContextRehydrate.getJapan(), new BigDecimal(100));
-        var obtainCcuBalanceSecond = this.lumenContextRehydrate.inject(this.lumenContextRehydrate.getJapan(), obtainJapanCurrencyBalanceFirst);
+        var obtainCcuBalanceSecond = this.lumenContextRehydrate.inject(this.lumenContextRehydrate.getJapan(), new BigDecimal(100));
         var ratioSecond = this.lumenContextRehydrate.getTotalCcuBalance().divide(this.lumenContextRehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
         this.lumenContextRehydrate.withdrawal(this.lumenContextRehydrate.getUsd(), obtainCcuBalanceSecond);
         var ratioThird = this.lumenContextRehydrate.getTotalCcuBalance().divide(this.lumenContextRehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
         this.lumenContextRehydrate.inject(this.lumenContextRehydrate.getJapan(), new BigDecimal("100"));
         var ratioFourth = this.lumenContextRehydrate.getTotalCcuBalance().divide(this.lumenContextRehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
         assertTrue(ObjectUtil.equals(new BigDecimal("1.900000"), ratioFirst));
-        assertTrue(ObjectUtil.equals(new BigDecimal("1.911111"), ratioSecond));
-        assertTrue(ObjectUtil.equals(new BigDecimal("2.022222"), ratioThird));
-        assertTrue(ObjectUtil.equals(new BigDecimal("2.043838"), ratioFourth));
+        assertTrue(ObjectUtil.equals(new BigDecimal("1.920999"), ratioSecond));
+        assertTrue(ObjectUtil.equals(new BigDecimal("1.941999"), ratioThird));
+        assertTrue(ObjectUtil.equals(new BigDecimal("1.962999"), ratioFourth));
     }
 
     @BeforeEach

@@ -127,9 +127,11 @@ public class LumenContextCoreModel {
 
         // Convert currency to CCU
         var obtainSourceCcuBalanceFirst = Optional.of(sourceCurrencyBalanceForInput.multiply(sourceCurrencyBalance.min(targetCurrencyBalance)).divide(sourceCurrencyBalance, 6, RoundingMode.FLOOR))
+                .map(s -> s.min(sourceCurrencyBalanceForInput.multiply(totalCcuBalance.divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR))))
                 .map(s -> isSourceCurrencyAsCcuBase ? sourceCurrencyBalanceForInput : s)
                 .get();
         var obtainTargetCcuBalanceFirst = Optional.of(targetCurrencyBalanceForInput.multiply(sourceCurrencyBalance.min(targetCurrencyBalance)).divide(targetCurrencyBalance, 6, RoundingMode.FLOOR))
+                .map(s -> s.min(targetCurrencyBalanceForInput.multiply(totalCcuBalance.divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR))))
                 .map(s -> isTargetCurrencyAsCcuBase ? targetCurrencyBalanceForInput : s)
                 .get();
 
@@ -155,7 +157,7 @@ public class LumenContextCoreModel {
             var obtainTargetCcuBalanceFourth = BigDecimal.ZERO;
             if (isTargetCurrencyAsCcuBase) {
                 obtainTargetCcuBalanceFourth = totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)
-                        .subtract(ccuBalanceOfBase.multiply(BigDecimal.TWO))
+                        .subtract(ccuBalanceOfBase.subtract(obtainTargetCcuBalanceSecond).multiply(BigDecimal.TWO))
                         .max(BigDecimal.ZERO)
                         .min(obtainTargetCcuBalanceSecond);
             } else {
