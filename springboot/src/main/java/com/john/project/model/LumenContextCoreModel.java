@@ -170,7 +170,7 @@ public class LumenContextCoreModel {
         if (NumberUtil.isGreater(obtainTargetCcuBalanceThird, BigDecimal.ZERO)) {
             var obtainTargetCcuBalanceFifth = BigDecimal.ZERO;
             if (isTargetCurrencyAsCcuBase) {
-                var obtainTargetCcuBalanceSixth = obtainTargetCcuBalanceThird.min(obtainTargetCcuBalanceThird.multiply(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).divide(targetCurrencyBalance.add(obtainTargetCcuBalance).multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR));
+                var obtainTargetCcuBalanceSixth = obtainTargetCcuBalanceThird.min(obtainTargetCcuBalanceThird.multiply(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).divide(ccuBalanceOfBase.subtract(obtainTargetCcuBalanceThird).multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR));
                 obtainTargetCcuBalanceFifth = obtainTargetCcuBalanceSixth.multiply(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance))
                         .divide(ccuBalanceOfBase.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
             } else {
