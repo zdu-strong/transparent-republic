@@ -4,27 +4,26 @@ The Republican Alliance protects its member states through independent military 
 
 # Belief
 
-The Republican Alliance is built on one belief:
+The Republican Alliance is built on one belief:<br/>
 
-Peace requires institutions strong enough to defend it.
+Peace requires institutions strong enough to defend it.<br/>
 
 # Institutional Design
 
 ## 1. Alliance Community Supervisors
 
-Each member state appoints one person to serve as an Alliance Community Supervisor, whose salary is paid by the Alliance.
+Each member state appoints one person to serve as an Alliance Community Supervisor, whose salary is paid by the Alliance.<br/>
 
-Alliance Community Supervisors vote to elect a maximum of 300 Alliance commissioners. The voting weight of each Alliance Community Supervisor is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.
+Alliance Community Supervisors vote to elect a maximum of 300 Alliance commissioners. The voting weight of each Alliance Community Supervisor is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.<br/>
 
-The Alliance principles score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.
+The Alliance principles score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.<br/>
 
-The upper and lower limits of membership dues for each member state depend on its territorial area and financial capacity. Within this range, the actual amount paid is determined by the member state itself.
+The upper and lower limits of membership dues for each member state depend on its territorial area and financial capacity. Within this range, the actual amount paid is determined by the member state itself.<br/>
 
 
 ## 2. Alliance Council
 
-Consists of 300 members elected by Alliance Community Supervisors, a collective body with no single leader. Each member's voting weight is equal to the sum of the weights of the alliance community supervisors who support them.
-<br/>
+Consists of 300 members elected by Alliance Community Supervisors, a collective body with no single leader. Each member's voting weight is equal to the sum of the weights of the alliance community supervisors who support them.<br/>
 
 Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
 
@@ -40,42 +39,45 @@ Hold only two powers:<br/>
 
 ## 3. Alliance Scout
 
-Each Alliance Council recruits between 10 and 100 Alliance Scout to carry out preliminary selection duties. The voting weight of the Alliance Scout is divided equally from the voting weight of the Alliance Council they belong to.
-For example, the Alliance Leader may announce the qualification requirements for the preliminary selection of a Minister of Finance, stating that anyone who has served at or above a junior financial official position may run.
-After eligible candidates upload their application materials, the system randomly assigns a group of candidates to each Alliance Scout, with four candidates in each group.
-The four candidates with the highest weighted support advance to an in-person final selection before the Alliance Council.
+Each Alliance Council recruits between 10 and 100 Alliance Scout to carry out preliminary selection duties. The voting weight of the Alliance Scout is divided equally from the voting weight of the Alliance Council they belong to.<br/>
+
+For example, the Alliance Leader may announce the qualification requirements for the preliminary selection of a Minister of Finance, stating that anyone who has served at or above a junior financial official position may run.<br/>
+
+After eligible candidates upload their application materials, the system randomly assigns a group of candidates to each Alliance Scout, with four candidates in each group.<br/>
+
+The four candidates with the highest weighted support advance to an in-person final selection before the Alliance Council.<br/>
 
 ## 4. Alliance Officials and Military Forces
 
-Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.
+Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.<br/>
 
 ## 5. Alliance Finance
 
-The Alliance's finances are funded by membership fees and donations from member states.
+The Alliance's finances are funded by membership fees and donations from member states.<br/>
 
 ## 6. Alliance Companies
 
-The Alliance Council appoints a Minister of Commerce, who is responsible for establishing companies and appointing their managers. The Minister of Commerce oversees the appointment and removal of positions such as the CEO and Minister of Finance, but does not participate in the daily operations of the companies.
+The Alliance Council appoints a Minister of Commerce, who is responsible for establishing companies and appointing their managers. The Minister of Commerce oversees the appointment and removal of positions such as the CEO and Minister of Finance, but does not participate in the daily operations of the companies.<br/>
 
-The companies’ products are used by the Alliance, which also provides feedback on product quality.
+The companies’ products are used by the Alliance, which also provides feedback on product quality.<br/>
 
-The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.
+The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.<br/>
 
 ## 7. Tri-Vector Commander
 
-To govern each deployed tactical unit, higher command shall assign a Tri-Vector Commander consisting of three officers.
+To govern each deployed tactical unit, higher command shall assign a Tri-Vector Commander consisting of three officers.<br/>
 
 1. Command Election & Succession
 
-  + The three officers shall hold a vote to designate the Squad Commander, the remaining two officers shall serve as Oversight Commissioners.
+  + The three officers shall hold a vote to designate the Squad Commander, the remaining two officers shall serve as Oversight Commissioners.<br/>
  
-  + The officer receiving the majority of votes is appointed as the Squad Commander. If the vote count is tied, the official ranked higher by the system will be elected as the Squad Commander.
+  + The officer receiving the majority of votes is appointed as the Squad Commander. If the vote count is tied, the official ranked higher by the system will be elected as the Squad Commander.<br/>
   
-  + The three officers retain the authority to call a vote and re-elect the Squad Commander at any time during operations.
+  + The three officers retain the authority to call a vote and re-elect the Squad Commander at any time during operations.<br/>
 
 2. Operational Division
 
-  + The Squad Commander holds absolute authority to direct combat operations.
+  + The Squad Commander holds absolute authority to direct combat operations.<br/>
 
   + Oversight Commissioners do not participate in tactical command, their sole function is field oversight and evaluation.
 
