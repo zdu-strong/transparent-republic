@@ -32,15 +32,15 @@ For example, the Alliance Leader may announce the qualification requirements for
 After eligible candidates upload their application materials, the system randomly assigns a group of candidates to each Alliance Popular Representative, with four candidates in each group.
 The four candidates with the highest weighted support advance to an in-person final selection before the Alliance Council.
 
-## 3. Alliance Officials and Military Forces
+## 4. Alliance Officials and Military Forces
 
 Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.
 
-## 4. Alliance Finance
+## 5. Alliance Finance
 
 The Alliance's finances are funded by membership fees and donations from member states.
 
-## 5. Alliance Companies
+## 6. Alliance Companies
 
 The Alliance Council appoints a Minister of Commerce, who is responsible for establishing companies and appointing their managers. The Minister of Commerce oversees the appointment and removal of positions such as the CEO and Minister of Finance, but does not participate in the daily operations of the companies.
 
@@ -48,7 +48,7 @@ The companies’ products are used by the Alliance, which also provides feedback
 
 The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.
 
-## 6. Tri-Vector Commander
+## 7. Tri-Vector Commander
 
 To govern each deployed tactical unit, higher command shall assign a Tri-Vector Commander consisting of three officers.
 
@@ -73,7 +73,7 @@ To govern each deployed tactical unit, higher command shall assign a Tri-Vector 
   + All three officers must submit an evaluation of the initial Squad Commander. Each rating shall be recorded strictly as Positive, Negative, or Withheld.
 
 
-## 7. Military Rotation
+## 8. Military Rotation
 
 Military pay is divided into training pay, rest pay, and combat pay.<br/>
 
