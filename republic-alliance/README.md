@@ -25,7 +25,7 @@ The upper and lower limits of membership dues for each member state depend on it
 
 The Alliance Council votes to appoint or remove Alliance officials.
 
-## 2. Alliance Popular Representative
+## 3. Alliance Popular Representative
 
 Each Alliance Commissioner recruits between 10 and 100 Alliance Popular Representatives to carry out preliminary selection duties. The voting weight of the Popular Representatives is divided equally from the voting weight of the Commissioner they belong to.
 For example, the Alliance Leader may announce the qualification requirements for the preliminary selection of a Minister of Finance, stating that anyone who has served at or above a junior financial official position may run.
