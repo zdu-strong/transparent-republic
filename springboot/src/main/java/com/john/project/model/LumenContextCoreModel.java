@@ -154,16 +154,15 @@ public class LumenContextCoreModel {
                         .subtract(targetCurrencyBalance.add(obtainTargetCcuBalanceSecond).multiply(BigDecimal.TWO))
                         .max(BigDecimal.ZERO)
                         .min(obtainTargetCcuBalanceSecond);
-                obtainTargetCcuBalanceSecond = targetCurrencyBalanceForInput.subtract(obtainCcuBalanceEachSide).subtract(obtainTargetCcuBalanceFourth).max(BigDecimal.ZERO);
+                obtainTargetCcuBalanceThird = targetCurrencyBalanceForInput.subtract(obtainTargetCcuBalance).subtract(obtainTargetCcuBalanceFourth).max(BigDecimal.ZERO);
             } else {
                 obtainTargetCcuBalanceFourth = ccuBalanceOfBase.multiply(BigDecimal.TWO)
                         .subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance))
                         .max(BigDecimal.ZERO)
                         .min(obtainTargetCcuBalanceSecond)
                         .min(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance).divide(BigDecimal.TWO, 6, RoundingMode.FLOOR));
+                obtainTargetCcuBalanceThird = obtainTargetCcuBalanceSecond.subtract(obtainTargetCcuBalanceFourth).max(BigDecimal.ZERO);
             }
-
-            obtainTargetCcuBalanceThird = obtainTargetCcuBalanceSecond.subtract(obtainTargetCcuBalanceFourth).max(BigDecimal.ZERO);
             obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFourth);
         }
 
