@@ -23,7 +23,8 @@ The upper and lower limits of membership dues for each member state depend on it
 
 ## 2. Alliance Council
 
-Consists of 300 members elected by Alliance Community Supervisors, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
+Consists of 300 members elected by Alliance Community Supervisors, a collective body with no single leader. Each member's voting weight is equal to the sum of the weights of the alliance community supervisors who support them.
+<br/>
 
 Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
 
