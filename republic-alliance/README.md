@@ -34,7 +34,7 @@ In the second round, voting is held between the winner of the first round and ma
 
 Hold only two powers:<br/>
 
-✅ To appoint key alliance officials — including the Leader, Supreme Court Justices, Military Commanders, and Alliance Budget Teams.<br/>
+✅ To appoint key alliance officials — including the Alliance Leader, Supreme Court Justices, Military Commanders, and Alliance Budget Teams.<br/>
 
 ✅ Vote to praise or oppose key alliance officials.<br/>
 
