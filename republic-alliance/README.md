@@ -10,15 +10,20 @@ Peace requires institutions strong enough to defend it.
 
 # Institutional Design
 
-## 1. Alliance Council
+## 1. Alliance Commissioner
 
-Each member state appoints one person to serve as an Alliance Commissioner, whose salary is paid by the Alliance.
+Each member state appoints one person to serve as an Alliance Community Supervisor, whose salary is paid by the Alliance.
 
-The Alliance Council votes to appoint or remove Alliance officials. The voting weight of each Commissioner is determined by the member state's actual membership fee contribution multiplied by its Alliance Principles Score.
+Alliance Community Supervisors vote to elect a maximum of 300 Alliance commissioners. The voting weight of each Alliance Community Supervisor is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.
 
-The Alliance Principles Score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.
+The Alliance principles score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.
 
-The upper and lower limits of each member state's membership fee are determined by its territorial size and fiscal capacity. Within that range, the actual amount paid is decided by the member state itself.
+The upper and lower limits of membership dues for each member state depend on its territorial area and financial capacity. Within this range, the actual amount paid is determined by the member state itself.
+
+
+## 2. Alliance Council
+
+The Alliance Council votes to appoint or remove Alliance officials.
 
 ## 2. Alliance Popular Representative
 
