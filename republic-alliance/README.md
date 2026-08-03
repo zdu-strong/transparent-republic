@@ -25,6 +25,21 @@ The upper and lower limits of membership dues for each member state depend on it
 
 The Alliance Council votes to appoint or remove Alliance officials.
 
+
+Consists of 300 members elected by Alliance Community Supervisors, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
+
+Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
+
+In the first round, if the candidate in first place receives more votes than the total of the votes received by the candidate in second place and the number of non-votes, the first round of the election succeeds.<br/>
+
+In the second round, voting is held between the winner of the first round and maintaining the incumbent official. If the winner of the first round receives more votes than the total of the votes for maintaining the incumbent and the number of non-votes, the second round of the election succeeds.<br/>
+
+Hold only two powers:<br/>
+
+✅ To appoint key alliance officials — including the President, Supreme Court Justices, Military Commanders, and Alliance Budget Teams.<br/>
+
+✅ Vote to praise or oppose key alliance officials.<br/>
+
 ## 3. Alliance Popular Representative
 
 Each Alliance Commissioner recruits between 10 and 100 Alliance Popular Representatives to carry out preliminary selection duties. The voting weight of the Popular Representatives is divided equally from the voting weight of the Commissioner they belong to.
