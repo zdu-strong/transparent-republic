@@ -10,7 +10,7 @@ Peace requires institutions strong enough to defend it.
 
 # Institutional Design
 
-## 1. Alliance Commissioner
+## 1. Alliance Community Supervisors
 
 Each member state appoints one person to serve as an Alliance Community Supervisor, whose salary is paid by the Alliance.
 
@@ -22,9 +22,6 @@ The upper and lower limits of membership dues for each member state depend on it
 
 
 ## 2. Alliance Council
-
-The Alliance Council votes to appoint or remove Alliance officials.
-
 
 Consists of 300 members elected by Alliance Community Supervisors, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
 
