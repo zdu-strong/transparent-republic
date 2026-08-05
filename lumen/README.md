@@ -162,20 +162,6 @@ If rate changes, user is prompted to confirm.<br/>
 Merchants may choose accepted currency types.<br/>
 Users pay in any currency. System auto-converts with no fees.<br/>
 
-## Thinking: Equal-Value Allocation During Paired Deposits
-
-During an exchange, the resulting amounts of central currency on the two sides are unequal. Like water flowing from one pool into another, how should the value be allocated?<br/>
-
-The exchange formula is incorrect.<br/>
-
-The combined result of first depositing US$100 together with ¥200, and then depositing US$200 together with ¥100, should be equal to the result of depositing US$300 and ¥300 in a single operation.<br/>
-
-An exchange consists of two stages: first, depositing a single currency to obtain central currency, and then withdrawing another currency by redeeming the central currency.<br/>
-
-The values of the currencies on both sides are equal, but the amounts of central currency are unequal.<br/>
-
-What exactly should happen when two pools containing the same currencies are merged?<br/>
-
 ## Parallel Computation
 
 The database is responsible only for data retrieval, while the application performs the exchange-rate calculations.<br/>
