@@ -115,17 +115,16 @@ Add the used CCUs to the target currency's CCU pool.<br/>
 
 ##### Principle
 
-Composed of multiple Central Currency Units (CCUs), each with a corresponding amount of lumens.<br/>
+Composed of multiple currencies, they are converted into a specific amount of central currency upon injection.<br/>
 
-During Injection:<br/>
-The contributed currency is evenly divided across the supported CCU types.
-Calculate the number of lumens each CCU yields.<br/>
-Take the lowest number of lumens among all CCUs,
-then multiply by the total number of CCU types to determine the final lumen amount granted.<br/>
+During the injection period:<br/>
+The currency with the smallest quantity among all the participating currencies is used as the benchmark for the central currency, which is then used to calculate the amount of central currency that each currency can generate.<br/>
 
-During Withdrawal:<br/>
-The lumens to be withdrawn are proportionally split according to each CCU’s share of the total lumens.<br/>
-The corresponding amounts of CCUs are then withdrawn and converted into the target currency.<br/>
+During the withdrawal process:<br/>
+Directly calculate the quantity of currencies that the central currency can be converted into.<br/>
+
+During the exchange process:<br/>
+Convert the injected currency into the central currency, and then convert the central currency into the target currency.<br/>
 
 ## Functions
 
