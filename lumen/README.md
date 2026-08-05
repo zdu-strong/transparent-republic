@@ -164,11 +164,9 @@ Users pay in any currency. System auto-converts with no fees.<br/>
 
 ## Parallel Computation
 
-The database is responsible only for data retrieval, while the application performs the exchange-rate calculations.<br/>
+The database is solely responsible for transaction aggregation, while the application handles the execution of exchange rate calculations.<br/>
 
-When multiple users simultaneously exchange large amounts of US dollars for Japanese yen, Lumen calculates the exchange based on the combined total amount of US dollars and then distributes the resulting yen among the users in proportion to their individual contributions.<br/>
-
-Each user will receive fewer yen than they would through sequential exchanges. The undistributed yen remains within Lumen, increasing the value of the central currency.<br/>
+When multiple users simultaneously exchange large amounts of US dollars for Japanese yen, Lumen calculates the conversion amount based on the total sum of US dollars and then distributes the converted Japanese yen to each user according to their proportion of contribution.<br/>
 
 ## Cross-Currency Exchange
 
