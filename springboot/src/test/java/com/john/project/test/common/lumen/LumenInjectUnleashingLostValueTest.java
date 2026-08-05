@@ -23,13 +23,13 @@ public class LumenInjectUnleashingLostValueTest extends BaseTest {
         var usdCurrencyBalance = this.lumenContext.getUsdCurrencyBalance();
         var japanCurrencyBalance = this.lumenContext.getJapanCurrencyBalance();
         var totalCcuBalanceSecond = this.lumenContext.getTotalCcuBalance();
-        assertTrue(ObjectUtil.equals(new BigDecimal("33.333333"), obtainJapanCurrencyBalance));
-        assertTrue(ObjectUtil.equals(new BigDecimal("66.666667"), japanCurrencyBalanceBalance));
-        assertTrue(ObjectUtil.equals(new BigDecimal("11.397463"), result));
+        assertTrue(ObjectUtil.equals(new BigDecimal("31.999942"), obtainJapanCurrencyBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("68.000058"), japanCurrencyBalanceBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("11.136742"), result));
         assertTrue(ObjectUtil.equals(new BigDecimal("200"), usdCurrencyBalance));
         assertTrue(ObjectUtil.equals(new BigDecimal("200"), japanCurrencyBalance));
         assertTrue(ObjectUtil.equals(new BigDecimal("2.000000"), totalCcuBalanceFirst));
-        assertTrue(ObjectUtil.equals(new BigDecimal("13.397463"), totalCcuBalanceSecond));
+        assertTrue(ObjectUtil.equals(new BigDecimal("13.136742"), totalCcuBalanceSecond));
     }
 
     @BeforeEach

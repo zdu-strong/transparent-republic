@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
@@ -158,33 +159,34 @@ public class LumenContextCoreModel {
                         .subtract(targetCurrencyBalance.add(obtainTargetCcuBalanceSecond).multiply(BigDecimal.TWO))
                         .max(BigDecimal.ZERO)
                         .min(obtainTargetCcuBalanceSecond);
-                obtainTargetCcuBalanceThird = targetCurrencyBalanceForInput.subtract(obtainTargetCcuBalance).subtract(obtainTargetCcuBalanceFourth).max(BigDecimal.ZERO);
             } else {
                 obtainTargetCcuBalanceFourth = ccuBalanceOfBase.multiply(BigDecimal.TWO)
                         .subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance))
                         .max(BigDecimal.ZERO)
                         .min(obtainTargetCcuBalanceSecond)
                         .min(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance).divide(BigDecimal.TWO, 6, RoundingMode.FLOOR));
-                obtainTargetCcuBalanceThird = obtainTargetCcuBalanceSecond.subtract(obtainTargetCcuBalanceFourth).max(BigDecimal.ZERO);
             }
+            obtainTargetCcuBalanceThird = obtainTargetCcuBalanceSecond.subtract(obtainTargetCcuBalanceFourth).max(BigDecimal.ZERO);
             obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFourth);
         }
 
         // Lock the maximum CCU value
         if (NumberUtil.isGreater(obtainTargetCcuBalanceThird, BigDecimal.ZERO)) {
             var obtainTargetCcuBalanceFifth = BigDecimal.ZERO;
+            var surplusCcuBalance = BigDecimal.ZERO;
             if (isTargetCurrencyAsCcuBase) {
-                var obtainTargetCcuBalanceSixth = obtainTargetCcuBalanceThird.min(obtainTargetCcuBalanceThird.multiply(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)).divide(ccuBalanceOfBase.subtract(obtainTargetCcuBalanceThird).multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR));
-                obtainTargetCcuBalanceFifth = obtainTargetCcuBalanceSixth.multiply(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance))
-                        .divide(ccuBalanceOfBase.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR);
+                surplusCcuBalance = totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance)
+                        .divide(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance).add(ccuBalanceOfBase.subtract(obtainTargetCcuBalanceThird.multiply(targetCurrencyBalance.multiply(BigDecimal.TWO)).divide(totalCcuBalance, 6, RoundingMode.FLOOR))), 6, RoundingMode.FLOOR)
+                        .pow(2, MathContext.DECIMAL128)
+                        .multiply(totalCcuBalance);
             } else {
-                var surplusCcuBalance = ccuBalanceOfBase.multiply(new BigDecimal(3))
+                surplusCcuBalance = ccuBalanceOfBase.multiply(new BigDecimal(3))
                         .subtract(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance))
                         .max(BigDecimal.ZERO)
                         .min(totalCcuBalance.add(obtainSourceCcuBalance).add(obtainTargetCcuBalance).divide(BigDecimal.TWO, 6, RoundingMode.FLOOR));
-                obtainTargetCcuBalanceFifth = surplusCcuBalance.multiply(obtainTargetCcuBalanceThird)
-                        .divide(obtainTargetCcuBalanceThird.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
             }
+            obtainTargetCcuBalanceFifth = surplusCcuBalance.multiply(obtainTargetCcuBalanceThird)
+                    .divide(obtainTargetCcuBalanceThird.add(surplusCcuBalance), 6, RoundingMode.FLOOR);
             obtainTargetCcuBalance = obtainTargetCcuBalance.add(obtainTargetCcuBalanceFifth);
         }
 

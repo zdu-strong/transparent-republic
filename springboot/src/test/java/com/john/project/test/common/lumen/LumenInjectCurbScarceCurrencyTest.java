@@ -30,17 +30,17 @@ public class LumenInjectCurbScarceCurrencyTest extends BaseTest {
         var japanCurrencyBalance = this.lumenContext.getJapanCurrencyBalance();
         var totalCcuBalance = this.lumenContext.getTotalCcuBalance();
         var obtainCcuBalanceFirstRatio = obtainCcuBalanceFirst.divide(this.initialUsdCurrencyBalance, 6, RoundingMode.FLOOR);
-        assertTrue(ObjectUtil.equals(new BigDecimal("500000000.000000"), obtainCcuBalanceFirst));
-        assertTrue(ObjectUtil.equals(new BigDecimal("0.500000"), obtainCcuBalanceFirstRatio));
-        assertTrue(ObjectUtil.equals(new BigDecimal("39060.546972"), obtainCcuBalanceSecond));
-        assertTrue(ObjectUtil.equals(new BigDecimal("39057.861777"), obtainCcuBalanceThird));
-        assertTrue(ObjectUtil.equals(new BigDecimal("39055.176857"), obtainCcuBalanceFourth));
-        assertTrue(ObjectUtil.equals(new BigDecimal("39052.492216"), obtainCcuBalanceFifth));
-        assertTrue(ObjectUtil.equals(new BigDecimal("39049.807851"), obtainCcuBalanceSixth));
-        assertTrue(ObjectUtil.equals(new BigDecimal("39047.123762"), obtainCcuBalanceSeventh));
+        assertTrue(ObjectUtil.equals(new BigDecimal("470587737.024001"), obtainCcuBalanceFirst));
+        assertTrue(ObjectUtil.equals(new BigDecimal("0.470587"), obtainCcuBalanceFirstRatio));
+        assertTrue(ObjectUtil.equals(new BigDecimal("61759.637806"), obtainCcuBalanceSecond));
+        assertTrue(ObjectUtil.equals(new BigDecimal("61758.093910"), obtainCcuBalanceThird));
+        assertTrue(ObjectUtil.equals(new BigDecimal("61756.550128"), obtainCcuBalanceFourth));
+        assertTrue(ObjectUtil.equals(new BigDecimal("61755.006444"), obtainCcuBalanceFifth));
+        assertTrue(ObjectUtil.equals(new BigDecimal("61753.462894"), obtainCcuBalanceSixth));
+        assertTrue(ObjectUtil.equals(new BigDecimal("61751.919460"), obtainCcuBalanceSeventh));
         assertTrue(ObjectUtil.equals(new BigDecimal("2000600000"), usdCurrencyBalance));
         assertTrue(ObjectUtil.equals(new BigDecimal("1000000000000"), japanCurrencyBalance));
-        assertTrue(ObjectUtil.equals(new BigDecimal("2500234323.009435"), totalCcuBalance));
+        assertTrue(ObjectUtil.equals(new BigDecimal("2470958271.694643"), totalCcuBalance));
     }
 
     @BeforeEach

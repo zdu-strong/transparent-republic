@@ -29,8 +29,8 @@ public class LumenWithdrawalDehydrateCentralCoinTest extends BaseTest {
         var ratioFourth = this.lumenContextDehydrate.getTotalCcuBalance().divide(this.lumenContextDehydrate.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
         assertTrue(ObjectUtil.equals(new BigDecimal("2.249999"), ratioFirst));
         assertTrue(ObjectUtil.equals(new BigDecimal("2.166666"), ratioSecond));
-        assertTrue(ObjectUtil.equals(new BigDecimal("2.142857"), ratioThird));
-        assertTrue(ObjectUtil.equals(new BigDecimal("2.042857"), ratioFourth));
+        assertTrue(ObjectUtil.equals(new BigDecimal("2.142441"), ratioThird));
+        assertTrue(ObjectUtil.equals(new BigDecimal("2.042441"), ratioFourth));
     }
 
     @BeforeEach

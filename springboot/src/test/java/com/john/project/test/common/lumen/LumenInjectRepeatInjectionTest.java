@@ -22,7 +22,7 @@ public class LumenInjectRepeatInjectionTest extends BaseTest {
         this.lumenContext.inject(this.lumenContext.getUsd(), obtainUsdCurrencyBalance);
         var ratioSecond = this.lumenContext.getTotalCcuBalance().divide(this.lumenContext.getUsdCurrencyBalance(), 6, RoundingMode.FLOOR);
         assertTrue(ObjectUtil.equals(new BigDecimal("1.900000"), ratioFirst));
-        assertTrue(ObjectUtil.equals(new BigDecimal("1.899449"), ratioSecond));
+        assertTrue(ObjectUtil.equals(new BigDecimal("1.899878"), ratioSecond));
         assertTrue(ObjectUtil.equals(new BigDecimal("10.471204"), obtainUsdCurrencyBalance));
     }
 
