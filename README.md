@@ -92,6 +92,8 @@ No absolute term limits—only performance and public trust matter.<br/>
 
 If the president is removed from office, the system will seamlessly transition to a new president appointed by the council, with no downtime.<br/>
 
+Voting and elections can be held at any time, replacing power with continuous public opinion.<br/>
+
 ### 🔷 8. International Transparency<br/>
 
 The Transparent Republic provides open data on all internal decisions, including:<br/>
