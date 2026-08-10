@@ -90,11 +90,11 @@ New or modified plans for budget allocations from national or district reserves 
 
 No absolute term limits—only performance and public trust matter.<br/>
 
-If the president is removed from office, the system will seamlessly transition to a new president appointed by the council, with no downtime.<br/>
+If the president is removed from office, the system will seamlessly transition to a new president appointed by the National Supervisory Council, with no downtime.<br/>
 
 Voting and elections can be held at any time, replacing power with continuous public opinion.<br/>
 
-The President and the Mayor cannot appoint officials, all top officials are appointed by National Supervisory Council and Governance Region Supervisory Council.<br/>
+The President and the Mayor cannot appoint officials, all top officials are appointed by the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
 ### 🔷 8. International Transparency<br/>
 
