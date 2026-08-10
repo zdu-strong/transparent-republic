@@ -94,6 +94,8 @@ If the president is removed from office, the system will seamlessly transition t
 
 Voting and elections can be held at any time, replacing power with continuous public opinion.<br/>
 
+The President and the Mayor cannot appoint officials, all top officials are appointed by National Supervisory Council and Governance Region Supervisory Council.<br/>
+
 ### 🔷 8. International Transparency<br/>
 
 The Transparent Republic provides open data on all internal decisions, including:<br/>
