@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.SneakyThrows;
 import lombok.experimental.Accessors;
 import org.jinq.orm.stream.JinqStream;
+import org.jinq.tuples.Pair;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -128,10 +129,12 @@ public class LumenContextCoreModel {
 
         // Convert currency to CCU
         var obtainSourceCcuBalanceFirst = Optional.of(ccuBalanceOfBase.multiply(sourceCurrencyBalanceForInput).divide(sourceCurrencyBalance.add(sourceCurrencyBalanceForInput), 6, RoundingMode.FLOOR))
-                .map(s -> isSourceCurrencyAsCcuBase ? sourceCurrencyBalanceForInput.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR) : s)
+                .map(s -> new Pair<>(s, sourceCurrencyBalanceForInput.multiply(totalCcuBalance).divide(sourceCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR)))
+                .map(s -> isSourceCurrencyAsCcuBase ? s.getTwo() : s.getOne().min(s.getTwo()))
                 .get();
         var obtainTargetCcuBalanceFirst = Optional.of(ccuBalanceOfBase.multiply(targetCurrencyBalanceForInput).divide(targetCurrencyBalance.add(targetCurrencyBalanceForInput), 6, RoundingMode.FLOOR))
-                .map(s -> isTargetCurrencyAsCcuBase ? targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR) : s)
+                .map(s -> new Pair<>(s, targetCurrencyBalanceForInput.multiply(totalCcuBalance).divide(targetCurrencyBalance.multiply(BigDecimal.TWO), 6, RoundingMode.FLOOR)))
+                .map(s -> isTargetCurrencyAsCcuBase ? s.getTwo() : s.getOne().min(s.getTwo()))
                 .get();
 
         if (NumberUtil.isLess(obtainTargetCcuBalanceFirst, obtainSourceCcuBalanceFirst)) {
