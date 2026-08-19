@@ -1,7 +1,7 @@
 import api from "@/api";
 import LoadingOrErrorComponent from "@/common/MessageService/LoadingOrErrorComponent";
 import { useMultipleQuery, useOnceSubmitWhileTrue } from "@/common/use-hook";
-import { faFloppyDisk, faPlus, faSpinner, faSquarePlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk, faSpinner, faSquarePlus, faUserShield, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Fab, TextField } from "@mui/material";
 import { observer, useMobxState } from "mobx-react-use-autorun";
@@ -173,10 +173,10 @@ export default observer((props: Props) => {
                 <Button
                     variant="contained"
                     onClick={() => openPermissionDialog(row.row)}
-                    startIcon={<FontAwesomeIcon icon={faPlus} />}
+                    startIcon={<FontAwesomeIcon icon={faUserShield} />}
                     style={{ marginLeft: "1em" }}
                 >
-                    <FormattedMessage id="AddPermission" defaultMessage="Add Permission" />
+                    <FormattedMessage id="Permission" defaultMessage="Permission" />
                 </Button>
             </div>,
             width: 300,
@@ -369,6 +369,7 @@ export default observer((props: Props) => {
                 organize={state.permissionDialog.organize}
                 isCheckedOfPermission={isCheckedOfPermission}
                 switchCheckedOfPermission={switchCheckedOfPermission}
+                isUpdateOfPermission={true}
             />
         }
     </>
