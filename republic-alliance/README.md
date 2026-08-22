@@ -94,3 +94,7 @@ Military pay is divided into training pay, rest pay, and combat pay.<br/>
 
 For every two years of service, soldiers receive two years of rest. During the rest period, they receive rest pay, which is equal to half of their training pay.<br/>
 
+The republic alliance does not provide retirement benefits to military personnel, all benefits are settled immediately.<br/>
+Upon each rotation and discharge, military personnel undergo a physical examination, and the republic alliance covers the cost of medical treatment for any illnesses.<br/>
+Military personnel have a one-time casualty compensation contract.<br/>
+
