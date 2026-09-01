@@ -12,7 +12,7 @@ Peace requires institutions strong enough to defend it.<br/>
 
 ## 1. Alliance Community Supervisors
 
-Each member state appoints one person to serve as an Alliance Community Supervisor, whose salary is paid by the Alliance.<br/>
+Each member state dispatches 3 representatives, and one of them is appointed as the Alliance Community Supervisor through the Tri-Vector Commander mechanism. The salaries of these 3 individuals are paid by the Alliance.<br/>
 
 Alliance Community Supervisors vote to elect a maximum of 300 Alliance commissioners. The voting weight of each Alliance Community Supervisor is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.<br/>
 
