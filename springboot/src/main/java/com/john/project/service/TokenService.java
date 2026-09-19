@@ -5,6 +5,7 @@ import java.util.Date;
 
 import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.HexUtil;
+import cn.hutool.core.util.ObjectUtil;
 import com.john.project.entity.TokenEntity;
 import com.john.project.entity.UserEntity;
 import lombok.SneakyThrows;
@@ -34,24 +35,25 @@ public class TokenService extends BaseService {
     private EncryptDecryptService encryptDecryptService;
 
     public String generateAccessToken(String userId) {
-        var tokenModel = this.createTokenEntity(userId, this.uuidUtil.v4());
+        var keyPairOfRSA = this.encryptDecryptService.generateKeyPairOfRSA();
+        var tokenModel = this.createTokenEntity(userId, this.uuidUtil.v4(), keyPairOfRSA.getPublicKeyOfRSA());
         var accessToken = JWT.create().withSubject(userId)
                 .withIssuedAt(new Date())
                 .withJWTId(tokenModel.getId())
-                .sign(Algorithm.RSA512(this.encryptDecryptService.getKeyOfRSAPublicKey(),
-                        this.encryptDecryptService.getKeyOfRSAPrivateKey()));
+                .sign(Algorithm.RSA512(null,
+                        this.encryptDecryptService.getKeyOfRSAPrivateKey(keyPairOfRSA.getPrivateKeyOfRSA())));
         return accessToken;
     }
 
     public String generateAccessToken(String userId, String encryptedPassword) {
         this.checkCorrectPassword(userId, encryptedPassword);
-
-        var tokenModel = this.createTokenEntity(userId, encryptedPassword);
+        var keyPairOfRSA = this.encryptDecryptService.generateKeyPairOfRSA();
+        var tokenModel = this.createTokenEntity(userId, encryptedPassword, keyPairOfRSA.getPublicKeyOfRSA());
         var accessToken = JWT.create().withSubject(userId)
                 .withIssuedAt(new Date())
                 .withJWTId(tokenModel.getId())
-                .sign(Algorithm.RSA512(this.encryptDecryptService.getKeyOfRSAPublicKey(),
-                        this.encryptDecryptService.getKeyOfRSAPrivateKey()));
+                .sign(Algorithm.RSA512(null,
+                        this.encryptDecryptService.getKeyOfRSAPrivateKey(keyPairOfRSA.getPrivateKeyOfRSA())));
         return accessToken;
     }
 
@@ -63,14 +65,21 @@ public class TokenService extends BaseService {
 
     @Transactional(readOnly = true)
     public DecodedJWT getDecodedJWTOfAccessToken(String accessToken) {
-        var decodedJWT = JWT
-                .require(Algorithm.RSA512(this.encryptDecryptService.getKeyOfRSAPublicKey(),
-                        this.encryptDecryptService.getKeyOfRSAPrivateKey()))
-                .build()
-                .verify(accessToken);
-        if (!this.hasExistTokenEntity(decodedJWT.getId())) {
+        var id = JWT.decode(accessToken).getId();
+        var tokenModel = this.streamAll(TokenEntity.class)
+                .where(s -> s.getId().equals(id))
+                .where(s -> !s.getIsDeleted())
+                .findOne()
+                .map(s -> this.tokenFormatter.format(s))
+                .orElse(null);
+        if (ObjectUtil.isNull(tokenModel)) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Please login first and then visit");
         }
+        var decodedJWT = JWT
+                .require(Algorithm.RSA512(this.encryptDecryptService.getKeyOfRSAPublicKey(tokenModel.getPublicKeyOfRSA()),
+                        null))
+                .build()
+                .verify(accessToken);
         return decodedJWT;
     }
 
@@ -174,7 +183,7 @@ public class TokenService extends BaseService {
         return "";
     }
 
-    private TokenModel createTokenEntity(String userId, String encryptedPassword) {
+    private TokenModel createTokenEntity(String userId, String encryptedPassword, String publicKeyOfRSA) {
         var uniqueOneTimePasswordLogo = this.getUniqueOneTimePasswordLogo(encryptedPassword);
         var user = this.streamAll(UserEntity.class).where(s -> s.getId().equals(userId)).getOnlyValue();
 
@@ -182,6 +191,7 @@ public class TokenService extends BaseService {
         tokenEntity.setId(newId());
         tokenEntity.setUniqueOneTimePasswordLogo(uniqueOneTimePasswordLogo);
         tokenEntity.setUser(user);
+        tokenEntity.setPublicKeyOfRSA(publicKeyOfRSA);
         tokenEntity.setIsDeleted(false);
         tokenEntity.setCreateDate(new Date());
         tokenEntity.setUpdateDate(new Date());

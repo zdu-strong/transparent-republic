@@ -12,6 +12,7 @@ public class TokenModel {
 
     private String id;
     private String jwtId;
+    private String publicKeyOfRSA;
     private String uniqueOneTimePasswordLogo;
     private Date createDate;
     private Date updateDate;

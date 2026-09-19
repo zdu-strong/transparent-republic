@@ -1,14 +1,8 @@
 package com.john.project.entity;
 
 import java.util.Date;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -33,6 +27,10 @@ public class TokenEntity {
 
     @Column(nullable = false)
     private Date updateDate;
+
+    @Column(nullable = false, length = 1024 * 1024 * 1024)
+    @Lob
+    private String publicKeyOfRSA;
 
     @Column(nullable = false)
     private Boolean isDeleted;
