@@ -67,7 +67,8 @@ public class EncryptDecryptService extends BaseService {
     public String encryptByAES(String text, String secretKeyOfAES) {
         var salt = DigestUtils.md5(uuidUtil.v4());
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-        cipher.init(Cipher.ENCRYPT_MODE, this.getKeyOfAESSecretKey(secretKeyOfAES), new GCMParameterSpec(16 * 8, salt));
+        cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(
+                HexUtil.decodeHex(secretKeyOfAES), "AES"), new GCMParameterSpec(16 * 8, salt));
         return HexUtil.encodeHexStr(ArrayUtils.addAll(salt, cipher.doFinal(text.getBytes(StandardCharsets.UTF_8))));
     }
 
@@ -78,14 +79,17 @@ public class EncryptDecryptService extends BaseService {
         var salt = ArrayUtils.subarray(textByteList, 0, 16);
         var encryptedTextByteList = ArrayUtils.subarray(textByteList, 16, textByteList.length);
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-        cipher.init(Cipher.DECRYPT_MODE, this.getKeyOfAESSecretKey(secretKeyOfAES), new GCMParameterSpec(16 * 8, salt));
+        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(
+                HexUtil.decodeHex(secretKeyOfAES), "AES"), new GCMParameterSpec(16 * 8, salt));
         return new String(cipher.doFinal(encryptedTextByteList), StandardCharsets.UTF_8);
     }
 
     @SneakyThrows
     @Transactional(readOnly = true)
     public String encryptByPublicKeyOfRSA(String text, String publicKeyOfRSA) {
-        var keyOfRSAPublicKey = this.getKeyOfRSAPublicKey(publicKeyOfRSA);
+        var keyOfRSAPublicKey = (RSAPublicKey) KeyFactory.getInstance("RSA")
+                .generatePublic(new X509EncodedKeySpec(
+                        HexUtil.decodeHex(publicKeyOfRSA)));
         var rsa = new RSA(null, keyOfRSAPublicKey);
         return rsa.encryptHex(text, KeyType.PublicKey);
     }
@@ -93,7 +97,9 @@ public class EncryptDecryptService extends BaseService {
     @SneakyThrows
     @Transactional(readOnly = true)
     public String decryptByByPrivateKeyOfRSA(String text, String privateKeyOfRSA) {
-        var keyOfRSAPrivateKey = this.getKeyOfRSAPrivateKey(privateKeyOfRSA);
+        var keyOfRSAPrivateKey = (RSAPrivateKey) KeyFactory.getInstance("RSA")
+                .generatePrivate(new PKCS8EncodedKeySpec(
+                        HexUtil.decodeHex(privateKeyOfRSA)));
         var rsa = new RSA(keyOfRSAPrivateKey, null);
         return rsa.decryptStr(text, KeyType.PrivateKey);
     }
@@ -145,37 +151,15 @@ public class EncryptDecryptService extends BaseService {
     }
 
     @Transactional(readOnly = true)
-    @SneakyThrows
-    public RSAPrivateKey getKeyOfRSAPrivateKey(String privateKeyOfRSA) {
-        return (RSAPrivateKey) KeyFactory.getInstance("RSA")
-                .generatePrivate(new PKCS8EncodedKeySpec(
-                        HexUtil.decodeHex(privateKeyOfRSA)));
-    }
-
-    @Transactional(readOnly = true)
     public RSAPublicKey getKeyOfRSAPublicKey() {
         this.initKey();
         return this.keyOfRSAPublicKey;
     }
 
     @Transactional(readOnly = true)
-    @SneakyThrows
-    public RSAPublicKey getKeyOfRSAPublicKey(String publicKeyOfRSA) {
-        return (RSAPublicKey) KeyFactory.getInstance("RSA")
-                .generatePublic(new X509EncodedKeySpec(
-                        HexUtil.decodeHex(publicKeyOfRSA)));
-    }
-
-    @Transactional(readOnly = true)
     public SecretKey getKeyOfAESSecretKey() {
         this.initKey();
         return this.keyOfAESSecretKey;
-    }
-
-    @Transactional(readOnly = true)
-    public SecretKey getKeyOfAESSecretKey(String secretKeyOfAES) {
-        return new SecretKeySpec(
-                HexUtil.decodeHex(secretKeyOfAES), "AES");
     }
 
     @SneakyThrows
@@ -196,21 +180,34 @@ public class EncryptDecryptService extends BaseService {
                 EncryptDecryptEntity encryptDecryptEntity = this.streamAll(EncryptDecryptEntity.class)
                         .where(s -> s.getName().equals(name))
                         .getOnlyValue();
-                this.keyOfRSAPublicKey = this.getKeyOfRSAPublicKey(encryptDecryptEntity.getPublicKeyOfRSA());
-                this.keyOfRSAPrivateKey = this.getKeyOfRSAPrivateKey(encryptDecryptEntity.getPrivateKeyOfRSA());
-                this.keyOfAESSecretKey = this.getKeyOfAESSecretKey(encryptDecryptEntity.getSecretKeyOfAES());
+                this.keyOfRSAPublicKey = (RSAPublicKey) KeyFactory.getInstance("RSA")
+                        .generatePublic(new X509EncodedKeySpec(
+                                HexUtil.decodeHex(encryptDecryptEntity.getPublicKeyOfRSA())));
+                this.keyOfRSAPrivateKey = (RSAPrivateKey) KeyFactory.getInstance("RSA")
+                        .generatePrivate(new PKCS8EncodedKeySpec(
+                                HexUtil.decodeHex(encryptDecryptEntity.getPrivateKeyOfRSA())));
+                this.keyOfAESSecretKey = new SecretKeySpec(
+                        HexUtil.decodeHex(encryptDecryptEntity.getSecretKeyOfAES()), "AES");
                 this.ready = true;
             } else {
                 var encryptDecryptEntity = new EncryptDecryptEntity();
-                encryptDecryptEntity.setId(newId());
+                encryptDecryptEntity.setId(
+
+                        newId());
                 encryptDecryptEntity.setName(name);
-                encryptDecryptEntity.setCreateDate(new Date());
-                encryptDecryptEntity.setUpdateDate(new Date());
+                encryptDecryptEntity.setCreateDate(new
+
+                        Date());
+                encryptDecryptEntity.setUpdateDate(new
+
+                        Date());
 
                 /**
                  * aes for common uses
                  */
-                encryptDecryptEntity.setSecretKeyOfAES(this.generateSecretKeyOfAES());
+                encryptDecryptEntity.setSecretKeyOfAES(this.
+
+                        generateSecretKeyOfAES());
 
                 /**
                  * rsa for common uses
