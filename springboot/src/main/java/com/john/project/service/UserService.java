@@ -162,6 +162,7 @@ public class UserService extends BaseService {
         this.merge(user);
 
         this.userEmailService.deleteUserEmailByUserId(id);
+        this.tokenService.deleteTokenByUserId(id);
     }
 
     @Transactional(readOnly = true)
