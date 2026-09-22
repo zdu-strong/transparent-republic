@@ -74,7 +74,6 @@ public class TokenService extends BaseService {
                 .where(s -> s.getId().equals(id))
                 .where(s -> !s.getIsDeleted())
                 .where(s -> s.getUser().getId().equals(userId))
-                .where(s -> !s.getUser().getIsDeleted())
                 .exists();
         if (!exists) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Please login first and then visit");
