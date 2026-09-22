@@ -28,10 +28,6 @@ public class UserService extends BaseService {
 
     @Autowired
     @Lazy
-    private EncryptDecryptService encryptDecryptService;
-
-    @Autowired
-    @Lazy
     private UserRoleRelationService userRoleRelationService;
 
     @Autowired
@@ -65,9 +61,6 @@ public class UserService extends BaseService {
         for (var roleModel : userModel.getRoleList()) {
             this.userRoleRelationService.create(userEntity.getId(), roleModel.getId());
         }
-
-        var accessToken = this.tokenService.generateAccessToken(userEntity.getId(), userModel.getPassword());
-        this.tokenService.deleteTokenEntity(this.tokenService.getDecodedJWTOfAccessToken(accessToken).getId());
 
         return this.userFormatter.formatWithMoreInformation(userEntity);
     }
