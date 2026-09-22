@@ -130,6 +130,17 @@ public class UserService extends BaseService {
             }
         }
         {
+            var username = account;
+            var userEntity = this.streamAll(UserEntity.class)
+                    .where(s -> s.getUsername().equals(username))
+                    .where(s -> !s.getIsDeleted())
+                    .findOne()
+                    .orElse(null);
+            if (userEntity != null) {
+                return userEntity.getId();
+            }
+        }
+        {
             var email = account;
             var userEntity = this.streamAll(UserEmailEntity.class)
                     .where(s -> s.getEmail().equals(email))
