@@ -105,7 +105,7 @@ The Transparent Republic is not a utopia—but a self-correcting, living structu
 
 ### 🧭 Transparent Republic – Power Structure Diagram
 
-![transparent-public](https://github.com/user-attachments/assets/1f0401cf-0d64-4e89-b9fc-cd9b1b42107b)
+![transparent-public](https://github.com/user-attachments/assets/5836e3b6-9c1c-49e5-ac65-671df2d83f0e)
 
 ## `Environmental description`
 
