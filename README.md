@@ -12,18 +12,6 @@ The Transparent Republic is a post-democratic governance model that replaces cen
 
 ### 🔷 1. Citizens<br/>
 
-
-
-
-
-Hold only five powers:<br/>
-
-✅ The power to create a governance region, and the court will review it afterward.<br/>
-
-✅ The power to adjust the governance region they belong to, and the court will review it afterward.<br/>
-
-### 🔷 2. Citizens<br/>
-
 Each Community Supervisor represents a defined community, it needs to receive likes from citizens in order to increase its voting weight.<br/>
 
 Each Community Supervisor may support only one National Supervisory Council member and one Governance Region Supervisory Council member, thereby increasing those members’ voting weights.<br/>
@@ -34,8 +22,12 @@ Hold only two powers:<br/>
 
 ✅ The power to re-elect the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
+✅ The power to create a governance region, and the court will review it afterward.<br/>
 
-### 🔷 3. National Supervisory Council<br/>
+✅ The power to adjust the governance region they belong to, and the court will review it afterward.<br/>
+
+
+### 🔷 2. National Supervisory Council<br/>
 
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
 
@@ -51,7 +43,7 @@ Hold only two powers:<br/>
 
 ✅ Vote to praise or oppose key national officials.<br/>
 
-### 🔷 4. Governance Region Supervisory Council<br/>
+### 🔷 3. Governance Region Supervisory Council<br/>
 
 Consists of 300 members elected by Community Supervisors, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
 
