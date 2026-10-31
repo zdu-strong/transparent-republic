@@ -12,9 +12,7 @@ The Transparent Republic is a post-democratic governance model that replaces cen
 
 ### 🔷 1. Citizens<br/>
 
-Each Community Supervisor represents a defined community, it needs to receive likes from citizens in order to increase its voting weight.<br/>
-
-Each Community Supervisor may support only one National Supervisory Council member and one Governance Region Supervisory Council member, thereby increasing those members’ voting weights.<br/>
+Each citizen resides within their respective governance region.<br/>
 
 Hold only two powers:<br/>
 
