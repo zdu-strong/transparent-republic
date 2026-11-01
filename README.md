@@ -29,6 +29,10 @@ Hold only four powers:<br/>
 
 Consists of 300 members elected by citizens, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
 
+Every day at 00:00, the top 300 individuals with the highest voting weight become National Supervisory Council members.<br/>
+
+Wages are paid daily and disbursed by the nation.<br/>
+
 Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
 
 In the first round, if the candidate in first place receives more votes than the total of the votes received by the candidate in second place and the number of non-votes, the first round of the election succeeds.<br/>
@@ -44,6 +48,10 @@ Hold only two powers:<br/>
 ### 🔷 3. Governance Region Supervisory Council<br/>
 
 Consists of 300 members elected by citizens, a collective body with no single leader. Each member’s voting weight is equal to the total number of citizens who support them.<br/>
+
+Every day at 00:00, the top 300 individuals with the highest voting weight become Governance Region Supervisory Council members.<br/>
+
+Wages are paid daily and disbursed by the Governance Region.<br/>
 
 Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
 
