@@ -14,7 +14,7 @@ The Transparent Republic is a post-democratic governance model that replaces cen
 
 Each citizen resides within their respective governance region.<br/>
 
-Hold only two powers:<br/>
+Hold only four powers:<br/>
 
 ✅ The power to elect the National Supervisory Council and the Governance Region Supervisory Council.<br/>
 
