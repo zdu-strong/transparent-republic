@@ -2,19 +2,13 @@
 
 The Republican Alliance protects its member states through independent military forces and an independent official system, while providing a framework for administering and building democratic nations.
 
-# Belief
-
-The Republican Alliance is built on one belief:<br/>
-
-Peace requires institutions strong enough to defend it.<br/>
-
 # Institutional Design
 
-## 1. Alliance Community Supervisors
+## 1. Alliance Member
 
 Each member state dispatches 3 representatives, and one of them is appointed as the Alliance Community Supervisor through the Tri-Vector Commander mechanism. The salaries of these 3 individuals are paid by the Alliance.<br/>
 
-Alliance Community Supervisors vote to elect a maximum of 300 Alliance commissioners. The voting weight of each Alliance Community Supervisor is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.<br/>
+Alliance member vote to elect a maximum of 300 Alliance council. The voting weight of each Alliance Member is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.<br/>
 
 The Alliance principles score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.<br/>
 
@@ -23,7 +17,7 @@ The upper and lower limits of membership dues for each member state depend on it
 
 ## 2. Alliance Council
 
-Consists of 300 members elected by Alliance Community Supervisors, a collective body with no single leader. Each member's voting weight is equal to the sum of the weights of the alliance community supervisors who support them.<br/>
+Consists of 300 members elected by Alliance Member, a collective body with no single leader. Each member's voting weight is equal to the sum of the weights of the alliance community supervisors who support them.<br/>
 
 Elections for officials may be held at any time and shall adopt a two-round election system.<br/>
 
