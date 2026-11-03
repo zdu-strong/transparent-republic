@@ -37,16 +37,6 @@ Hold only two powers:<br/>
 
 ✅ Vote to praise or oppose key alliance officials.<br/>
 
-## 3. Alliance Scout
-
-Each Alliance Council recruits between 10 and 100 Alliance Scout to carry out preliminary selection duties. The voting weight of the Alliance Scout is divided equally from the voting weight of the Alliance Council they belong to.<br/>
-
-For example, the Alliance Leader may announce the qualification requirements for the preliminary selection of a Minister of Finance, stating that anyone who has served at or above a junior financial official position may run.<br/>
-
-After eligible candidates upload their application materials, the system randomly assigns a group of candidates to each Alliance Scout, with four candidates in each group.<br/>
-
-The four candidates with the highest weighted support advance to an in-person final selection before the Alliance Council.<br/>
-
 ## 4. Alliance Officials and Military Forces
 
 Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.<br/>
