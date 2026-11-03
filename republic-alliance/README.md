@@ -6,7 +6,7 @@ The Republican Alliance protects its member states through independent military 
 
 ## 1. Alliance Member Agent
 
-Each member state dispatches 3 representatives, and one of them is appointed as the Alliance Community Supervisor through the Tri-Vector Commander mechanism. The salaries of these 3 individuals are paid by the Alliance.<br/>
+Each member state dispatches 3 representatives, and one of them is appointed as the Alliance Member Agent through the Tri-Vector Commander mechanism. The salaries of these 3 individuals are paid by the Alliance.<br/>
 
 Alliance member agent vote to elect a maximum of 300 Alliance council. The voting weight of each Alliance Member Agent is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.<br/>
 
