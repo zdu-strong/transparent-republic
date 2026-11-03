@@ -41,11 +41,11 @@ Hold only two powers:<br/>
 
 Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.<br/>
 
-## 5. Alliance Finance
+## 4. Alliance Finance
 
 The Alliance's finances are funded by membership fees and donations from member states.<br/>
 
-## 6. Alliance Companies
+## 5. Alliance Companies
 
 The Alliance Council appoints a Minister of Commerce, who is responsible for establishing companies and appointing their managers. The Minister of Commerce oversees the appointment and removal of positions such as the CEO and Minister of Finance, but does not participate in the daily operations of the companies.<br/>
 
@@ -53,7 +53,7 @@ The companies’ products are used by the Alliance, which also provides feedback
 
 The Alliance provides the companies with a daily investment fund, and each company donates 3% of its development funds to the Alliance each day.<br/>
 
-## 7. Tri-Vector Commander
+## 6. Tri-Vector Commander
 
 To govern each deployed tactical unit, higher command shall assign a Tri-Vector Commander consisting of three officers.<br/>
 
@@ -77,7 +77,7 @@ To govern each deployed tactical unit, higher command shall assign a Tri-Vector 
 
   + Three officers must evaluate the two officers other than themselves. Each evaluation result must be positive, negative, or withheld.<br/>
 
-## 8. Military Rotation
+## 7. Military Rotation
 
 Military pay is divided into training pay, rest pay, and combat pay.<br/>
 
