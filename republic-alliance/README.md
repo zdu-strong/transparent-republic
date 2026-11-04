@@ -31,7 +31,7 @@ Hold only two powers:<br/>
 
 ✅ Vote to praise or oppose key alliance officials.<br/>
 
-## 4. Alliance Officials and Military Forces
+## 3. Alliance Officials and Military Forces
 
 Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.<br/>
 
