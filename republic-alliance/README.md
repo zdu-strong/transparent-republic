@@ -1,6 +1,6 @@
 # Getting Started
 
-The Republican Alliance protects its member states through independent military forces and an independent official system, while providing a framework for administering and building democratic nations.
+The Republican Alliance protects its member countries through independent military forces and an independent official system, while providing a framework for administering and building democratic countries.
 
 # Institutional Design
 
@@ -10,7 +10,7 @@ Each member country dispatches 3 representatives, and one of them is appointed a
 
 ​Member countries independently decide when to replace their 3 representatives.<br/>
 
-Alliance member agent vote to elect a maximum of 300 Alliance council. The voting weight of each Alliance Member Agent is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.<br/>
+Alliance member agent vote to elect a maximum of 300 Alliance council. The voting weight of each Alliance Member Agent is calculated by multiplying the membership dues actually paid by their member country by its Alliance principles score.<br/>
 
 The Alliance principles score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.<br/>
 
