@@ -8,13 +8,13 @@ The Republican Alliance protects its member states through independent military 
 
 Each member country dispatches 3 representatives, and one of them is appointed as the Alliance Member Agent through the Tri-Vector Commander mechanism. The salaries of these 3 individuals are paid by the Alliance.<br/>
 
-​Member states independently decide when to replace their 3 representatives.<br/>
+​Member countries independently decide when to replace their 3 representatives.<br/>
 
 Alliance member agent vote to elect a maximum of 300 Alliance council. The voting weight of each Alliance Member Agent is calculated by multiplying the membership dues actually paid by their member state by its Alliance principles score.<br/>
 
 The Alliance principles score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.<br/>
 
-The upper and lower limits of membership dues for each member state depend on its territorial area and financial capacity. Within this range, the actual amount paid is determined by the member state itself.<br/>
+The upper and lower limits of membership dues for each member country depend on its territorial area and financial capacity. Within this range, the actual amount paid is determined by the member state itself.<br/>
 
 
 ## 2. Alliance Council
