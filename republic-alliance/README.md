@@ -14,7 +14,7 @@ Alliance member agent vote to elect a maximum of 300 Alliance council. The votin
 
 The Alliance principles score is based on factors such as the country's democratic system, fiscal transparency, and other governance standards.<br/>
 
-The upper and lower limits of membership dues for each member country depend on its territorial area and financial capacity. Within this range, the actual amount paid is determined by the member state itself.<br/>
+The upper and lower limits of membership dues for each member country depend on its territorial area and financial capacity. Within this range, the actual amount paid is determined by the member country itself.<br/>
 
 
 ## 2. Alliance Council
@@ -35,11 +35,11 @@ Hold only two powers:<br/>
 
 ## 3. Alliance Officials and Military Forces
 
-Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member states.<br/>
+Alliance officials and the military are independent institutions. Alliance officials are recruited and appointed by the Alliance Council, while soldiers are recruited globally and trained on land leased within member countries.<br/>
 
 ## 4. Alliance Finance
 
-The Alliance's finances are funded by membership fees and donations from member states.<br/>
+The Alliance's finances are funded by membership fees and donations from member countries.<br/>
 
 ## 5. Alliance Companies
 
