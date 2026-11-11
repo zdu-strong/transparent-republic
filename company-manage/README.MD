@@ -15,7 +15,7 @@ The manager with the most votes will manage the development task, and all employ
 
 If there is a concurrent second task, the exact same process is repeated. All employees vote to select the manager responsible for this specific task, and that manager will then select a portion of the employees to work on the task.<br/>
 
-## Example -  Task Score
+## Example - Task Score
 
 Before discussing each task with the employees, the three managers score the task individually. The sum of the scores evaluated by the three managers will serve as the final score for the task.<br/>
 
