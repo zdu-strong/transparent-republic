@@ -16,3 +16,10 @@ The manager with the most votes will manage the development task, and all employ
 If there is a concurrent second task, the exact same process is repeated. A portion of the employees is assigned to work on the second task, and this group still votes to decide who manages it.<br/>
 
 ## Example - salary increase
+
+After each task is completed, the manager who led the task rates the participating team members as "Positive," "Negative," or "No Rating." When the company decides to award pay raises, it can select employees who have received more positive ratings, or select managers who have led more tasks, to receive salary increases.<br/>
+
+
+## Example - Promotion
+
+When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, the company can select either employees with higher positive rating counts or managers with higher task completion volumes.<br/>
