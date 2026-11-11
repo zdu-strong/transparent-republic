@@ -1,4 +1,4 @@
-# Company Manage
+# Company Management
 
 ## Example - mobile app development
 
