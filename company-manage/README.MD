@@ -27,8 +27,7 @@ After each task is completed, the manager who led the task rates the participati
 
 * Negative: 25% task score.
 
-When the company decides to award pay raises, it can select employees who have received more positive ratings, or select managers who have led more tasks, to receive salary increases.<br/>
-
+When the company decides to award pay raises, it may award either employees or managers with higher performance scores.<br/>
 
 ## Example - Promotion
 
