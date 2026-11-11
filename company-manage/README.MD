@@ -19,7 +19,15 @@ If there is a concurrent second task, the exact same process is repeated. A port
 
 ​Before discussing each task with the employees, the three managers score the task individually. The sum of the scores evaluated by the three managers will serve as the final score for the task.<br/>
 
-After each task is completed, the manager who led the task rates the participating team members as "Positive," "Negative," or "No Rating." When the company decides to award pay raises, it can select employees who have received more positive ratings, or select managers who have led more tasks, to receive salary increases.<br/>
+After each task is completed, the manager who led the task rates the participating team members as "Positive," "Negative," or "No Rating."<br/>
+
+* Positive review: 100% task score.
+
+* No review: 50% task score.
+
+* Negative review: 25% task score.
+
+When the company decides to award pay raises, it can select employees who have received more positive ratings, or select managers who have led more tasks, to receive salary increases.<br/>
 
 
 ## Example - Promotion
