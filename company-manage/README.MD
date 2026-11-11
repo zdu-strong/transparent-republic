@@ -36,3 +36,11 @@ When the company decides to award pay raises, it may award either employees or m
 ## Example - Promotion
 
 When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, candidates may be selected from among employees or managers with higher performance scores.<br/>
+
+## - Project Timeline
+
+Whenever a development task is received, the three managers first meet together to discuss the requirements and determine their respective proposals and timelines.<br/>
+
+Then, if the task is of high priority, the three managers consult with the boss, who assigns different bonuses to each of their proposals.<br/>
+
+The three managers present their plans and corresponding task bonuses to the employees, who then vote to select the manager to execute the task.<br/>
