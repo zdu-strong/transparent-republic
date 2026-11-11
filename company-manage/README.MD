@@ -31,4 +31,4 @@ When the company decides to award pay raises, it may award either employees or m
 
 ## Example - Promotion
 
-When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, the company can select either employees with higher positive rating counts or managers with higher task completion volumes.<br/>
+When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, candidates may be selected from among employees or managers with higher performance scores.<br/>
