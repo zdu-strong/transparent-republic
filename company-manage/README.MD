@@ -23,11 +23,11 @@ Managers who lead their team to complete the task receive 100% of the task score
 
 After each task is completed, the manager who led the task rates the participating team members as "Positive," "Negative," or "No Rating."<br/>
 
-* Positive: 100% task score.
+* Positive: 100% of the task score.
 
-* No Rating: 50% task score.
+* No Rating: 50% of the task score.
 
-* Negative: 25% task score.
+* Negative: 25% of the task score.
 
 ## Example - Salary Increase
 
