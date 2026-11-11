@@ -15,9 +15,11 @@ The manager with the most votes will manage the development task, and all employ
 
 If there is a concurrent second task, the exact same process is repeated. A portion of the employees is assigned to work on the second task, and this group still votes to decide who manages it.<br/>
 
-## Example - salary increase
+## Example - Salary Increase
 
 ​Before discussing each task with the employees, the three managers score the task individually. The sum of the scores evaluated by the three managers will serve as the final score for the task.<br/>
+
+Managers who lead their team to complete the task receive 100% of the task score.<br/>
 
 After each task is completed, the manager who led the task rates the participating team members as "Positive," "Negative," or "No Rating."<br/>
 
