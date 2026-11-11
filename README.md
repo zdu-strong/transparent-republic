@@ -153,6 +153,10 @@ The Republican Alliance protects its member states through independent military 
 
 Lumen is a free, open currency exchange system with floating exchange rates determined by contributions and market dynamics.
 
+## `company-manage`
+
+Mechanism Design for Company Management
+
 ## `letter`
 
 An Open Letter to the Public
