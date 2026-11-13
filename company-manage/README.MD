@@ -57,3 +57,6 @@ Hiring requires the Boss's approval, and salaries and bonuses also require the B
 Project timelines are decided by the Managers.<br/>
 
 Managers must also do hands-on work, and the manager leading the team can assign themselves a smaller workload.<br/>
+
+The manager leading the task execution receives 100% of the task score. The two assisting managers participating in the task receive a fixed 50% of the task score.<br/>
+
