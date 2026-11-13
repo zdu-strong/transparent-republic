@@ -45,7 +45,7 @@ Then, if the task is of high priority, the three managers consult with the boss,
 
 The three managers present their plans and corresponding task bonuses to the employees, who then vote to select the manager to execute the task.<br/>
 
-Example - Organizational structure.
+## Example - Organizational structure.
 
 The company operates on a three-tier structure: Boss, Managers, and Employees.<br/>
 
