@@ -49,7 +49,8 @@ The three managers present their plans and corresponding task bonuses to the emp
 
 The company operates on a three-tier structure: Boss, Managers, and Employees.<br/>
 
-There is only one layer of management. Do not have managers managing managers.<br/>
+There is only one layer of management. Do not have managers managing managers. Managers must do the same work as their employees.
+<br/>
 
 Hiring requires the Boss's approval, and salaries and bonuses also require the Boss's approval.<br/>
 
