@@ -44,3 +44,13 @@ Whenever a development task is received, the three managers first meet together 
 Then, if the task is of high priority, the three managers consult with the boss, who assigns different bonuses to each of their proposals.<br/>
 
 The three managers present their plans and corresponding task bonuses to the employees, who then vote to select the manager to execute the task.<br/>
+
+Example - Organizational structure.
+
+The company operates on a three-tier structure: Boss, Managers, and Employees.<br/>
+
+There is only one layer of management.<br/>
+
+Hiring requires the Boss's approval, and salaries and bonuses also require the Boss's approval.<br/>
+
+Project timelines are decided by the Managers.<br/>
