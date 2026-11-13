@@ -55,3 +55,5 @@ There is only one layer of management. Do not have managers managing managers. M
 Hiring requires the Boss's approval, and salaries and bonuses also require the Boss's approval.<br/>
 
 Project timelines are decided by the Managers.<br/>
+
+Managers must also do hands-on work, and the manager leading the team can assign themselves a smaller workload.<br/>
