@@ -60,3 +60,5 @@ Managers must also do hands-on work, and the manager leading the team can assign
 
 The manager leading the task execution receives 100% of the task score. The two assisting managers participating in the task receive a fixed 50% of the task score.<br/>
 
+Each year, the lowest-scoring manager is eliminated, and a new manager is hired to replace them.<br/>
+
