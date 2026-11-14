@@ -60,8 +60,4 @@ Managers must also do hands-on work, and the manager leading the team can assign
 
 Each year, the lowest-scoring manager is eliminated, and a new manager is hired to replace them.<br/>
 
-The lead executing manager assigns small tasks to all three managers to maintain the flexibility to accept and process new tasks in parallel at any time.<br/>
-
 Managers cannot vote.<br/>
-
-
