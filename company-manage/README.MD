@@ -40,6 +40,27 @@ All employees vote to elect the responsible manager for that specific task. The 
 
 When concurrent tasks arise, after employees vote to elect a manager, the elected manager independently selects a subset of employees to form a dedicated execution squad.<br/>
 
+## 3. Task Scoring
+
+### Task Point Valuation
+
+Before discussing the task with employees, the three managers independently score the task. The sum of the three managers' scores constitutes the final Task Score for that task.<br/>
+
+### Employee Performance Evaluation
+
+The manager who successfully leads the team to complete the task receives 100% of the Task Score.<br/>
+
+Upon task completion, the leading manager must rate the participating team members (Positive / No Rating / Negative).<br/>
+
+* Positive: 100% of the task score.
+
+* No Rating: 50% of the task score.
+
+* Negative: 25% of the task score.
+
+## 4. aa
+
+
 
 -----------------
 
