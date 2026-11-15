@@ -66,7 +66,9 @@ The bonus is distributed directly upon task completion. The total bonus pool is 
 
 ### Annual Bonus
 
-The total bonus pool is fixed, and the allocation ratio is determined by each member's total accumulated score for the year.<br/>
+* For managers, the total bonus pool is fixed, and the allocation ratio is determined by each member's cumulative total score for the year.
+
+* For employees, the top-ranked employee receives the bonus.
 
 ## 5. Salary Increase
 
