@@ -62,7 +62,7 @@ Upon task completion, the leading manager must rate the participating team membe
 
 ### Per-Task Bonus
 
-Distributed directly upon the completion of each task, with different bonus amounts allocated proportionally based on each member's score.
+The bonus is distributed directly upon task completion. The total bonus pool is fixed, and the allocation ratio is determined by each member's individual score for that task.<br/>
 
 ### Annual Bonus
 
