@@ -86,5 +86,5 @@ Following elimination, the company recruits a new manager to fill the vacancy, e
 
 When a team is too small to bear the cost of hiring three managers, the teams can remain independent while sharing managers.<br/>
 
-For example, suppose there are 3 teams and 3 managers. Each team has all 3 managers, and each manager manages all 3 teams. Each team's scores and rewards are calculated independently. With bonus incentives in place, managers are motivated to serve across multiple teams simultaneously.<br/>
+For example, suppose there are 3 teams and 3 managers, with 8 employees in each team. Each team has all 3 managers, and each manager manages all 3 teams. Each team's scores and rewards are calculated independently. With bonus incentives in place, managers are motivated to serve across multiple teams simultaneously.<br/>
 
