@@ -26,7 +26,7 @@ Only a single layer of management is permitted; managers managing other managers
 
 When the company receives a new development task, the three managers first hold a joint meeting to discuss requirements, then independently formulate their own development proposals and project timelines.<br/>
 
-### High-Priority Tasks and Bonus Evaluation
+### High-Priority Tasks
 
 If the task is classified as High Priority, the three managers must report to the Boss, who evaluates each manager's proposal and allocates distinct dedicated bonuses accordingly.<br/>
 
