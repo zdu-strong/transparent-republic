@@ -76,7 +76,7 @@ When the company decides to award pay raises, it may award either employees or m
 
 When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, candidates may be selected from among employees or managers with higher performance scores.<br/>
 
-## 7. Bottom-Out Elimination Mechanism
+## 7. Annual Dismissal
 
 Performance settlement is conducted once a year, and the manager with the lowest performance score in each team is mandatorily eliminated.<br/>
 
