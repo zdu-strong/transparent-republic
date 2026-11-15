@@ -16,7 +16,7 @@ Only a single layer of management is permitted; managers managing other managers
 
 * Boss: Holds final decision-making and approval authority, including hiring, salary adjustments, and bonus distribution.
 
-* Managers: Responsible for project scheduling, technical solution design, and core implementation. They must participate in hands-on frontline development (managers leading a team may be assigned a moderately reduced workload). Managers have no voting rights.
+* Managers: Responsible for project scheduling, technical solution design, and core implementation. Each team has three managers. They must participate in hands-on frontline development (managers leading a team may be assigned a moderately reduced workload). Managers have no voting rights.
 
 * Employees: Responsible for executing development tasks, holding the right to elect project managers and the obligation to accept performance evaluations.
 
