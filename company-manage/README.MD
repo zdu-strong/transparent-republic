@@ -1,5 +1,25 @@
 # Company Management
 
+## Organizational Structure and Authority Boundaries
+
+The company adopts a minimalist, three-tier flat structure, strictly limiting management layers to ensure clear accountability and frontline execution capability.
+
+### Three-Tier Structure
+
+Boss, Managers, and Employees.
+
+### Strict Hierarchy Constraint
+
+Only a single layer of management is permitted; managers managing other managers is strictly prohibited.
+
+### Authority Boundaries
+
+* Boss: Holds final decision-making and approval authority, including hiring, salary adjustments, and bonus distribution.
+
+* Managers: Responsible for project scheduling, technical solution design, and core implementation. They must participate in hands-on frontline development (managers leading a team may be assigned a moderately reduced workload). Managers have no voting rights.
+
+* Employees: Responsible for executing development tasks, holding the right to elect project managers and the obligation to accept performance evaluations.
+
 ## Example - mobile app development
 
 
