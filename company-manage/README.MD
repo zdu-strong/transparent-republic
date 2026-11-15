@@ -20,6 +20,30 @@ Only a single layer of management is permitted; managers managing other managers
 
 * Employees: Responsible for executing development tasks, holding the right to elect project managers and the obligation to accept performance evaluations.
 
+## 2. Task Lifecycle
+
+### Proposal Formulation and Timelines
+
+When the company receives a new development task, the three managers first hold a joint meeting to discuss requirements, then independently formulate their own development proposals and project timelines.<br/>
+
+### High-Priority Tasks and Bonus Evaluation
+
+If the task is classified as High Priority, the three managers must report to the Boss, who evaluates each manager's proposal and allocates distinct dedicated bonuses accordingly.<br/>
+
+### Proposal Presentation and Democratic Election
+
+The three managers present their respective proposals, timelines, and corresponding task bonuses to all employees.<br/>
+
+All employees vote to elect the responsible manager for that specific task. The manager with the highest vote leads all employees to execute the task together. in the event of a tie, the system makes a determination.<br/>
+
+### Concurrent Task Mode
+
+When concurrent tasks arise, after employees vote to elect a manager, the elected manager independently selects a subset of employees to form a dedicated execution squad.<br/>
+
+
+-----------------
+
+
 ## Example - mobile app development
 
 
