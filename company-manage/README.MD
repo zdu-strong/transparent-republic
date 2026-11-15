@@ -82,3 +82,9 @@ At the end of each year, the manager with the lowest performance score in each t
 
 Following elimination, the company recruits a new manager to fill the vacancy, ensuring sustained vitality and competitive pressure within the management layer.<br/>
 
+## 8. Shared Managers
+
+When a team is too small to bear the cost of hiring three managers, the teams can remain independent while sharing managers.<br/>
+
+For example, suppose there are 5 teams and 3 managers. All 3 managers serve as the management team for each of the 5 teams. Each team's scores and rewards are calculated independently. With bonus incentives in place, managers will be motivated to serve across multiple teams simultaneously.<br/>
+
