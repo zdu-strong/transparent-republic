@@ -48,7 +48,7 @@ Before discussing the task with employees, the three managers independently scor
 
 ### Employee Performance Evaluation
 
-The manager who successfully leads the team to complete the task receives 100% of the Task Score.<br/>
+The manager who leads the team to complete the task receives 100% of the Task Score.<br/>
 
 Upon task completion, the leading manager must rate the participating team members (Positive / No Rating / Negative).<br/>
 
@@ -84,7 +84,7 @@ If a concurrent task arises, all employees vote to select the manager responsibl
 
 Before discussing each task with the employees, the three managers score the task individually. The sum of the scores evaluated by the three managers will serve as the final score for the task.<br/>
 
-Managers who lead their team to complete the task receive 100% of the task score.<br/>
+
 
 After each task is completed, the manager who led the task rates the participating team members as "Positive," "Negative," or "No Rating."<br/>
 
