@@ -1,6 +1,6 @@
 # Company Management
 
-## Organizational Structure and Authority Boundaries
+## 1. Organizational Structure and Authority Boundaries
 
 The company adopts a minimalist, three-tier flat structure, strictly limiting management layers to ensure clear accountability and frontline execution capability.
 
