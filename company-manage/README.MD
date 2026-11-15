@@ -58,8 +58,15 @@ Upon task completion, the leading manager must rate the participating team membe
 
 * Negative: 25% of the task score.
 
-## 4. aa
+## 4. Salary Increase
 
+When the company decides to award pay raises, it may award either employees or managers with higher performance scores.<br/>
+
+## 5. Promotion
+
+When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, candidates may be selected from among employees or managers with higher performance scores.<br/>
+
+## 6. aa
 
 
 -----------------
@@ -94,13 +101,6 @@ After each task is completed, the manager who led the task rates the participati
 
 * Negative: 25% of the task score.
 
-## Example - Salary Increase
-
-When the company decides to award pay raises, it may award either employees or managers with higher performance scores.<br/>
-
-## Example - Promotion
-
-When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, candidates may be selected from among employees or managers with higher performance scores.<br/>
 
 ## Example - Project Timeline and Bonus Allocation
 
