@@ -67,16 +67,7 @@ The three managers present their plans and corresponding task bonuses to the emp
 
 ## Example - Organizational structure.
 
-The company operates on a three-tier structure: Boss, Managers, and Employees.<br/>
 
-There is only one layer of management. Do not have managers managing managers.<br/>
-
-Hiring requires the Boss's approval, and salaries and bonuses also require the Boss's approval.<br/>
-
-Project timelines are decided by the Managers.<br/>
-
-Managers must also do hands-on work, and the manager leading the team can assign themselves a smaller workload.<br/>
 
 Each year, the lowest-scoring manager is eliminated, and a new manager is hired to replace them.<br/>
 
-Managers cannot vote.<br/>
