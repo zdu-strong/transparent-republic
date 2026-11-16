@@ -78,19 +78,13 @@ When the company decides to award pay raises, it may award either employees or m
 
 When a role opens up, the company may fill it via external hiring or internal promotion of top performers. For internal promotions, candidates may be selected from among employees or managers with higher performance scores.<br/>
 
-## 7. Annual Dismissal and Cyclical Iteration
-
-At the end of each year, the manager with the lowest performance score in each team is mandatorily eliminated.<br/>
-
-Following elimination, the company recruits a new manager to fill the vacancy, ensuring sustained vitality and competitive pressure within the management layer.<br/>
-
-## 8. Shared Managers
+## 7. Shared Managers
 
 When a team is too small to bear the cost of hiring three managers, the teams can remain independent while sharing managers.<br/>
 
 For example, suppose there are 3 teams and 3 managers, with 8 employees in each team. Each team has all 3 managers, and each manager manages all 3 teams. Each team's scores and rewards are calculated independently. With bonus incentives in place, managers are motivated to serve across multiple teams simultaneously.<br/>
 
-## 9. Employee Motivation
+## 8. Employee Motivation
 
 Managers receive a fixed monthly bonus budget, which they can allocate freely across tasks.<br/>
 
