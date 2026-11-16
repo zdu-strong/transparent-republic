@@ -70,6 +70,14 @@ The bonus is distributed directly upon task completion. The total bonus pool is 
 
 * For employees, the top-ranked employee receives the bonus.
 
+### Monthly Bonuses and Employee Incentives
+
+Managers receive a fixed monthly bonus budget, which they can allocate freely across tasks.<br/>
+
+Once a task is completed, team members receive the bonus to boost motivation.<br/>
+
+Each manager's budget is independent and does not affect the others.<br/>
+
 ## 5. Salary Increase
 
 When the company decides to award pay raises, it may award either employees or managers with higher performance scores.<br/>
@@ -83,11 +91,3 @@ When a role opens up, the company may fill it via external hiring or internal pr
 When a team is too small to bear the cost of hiring three managers, the teams can remain independent while sharing managers.<br/>
 
 For example, suppose there are 3 teams and 3 managers, with 8 employees in each team. Each team has all 3 managers, and each manager manages all 3 teams. Each team's scores and rewards are calculated independently. With bonus incentives in place, managers are motivated to serve across multiple teams simultaneously.<br/>
-
-## 8. Employee Motivation
-
-Managers receive a fixed monthly bonus budget, which they can allocate freely across tasks.<br/>
-
-Once a task is completed, team members receive the bonus to boost motivation.<br/>
-
-Each manager's budget is independent and does not affect the others.<br/>
