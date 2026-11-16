@@ -90,3 +90,10 @@ When a team is too small to bear the cost of hiring three managers, the teams ca
 
 For example, suppose there are 3 teams and 3 managers, with 8 employees in each team. Each team has all 3 managers, and each manager manages all 3 teams. Each team's scores and rewards are calculated independently. With bonus incentives in place, managers are motivated to serve across multiple teams simultaneously.<br/>
 
+## 9. Employee Motivation
+
+Managers receive a fixed monthly bonus budget, which they can allocate freely across tasks.<br/>
+
+Once a task is completed, team members receive the bonus to boost motivation.<br/>
+
+Each manager's budget is independent and does not affect the others.<br/>
