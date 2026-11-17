@@ -78,6 +78,8 @@ Once a task is completed, team members receive the bonus to boost motivation.<br
 
 Each manager's budget is independent and does not affect the others.<br/>
 
+Unallocated monthly bonus budget expires at the end of the month.<br/>
+
 ## 5. Salary Increase
 
 When the company decides to award pay raises, it may award either employees or managers with higher performance scores.<br/>
