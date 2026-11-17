@@ -91,9 +91,3 @@ When a role opens up, the company may fill it via external hiring or internal pr
 When a team is too small to bear the cost of hiring three managers, the teams can remain independent while sharing managers.<br/>
 
 For example, suppose there are 3 teams and 3 managers, with 8 employees in each team. Each team has all 3 managers, and each manager manages all 3 teams. Each team's scores and rewards are calculated independently. With bonus incentives in place, managers are motivated to serve across multiple teams simultaneously.<br/>
-
-## 8. Annual Dismissal and Cyclical Iteration
-
-At the end of each year, the manager with the lowest performance score in each team is mandatorily eliminated.<br/>
-
-Following elimination, the company recruits a new manager to fill the vacancy, ensuring sustained vitality and competitive pressure within the management layer.<br/>
