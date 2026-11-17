@@ -157,10 +157,6 @@ Lumen is a free, open currency exchange system with floating exchange rates dete
 
 Mechanism Design for Company Management
 
-## `letter`
-
-An Open Letter to the Public
-
 ## Notes - Easier to use git
 
 Sometimes, you'll see a prompt like this: This repository currently has approximately 1500 loose objects.<br/>
